@@ -5,7 +5,9 @@ neural network: $h = g(z)$, applied to each component of $\mathbf{z}$ separately
 stack of linear layers collapses to a single linear map (see
 [multilayer perceptrons](multilayer-perceptron.md)). The course treats the common choices as
 background (slide 31, "MLPs, Nonlinearities (ReLu)"). Covered so far:
-[lecture 1](01-introduction.md), slides 36–41, ≈28:01–38:49.
+[lecture 1](01-introduction.md), slides 36–41, ≈28:01–38:49;
+[lecture 2](02-how-to-train-a-neural-net.md), slides 23–25 and 51, ≈20:13–25:43 and ≈49:44–51:18
+(GELU, the continuous–differentiable–smooth criterion, and the ReLU on the backward pass).
 
 ## The four in lecture 1
 
@@ -64,6 +66,35 @@ The **rectified linear unit** (≈33:28–34:59):
 The derivative, which is what makes ReLU cheap:
 
 $$\frac{\partial g}{\partial z} = \begin{cases} 0 & \text{if } z \lt 0 \cr 1 & \text{if } z \geq 0 \end{cases}$$
+
+## GELU, and what makes a non-linearity easy to train through (lecture 2)
+
+Lecture 2 gives three properties that make a function easier to optimize through: everywhere
+**continuous**, everywhere **differentiable**, everywhere **smooth** (slide 23, ≈20:13). The slide
+is titled "What is important in a loss function?", but its examples are activation functions, as
+the lecturer confirmed when asked (≈24:09). ReLU passes the first, passes the second "(Almost!)",
+and fails the third because of "this kink" at 0 (slide 24).
+
+The **Gaussian error linear unit** passes all three (slide 25):
+
+$$\mathrm{GELU}(z) = z \ast \Phi(z)$$
+
+Here $\Phi$ is "the cumulative distribution function for the Gaussian distribution" (≈21:00), which
+the slide leaves undefined, citing arXiv 1606.08415. Its curve is close to zero for negative $z$,
+dips slightly below zero just left of the origin, and approaches the line $z$ for positive inputs.
+The lecture's claim is about a direction of travel, not a ranking: "even if we don't precisely know
+experimentally or theoretically, which properties are needed for training neural networks, trends do
+seem to be moving towards functions which satisfy all three", and "I'm not saying here that GeLU is
+much better than ReLU all the time" (≈21:00–23:19). Asked about GELU's dip, which makes it
+non-monotonic: "Is it better to be smooth or to be monotonic? And that's where I think the jury's a
+little bit still out" (≈24:57).
+
+**ReLU on the backward pass.** In backpropagation a ReLU becomes a diagonal "gating matrix" built
+from the forward activations, which passes the gradient for components where the ReLU was active
+and blocks it for those that "were in that 0 part of the ReLU" (lecture 2, slide 51, ≈50:31–51:18).
+That is the derivative above at work: 1 where $z \gt 0$, 0 where $z \lt 0$. See
+[backpropagation](backpropagation.md). For the wider picture of which functions are hard to
+optimize, see [loss landscapes](loss-landscapes.md).
 
 ## How do you choose one?
 

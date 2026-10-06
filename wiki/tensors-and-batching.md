@@ -4,7 +4,8 @@ Deep learning computes on whole batches of examples at once, as multiplications 
 multi-dimensional arrays — **tensors**. Lecture 1 lists "parallel processing, tensors" as
 **expected background** (slide 67) and gives the core idea in about two minutes (slides 68–70,
 ≈53:30–55:02). Covered so far: [lecture 1](01-introduction.md), plus the course's
-[notation](notation.md) handout.
+[notation](notation.md) handout; [lecture 2](02-how-to-train-a-neural-net.md), slides 9 and 45 (batches
+in stochastic gradient descent and in backpropagation).
 
 ## Why batch
 
@@ -53,3 +54,15 @@ The course's [notation](notation.md) handout fixes how tensors are written and i
 - Transformers are the exception: a set of tokens is an $N \times d$ matrix.
 - "Dimension" is used both for one coordinate of a vector and for the number of axes of an
   array ("a 4D tensor").
+
+## Batches in training
+
+Lecture 2 adds what batching does to the gradient. Stochastic gradient descent takes each step on
+a batch rather than the whole dataset. A batch of 1 updates after every example, and a batch of the
+whole dataset is ordinary gradient descent. The batch gradient is a noisy estimate of the full one,
+and the noise is worse when categories are unevenly represented (slide 9, ≈6:15–8:35). For
+backpropagation the batch is easy to handle. The cost is the average of per-example costs,
+$J = \frac{1}{N} \sum_{i=1}^{N} J_i$, so its gradient is the average of the per-example gradients,
+"because when you take a derivative, it can move inside the sum" (slide 45, ≈43:30–44:17). With
+large-memory GPUs "that batch size could be thousands" (≈44:17). See
+[gradient descent](gradient-descent.md) and [backpropagation](backpropagation.md).

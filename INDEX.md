@@ -8,11 +8,11 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lecture 1 of 24 only.** This knowledge base currently holds the first lecture
-> (Introduction to Deep Learning) and the concept pages it supports. For anything taught in
-> lectures 2–24, it can tell you *which* lecture covers it — see the
-> [course map](wiki/course-map.md) — but not *what* that lecture says. Do not cite it as the
-> course beyond lecture 1. Build progress is in [TODO.md](TODO.md).
+> **Coverage: lectures 1–2 of 24 only.** This knowledge base currently holds the first two
+> lectures (Introduction to Deep Learning; How to Train a Neural Net) and the concept pages they
+> support. For anything taught in lectures 3–24, it can tell you *which* lecture covers it — see
+> the [course map](wiki/course-map.md) — but not *what* that lecture says. Do not cite it as the
+> course beyond lecture 2. Build progress is in [TODO.md](TODO.md).
 
 ## Lecture pages
 
@@ -24,6 +24,16 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   and perceptron, tanh/sigmoid/ReLU, stacking layers, softmax and cross-entropy, batching); and a
   preview of the course. Includes the student Q&A on choosing activations, capacity, data size,
   and width versus depth.
+- [Lecture 2 — How to Train a Neural Net](wiki/02-how-to-train-a-neural-net.md) — Sara Beery.
+  Gradient descent reviewed (black-box, first- and second-order; the update rule), stochastic
+  gradient descent and batch noise, momentum; six toy loss landscapes (convex, discontinuous,
+  vanishing, zero and exploding gradients, local minima) with evolution strategies and gradient
+  clipping as fixes; continuous, differentiable and smooth (ReLU versus GELU); computation graphs
+  and DAGs; the matrix-calculus shapes and chain rule; backpropagation through a generic layer, a
+  linear layer, a ReLU, a whole MLP and any DAG (merge, branch, parameter sharing); differentiable
+  programming (Software 2.0, Neural Module Networks); optimizing inputs instead of weights (unit
+  visualization, DeepDream, CLIP+GAN); and the deck's worked one-iteration backprop example, with
+  a misprint on slide 79 flagged.
 
 ## Course pages
 
@@ -45,20 +55,39 @@ passages it draws on.
 - [Multilayer perceptrons](wiki/multilayer-perceptron.md) — the linear layer
   $z_j = \mathbf{x}^T \mathbf{w}_ j + b_j$, the perceptron, why one layer is a linear classifier
   and fails on XOR, stacking layers into matrix form, why the non-linearity is essential, and the
-  "two ramps make a pyramid" picture of non-linear classification.
+  "two ramps make a pyramid" picture of non-linear classification; the MLP as a computation graph
+  and how it is backpropagated (lecture 2).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
-  sigmoid typo on slide 40, and how (not) to choose one.
+  sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
+  differentiable and smooth criterion (lecture 2); the ReLU as a gate on the backward pass.
 - [Gradient descent](wiki/gradient-descent.md) — the training objective
   $\theta^{\ast} = \arg\min_\theta \sum_i L$, the cost $J(\theta)$, the update rule and learning
-  rate, why differentiability matters, and what lecture 2 takes further.
+  rate, why differentiability matters, black-box versus first- and second-order optimization,
+  stochastic gradient descent and batch size, momentum (and Adam), the plus-sign update convention,
+  and when to stop.
+- [Backpropagation](wiki/backpropagation.md) — computation graphs, the shape rules and chain
+  rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
+  and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
+  the linear layer's three products, the ReLU as a gating matrix, why the backward pass is linear,
+  memory, merge and branch rules for DAGs, parameter sharing, and the worked example's numbers.
+- [Loss landscapes](wiki/loss-landscapes.md) — differentiable versus "has a PyTorch gradient"
+  versus easy to optimize; the six toy cases (convex, discontinuous, vanishing, zero and exploding
+  gradient, local minima) and what gradient descent does on each; random seeds; evolution
+  strategies and gradient clipping; continuous, differentiable and smooth as a design criterion.
+- [Differentiable programming](wiki/differentiable-programming.md) — programs as computation
+  graphs, the LeCun and Dietterich posts, human-programmed versus backprop-programmed parts
+  (Neural Module Networks, Software 2.0, feature engineering), what PyTorch needs from an operation,
+  and optimizing inputs: unit visualization, DeepDream and CLIP+GAN.
 - [Softmax and cross-entropy](wiki/softmax-and-cross-entropy.md) — argmax readout, one-hot
   labels, $H(y, \hat{y}) = -\sum_k y_k \log \hat{y}_ {k}$, the "how much better you could have done"
   reading of the loss, the clown fish / grizzly / chameleon examples, and the "scores, not
-  probabilities" caution.
+  probabilities" caution; why to optimize toward a class through its logits, not its softmax
+  probability (lecture 2).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
-  why GPUs mattered, and the course's tensor index conventions.
+  why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
+  descent and why the batch gradient is the average of per-example gradients (lecture 2).
 - [Representational power](wiki/representational-power.md) — one layer gives a linear surface;
   two or more can represent any function (given a non-linearity); the Riemann-sum intuition; wide
   versus deep efficiency; previewing lecture 3.
@@ -68,7 +97,8 @@ passages it draws on.
   hypothesis; previewing lectures 6 and 17.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
-  networks, and reuse/transfer of lower layers; previewing lectures 11–13 and 18–19.
+  networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
+  responds to (lecture 2); previewing lectures 11–13 and 18–19.
 
 ## Raw materials
 
@@ -81,8 +111,8 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lecture 1 only; see [AGENTS.md](AGENTS.md#images) for
-  which slides have images and which deliberately do not.
+  and in the wiki passage that cites them. Lectures 1 and 2 only; see [AGENTS.md](AGENTS.md#images)
+  for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.
 - [`SEE_ALSO.md`](SEE_ALSO.md) — sibling knowledge bases that cover the same ground from another

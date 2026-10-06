@@ -111,7 +111,9 @@ should be read as "probability density function".
 
 These are definitions, not results. The handout is explicit that "there is no right or wrong to
 it", and that they were chosen because they make the equations — and therefore the code —
-simpler.
+simpler. Lecture 2 restates them on slides 32–33 and builds [backpropagation](backpropagation.md)
+on them; for an MLP's backward pass it then switches to column-vector gradients by transposing
+(slide 51), and says so.
 
 **Vectors are columns**, of shape $N \times 1$:
 

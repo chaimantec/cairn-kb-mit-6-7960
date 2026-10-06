@@ -9,12 +9,12 @@
     "courseUrl": "https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/"
   },
   "coverage": {
-    "lecturesCovered": 1,
+    "lecturesCovered": 2,
     "lecturesTotal": 24,
-    "transcripts": 1,
-    "wikiLecturePages": 1,
-    "wikiTopicPages": 10,
-    "note": "Lecture 1 only. lecturesTotal counts the catalog's 24 recordings: 23 lectures (numbered 1-21, 23, 24; there is no lecture 22) plus a PyTorch tutorial."
+    "transcripts": 2,
+    "wikiLecturePages": 2,
+    "wikiTopicPages": 13,
+    "note": "Lectures 1-2. lecturesTotal counts the catalog's 24 recordings: 23 lectures (numbered 1-21, 23, 24; there is no lecture 22) plus a PyTorch tutorial."
   },
   "license": {
     "file": "LICENSE.md",
@@ -23,36 +23,47 @@
   },
   "materials": {
     "primary": "slides",
-    "slideDecks": { "available": 23, "transcribed": 1 },
+    "slideDecks": {
+      "available": 23,
+      "transcribed": 2
+    },
     "method": "page-images",
     "figuresAudited": true,
     "figureAudit": {
-      "decksAudited": 1,
-      "decksTotal": 1,
-      "note": "The one transcribed deck (lecture 1) had six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72) checked against the PDF by an independent reader at full-page resolution, with bar lengths measured in pixels: all six agreed, with three small corrections applied. Renders of slides 23, 45 and 70 were also checked against their descriptions."
+      "decksAudited": 2,
+      "decksTotal": 2,
+      "note": "Both transcribed decks were audited against the PDF by an independent reader. Lecture 1: six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72), all agreeing, three small corrections applied; renders of slides 23, 45 and 70 also checked. Lecture 2: eight chart-, diagram- and number-heavy pages (10, 12, 14, 19, 51, 52, 79, 80) from cropped renders; seven agreed, slide 19 had two corrections, now applied; renders of slides 19 and 53 also checked."
     },
     "images": {
-      "lecturesWithImages": 1,
+      "lecturesWithImages": 2,
       "lecturesWithoutImages": [],
-      "lecturesTotal": 1,
-      "files": 21,
-      "megabytes": 1.5,
+      "lecturesTotal": 2,
+      "files": 66,
+      "megabytes": 5.2,
       "format": "whole slides rendered at 1400px, JPEG q85 or PNG whichever is smaller, named slide-N by PDF page number",
       "discovery": "inline in wiki/ and raw/slides/; no index file",
-      "byLecture": { "1": 21 },
-      "note": "Lecture 1: 21 of 81 pages. Not rendered: the 22 slides carrying an OCW 'All rights reserved ... excluded from our Creative Commons license' notice, build steps superseded by a rendered slide, text/agenda/signpost slides, and slides mostly hidden by a lecture-pointer banner. The list is in AGENTS.md. No other lecture is in this KB yet, so no other lecture has images."
+      "byLecture": {
+        "1": 21,
+        "2": 45
+      },
+      "note": "Lecture 1: 21 of 81 pages. Lecture 2: 45 of 81 pages. Not rendered: slides carrying an OCW 'All rights reserved ... excluded from our Creative Commons license' notice (22 in lecture 1, 7 in lecture 2), build steps superseded by a rendered slide, text/agenda/equation-only slides, lecture 1's slides mostly hidden by a lecture-pointer banner, and lecture 2's slide 56 (logos and an uncredited code screenshot). The lists are in AGENTS.md. No other lecture is in this KB yet, so no other lecture has images."
     }
   },
   "provenance": {
-    "builtBy": ["claude-opus-5-5", "claude-sonnet-5-5"],
+    "builtBy": [
+      "claude-opus-5-5",
+      "claude-sonnet-5-5"
+    ],
     "caveats": [
-      "Covers lecture 1 of 24 only. The course map says which later lecture teaches a topic, but nothing here records what those lectures say.",
+      "Covers lectures 1-2 of 24 only. The course map says which later lecture teaches a topic, but nothing here records what those lectures say.",
       "Transcripts are OCW's human-made captions with a light copy-edit; every change is listed in the file header and the unedited text is in raw/transcripts/original/.",
       "Lecture 1's deck labels later topics with 'Lecture N' banners that do not all match the recorded schedule (e.g. transformers 'Lecture 9', recorded as 8); wiki/course-map.md maps them.",
       "Slides 45 and 70 of lecture 1 are animation frames clipped in OCW's PDF; their heat maps and batch matrices are not recoverable from the deck.",
-      "The lecture 1 deck's title slide reads '6.S898 Deep Learning, Fall 2022' - a reused deck, transcribed as printed."
+      "The lecture 1 deck's title slide reads '6.S898 Deep Learning, Fall 2022' - a reused deck, transcribed as printed.",
+      "Lecture 2's deck ends with a worked numerical backprop example (slides 72-80) that the recording does not reach; the wiki takes it from the slides alone.",
+      "Lecture 2's slide 79 misprints one multiplier (-0.1186 for -0.1869; its printed result uses the right value), and its weight-update slides use +eta with a negative learning rate; the wiki flags both."
     ]
   },
   "entryPoint": "INDEX.md",
-  "updated": "2026-10-06"
+  "updated": "2026-10-07"
 }

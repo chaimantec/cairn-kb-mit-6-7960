@@ -3,7 +3,8 @@
 Instructors: Phillip Isola, Sara Beery and Jeremy Bernstein. Course site:
 [MIT OpenCourseWare](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This page
 collects what lecture 1 says about how the course runs, and maps its schedule onto the recorded
-lectures. Everything here is sourced from [lecture 1](01-introduction.md) and the OCW site; as
+lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
+[lecture 2](02-how-to-train-a-neural-net.md), and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -24,7 +25,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | # | Lecture | In this KB |
 | --- | --- | --- |
 | 1 | Introduction to Deep Learning | [yes](01-introduction.md) |
-| 2 | How to Train a Neural Net | not yet |
+| 2 | How to Train a Neural Net | [yes](02-how-to-train-a-neural-net.md) |
 | 3 | Approximation Theory | not yet |
 | 4 | Architectures: Grids | not yet |
 | 5 | Architectures: Graphs | not yet |
@@ -84,6 +85,10 @@ the right-hand column.
 The "Lecture 9" and "Lecture 11" rows are the ones most likely to mislead. The recorded lecture 9
 is the hacker's guide, and lecture 11 is representation learning, not RNNs.
 
+Lecture 2's deck has no pointers of this kind. The only lecture number it prints is its own, on
+the title slide and the agenda ("Lecture 2", "2. How to train a neural net"), and that matches the
+recording.
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -106,7 +111,9 @@ as a skill worth having as large-scale deep learning becomes more centralized (�
 **PyTorch.** Two PyTorch tutorials were offered the week after lecture 1, for anyone not familiar with PyTorch or wanting a refresher
 (≈6:57–7:43). Other frameworks are fine for the final project, but some problem sets come with
 PyTorch code to fill in, so familiarity with PyTorch is strongly recommended "unless you want to
-rewrite all of it in JAX or something".
+rewrite all of it in JAX or something". Lecture 2's announcements slide confirms the tutorials ran
+that week, alongside the release of **problem set 1**, due 9/24, and the start of office hours
+(slide 2).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

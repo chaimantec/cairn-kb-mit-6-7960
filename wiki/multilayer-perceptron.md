@@ -4,7 +4,8 @@ A multilayer perceptron (MLP) is the network lecture 1 builds up from scratch: l
 alternating with pointwise non-linearities. The course treats MLPs as **background it expects you
 to have seen** (slide 31), and reviews them so that its notation is fixed before anything new is
 built on it. Covered so far in this knowledge base: [lecture 1](01-introduction.md), slides 32–45,
-≈25:37–40:25. See also [activation functions](activation-functions.md) and
+≈25:37–40:25; [lecture 2](02-how-to-train-a-neural-net.md), slides 27 and 50–52 (the MLP as a
+computation graph, and its backward pass). See also [activation functions](activation-functions.md) and
 [representational power](representational-power.md).
 
 ## The linear layer
@@ -113,3 +114,14 @@ and how efficiently, is [representational power](representational-power.md).
 
 In practice the same computation runs on whole batches of inputs at once, as matrix products over
 a batch dimension — see [tensors and batching](tensors-and-batching.md).
+
+## The MLP as a computation graph, and how it is trained
+
+Lecture 2 redraws the MLP as a chain of nodes, $\mathbf{x} \to$ `linear` $\to \mathbf{z} \to$
+`relu` $\to \mathbf{h} \to$ `linear` $\to \mathbf{y}$, and calls it "easy to represent as a
+computation graph" (slide 27, ≈29:36). Training it means backpropagating through that chain. For a
+linear layer the forward pass is $\mathbf{W}\mathbf{x}$, and the backward pass multiplies the
+gradient by the same $\mathbf{W}$ — "just in a different order", or, written with column-vector
+gradients, by $\mathbf{W}^{\mathsf{T}}$. The ReLU becomes a diagonal gating matrix, so the whole
+backward pass is a chain of matrix products (slides 46–52, ≈44:17–52:51). See
+[backpropagation](backpropagation.md).

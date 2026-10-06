@@ -3,7 +3,8 @@
 What deep networks learn internally, and why those internal representations can be reused.
 Lecture 1 previews it twice: as "how deep networks represent data" (slides 71–73, ≈55:02–57:19),
 assigned to **lectures 11–13**, and as "reusing weights" (slides 76–77, ≈57:19–58:53), assigned
-to **lectures 18–19 on transfer learning**. Covered so far: [lecture 1](01-introduction.md) only.
+to **lectures 18–19 on transfer learning**. Covered so far: [lecture 1](01-introduction.md); [lecture 2](02-how-to-train-a-neural-net.md),
+≈1:04:32–1:10:02 (what an embedding is, and visualizing what a unit responds to).
 
 ## Compact, compositional representations
 
@@ -59,3 +60,18 @@ and **19 (data)**.
 The same theme appears in lecture 1's account of deep learning today: an open-source culture of
 **modular reuse**, where "people take weights that were trained by one person with one architecture"
 and use them "as a module within another, larger system" (≈22:33–23:19).
+
+## Embeddings, and looking inside
+
+Lecture 2 pins down the word **embedding**, in answer to a student. A network, sometimes called an
+**encoder**, maps "a high-dimensional input or a complex input, something like an image, to a
+low-dimensional representation or a low-dimensional embedding of that input data" — for example "a
+vector of length 2048 … or 1024. Those are both common embedding sizes". "Representation" is used
+for the same thing (≈1:09:15–1:10:02). CLIP is the lecture's example of two encoders, one for text
+and one for images, trained so that "things that are similar, semantically, from text to images,
+are quite close together in the learned embedding space" (slide 69, ≈1:06:05).
+
+The same lecture shows one way to see what a unit has learned: optimize the input image to maximize
+it. For the "cat" output this gives "what a given trained model thinks is most cat like"; for a
+hidden neuron it is "a mechanism to probe what the model is paying attention to" (slides 66–67,
+≈1:04:32–1:05:19). See [differentiable programming](differentiable-programming.md).

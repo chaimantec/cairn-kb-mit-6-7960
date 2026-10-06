@@ -11,7 +11,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 
 ## Transcripts
 - [x] 01 Introduction to Deep Learning — video 6FkRvTtUc-o (OCW human captions; light copy-edit, verbatim in original/)
-- [ ] 02 How to Train a Neural Net — video vidCX_dMCu0
+- [x] 02 How to Train a Neural Net — video vidCX_dMCu0 (OCW human captions; light copy-edit, verbatim in original/)
 - [ ] 03 Approximation Theory — video ySaoWrv3T_Q
 - [ ] 04 Architectures: Grids — video bxVkZ4M-hIE
 - [ ] 05 Architectures: Graphs — video 0niIwb37nF0
@@ -42,14 +42,18 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 
 ## Slides (raw/slides/)
 - [x] 01 Introduction to Deep Learning — mit6_7960_f24_lec1.pdf (81 pages; figure audit 6 pages)
+- [x] 02 How to Train a Neural Net — mit6_7960_f24_lec2.pdf (81 pages; figure audit 8 pages)
 
 ## Wiki
 - [x] wiki/01-introduction.md
+- [x] wiki/02-how-to-train-a-neural-net.md
 - [x] Topic pages (cross-lecture concepts) for lecture 1
+- [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
 - [x] INDEX.md table of contents
 
 ## Images
 - [x] raw/images/01-introduction/ — 21 images; OCW-excluded slides never rendered
+- [x] raw/images/02-how-to-train-a-neural-net/ — 45 images; OCW-excluded slides never rendered
 - [x] AGENTS.md — the Images conventions section
 
 ## Publish
@@ -59,3 +63,5 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] verify_kb.py clean, and its review section read
 - [x] Commit and push
 - [x] PATCH kbUrl onto the catalog entry (https://github.com/chaimantec/cairn-kb-mit-6-7960)
+- [x] Lecture 2: INDEX, AGENTS, kb.json updated
+- [ ] Lecture 2: verify_kb.py clean, review read; commit and push

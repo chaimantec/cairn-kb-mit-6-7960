@@ -181,7 +181,9 @@ gradients through to?" (≈24:50). Slide 30 shows one iteration of gradient desc
 
 $$\theta^{t+1} = \theta^{t} - \eta_t \frac{\partial J(\theta)}{\partial \theta}\Big|_ {\theta=\theta^{t}}$$
 
-with $\eta_t$ labelled "learning rate", under a banner deferring it all to **Lecture 2** (≈25:37).
+with $\eta_t$ labelled "learning rate", under a banner deferring it all to **Lecture 2** (≈25:37). That lecture is now in this knowledge
+base: see [lecture 2](02-how-to-train-a-neural-net.md), [backpropagation](backpropagation.md) and
+[differentiable programming](differentiable-programming.md).
 
 ## Background: MLPs and non-linearities (slides 31–45)
 

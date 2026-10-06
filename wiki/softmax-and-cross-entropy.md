@@ -4,7 +4,8 @@ How a classifier turns its last layer into a prediction, and how it is scored ag
 Lecture 1 lists "softmax, cross-entropy loss" among what the course **expects you to have seen**
 (slide 53), and reviews them on a running example: classifying photos into animal classes — clown
 fish, grizzly bear, chameleon and so on. Covered so far: [lecture 1](01-introduction.md), slides
-53–66, ≈49:40–53:30.
+53–66, ≈49:40–53:30; [lecture 2](02-how-to-train-a-neural-net.md), ≈1:03:45–1:04:32 (logits
+versus probabilities as optimization targets).
 
 ## From last layer to prediction
 
@@ -79,3 +80,13 @@ match the desired output for all your training data", repeating "over and over a
 until the model gets everything right, or as close to everything right as possible" (≈52:45–53:30).
 Because those per-example losses are simply summed, they can be computed in parallel — see
 [tensors and batching](tensors-and-batching.md).
+
+## Logits or probabilities, when optimizing toward a class
+
+Lecture 2 uses gradients to change an *input* so that one class's score rises (see
+[differentiable programming](differentiable-programming.md)), and makes a point about where to
+push. Because softmax normalizes, "the maybe easiest way to increase the probability softmax given
+to a class is often to make the alternatives unlikely, rather than to make the class of interest
+likely. Whereas if you optimize pre softmax logits, this tends to actually be a bit more stable"
+(≈1:03:45–1:04:32). Its "cat" visualization therefore maximizes the output neuron "maybe pre
+softmax".

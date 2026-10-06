@@ -19,10 +19,11 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   [softmax and cross-entropy](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/softmax-and-cross-entropy.md),
   [backpropagation](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/backpropagation.md)
   and [vanishing and exploding gradients](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/vanishing-and-exploding-gradients.md).
-  Reach for it when a question goes past what 6.7960 lecture 1 says — especially **how
-  backpropagation actually computes the gradients**, which lecture 1 defers to lecture 2 and this
-  KB does not yet cover. Its examples come from NLP rather than vision, and its notation differs
-  (e.g. $h = f(Wx + b)$ for a layer).
+  Reach for it for a second treatment of what 6.7960 lectures 1–2 cover — backpropagation
+  derived by hand as well as algorithmically, and vanishing and exploding gradients in recurrent
+  networks, which this KB does not yet reach. Lecture 2 here is the course's own account of
+  backpropagation; use that first. Its examples come from NLP rather than vision, and its notation
+  differs (e.g. $h = f(Wx + b)$ for a layer).
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/INDEX.md).
 
 - **CS336 — Language Modeling from Scratch** (Stanford, Percy Liang and Tatsunori Hashimoto,

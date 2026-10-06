@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which fetches files over raw.githubusercontent.com and follows
 relative markdown links.
 
-**Coverage is partial: lecture 1 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–2 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 ## Layout
 
@@ -39,11 +39,12 @@ relative markdown links.
   sends transformers to "Lecture 9" (recorded: 8), RNNs to "Lecture 11" (recorded: 10, Memory),
   generalization theory to "Lecture 7" (recorded: 6), and so on. The mapping is in
   [`wiki/course-map.md`](wiki/course-map.md#the-decks-lecture-pointers). Always cite the
-  *recorded* lecture number, and check later decks for the same drift.
+  *recorded* lecture number, and check later decks for the same drift. Lecture 2's deck has no
+  pointers to other lectures; its own "Lecture 2" matches the recording.
 - **Reused deck.** Lecture 1's title slide says "6.S898 Deep Learning … Fall 2022", the course's
   earlier number and term. The transcription keeps what is printed.
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
-  page N. Each deck ends with an OCW end page (page 81 in lecture 1), which is not lecture
+  page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2), which is not lecture
   content.
 - **OCW excludes some figures from its licence**, with a notice on the slide: "© … All rights
   reserved. This content is excluded from our Creative Commons license." Those slides are
@@ -81,12 +82,14 @@ OCW's captions are **human-made**: punctuated, with speaker labels (`SARA BEERY:
 need. It is a list of restorations, each checked against the slide deck, plus `[Ed: …]` notes
 where the captions are ambiguous. Every change is listed in the file's header. When the lecturer
 names a speaker from the audience (Jeremy Bernstein, twice in lecture 1), the `AUDIENCE:` label is
-annotated.
+annotated. A colleague named in passing gets an inline note ("Phil" in lecture 2 is Phillip Isola).
 
 Each edit is verified against `original/` by script. The `[MM:SS]` marker sequence must be
 identical, the inventory of numbers identical once `[Ed: …]` notes are removed, and every
 paragraph's word ratio within 0.72–1.10. Lecture 1: 79 markers identical, 225 numbers identical,
-maximum word ratio 1.02.
+maximum word ratio 1.02. Lecture 2: 103 markers identical, all 29 numerals identical (counted as
+digit strings outside the markers), word ratios 1.00–1.01. Lecture 2's edit is 25 restorations —
+eleven of them "differential" → "differentiable" — and five `[Ed: …]` notes.
 
 ## Slides
 
@@ -107,15 +110,32 @@ caught mid-build. The heat maps (45) and batch matrices (70) are cut off, and a 
 photo and some coloured boxes from the next frame show at the bottom edge. The transcript is the
 record of what those slides were meant to show.
 
+**Lecture 2's figure audit.** Eight chart-, diagram- and number-heavy pages (10, 12, 14, 19, 51,
+52, 79, 80) were checked against the PDF by an independent reader working from cropped renders.
+Seven agreed. Slide 19 needed two corrections: the cusp is not symmetric, and the optimizer path's
+last swing reaches about −0.55, not −0.8. The render of slide 19 was then checked against the
+corrected description, and the render of slide 53 against its own.
+
+**Lecture 2's printed slips**, transcribed as printed and flagged where they are cited: slide 36
+drops a $\partial$ from one denominator; slide 75 writes the loss with $\mathbf{x}_ 2$ where
+$\mathbf{x}_ 3$ is meant; slide 79's last line multiplies by $-0.1186$ where
+$\partial \mathcal{L} / \partial \mathbf{x}_ 3 = -0.1869$ is meant (its printed result uses the
+right value; the audit confirmed the misprint is on the page); slides 8, 10, 21, 22 and 39 leave a
+blank where the assignment sign of an update rule goes; and slide 10's plots call the momentum
+coefficient $\mu$ where its equation says $\alpha$. Slides 48, 49, 76 and 80 write weight updates
+with $+\eta$ and a negative learning rate (slide 72 explains why), where the gradient-descent
+slides write $-\eta$; the wiki explains the convention rather than changing it.
+
 ## Images
 
-**Lecture 1 has images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1 and 2 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
 | Lecture | Files | Where they came from |
 | --- | --- | --- |
 | 1 Introduction to Deep Learning | 21 of 81 pages | rendered from `mit6_7960_f24_lec1.pdf` |
+| 2 How to Train a Neural Net | 45 of 81 pages | rendered from `mit6_7960_f24_lec2.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number.
@@ -123,9 +143,9 @@ PDF page number.
 ### Using them
 
 **Use an image path you have actually read in a file. Never construct one from the pattern, and
-never assume a slide has an image because a neighbouring one does.** Most pages of lecture 1 were
-deliberately not rendered (next section), so `slide-36.jpg` existing tells you nothing about
-`slide-37`. Reading a path that is not in the repo returns an error rather than a URL, which
+never assume a slide has an image because a neighbouring one does.** Many pages of each deck were
+deliberately not rendered (next section), so lecture 1's `slide-36.jpg` existing tells you nothing
+about `slide-37`, and lecture 2's `slide-38` tells you nothing about `slide-39`. Reading a path that is not in the repo returns an error rather than a URL, which
 costs a turn; a guessed path is never worth it.
 
 Links are **relative**, like every other link here: `../raw/images/01-introduction/slide-41.png`
@@ -137,15 +157,18 @@ All 21 of lecture 1's images appear both in
 [`wiki/01-introduction.md`](wiki/01-introduction.md), in the passage that cites each slide, and
 under the matching `## Slide N` heading of
 [`raw/slides/01-introduction.md`](raw/slides/01-introduction.md). To list them:
-`grep -o 'raw/images/[^)]*' wiki/01-introduction.md`. The concept pages embed none; they cite
-slides, and the lecture page carries the pictures.
+`grep -o 'raw/images/[^)]*' wiki/01-introduction.md`. Of lecture 2's 45 images, 43 appear in
+[`wiki/02-how-to-train-a-neural-net.md`](wiki/02-how-to-train-a-neural-net.md); slides 13 and 54,
+near-duplicates of their neighbours 12 and 55, are only under their headings in
+[`raw/slides/02-how-to-train-a-neural-net.md`](raw/slides/02-how-to-train-a-neural-net.md). The
+concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 - **Prefer the transcription for numbers and formulas.** The slide file reproduces every
   equation and table as text; use the image to *show*, not to read values off.
 - **Show one image, not a gallery.**
 - **Keep the citation**, so the reader can find the rest of that slide in `raw/slides/`.
 
-### What was rendered, and what was not
+### What was rendered, and what was not — lecture 1
 
 Rendered (21): slides 14, 21, 22, 23, 28, 33, 34, 35, 36, 38, 40, 41, 42, 43, 45, 51, 55, 57, 58,
 59, 70 — the XOR plot, the enthusiasm curves, the loss surface, the linear-layer and perceptron
@@ -170,22 +193,53 @@ Not rendered, and why:
 - **Mostly hidden behind a "Lecture N" banner:** 30, 47, 49, 52, 79. Their visible text is
   transcribed.
 
+### What was rendered, and what was not — lecture 2
+
+Rendered (45): slides 7, 10–22, 24–27, 30, 34, 36–38, 41–44, 46, 48–55, 60, 63, 66–68, 70, 72, 73
+and 75 — the loss surface, the momentum runs and Goh's momentum article, the six-landscape quiz and
+the six landscape cases, evolution strategies and gradient clipping, the ReLU and GELU plots,
+computation graphs, the chain-rule shapes, every backpropagation diagram (generic layer, linear
+layer, whole MLP, one-iteration graph, merge and branch, parameter sharing), the human-versus-backprop
+graph, unit visualizations, DeepDream, CLIP+GAN, and the worked example's network before and after.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (7 slides): 4, 57, 58, 59, 64, 65, 69** — the clown fish and
+  chameleon photos, the LeCun and Dietterich posts, the Neural Module Networks figure, Karpathy's
+  Software 2.0 figure, and the CLIP figure. Described in full in the slide file only.
+- **Build steps superseded by a rendered slide:** 8 (slide 5 plus the update rule), 29 (slide 30
+  without its inset), 39 and 40 (slide 38's diagram with equations the file reproduces), 47 (a
+  condensed slide 46), 61 and 62 (earlier frames of 63).
+- **No figure worth a picture:** the title, announcements, agenda and divider slides (1–3, 71,
+  74); equation and text slides (5, 6, 9, 23, 28, 32, 33, 45, 76–80); the lone-parenthesis frames
+  31 and 35; slide 81 (OCW end page).
+- **Slide 56**: its two-box diagram is fully described in prose, and the rest of the slide is the
+  PyTorch and TensorFlow logos and an uncredited screenshot of code.
+
 ### Provenance and attribution
 
 Rendered slides are from *MIT 6.7960 Deep Learning, Fall 2024*, MIT OpenCourseWare
 (<https://ocw.mit.edu>), CC BY-NC-SA 4.0, by Phillip Isola, Sara Beery and Jeremy Bernstein;
-lecture 1's deck is by Sara Beery. Two rendered slides contain material from elsewhere that OCW
-did not flag. **Slide 51** reproduces the double-descent figure of Belkin, Hsu, Ma and Mandal,
+lecture 1's deck is by Sara Beery, and lecture 2's names her as speaker. Two rendered lecture 1
+slides contain material from elsewhere that OCW did not flag. **Slide 51** reproduces the double-descent figure of Belkin, Hsu, Ma and Mandal,
 "Reconciling modern machine-learning practice and the classical bias–variance trade-off"
 (PNAS, 2019), credited on the slide. **Slides 45 and 70** show, at their clipped bottom edge, a
-fragment of an uncredited bird photograph from the next animation frame. If a rights holder or the
+fragment of an uncredited bird photograph from the next animation frame.
+
+Lecture 2's rendered slides include third-party material that the slides credit under an open
+licence: **slide 11** is a screenshot of Gabriel Goh's Distill article "Why Momentum Really Works"
+("Courtesy of Gabriel Goh, 2017. License: CC-BY."), and **slides 66–67** show feature
+visualizations from Olah et al.'s Distill article ("Courtesy of Olah, et al. Used under CC BY.").
+**Slide 68** collects DeepDream images whose credit line reads "Images created using a network
+trained on places by MIT Computer Science and AI Laboratory", from the Google blog post it links;
+OCW did not flag it. **Slide 70** includes a small generated image as the CLIP+GAN output. If a rights holder or the
 course asks for a page to come down, delete the image file and every
 image embed that points at it.
 
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lecture 1:
+Notes for the next run, from lectures 1 and 2:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -193,4 +247,10 @@ Notes for the next run, from lecture 1:
 - Images: render figure slides that carry **no** OCW exclusion notice. Find the notices with a
   text-layer grep for "excluded from our Creative Commons license", or the `*OCW notice` lines
   in the slide file.
+- The notice text wraps across lines in the text layer, so grep a page's text with newlines
+  joined, or for "All rights reserved" alone. A single-line grep for the full sentence found one of
+  lecture 2's seven notices.
+- `embed_slide_images.py` anchors a wiki image at the slide's **first** citation, and a range such
+  as "slides 15–20" places every slide in it at that spot. Write the wiki so that each slide's first
+  citation is the passage it belongs in, and avoid ranges in overview paragraphs.
 - After writing, run `check_math.mjs` and `verify_kb.py`.
