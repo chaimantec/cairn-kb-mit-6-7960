@@ -64,4 +64,4 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Commit and push
 - [x] PATCH kbUrl onto the catalog entry (https://github.com/chaimantec/cairn-kb-mit-6-7960)
 - [x] Lecture 2: INDEX, AGENTS, kb.json updated
-- [ ] Lecture 2: verify_kb.py clean, review read; commit and push
+- [x] Lecture 2: verify_kb.py clean, review read; commit and push
