@@ -3,7 +3,8 @@ title: Lecture 1 — Introduction to Deep Learning (slide deck)
 lecture: 1
 slides: 81
 source_pdf: https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec1.pdf
-note: Printed slide numbers 1–80 (bottom centre) equal the PDF page numbers exactly. Page 81 is the unnumbered OCW licence/end page; its label "81" is the page number, not a printed one.
+note: Printed slide numbers 1–80 (bottom centre) equal the PDF page numbers exactly. Page 81 is OCW's appended end page, not part of the lecture deck.
+figure_audit: Six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72) were checked against the PDF by an independent reader at full-page resolution with bar lengths measured in pixels — all six agreed, and three small corrections (21, 28, 72) were applied. The renders of 23, 45 and 70 were also checked against their descriptions and agreed.
 ---
 
 # Lecture 1 — Introduction to Deep Learning: slide-by-slide
@@ -11,8 +12,7 @@ note: Printed slide numbers 1–80 (bottom centre) equal the PDF page numbers ex
 Text and figures of all 81 slides of
 [`mit6_7960_f24_lec1.pdf`](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec1.pdf),
 transcribed from the deck (speaker: Sara Beery). Cite these as "slide N" — the printed
-number equals the PDF page number for slides 1–80; slide 81 is the OCW end page and
-prints no number. Diagrams, plots and photographs are described in prose since the KB is
+number equals the PDF page number for slides 1–80; slide 81 is OCW's appended end page. Diagrams, plots and photographs are described in prose since the KB is
 read as text.
 
 **Reused-deck discrepancy.** The footer of the title slide (slide 1) prints "6.S898 Deep
@@ -153,6 +153,8 @@ Title "Parallel Distributed Processing (PDP), 1986". A photo of a book cover: bl
 
 ## Slide 14 — XOR problem
 
+![Slide 14 — XOR problem](../images/01-introduction/slide-14.png)
+
 Title "XOR problem". A truth table with column headings "Inputs" and "Output":
 
 | Input 1 | Input 2 | Output |
@@ -208,13 +210,19 @@ Title "Krizhevsky, Sutskever, and Hinton, NeurIPS 2012". A 4×2 grid of eight Im
 
 ## Slide 21 — (enthusiasm vs. time) 28 years, 28 years, Krizhevsky et al. 2012
 
-Same axes. The grey curve is now a sine-like wave with three peaks reached/climbing: first peak "Perceptrons, 1958", trough "Minsky and Papert, 1972", second peak "PDP book, 1986", trough "AI winter, 2000", and a rise ending at a third peak labelled (top right, blue) "Krizhevsky, Sutskever, Hinton, 2012". Above the curve, two double-headed horizontal arrows, each labelled "28 years": the first spans roughly the first peak to the second peak (1958 to 1986), the second spans the second peak to the third (1986 to 2012–ish). Added relative to slide 18: the rise to the 2012 peak and the two "28 years" spans.
+![Slide 21 — (enthusiasm vs. time) 28 years, 28 years, Krizhevsky et al. 2012](../images/01-introduction/slide-21.png)
+
+Same axes. The grey curve is now a sine-like wave with three peaks reached/climbing: first peak "Perceptrons, 1958", trough "Minsky and Papert, 1972", second peak "PDP book, 1986", trough "AI winter, 2000", and a third rise that is cut off at about peak height at the right end, just under the label (top right, blue) "Krizhevsky, Sutskever, Hinton, 2012" — the curve does not draw a third peak. Above the curve, two double-headed horizontal arrows, each labelled "28 years", each about one cycle long and sitting slightly left of the peaks: they mark the spacing 1958 → 1986 → 2012. Added relative to slide 18: the rise to the 2012 peak and the two "28 years" spans.
 
 ## Slide 22 — What comes next?
+
+![Slide 22 — What comes next?](../images/01-introduction/slide-22.png)
 
 Title "What comes next?". Same wave as slide 21 in grey (peaks: Perceptrons 1958, PDP book 1986, Krizhevsky, Sutskever, Hinton 2012; troughs: Minsky and Papert 1972, AI winter 2000). Now the two "28 years" arrows sit below the time axis. Added: after the 2012 peak, two alternative continuations are drawn — a green curve that falls to a trough and rises again (the cyclical prediction), and a steep blue straight line shooting up off the top of the slide (the "keeps growing" alternative). Red serif label near the time axis under the green curve: "2028 ?".
 
 ## Slide 23 — What comes next?
+
+![Slide 23 — What comes next?](../images/01-introduction/slide-23.png)
 
 Title "What comes next?". Same as slide 22 (same labels, "28 years" arrows and red "2028 ?", all in a serif font) but the continuation after 2012 is a green wave that goes up to higher peaks (two full oscillations, each peak higher than the previous grey ones, extending above the 2012 peak and to the right), instead of the green dip plus blue steep line. The blue steep line is gone. Conveys that enthusiasm may keep oscillating but at an overall higher level.
 
@@ -247,7 +255,9 @@ $$\theta^{*} = \arg\min_{\theta} \sum_{i=1}^{N} L\left(f_\theta(x^{(i)}), y^{(i)
 
 ## Slide 28 — Gradient descent
 
-Title "Gradient descent". A 3-D surface plot (a coloured mesh, yellow at high values through green to blue at low values) of the loss $J(\theta)$ (label on the vertical axis, left) over the two horizontal axes labelled $\theta_1$ (left axis, ticks −3 to 2) and $\theta_2$ (right axis, ticks −3 to 2). The surface has a tall peak (yellow) at the back left, a smaller bump in the middle, a flat plain, and a deep narrow well (blue) at the front right. A black "X" marks the starting point at the top of the tall peak, and a chain of black arrows steps down the slope over the middle bump and into the well, illustrating gradient-descent steps. Below, a yellow-outlined box:
+![Slide 28 — Gradient descent](../images/01-introduction/slide-28.jpg)
+
+Title "Gradient descent". A 3-D surface plot (a coloured mesh, yellow at high values through green to blue at low values) of the loss $J(\theta)$ (label on the vertical axis, left) over the two horizontal axes labelled $\theta_1$ (left axis, ticks −3 to 2) and $\theta_2$ (right axis, ticks −3 to 2). The surface has a tall peak (yellow) at the back left, a smaller bump in the middle, a second large bump at the back right, a flat plain, and a deep narrow well (blue) at the front right. (The small grey axis letters printed on the plot itself are "y" on the left axis and "x" on the right; the slide's own labels are $\theta_1$ and $\theta_2$.) A black "X" marks the starting point at the top of the tall peak, and a chain of black arrows steps down the slope over the middle bump and into the well, illustrating gradient-descent steps. Below, a yellow-outlined box:
 
 $$\theta^{*} = \arg\min_{\theta} J(\theta)$$
 
@@ -280,6 +290,8 @@ Title "Computation in a neural net". Two empty tall rectangles: left labelled "I
 
 ## Slide 33 — Computation in a neural net (Linear layer)
 
+![Slide 33 — Computation in a neural net (Linear layer)](../images/01-introduction/slide-33.jpg)
+
 Title "Computation in a neural net"; heading "**Linear layer**". Columns of circles: left column of 8 circles labelled "Input representation" (the top one labelled $x_i$), right column of 9 circles labelled "Output representation", one of them (fifth from top) labelled $z_j$. Lines connect every input circle to $z_j$; the line from the top input is thick and labelled $w_{ij}$. Equation at right:
 
 $$z_j = \sum_i w_{ij}\, x_i$$
@@ -288,6 +300,8 @@ Added relative to slide 32: the explicit unit-level picture and equation.
 
 ## Slide 34 — Computation in a neural net (Linear layer, with bias)
 
+![Slide 34 — Computation in a neural net (Linear layer, with bias)](../images/01-introduction/slide-34.jpg)
+
 Same as slide 33 plus a bottom extra input circle labelled "1" connected to $z_j$ by a thick line labelled $b_j$. Equation now
 
 $$z_j = \sum_i w_{ij}\, x_i + b_j$$
@@ -295,6 +309,8 @@ $$z_j = \sum_i w_{ij}\, x_i + b_j$$
 with annotation arrows: "weights" pointing at $w_{ij}$ and "bias" pointing at $b_j$. Added relative to slide 33: the bias term $b_j$ and constant-1 input.
 
 ## Slide 35 — Computation in a neural net (Linear layer, vector form)
+
+![Slide 35 — Computation in a neural net (Linear layer, vector form)](../images/01-introduction/slide-35.jpg)
 
 Same diagram: all 8 input circles are bracketed by a vertical bar and labelled $\mathbf{x}$; all connecting lines are thick, with a blue square labelled $w_j$ on the bundle of lines (the weight vector for output $j$), and a blue square labelled $b_j$ on the bias line from the "1" circle. Right side:
 
@@ -308,6 +324,8 @@ annotated "parameters of the model". Added relative to slide 34: vector notation
 
 ## Slide 36 — Computation in a neural net ("Perceptron")
 
+![Slide 36 — Computation in a neural net ("Perceptron")](../images/01-introduction/slide-36.jpg)
+
 Heading "“**Perceptron**”". Left: the same input column (bracketed $x$, blue box $w$, blue box $b$, constant-1 unit) feeding a single circle labelled $z$, which connects by a short line to a second circle labelled $g(z)$ (column header "Output representation"); an arrow annotation "Pointwise Non-linearity" points at $g(z)$. Right:
 
 $$g(z) = \begin{cases} 1, & \text{if } z > 0 \\ 0, & \text{otherwise} \end{cases}$$
@@ -319,6 +337,8 @@ and a plot: x-axis "z" from −4 to 4 (ticks −4, −2, 0, 2, 4), y-axis "g(z)"
 Same as slide 36 but without the "Perceptron" heading and without the "Pointwise Non-linearity" annotation (build-step difference only). Same diagram, same step-function formula $g(z)$ and the same plot of the step function.
 
 ## Slide 38 — Computation in a neural net — nonlinearity (Tanh)
+
+![Slide 38 — Computation in a neural net — nonlinearity (Tanh)](../images/01-introduction/slide-38.jpg)
 
 Title "Computation in a neural net — nonlinearity". Left: the same network diagram as slide 37 (inputs $x$, $w$, $b$, 1, $z$, $g(z)$). Right: heading "**Tanh**",
 
@@ -338,6 +358,8 @@ Same title. The left-hand network diagram is replaced by blue-bulleted text; rig
 
 ## Slide 40 — Computation in a neural net — nonlinearity (Sigmoid)
 
+![Slide 40 — Computation in a neural net — nonlinearity (Sigmoid)](../images/01-introduction/slide-40.png)
+
 Same title. Blue-bulleted text:
 
 - Interpretation as firing rate of neuron
@@ -355,6 +377,8 @@ $$g(z) = \frac{1}{1 + e^{-h}}$$
 
 ## Slide 41 — Computation in a neural net — nonlinearity (ReLU)
 
+![Slide 41 — Computation in a neural net — nonlinearity (ReLU)](../images/01-introduction/slide-41.png)
+
 Title "Computation in a neural net — nonlinearity". Blue-bulleted text on the left:
 
 - Unbounded output (on positive side)
@@ -371,9 +395,13 @@ and a plot: x-axis "z" (−4 to 4), y-axis "g(z)" (ticks 0 to 5). One blue serie
 
 ## Slide 42 — Stacking layers
 
+![Slide 42 — Stacking layers](../images/01-introduction/slide-42.jpg)
+
 Title "Stacking layers". A three-column network diagram with column headings "Input representation", "Intermediate representation", "Output representation". Input column: 8 circles bracketed by a vertical bar and labelled $x$, plus a constant "1" circle below. Intermediate column: two sub-columns of 8 circles joined pairwise by short horizontal lines, labelled "$z$" (left sub-column) and "$h = g(z)$" (right sub-column), plus a "1" circle at the bottom of the $h$ sub-column. Output column: 9 circles bracketed by a vertical bar and labelled $y$. Fan-in lines run from all input circles (and the "1") to one middle $z$ unit, with a blue square on the bundle labelled $W_{1_j}$ and a blue square on the bias line labelled $b_{1_j}$; similarly lines from all $h$ circles (and the "1") to one output unit, with blue squares $W_{2_j}$ and $b_{2_j}$. Caption below: "z, h = “**hidden units**”". Added relative to slide 41: stacking two linear+nonlinearity layers into one network.
 
 ## Slide 43 — Stacking layers
+
+![Slide 43 — Stacking layers](../images/01-introduction/slide-43.jpg)
 
 Title "Stacking layers". Same three columns, now drawn with fully connected layers (5 circles each plus the constant "1" bias circles; all pairs connected). Labels: $W_1$ above the first set of connections, $b_1$ below it, $h$ over the intermediate layer, $W_2$ above the second set, $b_2$ below it, $x$ and $y$ bracketed on the left and right. Equations:
 
@@ -386,6 +414,8 @@ $$\theta = \{W_1, \ldots, W_L, b_1, \ldots, b_L\}$$
 A blank white slide: no text, no figure, only the slide number "44" at the bottom (likely an animation or transition placeholder).
 
 ## Slide 45 — Example: nonlinear classification with a deep net
+
+![Slide 45 — Example: nonlinear classification with a deep net](../images/01-introduction/slide-45.jpg)
 
 Title "Example: nonlinear classification with a deep net". Top left: a small network graph. Two white input circles $x_1$, $x_2$ each have arrows to two grey circles $z_1$, $z_2$ (all four connections, crossing); the label $W_1$ sits below with a dotted pointer. $z_1 \to h_1$ and $z_2 \to h_2$ (grey circles); $h_1$ and $h_2$ both feed grey circle $z_3$ (label $W_2$ below with a dotted pointer); $z_3 \to y$ (white circle). Top right, the equations:
 
@@ -443,6 +473,8 @@ Lecture 11: RNNs
 
 ## Slide 51 — Why do deep nets generalize?
 
+![Slide 51 — Why do deep nets generalize?](../images/01-introduction/slide-51.jpg)
+
 Title "Why do deep nets generalize?". Bullets:
 
 - Deep nets have so many parameters they could just act like look up tables, regurgitating their training data
@@ -486,6 +518,8 @@ $$f(x) = f_L(f_{L-1}(\ldots f_2(f_1(x))))$$
 
 ## Slide 55 — Classifier layer
 
+![Slide 55 — Classifier layer](../images/01-introduction/slide-55.jpg)
+
 Title "Classifier layer". Heading "Last layer". A tall box of circles, each labelled by an animal class, shaded by activation (darker = larger): dolphin (mid-grey), cat (light grey), grizzly bear (white), angel fish (dark grey), chameleon (mid-grey), **clown fish** (black, label in bold), iguana (mid-grey), elephant (light grey), then a vertical "⋮" ellipsis. Three arrows coming in from the left with "…" represent the earlier layers. A long arrow from the clown fish unit, labelled "argmax", points to the text "“clown fish”".
 
 ## Slide 56 — Loss function
@@ -494,13 +528,19 @@ Title "Loss function". Underlined headings "Network output" (left) and "Ground t
 
 ## Slide 57 — Loss function
 
+![Slide 57 — Loss function](../images/01-introduction/slide-57.jpg)
+
 Same as slide 56, but the output reads "Loss → **small**" (ground truth "clown fish" matches the prediction). Added: the word "small" in bold in place of "error".
 
 ## Slide 58 — Loss function
 
+![Slide 58 — Loss function](../images/01-introduction/slide-58.jpg)
+
 Same as slide 57 but the ground-truth label is "“grizzly bear”" and the output reads "Loss → **large**" (the network still predicts clown fish). Added: the mismatching label and "large".
 
 ## Slide 59 — Cross-entropy (Network output vs. Ground truth label)
+
+![Slide 59 — Cross-entropy (Network output vs. Ground truth label)](../images/01-introduction/slide-59.jpg)
 
 Underlined headings "Network output" and "Ground truth label"; no slide title. Two vertical unit columns: the left column labelled $\hat{y}$ (the network output after a "softmax" with three incoming arrows), shaded as before (clown fish black, bold label "clown fish" with a short line to it); the right column labelled $y$ is one-hot: only the "grizzly bear" unit is black (bold label "grizzly bear" with a line to it), all other circles white. Class labels in between: dolphin, cat, grizzly bear, angel fish, chameleon, clown fish, iguana, elephant, "⋮". Right side text: "Probability of the observed data under the model" and
 
@@ -588,6 +628,8 @@ Title "Tensors" with subtitle "(multi-dimensional arrays)". A grid of 4 rows × 
 
 ## Slide 70 — Everything is a tensor
 
+![Slide 70 — Everything is a tensor](../images/01-introduction/slide-70.jpg)
+
 Title "Everything is a tensor". Top left: the small network from slide 45 (inputs $x_1$, $x_2$ → $z_1$, $z_2$ → $h_1$, $h_2$ → $z_3$ → $y$, with $W_1$, $W_2$ labels). Top right equations:
 
 $$z = W_1 x + b_1,\quad h = g(z),\quad z_3 = W_2 h + b_2,\quad y = \mathbf{1}(z_3 > 0)$$
@@ -610,7 +652,7 @@ No slide title. Three parts, left to right.
 
 Left: a black line drawing of a human head in profile with the brain outlined inside.
 
-Middle (labelled "Serre, 2014"): a figure of the visual-cortex hierarchy. From bottom to top: a picture of a fox among bushes with a red dot on it (a receptive field) and two red lines going up to the first layer; "V1/V2" (red label) with rows of small red circles containing oriented-line icons (horizontal, diagonal, vertical, anti-diagonal bars); "V2/V4" (yellow/orange label) with yellow circles containing corner/curve/junction/spiral patterns; "V4/PIT" (green label) with two green circles above dashed green circles containing a three-way junction and a spiral; "PIT/AIT" (cyan label) with two dashed cyan circles; finally "Classification units" with four small pictures — a deer, a bird on a branch, a fox, a coiled snake — and arrows from the PIT/AIT units to them. Arrows connect each level to the one above.
+Middle (labelled "Serre, 2014"): a figure of the visual-cortex hierarchy. From bottom to top: a picture of a fox among bushes with a red dot on it (a receptive field) and two red lines going up to the first layer; "V1/V2" (red label) with rows of small red circles containing oriented-line icons (horizontal, diagonal, vertical, anti-diagonal bars); "V2/V4" (yellow/orange label) with yellow circles containing corner/curve/junction/spiral patterns; "V4/PIT" (green label) with two green circles above dashed green circles containing a three-way junction and a spiral; "PIT/AIT" (cyan label) with two dashed cyan circles; finally "Classification units" with four small pictures — a deer, a bird on a branch, a fox, a coiled snake. The arrows from the two PIT/AIT units both point to the fox only, the class of the input image. Arrows connect each level to the one above.
 
 Right (labelled "Donahue, 2013"): a large black up-arrow, and two stacked panels. Bottom panel: the clownfish photo feeds a six-rectangle network (yellow arrows) in which the **first** rectangle is filled black, with a 2-D scatter (t-SNE style) of thousands of points below it in mixed colours (magenta, blue, green, red), showing no clear clusters. Top panel: the clownfish feeds the same network with the **last** rectangle filled black, and its scatter plot below shows clearly separated colour clusters (magenta cluster on the left, blue and light-blue in the middle, green on the right, with some red/yellow dots). A boxed legend gives the colour classes: red "structure, construction"; yellow "covering"; light green "commodity, trade good, good"; green-teal "conveyance, transport"; blue "invertebrate"; dark blue "bird"; magenta "hunting dog". The arrow indicates going from early-layer features (mixed) to late-layer features (class-structured), echoing the brain hierarchy at the left.
 
@@ -707,7 +749,7 @@ Lecture 23: Automatic gradient descent
 
 ## Slide 81 — MIT OpenCourseWare end page
 
-(The label "81" here is the PDF page number; the page image does show an "81" at the bottom, but it is OCW's appended end page, not part of the lecture deck's own numbering.) Text:
+(Page 81 prints "81", but it is OCW's appended end page, not part of the lecture deck.) Text:
 
 MIT OpenCourseWare
 https://ocw.mit.edu

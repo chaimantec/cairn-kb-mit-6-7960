@@ -1,0 +1,61 @@
+# Representation learning
+
+What deep networks learn internally, and why those internal representations can be reused.
+Lecture 1 previews it twice: as "how deep networks represent data" (slides 71–73, ≈55:02–57:19),
+assigned to **lectures 11–13**, and as "reusing weights" (slides 76–77, ≈57:19–58:53), assigned
+to **lectures 18–19 on transfer learning**. Covered so far: [lecture 1](01-introduction.md) only.
+
+## Compact, compositional representations
+
+The lecture's thesis is that "deep networks are a more compact way of representing knowledge in
+data" (≈55:02). Earlier methods were "more like lookup tables". A deep network instead assumes
+there are "lower-level building blocks that are useful for many different possible downstream
+tasks".
+
+The example is a classifier for the letter **T** (≈55:47). You could train a T-detector from
+scratch. Or you could take a classifier for *lines*, apply it once as it is and once rotated, and
+learn only how the two lines meet. "So that line classifier is reusable in some combination to get
+a T classifier. And that's the basic idea here."
+
+## The hierarchy, observed
+
+Analyses of trained convolutional networks find this structure after the fact (≈55:47–56:34).
+Earlier layers learn low-level features, which later layers combine into more and more complex
+ones. Slide 72 sets two figures side by side:
+
+- **The visual cortex** (Serre, 2014): a hierarchy from oriented edges (V1/V2), through corners and
+  curves (V2/V4) and more complex shapes (V4/PIT, PIT/AIT), up to classification units for whole
+  objects — a deer, a bird, a fox, a snake.
+- **A deep network** (Donahue, 2013): image features from an early layer and from a late layer,
+  each clustered and plotted in two dimensions and coloured by category. Early-layer features are
+  mixed, with no category structure. Late-layer features fall into separated clusters by class.
+
+The lecturer's reading: early layers are categorizing "things like, does it have directional
+orientations of light and dark gradients in the pixels?", so they "are not going to cluster well
+by category". Towards the end of the network "it's learning more concepts, and that's where you
+start getting these clusters" (≈56:34).
+
+How these representations are learned and how they are structured is the subject of three
+lectures: **reconstruction-based** (11), **similarity-based** (12) and **theory** (13), per the
+banner on slide 73 (≈57:19).
+
+## Reuse and transfer
+
+If the lower layers learn general-purpose features, they can be kept when the task changes
+(slide 77, ≈57:19–58:53). The example: a network learned to categorize photos of animals, and now
+you want to work with satellite imagery. "A lot of those initial components about lines and
+orientations and structures, those are useful for both of these." Slide 77 draws the same
+hierarchy twice. On the left it ends in animal classes. On the right (Gandour, 2018) the lower
+layers are unchanged, the input is aerial photos of buildings, and the classification units become
+a check and a cross — building intact or damaged.
+
+The open question is "what do we really need to learn from scratch versus what is generally
+useful". The payoff is practical: reuse is "really valuable if you don't have big data or big
+compute", because "you can pre-generate representations that then you can learn on top of without
+needing to learn everything from scratch" (≈58:06). Whether representations really are
+"generalizable or transferable" is the subject of the transfer-learning lectures, **18 (models)**
+and **19 (data)**.
+
+The same theme appears in lecture 1's account of deep learning today: an open-source culture of
+**modular reuse**, where "people take weights that were trained by one person with one architecture"
+and use them "as a module within another, larger system" (≈22:33–23:19).

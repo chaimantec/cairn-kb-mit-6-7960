@@ -1,0 +1,76 @@
+# Activation functions (non-linearities)
+
+An activation function $g$ is the **pointwise non-linearity** applied after each linear layer of a
+neural network: $h = g(z)$, applied to each component of $\mathbf{z}$ separately. Without it a
+stack of linear layers collapses to a single linear map (see
+[multilayer perceptrons](multilayer-perceptron.md)). The course treats the common choices as
+background (slide 31, "MLPs, Nonlinearities (ReLu)"). Covered so far:
+[lecture 1](01-introduction.md), slides 36–41, ≈28:01–38:49.
+
+## The four in lecture 1
+
+| | Formula | Range | Gradient behaviour | Verdict in lecture 1 |
+| --- | --- | --- | --- | --- |
+| Step | $1$ if $z \gt 0$, else $0$ | $\lbrace 0, 1 \rbrace$ | zero almost everywhere | not differentiable, so it cannot be trained by gradients |
+| tanh | $\frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$ | $[-1, 1]$ | vanishes for large positive or negative $z$ | bounded and zero-centred, but saturates |
+| Sigmoid | $\frac{1}{1 + e^{-z}}$ | $[0, 1]$ | vanishes for large positive or negative $z$ | "not used in practice" |
+| ReLU | $\max(0, z)$ | $[0, \infty)$ | 0 for $z \lt 0$, 1 for $z \gt 0$ | "our default choice" |
+
+### Step (slides 36–37)
+
+The step function turns a linear unit into Rosenblatt's perceptron. It is the wrong choice for
+learning, as the class itself points out (≈28:01–28:47). It is not differentiable, which "hinders
+backpropagation", and away from $z = 0$ its gradient is zero: "If you're anywhere on this graph,
+you don't know which way to go". A gradient step simply does not move.
+
+### tanh (slides 38–39)
+
+$$g(z) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$$
+
+One of the earliest non-linearities tried (≈31:56). What is good about it: it is bounded between
+−1 and 1, so "none of the values are super huge", and its outputs are centred at 0. What is bad:
+it **saturates**. For very large or very small inputs the curve is flat, the gradient goes to 0,
+and a unit that starts "really far from the center" gets little training signal (≈32:42). Slide
+39 also gives its relation to the sigmoid $\sigma$:
+
+$$\tanh(z) = 2\thinspace\sigma(2z) - 1$$
+
+### Sigmoid (slide 40)
+
+$$g(z) = \frac{1}{1 + e^{-z}}$$
+
+Historically read as the **firing rate of a neuron** (≈33:28). It is bounded between 0 and 1, so
+never negative, and it saturates exactly as tanh does. Its outputs are centred at 0.5 rather than
+0, which the slide calls "poor conditioning" and the lecturer "slightly biased" — "In practice,
+we don't actually use this." **Note:** slide 40 prints the formula with $h$ in the exponent,
+$1/(1 + e^{-h})$. The lecturer corrects it in the lecture: "the notation is wrong. It should be
+minus z" (≈32:42). The formula above is the corrected one.
+
+### ReLU (slide 41)
+
+$$g(z) = \max(0, z)$$
+
+The **rectified linear unit** (≈33:28–34:59):
+
+- **Unbounded on the positive side**, so values can grow large, which "can result in … exploding
+  gradients".
+- **Efficient to implement**: the derivative is just a step,
+
+  $$\frac{\partial g}{\partial z} = \begin{cases} 0 & \text{if } z \lt 0 \cr 1 & \text{if } z \geq 0 \end{cases}$$
+
+- **Seems to help convergence**: the AlexNet paper (Krizhevsky et al.) reported "something like a
+  6x speed-up using a ReLU over using something like a tanh".
+- **Drawback: dead units.** "If you're strongly in the negative region, the unit's what we call
+  dead. There is no gradient", and that component of the vector stops learning.
+- **The default**: "widely used in current models", with "lots of slight tweaks to this".
+
+## How do you choose one?
+
+A student asked whether the application should dictate the activation (≈36:31). The lecturer's
+answer is that there are no reliable rules of thumb. Fields converge on whatever has worked
+experimentally and build on it — "sometimes that's called grad student gradient descent". Jeremy
+Bernstein added that it is "not a hard science", and that the choice is usually about making the
+network **trainable** rather than about modelling a particular kind of data (≈38:02). The
+exception the lecturer gives is **known structure**: if you know your features are sinusoidal,
+working in Fourier space with a sinusoidal activation may make sense. She closes by calling this
+an open problem that needs "a lot more research on the theoretical side" (≈38:49).
