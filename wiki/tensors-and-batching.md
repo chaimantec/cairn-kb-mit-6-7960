@@ -30,8 +30,8 @@ multiply by the weight matrix. Apply the pointwise non-linearity to the result, 
 and apply the non-linearity once more to get the output. Slide 70 sets this up for a batch of
 three: the input matrix $\mathbf{X}$ has one row per example ($N_{\text{batch}}$ rows) and one
 column per input feature ($x_1$, $x_2$). The rest of that build is cut off in the published PDF.
-Its text layer names the matrices of the full sequence — $\mathbf{X}$, $\mathbf{W}_1$,
-$\mathbf{Z}_1$, $\mathbf{H}_1$, $\mathbf{W}_2$, $\mathbf{Z}_2$, $\mathbf{Y}$ — but not how they
+Its text layer names the matrices of the full sequence — $\mathbf{X}$, $\mathbf{W}_ 1$,
+$\mathbf{Z}_ 1$, $\mathbf{H}_ 1$, $\mathbf{W}_ 2$, $\mathbf{Z}_ 2$, $\mathbf{Y}$ — but not how they
 are laid out, so this page does not reconstruct the matrix equations.
 
 ## Why it mattered
@@ -47,7 +47,7 @@ says this "in a lot more detail as well in the future".
 The course's [notation](notation.md) handout fixes how tensors are written and indexed:
 
 - Tensors are usually **lowercase bold**, $\mathbf{x}$, whatever their number of dimensions.
-- In code-like settings an activation on layer $l$ may be indexed $\mathbf{x}_l[b, c, n, m]$:
+- In code-like settings an activation on layer $l$ may be indexed $\mathbf{x}_ l[b, c, n, m]$:
   $b$ is the element of the batch, $c$ the channel, and $n, m$ are spatial coordinates.
 - **Channels come first**: $\mathbf{x} \in \mathbb{R}^{C \times N \times M \times \cdots}$.
 - Transformers are the exception: a set of tokens is an $N \times d$ matrix.

@@ -41,21 +41,21 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Write sources.md
 
 ## Slides (raw/slides/)
-- [ ] 01 Introduction to Deep Learning — mit6_7960_f24_lec1.pdf
+- [x] 01 Introduction to Deep Learning — mit6_7960_f24_lec1.pdf (81 pages; figure audit 6 pages)
 
 ## Wiki
-- [ ] wiki/01-introduction.md
-- [ ] Topic pages (cross-lecture concepts) for lecture 1
-- [ ] INDEX.md table of contents
+- [x] wiki/01-introduction.md
+- [x] Topic pages (cross-lecture concepts) for lecture 1
+- [x] INDEX.md table of contents
 
 ## Images
-- [ ] raw/images/01-introduction/ — rank, pick, render, embed in the wiki and slide files
-- [ ] AGENTS.md — the Images conventions section
+- [x] raw/images/01-introduction/ — 21 images; OCW-excluded slides never rendered
+- [x] AGENTS.md — the Images conventions section
 
 ## Publish
 - [x] LICENSE.md — OCW CC BY-NC-SA 4.0 attribution
-- [ ] kb.json — coverage, materials.method, provenance caveats
-- [ ] SEE_ALSO.md, if a sibling KB is genuinely relevant
-- [ ] verify_kb.py clean, and its review section read
+- [x] kb.json — coverage, materials.method, provenance caveats
+- [x] SEE_ALSO.md, if a sibling KB is genuinely relevant
+- [x] verify_kb.py clean, and its review section read
 - [ ] Commit and push
 - [ ] PATCH kbUrl onto the catalog entry

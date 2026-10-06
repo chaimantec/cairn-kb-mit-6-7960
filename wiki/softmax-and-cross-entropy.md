@@ -72,8 +72,8 @@ Put together, training is the [gradient descent](gradient-descent.md) objective 
 $$\theta^{\ast} = \arg\min_\theta \sum_{i=1}^{N} L\big(f_\theta(x^{(i)}), y^{(i)}\big)$$
 
 Slides 64–66 draw it for three examples in turn — $x^{(1)}$ a clown fish, $x^{(2)}$ a grizzly bear,
-$x^{(i)}$ a chameleon — each flowing through six layers with parameters $\theta_1, \ldots,
-\theta_6$, marked "Learned", into the loss. The lecturer's summary: "you're taking all these
+$x^{(i)}$ a chameleon — each flowing through six layers with parameters
+$\theta_1, \ldots, \theta_6$, marked "Learned", into the loss. The lecturer's summary: "you're taking all these
 different weights in your massive model, and then you're fiddling around with them until you
 match the desired output for all your training data", repeating "over and over and over again
 until the model gets everything right, or as close to everything right as possible" (≈52:45–53:30).

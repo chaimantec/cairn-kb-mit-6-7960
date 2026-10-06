@@ -249,9 +249,9 @@ Title "What comes next?". Same as slide 22 (same labels, "28 years" arrows and r
 
 Title "Gradient descent". A yellow-outlined box containing
 
-$$\theta^{*} = \arg\min_{\theta} \sum_{i=1}^{N} L\left(f_\theta(x^{(i)}), y^{(i)}\right)$$
+$$\theta^{\ast } = \arg\min_{\theta} \sum_{i=1}^{N} L\left(f_\theta(x^{(i)}), y^{(i)}\right)$$
 
-(The star on $\theta$ is rendered as an empty-box glyph in the PDF; read as $\theta^{*}$, the optimal parameters.) Below the sum a curly brace underlines the summation and is labelled "$J(\theta)$".
+(The star on $\theta$ is rendered as an empty-box glyph in the PDF; read as $\theta^{\ast }$, the optimal parameters.) Below the sum a curly brace underlines the summation and is labelled $J(\theta)$.
 
 ## Slide 28 — Gradient descent
 
@@ -259,7 +259,7 @@ $$\theta^{*} = \arg\min_{\theta} \sum_{i=1}^{N} L\left(f_\theta(x^{(i)}), y^{(i)
 
 Title "Gradient descent". A 3-D surface plot (a coloured mesh, yellow at high values through green to blue at low values) of the loss $J(\theta)$ (label on the vertical axis, left) over the two horizontal axes labelled $\theta_1$ (left axis, ticks −3 to 2) and $\theta_2$ (right axis, ticks −3 to 2). The surface has a tall peak (yellow) at the back left, a smaller bump in the middle, a second large bump at the back right, a flat plain, and a deep narrow well (blue) at the front right. (The small grey axis letters printed on the plot itself are "y" on the left axis and "x" on the right; the slide's own labels are $\theta_1$ and $\theta_2$.) A black "X" marks the starting point at the top of the tall peak, and a chain of black arrows steps down the slope over the middle bump and into the well, illustrating gradient-descent steps. Below, a yellow-outlined box:
 
-$$\theta^{*} = \arg\min_{\theta} J(\theta)$$
+$$\theta^{\ast } = \arg\min_{\theta} J(\theta)$$
 
 (star again rendered as a box glyph in the PDF).
 
@@ -269,9 +269,9 @@ $$\theta^{*} = \arg\min_{\theta} J(\theta)$$
 
 ## Slide 30 — Gradient descent (with "Lecture 2" banner)
 
-Title "Gradient descent". (The PDF text layer shows a hidden line "One iteration of gradient descent:" sitting behind the banner.) The top box from slide 27 is visible: $\theta^{*} = \arg\min_\theta \sum_{i=1}^{N} L(f_\theta(x^{(i)}), y^{(i)})$. A large pale-yellow sticky-note banner overlays the middle of the slide reading "Lecture 2: Backprop and Differentiable Programming". It hides most of the middle equation; the visible lower part shows the update rule
+Title "Gradient descent". (The PDF text layer shows a hidden line "One iteration of gradient descent:" sitting behind the banner.) The top box from slide 27 is visible: $\theta^{\ast } = \arg\min_\theta \sum_{i=1}^{N} L(f_\theta(x^{(i)}), y^{(i)})$. A large pale-yellow sticky-note banner overlays the middle of the slide reading "Lecture 2: Backprop and Differentiable Programming". It hides most of the middle equation; the visible lower part shows the update rule
 
-$$\theta^{t+1} = \theta^{t} - \eta_t \frac{\partial J(\theta)}{\partial \theta}\Big|_{\theta=\theta^t}$$
+$$\theta^{t+1} = \theta^{t} - \eta_t \frac{\partial J(\theta)}{\partial \theta}\Big|_ {\theta=\theta^t}$$
 
 (the numerator $J(\theta)$ and the start of $\theta^{t+1}$ are partly covered by the banner), with a dotted arrow from $\eta_t$ to the bold label "learning rate". Meaning: gradient descent is covered in Lecture 2.
 
@@ -294,7 +294,7 @@ Title "Computation in a neural net". Two empty tall rectangles: left labelled "I
 
 Title "Computation in a neural net"; heading "**Linear layer**". Columns of circles: left column of 8 circles labelled "Input representation" (the top one labelled $x_i$), right column of 9 circles labelled "Output representation", one of them (fifth from top) labelled $z_j$. Lines connect every input circle to $z_j$; the line from the top input is thick and labelled $w_{ij}$. Equation at right:
 
-$$z_j = \sum_i w_{ij}\, x_i$$
+$$z_j = \sum_i w_{ij}\thinspace  x_i$$
 
 Added relative to slide 32: the explicit unit-level picture and equation.
 
@@ -304,7 +304,7 @@ Added relative to slide 32: the explicit unit-level picture and equation.
 
 Same as slide 33 plus a bottom extra input circle labelled "1" connected to $z_j$ by a thick line labelled $b_j$. Equation now
 
-$$z_j = \sum_i w_{ij}\, x_i + b_j$$
+$$z_j = \sum_i w_{ij}\thinspace  x_i + b_j$$
 
 with annotation arrows: "weights" pointing at $w_{ij}$ and "bias" pointing at $b_j$. Added relative to slide 33: the bias term $b_j$ and constant-1 input.
 
@@ -318,9 +318,9 @@ $$z_j = x^{T} w_j + b_j$$
 
 annotated "weights" (pointing at $w_j$) and "bias" (pointing at $b_j$); below it
 
-$$\theta = \{W, b\}$$
+$$\theta = \lbrace W, b\rbrace$$
 
-annotated "parameters of the model". Added relative to slide 34: vector notation $x^T w_j$ and the parameter set $\theta = \{W, b\}$.
+annotated "parameters of the model". Added relative to slide 34: vector notation $x^T w_j$ and the parameter set $\theta = \lbrace W, b\rbrace$.
 
 ## Slide 36 — Computation in a neural net ("Perceptron")
 
@@ -328,7 +328,7 @@ annotated "parameters of the model". Added relative to slide 34: vector notation
 
 Heading "“**Perceptron**”". Left: the same input column (bracketed $x$, blue box $w$, blue box $b$, constant-1 unit) feeding a single circle labelled $z$, which connects by a short line to a second circle labelled $g(z)$ (column header "Output representation"); an arrow annotation "Pointwise Non-linearity" points at $g(z)$. Right:
 
-$$g(z) = \begin{cases} 1, & \text{if } z > 0 \\ 0, & \text{otherwise} \end{cases}$$
+$$g(z) = \begin{cases} 1, & \text{if } z > 0 \cr  0, & \text{otherwise} \end{cases}$$
 
 and a plot: x-axis "z" from −4 to 4 (ticks −4, −2, 0, 2, 4), y-axis "g(z)" with ticks 0.0 to 1.0. One blue series: a step function equal to 0.0 for z < 0 and jumping vertically to 1.0 at z = 0, staying at 1.0 for z > 0.
 
@@ -340,7 +340,7 @@ Same as slide 36 but without the "Perceptron" heading and without the "Pointwise
 
 ![Slide 38 — Computation in a neural net — nonlinearity (Tanh)](../images/01-introduction/slide-38.jpg)
 
-Title "Computation in a neural net — nonlinearity". Left: the same network diagram as slide 37 (inputs $x$, $w$, $b$, 1, $z$, $g(z)$). Right: heading "**Tanh**",
+Title "Computation in a neural net — nonlinearity". Left: the same network diagram as slide 37 (inputs $x$, $w$, $b$, 1, $z$ and $g(z)$, as before). Right: heading "**Tanh**",
 
 $$g(z) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$$
 
@@ -382,10 +382,14 @@ $$g(z) = \frac{1}{1 + e^{-h}}$$
 Title "Computation in a neural net — nonlinearity". Blue-bulleted text on the left:
 
 - Unbounded output (on positive side)
-- Efficient to implement: $$\frac{\partial g}{\partial z} = \begin{cases} 0, & \text{if } z < 0 \\ 1, & \text{if } z \geq 0 \end{cases}$$
+- Efficient to implement (derivative below)
 - Also seems to help convergence (see 6x speedup vs tanh in [Krizhevsky et al.])
 - Drawback: if strongly in negative region, unit is dead forever (no gradient).
 - Default choice: widely used in current models.
+
+The derivative given in the "efficient to implement" bullet:
+
+$$\frac{\partial g}{\partial z} = \begin{cases} 0, & \text{if } z < 0 \cr  1, & \text{if } z \geq 0 \end{cases}$$
 
 Right: heading "**Rectified linear unit (ReLU)**",
 
@@ -397,7 +401,7 @@ and a plot: x-axis "z" (−4 to 4), y-axis "g(z)" (ticks 0 to 5). One blue serie
 
 ![Slide 42 — Stacking layers](../images/01-introduction/slide-42.jpg)
 
-Title "Stacking layers". A three-column network diagram with column headings "Input representation", "Intermediate representation", "Output representation". Input column: 8 circles bracketed by a vertical bar and labelled $x$, plus a constant "1" circle below. Intermediate column: two sub-columns of 8 circles joined pairwise by short horizontal lines, labelled "$z$" (left sub-column) and "$h = g(z)$" (right sub-column), plus a "1" circle at the bottom of the $h$ sub-column. Output column: 9 circles bracketed by a vertical bar and labelled $y$. Fan-in lines run from all input circles (and the "1") to one middle $z$ unit, with a blue square on the bundle labelled $W_{1_j}$ and a blue square on the bias line labelled $b_{1_j}$; similarly lines from all $h$ circles (and the "1") to one output unit, with blue squares $W_{2_j}$ and $b_{2_j}$. Caption below: "z, h = “**hidden units**”". Added relative to slide 41: stacking two linear+nonlinearity layers into one network.
+Title "Stacking layers". A three-column network diagram with column headings "Input representation", "Intermediate representation", "Output representation". Input column: 8 circles bracketed by a vertical bar and labelled $x$, plus a constant "1" circle below. Intermediate column: two sub-columns of 8 circles joined pairwise by short horizontal lines, labelled $z$ (left sub-column) and $h = g(z)$ (right sub-column), plus a "1" circle at the bottom of the $h$ sub-column. Output column: 9 circles bracketed by a vertical bar and labelled $y$. Fan-in lines run from all input circles (and the "1") to one middle $z$ unit, with a blue square on the bundle labelled $W_{1_j}$ and a blue square on the bias line labelled $b_{1_j}$; similarly lines from all $h$ circles (and the "1") to one output unit, with blue squares $W_{2_j}$ and $b_{2_j}$. Caption below: "z, h = “**hidden units**”". Added relative to slide 41: stacking two linear+nonlinearity layers into one network.
 
 ## Slide 43 — Stacking layers
 
@@ -407,7 +411,7 @@ Title "Stacking layers". Same three columns, now drawn with fully connected laye
 
 $$h = g(W_1 x + b_1) \qquad\qquad y = g(W_2 h + b_2)$$
 
-$$\theta = \{W_1, \ldots, W_L, b_1, \ldots, b_L\}$$
+$$\theta = \lbrace W_1, \ldots, W_L, b_1, \ldots, b_L\rbrace$$
 
 ## Slide 44 — (blank)
 
@@ -544,11 +548,11 @@ Same as slide 57 but the ground-truth label is "“grizzly bear”" and the outp
 
 Underlined headings "Network output" and "Ground truth label"; no slide title. Two vertical unit columns: the left column labelled $\hat{y}$ (the network output after a "softmax" with three incoming arrows), shaded as before (clown fish black, bold label "clown fish" with a short line to it); the right column labelled $y$ is one-hot: only the "grizzly bear" unit is black (bold label "grizzly bear" with a line to it), all other circles white. Class labels in between: dolphin, cat, grizzly bear, angel fish, chameleon, clown fish, iguana, elephant, "⋮". Right side text: "Probability of the observed data under the model" and
 
-$$H(y, \hat{y}) = -\sum_{k=1}^{K} y_k \log \hat{y}_k$$
+$$H(y, \hat{y}) = -\sum_{k=1}^{K} y_k \log \hat{y}_ k$$
 
 ## Slide 60 — Prediction vs ground truth (log probabilities)
 
-No slide title. Left: input image $x$ (the clownfish photo) and a block arrow labelled "$f$" leading to the prediction. Heading "Prediction $\log \hat{y}$" and below it "$f_\theta : X \to \mathbb{R}^K$" (the arrow is rendered as an empty-box glyph in the PDF). Two horizontal bar charts, each with the 8 class rows (dolphin, cat, grizzly bear, angel fish, chameleon, **clown fish**, iguana, elephant, "⋮"):
+No slide title. Left: input image $x$ (the clownfish photo) and a block arrow labelled $f$ leading to the prediction. Heading "Prediction $\log \hat{y}$" and below it $f_\theta : X \to \mathbb{R}^K$ (the arrow is rendered as an empty-box glyph in the PDF). Two horizontal bar charts, each with the 8 class rows (dolphin, cat, grizzly bear, angel fish, chameleon, **clown fish**, iguana, elephant, "⋮"):
 
 - Left chart "Prediction $\log \hat{y}$": x-axis "log prob" from "−∞" (left) to "0" (right). One series of black bars growing from the left axis: clown fish longest (about 40% of the width), angel fish next (medium), then chameleon and dolphin (similar, medium-short), iguana (short), then cat, grizzly bear and elephant (shortest).
 - Right chart "Ground truth label": x-axis "Prob" from "0" to "1". One series: only the clown fish row has a bar, spanning almost the full width (about 0.9–1); all other rows are empty.
@@ -559,11 +563,11 @@ No slide title. Left: input image $x$ (the clownfish photo) and a block arrow la
 
 ## Slide 61 — Prediction, ground truth and score (cross-entropy as "how much better you could have done")
 
-No slide title. Same layout as slide 60 (input image $x$ = the clownfish photo, block arrow "$f$", "Prediction $\log \hat{y}$", "$f_\theta : X \to \mathbb{R}^K$" with the arrow rendered as a box glyph) with a third panel and a $\odot$ symbol between the first two panels (a circle containing a dot, meaning elementwise product). Three bar charts, each with the 8 class rows dolphin, cat, grizzly bear, angel fish, chameleon, **clown fish**, iguana, elephant and "⋮":
+No slide title. Same layout as slide 60 (input image $x$ = the clownfish photo, block arrow $f$, "Prediction $\log \hat{y}$", $f_\theta : X \to \mathbb{R}^K$ with the arrow rendered as a box glyph) with a third panel and a $\odot$ symbol between the first two panels (a circle containing a dot, meaning elementwise product). Three bar charts, each with the 8 class rows dolphin, cat, grizzly bear, angel fish, chameleon, **clown fish**, iguana, elephant and "⋮":
 
 - Panel 1 "Prediction $\log \hat{y}$": x-axis "log prob", "−∞" to "0". One series of black bars as on slide 60 (clown fish longest, about 40% of the width; angel fish, chameleon, dolphin medium-short; others short).
 - Panel 2 "Ground truth label $y$": x-axis "Prob", "0" to "1". One bar: clown fish row only, spanning nearly the full width.
-- Panel 3 "Score $-L(\hat{y}, y)$" with the equation $-H(y, \hat{y}) = \sum_{k=1}^{K} y_k \log \hat{y}_k$: x-axis "- Loss", "−∞" to "0". One bar in the clown fish row, two-coloured: a black part from the left axis up to roughly 38% of the width, then a **red** part from there to 0 (the right end). A curly brace over the red part is annotated "How much better you could have done".
+- Panel 3 "Score $-L(\hat{y}, y)$" with the equation $-H(y, \hat{y}) = \sum_{k=1}^{K} y_k \log \hat{y}_ k$: x-axis "- Loss", "−∞" to "0". One bar in the clown fish row, two-coloured: a black part from the left axis up to roughly 38% of the width, then a **red** part from there to 0 (the right end). A curly brace over the red part is annotated "How much better you could have done".
 
 Added relative to slide 60: the elementwise-product symbol and the score panel.
 
@@ -571,7 +575,7 @@ Added relative to slide 60: the elementwise-product symbol and the score panel.
 
 ## Slide 62 — Prediction, ground truth and score (grizzly bear example)
 
-Same layout as slide 61, with a new input: a photo of a brown bear standing on its hind legs, one front paw raised (waving). Prediction $\log \hat{y}$ bars: **grizzly bear** longest (about two-thirds of the width, row label bold), cat medium-short, elephant short, dolphin/angel fish/chameleon/clown fish/iguana tiny. Ground truth $y$: one bar at grizzly bear spanning nearly the full width. Score panel ($-L(\hat{y}, y)$, equation $-H(y,\hat{y}) = \sum_{k=1}^{K} y_k \log \hat{y}_k$, axis "- Loss" from −∞ to 0): one bar in the grizzly bear row, black up to about two-thirds of the width, then a smaller red part to 0 (small gap, i.e. low loss).
+Same layout as slide 61, with a new input: a photo of a brown bear standing on its hind legs, one front paw raised (waving). Prediction $\log \hat{y}$ bars: **grizzly bear** longest (about two-thirds of the width, row label bold), cat medium-short, elephant short, dolphin/angel fish/chameleon/clown fish/iguana tiny. Ground truth $y$: one bar at grizzly bear spanning nearly the full width. Score panel ($-L(\hat{y}, y)$, equation $-H(y,\hat{y}) = \sum_{k=1}^{K} y_k \log \hat{y}_ k$, axis "- Loss" from −∞ to 0): one bar in the grizzly bear row, black up to about two-thirds of the width, then a smaller red part to 0 (small gap, i.e. low loss).
 
 *OCW notice: © source unknown. All rights reserved — excluded from the CC license.*
 
@@ -583,9 +587,9 @@ Same layout as slides 61–62, with a new input: a photo of a blue-green-orange 
 
 ## Slide 64 — Deep learning (training example 1)
 
-Title "Deep learning". Diagram of a training example flowing through a network, example $i=1$. Left: label "$x^{(1)}$" over the clownfish photo; above it the text "$y^{(1)}$" and "“clown fish”". A row of six tall empty rectangles (the layers), with yellow arrows from the image into the first rectangle and between successive rectangles; a black arrow from the last rectangle into a box "**Loss**". Below the rectangles, dotted vertical lines point to labels $\theta_1, \theta_2, \theta_3, \theta_4, \theta_5, \theta_6$ (one parameter set per layer). A long black line goes from the label "“clown fish”" across the top and down into the Loss box. To the right of Loss: $L(f_\theta(x^{(1)}), y^{(1)})$. At top right, a yellow-outlined label "Learned" (marking the $\theta$s as the learned part). At the bottom, a yellow-outlined box:
+Title "Deep learning". Diagram of a training example flowing through a network, example $i=1$. Left: label $x^{(1)}$ over the clownfish photo; above it the text $y^{(1)}$ and "“clown fish”". A row of six tall empty rectangles (the layers), with yellow arrows from the image into the first rectangle and between successive rectangles; a black arrow from the last rectangle into a box "**Loss**". Below the rectangles, dotted vertical lines point to labels $\theta_1, \theta_2, \theta_3, \theta_4, \theta_5, \theta_6$ (one parameter set per layer). A long black line goes from the label "“clown fish”" across the top and down into the Loss box. To the right of Loss: $L(f_\theta(x^{(1)}), y^{(1)})$. At top right, a yellow-outlined label "Learned" (marking the $\theta$ parameters as the learned part). At the bottom, a yellow-outlined box:
 
-$$\theta^{*} = \arg\min_{\theta} \sum_{i=1}^{N} L\left(f_\theta(x^{(i)}), y^{(i)}\right)$$
+$$\theta^{\ast } = \arg\min_{\theta} \sum_{i=1}^{N} L\left(f_\theta(x^{(i)}), y^{(i)}\right)$$
 
 (star rendered as a box glyph in the PDF).
 
@@ -634,7 +638,7 @@ Title "Everything is a tensor". Top left: the small network from slide 45 (input
 
 $$z = W_1 x + b_1,\quad h = g(z),\quad z_3 = W_2 h + b_2,\quad y = \mathbf{1}(z_3 > 0)$$
 
-Text: "Tensor processing with batch size = 3:". Lower left: a matrix drawn as a red-outlined grid labelled "$X$" with column headings $x_1$, $x_2$ and a vertical axis label "$N_{batch}$" (3 rows × 2 columns), followed by a small "-" fragment. This PDF page is again a clipped animation snapshot: at the bottom edge a black-framed photo of a grey bird and three pairs of pink/orange rectangles are cut off by the page boundary, and the page's text layer names the remaining matrices of the full build: $X$, $W_1$, $Z_1$, $H_1$, $W_2$, $Z_2$, $Y$ (the batch version of $z = W_1 x + b_1$, $h = g(z)$, etc., with $x_1$ $x_2$; $z_1$ $z_2$; $h_1$ $h_2$; $z_3$; $y$ as column headings). The actual matrix diagram cannot be read from this page.
+Text: "Tensor processing with batch size = 3:". Lower left: a matrix drawn as a red-outlined grid labelled $X$ with column headings $x_1$, $x_2$ and a vertical axis label $N_{batch}$ (3 rows × 2 columns), followed by a small "-" fragment. This PDF page is again a clipped animation snapshot: at the bottom edge a black-framed photo of a grey bird and three pairs of pink/orange rectangles are cut off by the page boundary, and the page's text layer names the remaining matrices of the full build: $X$, $W_1$, $Z_1$, $H_1$, $W_2$, $Z_2$, $Y$ (the batch version of $z = W_1 x + b_1$, $h = g(z)$, etc., with $x_1$ $x_2$; $z_1$ $z_2$; $h_1$ $h_2$; $z_3$; $y$ as column headings). The actual matrix diagram cannot be read from this page.
 
 ## Slide 71 — What we'll cover in this class
 

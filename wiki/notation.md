@@ -21,7 +21,7 @@ bold ($\mathbf{X}, \mathbf{Y}, \mathbf{Z}$).
 $x_i$ or $\mathbf{x}[i]$. The entry of a matrix in row $i$, column $j$ is $X_{ij}$ or
 $\mathbf{X}[i, j]$ — rows first, then columns.
 
-**Slices** use the bracket form: $\mathbf{X}_i$ or $\mathbf{X}[i, :]$ is row $i$, and
+**Slices** use the bracket form: $\mathbf{X}_ i$ or $\mathbf{X}[i, :]$ is row $i$, and
 $\mathbf{X}[:, j]$ is column $j$. Indexing starts at 1. The handout's own example is a
 $3 \times 2$ matrix with rows $(1, 2)$, $(3, 4)$, $(5, 6)$, for which $\mathbf{X}[2, :]$ is
 $(3, 4)$.
@@ -66,13 +66,13 @@ of per-datapoint losses $L$ making up a cost $J(\theta)$, minimized over $\theta
 - **Pre- and post-activation.** Where it matters, $\mathbf{z}$ is a hidden layer *before* the
   non-linearity and $\mathbf{h}$ is the same layer *after* it. This is the
   $\mathbf{z} \to \mathbf{h} = g(\mathbf{z})$ pattern of [lecture 1's MLP](multilayer-perceptron.md).
-- **Layers.** $\mathbf{x}_l$ is the vector of neuron values on layer $l$, and
-  $\mathbf{x}_l[n]$ is its $n$-th neuron. For a layer with a spatial layout, such as a
-  convolutional feature map, $\mathbf{x}_l[n, m]$ indexes the neuron at position $(n, m)$. The
+- **Layers.** $\mathbf{x}_ l$ is the vector of neuron values on layer $l$, and
+  $\mathbf{x}_ l[n]$ is its $n$-th neuron. For a layer with a spatial layout, such as a
+  convolutional feature map, $\mathbf{x}_ l[n, m]$ indexes the neuron at position $(n, m)$. The
   representation at layer $l$ of the $i$-th datapoint is $\mathbf{x}_ {l}^{(i)}$.
-- **Batches.** In code-like settings an activation may be written $\mathbf{x}_l[b, c, n, m]$:
+- **Batches.** In code-like settings an activation may be written $\mathbf{x}_ l[b, c, n, m]$:
   $b$ indexes the element of the batch, $c$ the channel, and $n, m$ are spatial coordinates.
-- **Modules.** $\mathbf{x}_{\text{in}}$ and $\mathbf{x}_{\text{out}}$ are a particular layer's or
+- **Modules.** $\mathbf{x}_ {\text{in}}$ and $\mathbf{x}_ {\text{out}}$ are a particular layer's or
   module's input and output, when keeping track of layer indices would only get in the way.
 - **Channels come first.** For a signal with several channels the first dimension of the
   tensor indexes the channel: $\mathbf{x} \in \mathbb{R}^{C \times N \times M \times \cdots}$,

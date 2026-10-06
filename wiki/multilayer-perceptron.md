@@ -74,11 +74,11 @@ inputs nor the outputs (slide 42, ≈34:59). Writing out every unit of a layer a
 per-unit dot products $\mathbf{x}^T \mathbf{w}_ j$ into one matrix product, giving "this cleaner
 notation" (≈35:45):
 
-$$\mathbf{h} = g(\mathbf{W}_1 \mathbf{x} + \mathbf{b}_1) \qquad \mathbf{y} = g(\mathbf{W}_2 \mathbf{h} + \mathbf{b}_2)$$
+$$\mathbf{h} = g(\mathbf{W}_ 1 \mathbf{x} + \mathbf{b}_ 1) \qquad \mathbf{y} = g(\mathbf{W}_ 2 \mathbf{h} + \mathbf{b}_ 2)$$
 
 The parameters of an $L$-layer network are every layer's weights and biases (slide 43):
 
-$$\theta = \lbrace \mathbf{W}_1, \ldots, \mathbf{W}_L, \mathbf{b}_1, \ldots, \mathbf{b}_L \rbrace$$
+$$\theta = \lbrace \mathbf{W}_ 1, \ldots, \mathbf{W}_ L, \mathbf{b}_ 1, \ldots, \mathbf{b}_ L \rbrace$$
 
 **The non-linearity is what makes stacking worth doing.** Without it, "a linear layer and another
 linear layer, this is just a linear combination. It's still linear" (≈40:25–41:11): two stacked
@@ -88,7 +88,7 @@ linear maps are one linear map, and depth adds nothing.
 
 Slide 45 builds the smallest interesting case (≈38:49–40:25):
 
-$$\mathbf{z} = \mathbf{W}_1 \mathbf{x} + \mathbf{b}_1, \quad \mathbf{h} = g(\mathbf{z}), \quad z_3 = \mathbf{W}_2 \mathbf{h} + b_2, \quad y = \mathbf{1}(z_3 \gt 0)$$
+$$\mathbf{z} = \mathbf{W}_ 1 \mathbf{x} + \mathbf{b}_ 1, \quad \mathbf{h} = g(\mathbf{z}), \quad z_3 = \mathbf{W}_ 2 \mathbf{h} + b_2, \quad y = \mathbf{1}(z_3 \gt 0)$$
 
 with two inputs $x_1, x_2$, two hidden units $h_1, h_2$, and a thresholded output. The lecturer's
 geometric account: each hidden unit is its own ramp over the input plane, because each is a

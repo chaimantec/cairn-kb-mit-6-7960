@@ -1,0 +1,58 @@
+{
+  "kbVersion": 1,
+  "course": {
+    "code": "MIT 6.7960",
+    "title": "Deep Learning, Fall 2024",
+    "instructor": "Phillip Isola, Sara Beery, Jeremy Bernstein",
+    "term": "Fall 2024",
+    "catalogId": "04a24924-529a-4661-bce4-8237464254fa",
+    "courseUrl": "https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/"
+  },
+  "coverage": {
+    "lecturesCovered": 1,
+    "lecturesTotal": 24,
+    "transcripts": 1,
+    "wikiLecturePages": 1,
+    "wikiTopicPages": 10,
+    "note": "Lecture 1 only. lecturesTotal counts the catalog's 24 recordings: 23 lectures (numbered 1-21, 23, 24; there is no lecture 22) plus a PyTorch tutorial."
+  },
+  "license": {
+    "file": "LICENSE.md",
+    "repositoryWide": "CC-BY-NC-SA-4.0",
+    "summary": "The course is published on MIT OpenCourseWare under CC BY-NC-SA 4.0, and this repository (transcripts, slide transcriptions, slide images and wiki prose) is offered under the same licence. Third-party figures that OCW marks as excluded from its licence are described in prose only and never rendered into raw/images/."
+  },
+  "materials": {
+    "primary": "slides",
+    "slideDecks": { "available": 23, "transcribed": 1 },
+    "method": "page-images",
+    "figuresAudited": true,
+    "figureAudit": {
+      "decksAudited": 1,
+      "decksTotal": 1,
+      "note": "The one transcribed deck (lecture 1) had six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72) checked against the PDF by an independent reader at full-page resolution, with bar lengths measured in pixels: all six agreed, with three small corrections applied. Renders of slides 23, 45 and 70 were also checked against their descriptions."
+    },
+    "images": {
+      "lecturesWithImages": 1,
+      "lecturesWithoutImages": [],
+      "lecturesTotal": 1,
+      "files": 21,
+      "megabytes": 1.5,
+      "format": "whole slides rendered at 1400px, JPEG q85 or PNG whichever is smaller, named slide-N by PDF page number",
+      "discovery": "inline in wiki/ and raw/slides/; no index file",
+      "byLecture": { "1": 21 },
+      "note": "Lecture 1: 21 of 81 pages. Not rendered: the 22 slides carrying an OCW 'All rights reserved ... excluded from our Creative Commons license' notice, build steps superseded by a rendered slide, text/agenda/signpost slides, and slides mostly hidden by a lecture-pointer banner. The list is in AGENTS.md. No other lecture is in this KB yet, so no other lecture has images."
+    }
+  },
+  "provenance": {
+    "builtBy": ["claude-opus-5-5", "claude-sonnet-5-5"],
+    "caveats": [
+      "Covers lecture 1 of 24 only. The course map says which later lecture teaches a topic, but nothing here records what those lectures say.",
+      "Transcripts are OCW's human-made captions with a light copy-edit; every change is listed in the file header and the unedited text is in raw/transcripts/original/.",
+      "Lecture 1's deck labels later topics with 'Lecture N' banners that do not all match the recorded schedule (e.g. transformers 'Lecture 9', recorded as 8); wiki/course-map.md maps them.",
+      "Slides 45 and 70 of lecture 1 are animation frames clipped in OCW's PDF; their heat maps and batch matrices are not recoverable from the deck.",
+      "The lecture 1 deck's title slide reads '6.S898 Deep Learning, Fall 2022' - a reused deck, transcribed as printed."
+    ]
+  },
+  "entryPoint": "INDEX.md",
+  "updated": "2026-10-06"
+}

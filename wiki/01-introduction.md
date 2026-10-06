@@ -253,7 +253,7 @@ $1/(1+e^{-h})$, and the lecturer corrects it aloud: "the notation is wrong. It s
 
 The **ReLU**, $g(z) = \max(0, z)$ (slide 41), is unbounded above, which can contribute to
 exploding gradients, but "super efficient to implement" because its derivative is just a step.
-It also seems to speed up convergence: the AlexNet paper reported about a 6× speed-up over tanh.
+It also seems to speed up convergence: the AlexNet paper reported about a $6\times$ speed-up over tanh.
 Its drawback is that a unit stuck strongly in the negative region is "dead", with no gradient. It
 is "our default choice, and it's widely used in current models" (≈34:14).
 
@@ -276,9 +276,9 @@ a layer turns the per-unit dot products into a matrix product:
 
 *Slide 42 — stacking two layers: z and h are the hidden units, seen at neither the input nor the output.*
 
-$$\mathbf{h} = g(\mathbf{W}_1 \mathbf{x} + \mathbf{b}_1) \qquad \mathbf{y} = g(\mathbf{W}_2 \mathbf{h} + \mathbf{b}_2)$$
+$$\mathbf{h} = g(\mathbf{W}_ 1 \mathbf{x} + \mathbf{b}_ 1) \qquad \mathbf{y} = g(\mathbf{W}_ 2 \mathbf{h} + \mathbf{b}_ 2)$$
 
-and $\theta = \lbrace \mathbf{W}_1, \ldots, \mathbf{W}_L, \mathbf{b}_1, \ldots, \mathbf{b}_L \rbrace$, every
+and $\theta = \lbrace \mathbf{W}_ 1, \ldots, \mathbf{W}_ L, \mathbf{b}_ 1, \ldots, \mathbf{b}_ L \rbrace$, every
 layer's weights and biases (slide 43).
 
 ![Slide 43: a fully connected two-layer network — input x, hidden layer h, output y, with weights W1, W2 and biases b1, b2 on the connections — beside h = g(W1 x + b1), y = g(W2 h + b2) and θ = {W1…WL, b1…bL}.](../raw/images/01-introduction/slide-43.jpg)

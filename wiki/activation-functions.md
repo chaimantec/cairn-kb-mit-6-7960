@@ -54,15 +54,16 @@ The **rectified linear unit** (≈33:28–34:59):
 
 - **Unbounded on the positive side**, so values can grow large, which "can result in … exploding
   gradients".
-- **Efficient to implement**: the derivative is just a step,
-
-  $$\frac{\partial g}{\partial z} = \begin{cases} 0 & \text{if } z \lt 0 \cr 1 & \text{if } z \geq 0 \end{cases}$$
-
+- **Efficient to implement**: the derivative is just a step (given below the list).
 - **Seems to help convergence**: the AlexNet paper (Krizhevsky et al.) reported "something like a
   6x speed-up using a ReLU over using something like a tanh".
 - **Drawback: dead units.** "If you're strongly in the negative region, the unit's what we call
   dead. There is no gradient", and that component of the vector stops learning.
 - **The default**: "widely used in current models", with "lots of slight tweaks to this".
+
+The derivative, which is what makes ReLU cheap:
+
+$$\frac{\partial g}{\partial z} = \begin{cases} 0 & \text{if } z \lt 0 \cr 1 & \text{if } z \geq 0 \end{cases}$$
 
 ## How do you choose one?
 
