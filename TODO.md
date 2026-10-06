@@ -1,0 +1,61 @@
+# KB build — MIT 6.7960 (Deep Learning, Fall 2024)
+
+Catalog id `04a24924-529a-4661-bce4-8237464254fa`. Course site:
+<https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/>. Slide decks are linked from
+`lists/lecture-notes/` as `mit6_7960_f24_lecN.pdf`; there is **no lecture 22** in either the
+playlist or the deck list. Catalog positions 22 and 23 are therefore *Lec 23* and *Lec 24*, and
+position 24 is the PyTorch tutorial. Files use the lecture's own number (`23-…`, `24-…`), not
+the catalog position.
+
+Images are opted in: every figure-bearing slide, rendered per Step 1c.
+
+## Transcripts
+- [x] 01 Introduction to Deep Learning — video 6FkRvTtUc-o (OCW human captions; light copy-edit, verbatim in original/)
+- [ ] 02 How to Train a Neural Net — video vidCX_dMCu0
+- [ ] 03 Approximation Theory — video ySaoWrv3T_Q
+- [ ] 04 Architectures: Grids — video bxVkZ4M-hIE
+- [ ] 05 Architectures: Graphs — video 0niIwb37nF0
+- [ ] 06 Generalization Theory — video EiO8BBa-xdc
+- [ ] 07 Scaling Rules for Optimization — video VcGPE4s_oNw
+- [ ] 08 Architectures: Transformers — video Q1HOKrNeh2M
+- [ ] 09 Hacker's Guide to Deep Learning — video DC2Hw9DiLCg
+- [ ] 10 Architectures: Memory — video IiHknRHA-Gk
+- [ ] 11 Representation Learning: Reconstruction-Based — video QxOzQRtd440
+- [ ] 12 Representation Learning: Similarity-Based — video yUh1fEGGdl4
+- [ ] 13 Representation Learning: Theory — video -eC0-5mXHQg
+- [ ] 14 Generative Models: Basics — video hJlrAHqGOS8
+- [ ] 15 Generative Models: Representation Learning Meets Generative Modeling — video 8zzfcYIELdo
+- [ ] 16 Generative Models: Conditional Models — video zaMcHuJwe1w
+- [ ] 17 Generalization: Out-of-Distribution (OOD) — video tjD9LIzIIek
+- [ ] 18 Transfer Learning: Models — video tNfuZ9Imt3M
+- [ ] 19 Transfer Learning: Data — video RUdQMHV-7KM
+- [ ] 20 Scaling Laws — video 7hbf4klU3ks
+- [ ] 21 Language Models — video 9GWd3SAWLbA
+- [ ] 23 Metrized Deep Learning — video zBvsoxC6tAo
+- [ ] 24 Inference Methods for Deep Learning — video mbgFTqKxR7A
+- [ ] PyTorch Tutorial — video o5gPABcGZwc (no deck)
+
+## Crawl
+- [x] Fetch course site index: https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/
+- [x] Download linked PDFs and slides (23 decks, 5 psets, hw5 solution, notation handout; 206MB, gitignored)
+- [x] Write sources.md
+
+## Slides (raw/slides/)
+- [ ] 01 Introduction to Deep Learning — mit6_7960_f24_lec1.pdf
+
+## Wiki
+- [ ] wiki/01-introduction.md
+- [ ] Topic pages (cross-lecture concepts) for lecture 1
+- [ ] INDEX.md table of contents
+
+## Images
+- [ ] raw/images/01-introduction/ — rank, pick, render, embed in the wiki and slide files
+- [ ] AGENTS.md — the Images conventions section
+
+## Publish
+- [x] LICENSE.md — OCW CC BY-NC-SA 4.0 attribution
+- [ ] kb.json — coverage, materials.method, provenance caveats
+- [ ] SEE_ALSO.md, if a sibling KB is genuinely relevant
+- [ ] verify_kb.py clean, and its review section read
+- [ ] Commit and push
+- [ ] PATCH kbUrl onto the catalog entry
