@@ -71,4 +71,4 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 2: verify_kb.py clean, review read; commit and push
 - [x] Lecture 3: apply the Opus figure audit
 - [x] Lecture 3: INDEX, AGENTS, kb.json, SEE_ALSO updated
-- [ ] Lecture 3: verify_kb.py clean, review read; commit and push
+- [x] Lecture 3: verify_kb.py clean, review read; commit and push
