@@ -75,3 +75,9 @@ these problems are unsolved" (≈1:16:34).
 
 For a full treatment of the Kaplan-versus-Chinchilla dispute from another course, see the CS336
 knowledge base listed in [SEE_ALSO](../SEE_ALSO.md).
+
+## Not the same as scaling rules
+
+Lecture 7, "Scaling Rules for Optimization", is about a different question: how to initialize and update a
+network so that the best learning rate does not change as it is made wider, and so that it still trains
+as it is made deeper. See [scaling rules](scaling-rules.md).

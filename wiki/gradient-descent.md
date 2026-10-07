@@ -6,7 +6,9 @@ backpropagation, how gradients reach every parameter, the choice of step size �
 which reviews the algorithm and its stochastic and momentum variants. Covered so far:
 [lecture 1](01-introduction.md), slides 26–30 and 64–66, ≈24:05–25:37;
 [lecture 2](02-how-to-train-a-neural-net.md), slides 4–11, ≈0:45–10:54; [lecture 6](06-generalization-theory.md),
-slide 61 and ≈35:34–40:10, on what the optimizer adds to generalization. For the
+slide 61 and ≈35:34–40:10, on what the optimizer adds to generalization;
+[lecture 7](07-scaling-rules-for-optimization.md), slides 4–7 and 16–18, ≈3:06–13:55 and
+≈33:37–39:53, which derives gradient descent as steepest descent in the Euclidean norm. For the
 symbols see [notation](notation.md).
 
 ## Learning as optimization
@@ -132,3 +134,29 @@ landscapes](loss-landscapes.md)). Because the optimizer is random (random initia
 mini-batches), clean statements about which solution it reaches are hard; one makes empirical ones, "if
 we run this neural network over and over again with the Adam optimizer, or the SGD optimizer, here's what
 we observe", or probabilistic ones (≈35:34–36:20).
+
+## Gradient descent as steepest descent (lecture 7)
+
+Lecture 7 writes the problem with an average rather than a sum,
+$\mathcal{L}(\mathbf{w}) = \frac{1}{N} \sum_{i=1}^{N} \ell(f(\mathbf{x}^{(i)}, \mathbf{w}), y^{(i)})$, where $\ell$ is an error measure such as
+cross-entropy or square error and $\mathbf{w}$ the weights (slide 4), and the step as
+$\mathbf{w} \to \mathbf{w} - \eta \thinspace \partial \mathcal{L} / \partial \mathbf{w}$ (slide 5). Of
+the three things that make it hard (a lot of weights, a lot of layers, and a lot of data, which forces
+mini-batches), the lecture sets the noise aside and studies **full-batch** optimization, "it's already
+interesting" (slide 6, ≈6:11–7:45).
+
+It then asks where the update rule comes from. Expand the loss to first order around the current
+weights, replace everything beyond the linear term by a penalty
+$\frac{\lambda}{2} \Vert \Delta \mathbf{w} \Vert^2$, and minimize. With the Euclidean norm the answer is
+$\Delta \mathbf{w} = -\frac{1}{\lambda} \mathbf{g}$, "vanilla gradient descent!" with learning rate
+$1/\lambda$ (slide 17, ≈37:35). With the infinity norm the same recipe gives **sign gradient descent**,
+$\Delta \mathbf{w} = -\frac{\Vert \mathbf{g} \Vert_ 1}{\lambda} \operatorname{sign}(\mathbf{g})$ (slide 18).
+So the gradient direction is the best direction only if distances in weight space are Euclidean: "when
+you say the best direction is the gradient direction, I'm trying to say that you're thinking Euclidean"
+(≈47:38). See [steepest descent](steepest-descent.md).
+
+Second-order alternatives exist, Newton's method and Gauss-Newton among them, "but then in practice, we
+just use Adam to train neural networks" (≈21:05); see [second-order methods](second-order-methods.md).
+And the learning rate that works best is not stable as a network grows: naively, the optimal learning
+rate drifts as width increases, so it has to be retuned at every size (slide 7, ≈8:30–10:04). Lecture 7's
+fix is to measure and normalize each update in the right norm; see [scaling rules](scaling-rules.md).

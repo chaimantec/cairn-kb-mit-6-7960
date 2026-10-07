@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–6 of 24 only.** This knowledge base currently holds the first six
+> **Coverage: lectures 1–7 of 24 only.** This knowledge base currently holds the first seven
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
-> Architectures: Grids; Architectures: Graphs; Generalization Theory) and the concept pages they
-> support. For anything taught in lectures 7–24, it can tell you *which* lecture covers it — see the
-> [course map](wiki/course-map.md) — but not *what* that lecture says. Do not cite it as the course
-> beyond lecture 6. Build progress is in
+> Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
+> Optimization) and the concept pages they support. For anything taught in lectures 8–24, it can
+> tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
+> that lecture says. Do not cite it as the course beyond lecture 7. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -83,6 +83,19 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   map, the low-rank bias of depth, implicit regularization by optimizers (weight decay,
   initialization, flat minima), architectural symmetries, domain constraints; and Ilya Sutskever's
   "anything finite will look small". 8 of its slides are excluded from OCW's licence.
+- [Lecture 7 — Scaling Rules for Optimization](wiki/07-scaling-rules-for-optimization.md) — Jeremy
+  Bernstein, handwritten deck. The optimization piece of the puzzle; the loss as an average of an
+  error measure composed with a network; size, depth and noise as what makes it hard, and full-batch
+  optimization; the scaling woes (the optimal learning rate drifts with width, deeper performs worse);
+  classical methods from a Taylor expansion — Newton's method ($-\mathbf{H}^{-1}\mathbf{g}$, too big,
+  may find a maximum), the Gauss-Newton decomposition into curvature of the error and of the model and
+  the Gauss-Newton method, why backpropagation never forms $\partial f / \partial \mathbf{w}$, and
+  steepest descent (Euclidean norm gives gradient descent, infinity norm gives sign gradient descent,
+  the dual-norm formula); why a non-Euclidean norm (the squeezed map); "in which norm?"; the neural,
+  tensor and spectral perspectives; the spectral norm and the RMS-RMS operator norm; the width rule
+  (RMS-RMS norm about 1 at initialization and for every update); depth and the $1/L$ versus
+  $1/\sqrt{L}$ residual multiplier; the lecturer's modular theory (modules with a norm); references;
+  and what problem set 2 asks. 3 of its slides are excluded from OCW's licence.
 
 ## Course pages
 
@@ -91,7 +104,8 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   (several differ — e.g. transformers are lecture 8, not 9). Covers grading (65% problem sets,
   35% blog-post final project), compute, PyTorch, the collaboration rules and the AI-assistant
   policy; and which problem set goes with which lecture where a lecture says (lecture 5's
-  graph-network questions are Homework 2's, which went out at lecture 6).
+  graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
+  Homework 2's, which went out at lecture 6).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -111,7 +125,8 @@ passages it draws on.
   connected layer that a convolution constrains (lecture 4); an MLP on an adjacency matrix is not
   permutation invariant, and an MLP is a graph net over a single node (lecture 5); how an MLP
   interpolates between training points where a memorizing "filing cabinet" cannot, and its last
-  layer as regression on features (lecture 6).
+  layer as regression on features (lecture 6); the neural, tensor and spectral perspectives on a
+  network (lecture 7).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
@@ -123,23 +138,46 @@ passages it draws on.
   rate, why differentiability matters, black-box versus first- and second-order optimization,
   stochastic gradient descent and batch size, momentum (and Adam), the plus-sign update convention,
   and when to stop ("just train forever", lecture 6); what the optimizer prefers — weight decay,
-  initialization near zero and flat minima (lecture 6).
+  initialization near zero and flat minima (lecture 6); gradient descent derived as steepest descent
+  in the Euclidean norm, sign gradient descent, and full-batch optimization (lecture 7).
+- [Steepest descent](wiki/steepest-descent.md) — lecture 7's first-order method: replace the
+  non-linear part of the Taylor expansion with $\frac{\lambda}{2} \Vert \Delta \mathbf{w} \Vert^2$
+  and minimize; the Euclidean norm gives gradient descent ($-\mathbf{g}/\lambda$), the infinity norm
+  sign gradient descent, any norm a step size $\Vert \mathbf{g} \Vert^{\dagger} / \lambda$ times a
+  step direction (the dual norm); steepest descent for matrices and the spectral norm in problem set 2;
+  no guarantee unless the model is an upper bound; and why another norm — the squeezed map,
+  preconditioning, where the linear term breaks down.
+- [Second-order methods](wiki/second-order-methods.md) — first- versus second-order (lecture 2); the
+  Taylor expansion, linearization and non-linear part; Newton's method $-\mathbf{H}^{-1}\mathbf{g}$ and
+  its problems (a $d \times d$ Hessian, heading for a maximum, cubic regularization); the Gauss-Newton
+  decomposition into curvature of the error and of the model, the Gauss-Newton method and its
+  problems; and why the extra derivatives and the matrix inversion are expensive (lecture 7).
+- [Norms](wiki/norms.md) — "in which norm?": Euclidean, RMS, infinity, $\ell_1$, $\ell_p$ and weighted
+  norms (and why KL is not one); dual norms; Frobenius, spectral, nuclear and Schatten $p$-norms;
+  induced operator norms, the spectral norm and the RMS-RMS operator norm
+  ($\sqrt{d_{\text{in}}/d_{\text{out}}}$ times the spectral norm); parameter norm as a complexity
+  measure (lecture 6); composing norms across modules (lecture 7). Spans lectures 3, 6 and 7.
 - [Backpropagation](wiki/backpropagation.md) — computation graphs, the shape rules and chain
   rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
   and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
   the linear layer's three products, the ReLU as a gating matrix, why the backward pass is linear,
   memory, merge and branch rules for DAGs, parameter sharing, and the worked example's numbers;
-  graph neural networks trained by backpropagating through unrolled message passing (lecture 5).
+  graph neural networks trained by backpropagating through unrolled message passing (lecture 5); why
+  backpropagation never forms the network's output Jacobian $\partial f / \partial \mathbf{w}$, and
+  forward mode (lecture 7).
 - [Loss landscapes](wiki/loss-landscapes.md) — differentiable versus "has a PyTorch gradient"
   versus easy to optimize; the six toy cases (convex, discontinuous, vanishing, zero and exploding
   gradient, local minima) and what gradient descent does on each; random seeds; evolution
   strategies and gradient clipping; continuous, differentiable and smooth as a design criterion;
-  why fixed-step gradient descent finds flat minima, argued to generalize better (lecture 6).
+  why fixed-step gradient descent finds flat minima, argued to generalize better (lecture 6);
+  linearization and non-linear part, Newton's method heading for a maximum, a non-isotropic weight
+  space, and the loss-versus-learning-rate curves that drift with width (lecture 7).
 - [Differentiable programming](wiki/differentiable-programming.md) — programs as computation
   graphs, the LeCun and Dietterich posts, human-programmed versus backprop-programmed parts
   (Neural Module Networks, Software 2.0, feature engineering), what PyTorch needs from an operation,
   and optimizing inputs: unit visualization, DeepDream and CLIP+GAN; learned versus hand-crafted
-  filters, and using an encoder or decoder on its own (lecture 4).
+  filters, and using an encoder or decoder on its own (lecture 4); modules that carry a norm as well
+  as a forward and a backward, in the lecturer's modular theory (lecture 7).
 - [Softmax and cross-entropy](wiki/softmax-and-cross-entropy.md) — argmax readout, one-hot
   labels, $H(y, \hat{y}) = -\sum_k y_k \log \hat{y}_ {k}$, the "how much better you could have done"
   reading of the loss, the clown fish / grizzly / chameleon examples, and the "scores, not
@@ -163,11 +201,18 @@ passages it draws on.
 - [Lipschitz continuity](wiki/lipschitz-continuity.md) — $|g(x + \Delta x) - g(x)| \le L |\Delta x|$,
   the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
   (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
-  in lecture 3's proof.
+  in lecture 3's proof; the RMS norm reused for the RMS-RMS operator norm (lecture 7).
 - [Scaling laws](wiki/scaling-laws.md) — as lecture 3 presents them: Kaplan, McCandlish et al.
   (2020)'s power laws in compute, data and parameters, their finding that width versus depth
   barely matters at fixed parameter count, and Chinchilla as an example of confounders. Previews
-  lecture 20.
+  lecture 20. Not the same as lecture 7's scaling *rules* (below).
+- [Scaling rules](wiki/scaling-rules.md) — lecture 7's answer to "the optimal learning rate drifts"
+  and "deeper performs worse": hyperparameter transfer, the Goldilocks update and "in which norm?",
+  the width rule ($\Vert \mathbf{W}_ \ell \Vert_{\text{RMS-RMS}} \sim 1$ at initialization and
+  $\Vert \Delta \mathbf{W}_ \ell \Vert_{\text{RMS-RMS}} \sim 1$ for updates) with why it works and
+  what it does not guarantee, problem set 2's version for sign gradient descent, the $1/L$ residual
+  multiplier and $(1 + x/L)^L \to e^x$ against the $1/\sqrt{L}$ of standard transformers, the
+  modular theory, and the references.
 - [Generalization and double descent](wiki/generalization-and-double-descent.md) — why
   over-parameterized nets don't just memorize, the classical U-curve against double descent
   (Belkin et al., 2019), the interpolation threshold, capacity versus data, and the simplicity
@@ -203,7 +248,8 @@ passages it draws on.
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
-  learning its own depth (lecture 4); previews transformers.
+  learning its own depth (lecture 4); previews transformers. How much each residual block should
+  contribute, $1/L$ or $1/\sqrt{L}$ (lecture 7).
 - [Neural fields and positional encoding](wiki/neural-fields-and-positional-encoding.md) — why and
   how to break shift invariance with a constructed positional encoding, neural fields as networks
   from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
@@ -229,7 +275,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–6 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–7 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

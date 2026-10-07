@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md) and [lecture 7](07-scaling-rules-for-optimization.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -32,7 +32,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 4 | Architectures: Grids | [yes](04-architectures-grids.md) |
 | 5 | Architectures: Graphs | [yes](05-architectures-graphs.md) |
 | 6 | Generalization Theory | [yes](06-generalization-theory.md) |
-| 7 | Scaling Rules for Optimization | not yet |
+| 7 | Scaling Rules for Optimization | [yes](07-scaling-rules-for-optimization.md) |
 | 8 | Architectures: Transformers | not yet |
 | 9 | Hacker's Guide to Deep Learning | not yet |
 | 10 | Architectures: Memory | not yet |
@@ -116,6 +116,15 @@ lecture 7; generative and image-to-image models "a little bit later in the cours
 14–16; language models and prompting "later" (≈16:11), lecture 21; kernels "in the representation learning
 lectures" (≈1:06:45), lectures 11–13; and architectural symmetries "in transformers" (≈1:15:19), lecture 8.
 
+Lecture 7's handwritten deck reads "6.7960 :: Lecture 7" on its title slide, matching the recording, which settles
+lecture 1's "Lecture 6: Scaling Rules for Optimization" banner (the row above). It prints no other lecture
+number. Its recording points back to the puzzle's other two pieces, approximation and generalization
+(lectures 3 and 6, ≈1:31), and to the RMS norm "from my other lecture" (lecture 3, ≈1:00:05), and ahead
+without numbers to implementing a transformer and its layer norm, "I think at some point you'll do this"
+(≈1:00:51), and to "a transformer code base, which I think later in the class we actually do" (≈1:13:20).
+Transformers are lecture 8 above. Nothing in it says whether the lecturer's lecture 23 continues its modular
+theory.
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -150,7 +159,11 @@ problem set, "a two-week problem set", was due the following Tuesday (≈3:06–
 Tuesday, confirms it: "Problem set one is due today. Problem set two goes out today", posted after the
 lecture as every problem set is (≈0:00–0:46). The lecturer recommends reading problem set 2's first
 question before Thursday's lecture (lecture 7), "because it can help motivate … what we'll see on
-Thursday"; on OCW, Homework 2's first question is "Steepest descent" (9 points).
+Thursday"; on OCW, Homework 2's first question is "Steepest descent" (9 points). Lecture 7, that Thursday,
+refers to "the homework" throughout: the steepest-descent solutions under the infinity norm and a general
+norm, the bonus upper bound for a linear predictor, and the RMS-RMS normalization are all "on the homework"
+(≈39:07, ≈41:27, ≈44:33, ≈1:02:24). Those are Homework 2's "Steepest descent" part and its
+"Hyperparameter transfer" part (6 points), whose learning-rate question begins "We saw in lecture 7".
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

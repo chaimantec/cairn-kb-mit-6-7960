@@ -7,7 +7,8 @@ rule in software" (≈20:15). Lecture 2 derives it from the chain rule, for a ch
 linear layer, a ReLU, a whole MLP and any directed acyclic graph. Covered so far:
 [lecture 1](01-introduction.md) in passing; [lecture 2](02-how-to-train-a-neural-net.md), slides
 26–55 and the worked example on slides 72–80, ≈27:16–57:27; [lecture 5](05-architectures-graphs.md)
-in passing, for graph neural networks (≈53:31–54:20). For the symbols, see
+in passing, for graph neural networks (≈53:31–54:20); [lecture 7](07-scaling-rules-for-optimization.md),
+on what backpropagation never computes (≈28:59–32:49). For the symbols, see
 [notation](notation.md).
 
 ## The setting: a computation graph
@@ -176,3 +177,17 @@ the input itself. That is the basis of feature visualization and CLIP-guided ima
 [differentiable programming](differentiable-programming.md). In practice frameworks do the
 bookkeeping: PyTorch "has autograd", which calculates gradients "for any function" built from
 torch operations, each of which must define its gradient (≈11:40, ≈1:16:12).
+
+## What backpropagation never computes (lecture 7)
+
+Lecture 7 points out what backpropagation avoids. The Gauss-Newton method needs
+$\partial f / \partial \mathbf{w}$, the derivative of the network's *output* with respect to every
+weight, and a student asked why that is extra work. "Because you do the gradient by backpropagation, you
+never explicitly form $df/dw$ … you start from the end of the network and work backwards" (≈28:59). The
+network may output a tensor, and $\partial f / \partial \mathbf{w}$ holds a derivative of each of its
+components with respect to all the weights, "a bigger tensor than the gradient … And backpropagation
+allows you to do that, because you only ever track derivatives with respect to the loss, which is a single
+number" (≈32:04–32:49). Forward-mode automatic differentiation would produce both, "but it's much more
+expensive". The lecturer recommends implementing backprop yourself once: because packages are so
+automated, "you can actually have a whole career without ever implementing backprop or thinking about what
+gradients look like". See [second-order methods](second-order-methods.md).

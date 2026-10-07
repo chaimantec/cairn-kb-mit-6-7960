@@ -11,7 +11,8 @@ slides 3, 26 and 30 (the MLP's strengths and weaknesses as an architecture, and 
 layer that a convolution constrains); [lecture 5](05-architectures-graphs.md), slides 11, 22 and 23 (why an MLP
 on an adjacency matrix is not permutation invariant, and the MLP as a graph net over a single node);
 [lecture 6](06-generalization-theory.md), slide 8 and ≈40:10–40:58 (how an MLP fits between its
-training points, and its last layer as a weighted sum of features). See also [activation functions](activation-functions.md),
+training points, and its last layer as a weighted sum of features); [lecture 7](07-scaling-rules-for-optimization.md),
+slide 22 and ≈53:51–56:11 (the neural, tensor and spectral perspectives). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -198,3 +199,14 @@ functions, of some features. So every neuron on the previous layer is a feature 
 features give polynomial regression, sines and cosines give Fourier features, "and in deep learning,
 they'll be learned functions" (≈40:10–40:58). See [generalization and double
 descent](generalization-and-double-descent.md).
+
+## Three perspectives on a network (lecture 7)
+
+Lecture 7 describes three ways of seeing the same layers (slide 22, ≈53:51–55:26). The **neural
+perspective** sees nodes connected by edges. The **tensor perspective** recognizes a weight matrix, then a
+ReLU, acting on a vector, "and now, I'd start to describe my neural network as like matrix
+multiplications". The **spectral perspective** writes every weight matrix through its singular value
+decomposition, drawn as orthogonal, diagonal and semi-orthogonal factors: "not every matrix has
+eigenvalue decomposition, but every matrix has a singular value decomposition". The point is not to train
+in that form, but to picture training as changing the singular values, by neither too much nor too little
+each step. See [norms](norms.md) and [scaling rules](scaling-rules.md).

@@ -3,7 +3,8 @@
 A way of saying how fast a function can change. Lecture 3 introduces it to choose the family of
 functions its approximation theorem covers, and the lecturer thinks it is "nice to teach you about
 Lipschitz functions regardless of neural net approximation" (≈9:16). Covered so far:
-[lecture 3](03-approximation-theory.md), slides 8–10 and 12–14.
+[lecture 3](03-approximation-theory.md), slides 8–10 and 12–14; [lecture 7](07-scaling-rules-for-optimization.md),
+slide 24, ≈59:18–1:02:24, which reuses the RMS norm.
 
 On this page, as in lecture 3, $L$ is the **Lipschitz constant**, not the loss of the
 [course notation](notation.md).
@@ -73,3 +74,12 @@ the same error. That is where the $(L/\epsilon)^d$ in the theorem of slide 10 co
 The family is also a way of excluding pathological functions. Slide 7 says the family of curves
 should "exclude pathological functions" such as Weierstrass's function, which is continuous
 everywhere and differentiable nowhere (slide 6).
+
+## The RMS norm again (lecture 7)
+
+Lecture 7 picks the RMS norm back up, "from my other lecture" (≈1:00:05), as the natural way to measure a
+layer's activations: a unit RMS norm means each coordinate is around 1, and transformers enforce it under
+the name layer norm. Using it on a matrix's input and output gives the **RMS-RMS operator norm**, the most
+a matrix can change the RMS norm of a vector passing through it (slide 24), which lecture 7 uses to scale
+a network's initialization and updates with width. See [norms](norms.md) and [scaling
+rules](scaling-rules.md).

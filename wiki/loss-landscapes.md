@@ -5,7 +5,9 @@ Gradient descent walks downhill on it, so its shape decides whether training is 
 unstable or stuck. Lecture 1 draws one (slide 28); lecture 2 takes six one-parameter toy losses
 apart, one failure at a time, and shows two fixes. Covered so far: [lecture 1](01-introduction.md),
 slide 28; [lecture 2](02-how-to-train-a-neural-net.md), slides 7 and 10–25, ≈3:54–26:31; [lecture 6](06-generalization-theory.md),
-slide 61, ≈1:14:30–1:15:19, on flat minima.
+slide 61, ≈1:14:30–1:15:19, on flat minima; [lecture 7](07-scaling-rules-for-optimization.md),
+slides 7, 10 and 12, ≈10:04 and ≈20:20–21:05 and ≈47:38–50:45, on curvature and on directions in weight
+space that are not alike.
 
 ## Differentiable is not the same as easy
 
@@ -98,3 +100,23 @@ parameter space". These "can be argued to generalize better than these narrow mi
 might be more like just a weird solution that got lucky". The slide points to Vardi (2022) for a review,
 and the lecturer leaves the arguments to the papers. See [generalization and double
 descent](generalization-and-double-descent.md).
+
+## Curvature, and directions that are not alike (lecture 7)
+
+Lecture 7 describes the landscape locally by its Taylor expansion: the gradient gives the
+**linearization**, and the Hessian and higher terms the **non-linear part** (slide 10). Newton's method
+jumps to the critical point of the quadratic model, and since that "is just finding a critical point of
+the quadratic form. If it's close to a max, it could find a maximum" (slide 12, ≈20:20–21:05); see
+[second-order methods](second-order-methods.md).
+
+It also argues that the landscape need not look the same in every direction. A map of the US squeezed in
+Photoshop, where a centimetre east-west is thousands of miles and a centimetre north-south is ten, is the
+picture: "in deep learning, because of the architecture of the network and so on, it may not have that
+property that different directions in the weight space are equal to each other — may be a very
+non-isotropic space" (≈47:38–48:25). Equivalently, the linear approximation "may break down at a
+different rate going in different directions", and choosing a norm for the step is a way of saying how
+fast (≈49:58). See [steepest descent](steepest-descent.md).
+
+The lecture's other view of a landscape is training loss as a function of the learning rate. On slide 7
+those curves shift as a network is widened, so that "the whole loss kind of landscape as a function of
+step size is kind of drifting" (≈10:04); see [scaling rules](scaling-rules.md).

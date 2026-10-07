@@ -8,7 +8,9 @@ pushing the gradients through to?" (≈24:50) and assigns it to lecture 2, which
 computation graphs and [backpropagation](backpropagation.md). Covered so far:
 [lecture 1](01-introduction.md), slide 2; [lecture 2](02-how-to-train-a-neural-net.md), slides 26
 and 56–70, ≈27:16–29:36 and ≈57:27–1:12:21; [lecture 4](04-architectures-grids.md), ≈54:56–56:30
-and ≈1:02:00 (learned versus hand-crafted filters, and using an encoder or decoder on its own).
+and ≈1:02:00 (learned versus hand-crafted filters, and using an encoder or decoder on its own);
+[lecture 7](07-scaling-rules-for-optimization.md), slides 28–30, ≈1:15:37–1:19:28 (modules that carry a
+norm as well as a forward and a backward).
 
 ## Programs as computation graphs
 
@@ -105,3 +107,14 @@ The lecture's summary of the whole idea: "all these trapezoids are neural networ
 them together. You can take the components trained in one way and use them in another way. Really,
 the idea is you can optimize modules with respect to all the other modules, and the world's your
 oyster" (≈1:06:52).
+
+## Modules with a norm (lecture 7)
+
+Lecture 7's lecturer extends the module idea in his own research, presented with "so be skeptical". A
+**module** takes weights and inputs to outputs, as a PyTorch module does, and covers anything from a ReLU
+(with no weights) to a whole transformer. Besides `M.forward` and `M.backward`, each module gets
+`M.norm`, a function from its weights to a number (slides 28–29). Atomic modules (Linear, Embedding,
+Conv2D, ReLU) have all three written by hand, and combination rules build the rest: composing two modules
+composes their forwards, and the chain rule gives the backward. How to compose their norms is the open
+question, and answering it would let any architecture built this way come with the norm its optimizer
+should use (slide 30, ≈1:18:42–1:19:28). See [scaling rules](scaling-rules.md#a-modular-theory).

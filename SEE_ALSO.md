@@ -40,10 +40,13 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   KB: `https://github.com/chaimantec/cairn-kb-cs336` — pass this as `kb`.
 
   The systems-and-scale side. Lecture 1 here previews **scaling** (slides 78–79: scaling rules
-  for optimization, scaling laws), recorded as 6.7960 lectures 7 and 20, which this KB does not yet
-  cover. CS336 has two lectures on scaling laws (its lectures 9 and 11), a page on
-  [learning-rate scaling and muP](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/learning-rate-scaling-and-mup.md),
-  and lectures on GPUs and parallelism — useful for "why do GPUs matter" beyond lecture 1's
+  for optimization, scaling laws), recorded as 6.7960 lectures 7 and 20. Lecture 7 is in this KB:
+  its own account of why the best learning rate drifts with width and how normalizing updates in the
+  RMS-RMS operator norm is meant to fix it. CS336's page on
+  [learning-rate scaling and muP](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/learning-rate-scaling-and-mup.md)
+  is a second treatment of learning-rate transfer, from a course that trains language models; use
+  lecture 7 here first for this course's version. Lecture 20 is not yet covered here, and CS336 has
+  two lectures on scaling laws (its lectures 9 and 11), and lectures on GPUs and parallelism — useful for "why do GPUs matter" beyond lecture 1's
   one-paragraph answer. Lecture 3 here shows Kaplan et al.'s scaling laws and the Chinchilla
   paper on two slides, to argue that width versus depth is hard to settle experimentally; CS336's
   [lecture 9](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/09-scaling-laws.md)

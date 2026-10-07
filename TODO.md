@@ -16,7 +16,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 04 Architectures: Grids — video bxVkZ4M-hIE (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 05 Architectures: Graphs — video 0niIwb37nF0 (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 06 Generalization Theory — video EiO8BBa-xdc (OCW human captions; light copy-edit, verbatim in original/)
-- [ ] 07 Scaling Rules for Optimization — video VcGPE4s_oNw
+- [x] 07 Scaling Rules for Optimization — video VcGPE4s_oNw (OCW human captions; light copy-edit, verbatim in original/)
 - [ ] 08 Architectures: Transformers — video Q1HOKrNeh2M
 - [ ] 09 Hacker's Guide to Deep Learning — video DC2Hw9DiLCg
 - [ ] 10 Architectures: Memory — video IiHknRHA-Gk
@@ -47,6 +47,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 04 Architectures: Grids — mit6_7960_f24_lec4.pdf (84 pages; read by Sonnet, audited by Opus on 24 pages)
 - [x] 05 Architectures: Graphs — mit6_7960_f24_lec5.pdf (47 pages; read by Sonnet, audited by Opus on 27 pages)
 - [x] 06 Generalization Theory — mit6_7960_f24_lec6.pdf (66 pages; read by Sonnet, audited by Opus on 30 pages)
+- [x] 07 Scaling Rules for Optimization — mit6_7960_f24_lec7.pdf (32 pages, handwritten; read by Sonnet, audited by Opus on 24 pages)
 
 ## Wiki
 - [x] wiki/01-introduction.md
@@ -55,12 +56,14 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] wiki/04-architectures-grids.md
 - [x] wiki/05-architectures-graphs.md
 - [x] wiki/06-generalization-theory.md
+- [x] wiki/07-scaling-rules-for-optimization.md
 - [x] Topic pages (cross-lecture concepts) for lecture 1
 - [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
 - [x] Topic pages for lecture 3: lipschitz-continuity, scaling-laws new; representational-power rewritten; MLP, activations, generalization, course-map extended
 - [x] Topic pages for lecture 4: convolution, inductive-bias, skip-connections, neural-fields-and-positional-encoding new; MLP, activations, generalization, representation-learning, tensors-and-batching, differentiable-programming, representational-power, course-map extended
 - [x] Topic pages for lecture 5: graph-neural-networks new; inductive-bias, convolution, representational-power, neural-fields-and-positional-encoding, multilayer-perceptron, backpropagation, course-map extended
 - [x] Topic pages for lecture 6: generalization-and-double-descent and inductive-bias extended in depth; gradient-descent, loss-landscapes, representation-learning, multilayer-perceptron, convolution, graph-neural-networks, neural-fields-and-positional-encoding, representational-power, course-map extended
+- [x] Topic pages for lecture 7: steepest-descent, second-order-methods, norms, scaling-rules new; gradient-descent, loss-landscapes, skip-connections, lipschitz-continuity, backpropagation, multilayer-perceptron, differentiable-programming, scaling-laws, course-map extended
 - [x] INDEX.md table of contents
 
 ## Images
@@ -70,6 +73,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] raw/images/04-architectures-grids/ — 31 images; 35 OCW-excluded slides and slides 50–52 (reused excluded photo) never rendered
 - [x] raw/images/05-architectures-graphs/ — 19 images; 14 OCW-excluded slides never rendered
 - [x] raw/images/06-generalization-theory/ — 28 images; 8 OCW-excluded slides and slide 62 (reuses lecture 4's excluded bird photo) never rendered
+- [x] raw/images/07-scaling-rules-for-optimization/ — 9 images; 3 OCW-excluded slides (7, 25, 26) never rendered
 - [x] AGENTS.md — the Images conventions section
 
 ## Publish
@@ -93,3 +97,6 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 6: apply the Opus figure audit
 - [x] Lecture 6: INDEX, AGENTS, kb.json updated
 - [x] Lecture 6: verify_kb.py clean, review read; commit and push
+- [x] Lecture 7: apply the Opus figure audit
+- [x] Lecture 7: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 7: verify_kb.py clean, review read; commit and push
