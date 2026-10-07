@@ -6,7 +6,8 @@ topic the course will teach, and credits frameworks such as PyTorch with impleme
 rule in software" (≈20:15). Lecture 2 derives it from the chain rule, for a chain of layers, a
 linear layer, a ReLU, a whole MLP and any directed acyclic graph. Covered so far:
 [lecture 1](01-introduction.md) in passing; [lecture 2](02-how-to-train-a-neural-net.md), slides
-26–55 and the worked example on slides 72–80, ≈27:16–57:27. For the symbols, see
+26–55 and the worked example on slides 72–80, ≈27:16–57:27; [lecture 5](05-architectures-graphs.md)
+in passing, for graph neural networks (≈53:31–54:20). For the symbols, see
 [notation](notation.md).
 
 ## The setting: a computation graph
@@ -143,6 +144,11 @@ A DAG is then "just chains, where sometimes they merge, and sometimes they branc
 sum of the gradients from every use — "Parameter sharing —> sum gradients" (slide 55, ≈56:42). The
 lecture defers the derivation of why branching sums to the lecture notes (≈55:55) and office
 hours (≈1:15:24).
+
+Graph neural networks (lecture 5) are trained the same way. Their message passing is the forward
+pass, not an optimization: "So how would you train that? You just backpropagate through this
+computation graph. Nothing different" (≈53:31–54:20). Every node in a layer uses the same aggregation
+and update functions, a case of parameter sharing. See [graph neural networks](graph-neural-networks.md).
 
 ## A worked example
 

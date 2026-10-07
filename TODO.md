@@ -14,7 +14,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 02 How to Train a Neural Net — video vidCX_dMCu0 (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 03 Approximation Theory — video ySaoWrv3T_Q (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 04 Architectures: Grids — video bxVkZ4M-hIE (OCW human captions; light copy-edit, verbatim in original/)
-- [ ] 05 Architectures: Graphs — video 0niIwb37nF0
+- [x] 05 Architectures: Graphs — video 0niIwb37nF0 (OCW human captions; light copy-edit, verbatim in original/)
 - [ ] 06 Generalization Theory — video EiO8BBa-xdc
 - [ ] 07 Scaling Rules for Optimization — video VcGPE4s_oNw
 - [ ] 08 Architectures: Transformers — video Q1HOKrNeh2M
@@ -45,16 +45,19 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 02 How to Train a Neural Net — mit6_7960_f24_lec2.pdf (81 pages; figure audit 8 pages)
 - [x] 03 Approximation Theory — mit6_7960_f24_lec3.pdf (43 pages, handwritten; read by Sonnet, audited by Opus on 19 pages)
 - [x] 04 Architectures: Grids — mit6_7960_f24_lec4.pdf (84 pages; read by Sonnet, audited by Opus on 24 pages)
+- [x] 05 Architectures: Graphs — mit6_7960_f24_lec5.pdf (47 pages; read by Sonnet, audited by Opus on 27 pages)
 
 ## Wiki
 - [x] wiki/01-introduction.md
 - [x] wiki/02-how-to-train-a-neural-net.md
 - [x] wiki/03-approximation-theory.md
 - [x] wiki/04-architectures-grids.md
+- [x] wiki/05-architectures-graphs.md
 - [x] Topic pages (cross-lecture concepts) for lecture 1
 - [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
 - [x] Topic pages for lecture 3: lipschitz-continuity, scaling-laws new; representational-power rewritten; MLP, activations, generalization, course-map extended
 - [x] Topic pages for lecture 4: convolution, inductive-bias, skip-connections, neural-fields-and-positional-encoding new; MLP, activations, generalization, representation-learning, tensors-and-batching, differentiable-programming, representational-power, course-map extended
+- [x] Topic pages for lecture 5: graph-neural-networks new; inductive-bias, convolution, representational-power, neural-fields-and-positional-encoding, multilayer-perceptron, backpropagation, course-map extended
 - [x] INDEX.md table of contents
 
 ## Images
@@ -62,6 +65,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] raw/images/02-how-to-train-a-neural-net/ — 45 images; OCW-excluded slides never rendered
 - [x] raw/images/03-approximation-theory/ — 18 images; the deck has no OCW exclusion notices
 - [x] raw/images/04-architectures-grids/ — 31 images; 35 OCW-excluded slides and slides 50–52 (reused excluded photo) never rendered
+- [x] raw/images/05-architectures-graphs/ — 19 images; 14 OCW-excluded slides never rendered
 - [x] AGENTS.md — the Images conventions section
 
 ## Publish
@@ -79,3 +83,6 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 4: apply the Opus figure audit
 - [x] Lecture 4: INDEX, AGENTS, kb.json, SEE_ALSO updated
 - [x] Lecture 4: verify_kb.py clean, review read; commit and push
+- [x] Lecture 5: apply the Opus figure audit
+- [x] Lecture 5: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [ ] Lecture 5: verify_kb.py clean, review read; commit and push

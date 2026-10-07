@@ -6,7 +6,8 @@ course introduces the idea at the end of [lecture 3](03-approximation-theory.md)
 to flatten every input into a vector for an MLP, and makes it the organizing idea of the
 architecture lectures, starting with [lecture 4](04-architectures-grids.md). Covered so far:
 lecture 3's closing preview (≈1:18:12–1:22:07); lecture 4, slides 3–10 and 23–36, ≈1:32–13:04 and
-≈19:13–30:04, and its answer on hand-crafted versus learned filters, ≈54:56–56:30.
+≈19:13–30:04, and its answer on hand-crafted versus learned filters, ≈54:56–56:30; [lecture 5](05-architectures-graphs.md), on
+graphs: slides 11–13 and 34–44, ≈2:20–3:52, ≈17:51–30:16 and ≈1:05:56–1:20:36.
 
 ## Why an MLP is not enough
 
@@ -95,6 +96,31 @@ use an architecture without the bias, such as an MLP, or keep the convolution an
 position as an extra input, a **positional encoding**. See
 [neural fields and positional encoding](neural-fields-and-positional-encoding.md).
 
+## The graph bias: permutation symmetry
+
+Lecture 5 states the architecture-as-constraint view most bluntly: "graph nets are not universal in
+the same way that MLPs are. And in fact, that's where the power comes from … another big part of
+architecture design is adding constraints. So making a function approximator that actually can't fit
+certain types of functions because we want to rule those types of functions out … So universality
+is actually not what we're after in architecture design" (≈2:20–3:52).
+
+For graphs the constraint is a symmetry over node orderings. The numbering of a graph's nodes is
+arbitrary, so a graph-level prediction should be **permutation invariant** and a per-node prediction
+**permutation equivariant** (lecture 5, slide 11); an MLP fed the adjacency matrix is neither
+(≈20:12–22:31). "Where convolutional networks are invariant or equivariant to translation, graph nets
+are going to be invariant or equivariant to permutations of the inputs" (≈22:31), and "translation
+invariance is one type of permutation invariance, but permutation invariance is a more general version
+of that" (≈41:08). A graph net builds the symmetry in by aggregating each node's neighbours with an
+order-blind function such as a sum, and keeps lecture 4's other biases: local operations, globalizing
+through depth, weight sharing, and inputs of any size (slide 12, ≈28:41–30:16).
+
+The bias has a measurable cost. Two graphs whose nodes see the same neighbourhood trees get the same
+output from every graph net, so some functions are out of reach, such as a graph's diameter or
+longest cycle (slides 36 and 42). As with convolutions, the remedy is to remove some of the bias on
+purpose with a **positional encoding**, here eigenvectors of the graph Laplacian, which trades
+invariance to new orderings for the power to tell more graphs apart (slide 43, ≈1:19:02–1:20:36).
+See [graph neural networks](graph-neural-networks.md).
+
 ## Hand-crafted structure versus learned structure
 
 An inductive bias can also be built in by hand. Asked why convolutional filters are learned when
@@ -110,8 +136,9 @@ as the split between human-programmed and learned parts of a program.
 
 ## Where it goes next
 
-Lecture 4 covers grids. The [course map](course-map.md) lists the architecture lectures that follow:
-graphs (lecture 5), transformers (8) and memory (10). Lecture 4 itself points ahead twice: positional
+Lectures 4 and 5 cover grids and graphs. The [course map](course-map.md) lists the architecture
+lectures that follow: transformers (8) and memory (10). Lecture 5 calls transformers "a special kind
+of graph net" (≈1:35), graph nets whose aggregation is attention (≈56:38). Lecture 4 itself points ahead twice: positional
 encodings return "in the transformers lecture" (≈1:15:19), and its closing slide says the idea of
 applying one function to every patch "appears in almost all modern architectures, such as CNNs,
 transformers, NeRFs, and more" (slide 82).

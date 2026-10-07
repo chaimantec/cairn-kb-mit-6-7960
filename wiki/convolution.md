@@ -4,7 +4,8 @@ A **convolutional layer** applies one small set of learned weights, a **filter**
 every local patch of a grid-structured input and writes one output per position. It is the
 architecture the course builds for grids such as images, in [lecture 4](04-architectures-grids.md).
 Covered so far: lecture 4, slides 12–64 and 73–75, ≈13:04–59:38 and ≈1:08:14–1:10:38, plus the
-end-of-lecture questions on pooling and video (≈1:16:51 and ≈1:20:43–1:23:48). The architectures
+end-of-lecture questions on pooling and video (≈1:16:51 and ≈1:20:43–1:23:48); and [lecture 5](05-architectures-graphs.md)'s
+slides 12–13, ≈26:24–32:32, on the ConvNet as a graph net on a grid. The architectures
 built from convolutional layers are on [skip connections](skip-connections.md); why the layer's
 assumptions help is on [inductive bias](inductive-bias.md).
 
@@ -168,6 +169,15 @@ and that video models often downsample in time instead (≈1:21:29–1:23:48).
 
 Equivariance is not always wanted, and a **positional encoding** removes it on purpose; see
 [neural fields and positional encoding](neural-fields-and-positional-encoding.md).
+
+**Graphs.** Lecture 5 generalizes the layer beyond grids: "ConvNets are graph nets applied on a grid"
+(≈26:24). Its slide 13 draws a CNN as a GNN over a grid graph, where "GNN's attribute vector per node
+== CNN's column of channels at each index in a feature map", and asks for the kernel size and stride of
+the wiring it shows: 3 by 3, and 3, since the drawn stars do not overlap (≈31:01–32:32). On a general
+graph a node's neighbourhood varies in size and has no left or right, so the filter's weighted sum
+becomes an order-blind aggregation such as a sum or a max; locality, globalizing through depth, weight
+sharing and inputs of any size carry over (lecture 5's slide 12, ≈27:10–30:16). See
+[graph neural networks](graph-neural-networks.md).
 
 The lecture closes on the idea in its plainest form (slide 82): convolution "just means: chop up the
 image into patches and apply the same function to each patch. This concept appears in almost all

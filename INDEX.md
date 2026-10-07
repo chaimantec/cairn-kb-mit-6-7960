@@ -8,11 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–4 of 24 only.** This knowledge base currently holds the first four
+> **Coverage: lectures 1–5 of 24 only.** This knowledge base currently holds the first five
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
-> Architectures: Grids) and the concept pages they support. For anything taught in lectures 5–24, it
-> can tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 4. Build progress is in
+> Architectures: Grids; Architectures: Graphs) and the concept pages they support. For anything
+> taught in lectures 6–24, it can tell you *which* lecture covers it — see the
+> [course map](wiki/course-map.md) — but not *what* that lecture says. Do not cite it as the course
+> beyond lecture 5. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -57,6 +58,17 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   architecture zoo (encoder–decoder, U-net, ResNet's residual connection); convolution in time and
   3D convolution over video; positional encoding; and neural fields (SIREN, NeRF). 35 of its slides
   are excluded from OCW's licence and described in prose only.
+- [Lecture 5 — Architectures: Graphs](wiki/05-architectures-graphs.md) — Phillip Isola. Graph
+  neural networks: learning tasks on graphs (node classification, link prediction, molecules,
+  polypharmacy, Google Maps, physics simulation, combinatorial optimization); node and graph
+  embeddings; why an MLP on the adjacency matrix fails, and permutation invariance and equivariance;
+  a CNN as a GNN over a grid graph; message passing with AGGREGATE and UPDATE; sum, mean,
+  normalized and max aggregation, Bellman-Ford as min-aggregation, and the universal
+  $\text{MLP}_ 2(\sum \text{MLP}_ 1)$ aggregator; readout; GNNs unrolled as an MLP of vectors, an MLP
+  as a one-node GNN, and attention as the aggregation that makes a transformer; the tree view and
+  weight sharing; training; what GNNs can distinguish (equivalence classes, the 1-dim
+  Weisfeiler-Leman bound, injective aggregation, sum versus mean on PROTEINS, cycles and diameter);
+  and Laplacian-eigenvector positional encodings. 14 of its slides are excluded from OCW's licence.
 
 ## Course pages
 
@@ -64,7 +76,8 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   Also the table translating lecture 1's "Lecture N" banners into the recorded lecture numbers
   (several differ — e.g. transformers are lecture 8, not 9). Covers grading (65% problem sets,
   35% blog-post final project), compute, PyTorch, the collaboration rules and the AI-assistant
-  policy.
+  policy; and which problem set goes with which lecture where a lecture says (lecture 5's
+  graph-network questions are Homework 2's).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -81,7 +94,8 @@ passages it draws on.
   "two ramps make a pyramid" picture of non-linear classification; the MLP as a computation graph
   and how it is backpropagated (lecture 2); what "three-layer ReLU network" means, and ReLU MLPs as
   piecewise linear functions (lecture 3); the MLP weighed as an architecture, and the fully
-  connected layer that a convolution constrains (lecture 4).
+  connected layer that a convolution constrains (lecture 4); an MLP on an adjacency matrix is not
+  permutation invariant, and an MLP is a graph net over a single node (lecture 5).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
@@ -97,7 +111,8 @@ passages it draws on.
   rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
   and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
   the linear layer's three products, the ReLU as a gating matrix, why the backward pass is linear,
-  memory, merge and branch rules for DAGs, parameter sharing, and the worked example's numbers.
+  memory, merge and branch rules for DAGs, parameter sharing, and the worked example's numbers;
+  graph neural networks trained by backpropagating through unrolled message passing (lecture 5).
 - [Loss landscapes](wiki/loss-landscapes.md) — differentiable versus "has a PyTorch gradient"
   versus easy to optimize; the six toy cases (convex, discontinuous, vanishing, zero and exploding
   gradient, local minima) and what gradient descent does on each; random seeds; evolution
@@ -123,7 +138,9 @@ passages it draws on.
   theorem and proof sketch, with its weaknesses; Barron and Hornik et al.; whether universal
   approximation is sufficient or necessary; width versus depth, from lecture 1's discussion to
   lecture 3's depth separation and minimum-width result; inductive biases, and lecture 4's preview
-  that better architectures approximate important function classes more efficiently.
+  that better architectures approximate important function classes more efficiently; graph neural
+  networks as deliberately non-universal, universal within multiset functions, and bounded by the
+  Weisfeiler-Leman test (lecture 5).
 - [Lipschitz continuity](wiki/lipschitz-continuity.md) — $|g(x + \Delta x) - g(x)| \le L |\Delta x|$,
   the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
   (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
@@ -147,13 +164,15 @@ passages it draws on.
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
   model and sine-net fits), translation equivariance as the convolutional bias, positional encoding
-  as removing it, and hand-crafted versus learned structure (lectures 3 and 4).
+  as removing it, and hand-crafted versus learned structure (lectures 3 and 4); permutation
+  invariance and equivariance as the graph bias, and "universality is actually not what we're after
+  in architecture design" (lecture 5).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
   size, the five views, stacking and receptive fields, channels and filter banks with the parameter
   count rule, max and mean pooling, downsampling, strides and dilation, `im2col`, and convolution in
-  time and over video.
+  time and over video; a ConvNet as a graph net over a grid (lecture 5).
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
@@ -161,7 +180,14 @@ passages it draws on.
 - [Neural fields and positional encoding](wiki/neural-fields-and-positional-encoding.md) — why and
   how to break shift invariance with a constructed positional encoding, neural fields as networks
   from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
-  and density), with what NeRF is not and its limits (lecture 4); previews transformers.
+  and density), with what NeRF is not and its limits (lecture 4); previews transformers. Positional
+  encodings on graphs: one-hot node indices and Laplacian eigenvectors, and what they cost in
+  invariance (lecture 5).
+- [Graph neural networks](wiki/graph-neural-networks.md) — lecture 5's architecture in full:
+  graph tasks, permutation invariance and equivariance, message passing (AGGREGATE, UPDATE,
+  READOUT), multiset aggregations and the universal sum-of-MLPs form, Bellman-Ford, how GNNs relate
+  to ConvNets, MLPs and transformers, weight sharing and graph size, training, the
+  neighbourhood-tree and Weisfeiler-Leman limits, and positional encodings.
 
 ## Raw materials
 
@@ -174,7 +200,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–4 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–5 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

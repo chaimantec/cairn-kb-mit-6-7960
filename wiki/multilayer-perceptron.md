@@ -8,7 +8,8 @@ built on it. Covered so far in this knowledge base: [lecture 1](01-introduction.
 computation graph, and its backward pass); [lecture 3](03-approximation-theory.md), slides 15–17
 and 27–33 (what ReLU MLPs can approximate, and depth versus width); [lecture 4](04-architectures-grids.md),
 slides 3, 26 and 30 (the MLP's strengths and weaknesses as an architecture, and the fully connected
-layer that a convolution constrains). See also [activation functions](activation-functions.md),
+layer that a convolution constrains); [lecture 5](05-architectures-graphs.md), slides 11, 22 and 23 (why an MLP
+on an adjacency matrix is not permutation invariant, and the MLP as a graph net over a single node). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -169,3 +170,13 @@ size, which an MLP is not: applied to a larger image, "You just wouldn't have we
 size" (≈28:31). The MLP's own lack of bias is what lets lecture 4's 5-layer ReLU network fit training
 points perfectly and extrapolate badly beyond them (slide 7). See [convolution](convolution.md) and
 [inductive bias](inductive-bias.md).
+
+Lecture 5 adds the graph view. Feeding a graph's flattened adjacency matrix and node attributes to an
+MLP makes the output depend on how the nodes happen to be numbered, so it is not permutation
+invariant (slide 11, ≈17:51–22:31). A graph neural network is the alternative, and the lecture shows
+the MLP as its simplest case: "an MLP is just a graph net that's a single node". With no neighbours
+the aggregation is trivial and the update $\sigma(\mathbf{W}_ {\text{self}} \mathbf{h})$ is a linear
+layer and a pointwise non-linearity, repeated (slide 23, ≈54:20–55:51). Conversely, unrolled message
+passing "looks a lot like a neural network MLP", except that its neurons are vectors: aggregation is
+akin to a linear layer and the update to a pointwise one (slide 22, ≈48:53–49:42). See
+[graph neural networks](graph-neural-networks.md).

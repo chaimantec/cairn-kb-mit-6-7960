@@ -6,7 +6,8 @@ as its whole input: a network that maps coordinates to values, such as pixel pos
 course gives both "a first touch" in [lecture 4](04-architectures-grids.md) and says positional
 encodings return in the transformers lecture (≈1:32, ≈1:15:19), which is lecture 8 in the recorded
 schedule (see the [course map](course-map.md)). Covered so far: lecture 4, slides 9–10 and 76–81,
-≈9:59–12:17 and ≈1:09:53–1:14:32, and the end-of-lecture questions (≈1:16:05–1:20:43).
+≈9:59–12:17 and ≈1:09:53–1:14:32, and the end-of-lecture questions (≈1:16:05–1:20:43); [lecture 5](05-architectures-graphs.md),
+slides 43–44 and 46, ≈1:09:47–1:10:32 and ≈1:19:02–1:20:36, on positional encodings for graphs.
 
 ## Why break shift invariance
 
@@ -35,6 +36,22 @@ with a "pos" input, a column whose shade runs from pink to dark purple with posi
 A related question at the end of the lecture: how to feed side information, such as the GPS location
 where a photo was taken. The lecturer's options were to give it its own layer or encoding, and then
 concatenate it to the input image or introduce it later in the network (≈1:19:57).
+
+### On graphs
+
+Lecture 5 carries the idea to graph neural networks, which are permutation invariant rather than
+shift invariant. Giving each node an input that says "where" it is in the graph breaks that symmetry,
+and with it the equivalence classes of graphs a graph net cannot tell apart (slide 43,
+≈1:19:02–1:19:50). The crudest version, raised by a student, is a one-hot encoding of each node's
+index; the lecturer's caution was that "by breaking that symmetry, you break the permutation
+invariance. So it's a trade-off" (≈1:09:47–1:10:32). The version on slide 43 is the eigenvectors of
+the graph Laplacian $\mathbf{L} = \mathbf{D} - \mathbf{A}$, with $\mathbf{D}$ the diagonal matrix of
+node degrees and $\mathbf{A}$ the adjacency matrix: "a generalized coordinate system for your
+location of a node within a graph," as sinusoids are for an image (≈1:19:50). They add "global
+structural information", with the challenge that eigenvectors are ambiguous up to sign flips and
+repeated eigenvalues. "Now you might not generalize to new permutations, but you will be able to
+discriminate things you couldn't discriminate before … that's just like positional encoding in
+CNNs" (≈1:19:50–1:20:36). See [graph neural networks](graph-neural-networks.md).
 
 ## Neural fields
 

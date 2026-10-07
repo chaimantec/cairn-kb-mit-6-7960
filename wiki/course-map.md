@@ -5,8 +5,8 @@ Instructors: Phillip Isola, Sara Beery and Jeremy Bernstein. Course site:
 collects what lecture 1 says about how the course runs, and maps its schedule onto the recorded
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
-about the problem sets, what [lecture 4](04-architectures-grids.md) says about later lectures, and the
-OCW site; as
+about the problem sets, what [lecture 4](04-architectures-grids.md) and [lecture 5](05-architectures-graphs.md) say
+about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -30,7 +30,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 2 | How to Train a Neural Net | [yes](02-how-to-train-a-neural-net.md) |
 | 3 | Approximation Theory | [yes](03-approximation-theory.md) |
 | 4 | Architectures: Grids | [yes](04-architectures-grids.md) |
-| 5 | Architectures: Graphs | not yet |
+| 5 | Architectures: Graphs | [yes](05-architectures-graphs.md) |
 | 6 | Generalization Theory | not yet |
 | 7 | Scaling Rules for Optimization | not yet |
 | 8 | Architectures: Transformers | not yet |
@@ -101,6 +101,13 @@ will be covered "a lot more… when we get into lectures on transformers later o
 ≈1:15:19), and skip connections "get surfaced via self-attention in transformers" (≈1:07:27). Both
 mean lecture 8 in the table above.
 
+Lecture 5's deck is titled "Lecture 5: Graph Neural Networks", matching the recording, though its
+footer prints the course's earlier number, "6.S898". It prints no other lecture number. Its
+recording points back to "the one that Sara gave on Tuesday on convolutional networks" (lecture 4)
+and "the approximation lecture that Jeremy gave" (lecture 3), and ahead to transformers, "a special
+kind of graph net", without a number: "we're going to hear a lot more about that in a week or so"
+(≈0:48–2:20, ≈1:20:36). That is lecture 8 above.
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -127,7 +134,11 @@ rewrite all of it in JAX or something". Lecture 2's announcements slide confirms
 that week, alongside the release of **problem set 1**, due 9/24, and the start of office hours
 (slide 2). Lecture 3 says its depth-separation result is "also on the first problem set"
 (≈1:08:51), and recommends a graphing website for building functions out of ReLUs, which "is quite
-helpful on some of the homework problems" (≈32:41).
+helpful on some of the homework problems" (≈32:41). Lecture 5 sends the class to "your problem set"
+for the Bellman-Ford construction and for more pairs of graphs a graph net cannot tell apart
+(≈42:40, ≈1:09:00); on OCW that is **Homework 2**, whose ten-point part on message-passing graph
+neural networks recalls AGGREGATE, UPDATE and READOUT "from lecture". At the start of lecture 5 a
+problem set, "a two-week problem set", was due the following Tuesday (≈3:06–3:52).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

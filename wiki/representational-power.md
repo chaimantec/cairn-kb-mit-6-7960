@@ -4,8 +4,9 @@ Which functions a neural network can represent, and at what cost. Lecture 1 prev
 "why we can approximate" (slides 46–47, ≈40:25–42:42), and lecture 3, Approximation Theory, gives
 the full treatment: one universal approximation theorem proved in full, a depth-separation result,
 and the limits of both. Covered so far: [lecture 1](01-introduction.md),
-[lecture 3](03-approximation-theory.md), and [lecture 4](04-architectures-grids.md)'s slides 3, 8 and
-9 (universality weighed against inductive bias, and the SIREN preview).
+[lecture 3](03-approximation-theory.md), [lecture 4](04-architectures-grids.md)'s slides 3, 8 and
+9 (universality weighed against inductive bias, and the SIREN preview), and [lecture 5](05-architectures-graphs.md)'s
+slides 20 and 34–42 (what graph neural networks can approximate and distinguish).
 
 Approximation is only one piece of the puzzle. Lecture 3's slide 4 splits machine learning into
 three questions: **approximation** ("Does there exist a neural net in my model family that fits the
@@ -188,3 +189,18 @@ or tanh networks. The slide is careful about what that shows: the result "may be
 approximation ability but it might also be due to improved optimization ability; these two effects
 are typically coupled in experiments", the same approximation-versus-optimization split as lecture 3's
 puzzle.
+
+Lecture 5 applies the theory to graph neural networks, which are deliberately *not* universal: "graph
+nets are not universal in the same way that MLPs are. And in fact, that's where the power comes from"
+(≈2:20). Within the functions they are meant to represent, they are. An aggregation of the form
+$\text{MLP}_ 2 \left( \sum_u \text{MLP}_ 1 (\mathbf{h}_ u, \mathbf{h}_ v) \right)$ is a universal
+approximator of multiset functions and "can't represent other functions. So that's good. It's a
+constrained family" (lecture 5's slide 20, ≈42:40–44:13). What bounds them is what they can tell
+apart. If two graphs give the same output under every function in a class, no function in the class
+can separate them, and slide 35's theorem says any function that respects those equivalence classes
+can be approximated by message-passing GNNs. Two graphs whose nodes see the same neighbourhood trees
+are such a pair, so GNNs are at best as discriminating as the 1-dimensional Weisfeiler-Leman test,
+and an injective sum-of-MLPs aggregation reaches that bound (slides 36–40, ≈1:07:28–1:13:36). The
+practical check is slide 41: on a protein data set, sum with an MLP fits the training data while
+weaker aggregations, including the mean, plateau lower; "so the theory actually is meaningful here"
+(≈1:16:44). See [graph neural networks](graph-neural-networks.md).
