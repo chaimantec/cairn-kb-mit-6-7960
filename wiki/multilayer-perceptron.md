@@ -5,7 +5,8 @@ alternating with pointwise non-linearities. The course treats MLPs as **backgrou
 to have seen** (slide 31), and reviews them so that its notation is fixed before anything new is
 built on it. Covered so far in this knowledge base: [lecture 1](01-introduction.md), slides 32–45,
 ≈25:37–40:25; [lecture 2](02-how-to-train-a-neural-net.md), slides 27 and 50–52 (the MLP as a
-computation graph, and its backward pass). See also [activation functions](activation-functions.md) and
+computation graph, and its backward pass); [lecture 3](03-approximation-theory.md), slides 15–17
+and 27–33 (what ReLU MLPs can approximate, and depth versus width). See also [activation functions](activation-functions.md) and
 [representational power](representational-power.md).
 
 ## The linear layer
@@ -125,3 +126,23 @@ gradient by the same $\mathbf{W}$ — "just in a different order", or, written w
 gradients, by $\mathbf{W}^{\mathsf{T}}$. The ReLU becomes a diagonal gating matrix, so the whole
 backward pass is a chain of matrix products (slides 46–52, ≈44:17–52:51). See
 [backpropagation](backpropagation.md).
+
+## What ReLU MLPs can approximate (lecture 3)
+
+Lecture 3 asks what functions an MLP can express, and gives a precise meaning to "a three-layer
+ReLU network": "the thing with three weight matrices and two ReLU functions that follow the first
+weight matrix and the second weight matrix. And then the third weight matrix doesn't have a ReLU"
+(≈17:48). Its theorem (slide 10) says such a network, with $N = 4d(L/\epsilon)^d$ neurons in
+total, can approximate any $L$-Lipschitz function on the $d$-dimensional unit hypercube to $L_1$
+error below $2\epsilon$. In the construction the first two layers build boxes out of ReLUs and the
+third weights them (slides 15–17). The cost is exponential in $d$.
+
+Two facts about ReLU MLPs from the same lecture are worth keeping:
+
+- **A ReLU MLP is piecewise linear** in its input (slide 27): ReLU is piecewise linear, and sums,
+  compositions and scalar multiples of piecewise linear functions are piecewise linear too.
+- **Depth multiplies, width adds.** Counting the places where the slope changes, a network of
+  width $n$ and depth $L$ has at most $(2n)^L$ per unit, so a deep narrow network can compute functions a
+  shallow one needs exponentially many neurons for (slides 30–33).
+
+Both are developed on [representational power](representational-power.md).

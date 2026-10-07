@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which fetches files over raw.githubusercontent.com and follows
 relative markdown links.
 
-**Coverage is partial: lectures 1–2 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–3 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 ## Layout
 
@@ -39,13 +39,20 @@ relative markdown links.
   sends transformers to "Lecture 9" (recorded: 8), RNNs to "Lecture 11" (recorded: 10, Memory),
   generalization theory to "Lecture 7" (recorded: 6), and so on. The mapping is in
   [`wiki/course-map.md`](wiki/course-map.md#the-decks-lecture-pointers). Always cite the
-  *recorded* lecture number, and check later decks for the same drift. Lecture 2's deck has no
-  pointers to other lectures; its own "Lecture 2" matches the recording.
+  *recorded* lecture number, and check later decks for the same drift. Lecture 2's and lecture
+  3's decks have no pointers to other lectures; their own "Lecture 2" and "Lecture 3" match the
+  recording. Lecture 3's last slide previews "Inductive biases" with no lecture number.
 - **Reused deck.** Lecture 1's title slide says "6.S898 Deep Learning … Fall 2022", the course's
   earlier number and term. The transcription keeps what is printed.
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
-  page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2), which is not lecture
-  content.
+  page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
+  3), which is not lecture content.
+- **Lecture 3's deck is handwritten** — Jeremy Bernstein's iPad notes, in several ink colours on a
+  dark background. Its PDF text layer is OCR of the handwriting and is useless (it reads
+  "Hongenoucin" for a handwritten credit), so nothing was taken from it. The handwriting is vector
+  ink, not a raster, so the raster-coverage test for figure pages finds almost nothing on such a
+  deck; the slide file's descriptions decided which pages were rendered. Expect the same of
+  Bernstein's later decks (lectures 7 and 23 are his on the schedule).
 - **OCW excludes some figures from its licence**, with a notice on the slide: "© … All rights
   reserved. This content is excluded from our Creative Commons license." Those slides are
   transcribed with an `*OCW notice: …*` line and are **never rendered into `raw/images/`**.
@@ -89,7 +96,10 @@ identical, the inventory of numbers identical once `[Ed: …]` notes are removed
 paragraph's word ratio within 0.72–1.10. Lecture 1: 79 markers identical, 225 numbers identical,
 maximum word ratio 1.02. Lecture 2: 103 markers identical, all 29 numerals identical (counted as
 digit strings outside the markers), word ratios 1.00–1.01. Lecture 2's edit is 25 restorations —
-eleven of them "differential" → "differentiable" — and five `[Ed: …]` notes.
+eleven of them "differential" → "differentiable" — and five `[Ed: …]` notes. Lecture 3: 106
+markers identical, all 125 digit strings identical, word ratios 1.00–1.01; ten restorations (four
+"value" → "ReLU", two "kicks" → "kinks", two "4D" → "4d", "Chinchilla" capitalized, "really
+nonlinearity" → "ReLU nonlinearity") and two `[Ed: …]` notes on unclear student remarks.
 
 ## Slides
 
@@ -126,9 +136,26 @@ coefficient $\mu$ where its equation says $\alpha$. Slides 48, 49, 76 and 80 wri
 with $+\eta$ and a negative learning rate (slide 72 explains why), where the gradient-descent
 slides write $-\eta$; the wiki explains the convention rather than changing it.
 
+**Lecture 3's figure audit** was the first done by a different model from the transcriber: Sonnet
+read the handwritten deck, and Opus checked 19 equation-, diagram- and chart-heavy pages (5, 6, 10,
+12–17, 27–33, 35, 38, 39) from 250–1200 dpi crops. Every formula agreed. Corrections followed on
+slide 6 (where the curve's features sit), 12 (13 strips of unequal width, not "about twelve" equal
+ones), 27 (the first kink is below the axis), 29 (six green dots, not nine; the other three kinks
+share the pink dots), 30–33 (the layer symbol is the lecturer's capital L throughout, not a script
+ℓ) and 38 (several values, and start points for the 6- and >6-layer series that the first reading
+had invented), plus minor colour and arrow-direction fixes. The renders of slides 29 and 38 were
+then checked against the corrected text.
+
+**Lecture 3's printed slips and oddities**, transcribed as written: slide 5's two-layer formula
+ends in $+ \beta_ i$ with no brackets, so whether the bias is inside the sum is unclear; slide 13
+says "The triangles has area"; slide 30 gives the base case as $\text{KINKS}_ 0 = 1$, which a
+student corrects to 0 in the recording (≈1:03:17) and the lecturer leaves unresolved; slide 39 cites
+the Chinchilla paper as "Hoffmann, Borgeau, Mensch et al (2020)"; and slide 1 prints the email
+address "jbernstein@mit.edub".
+
 ## Images
 
-**Lectures 1 and 2 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1, 2 and 3 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -136,6 +163,7 @@ it.
 | --- | --- | --- |
 | 1 Introduction to Deep Learning | 21 of 81 pages | rendered from `mit6_7960_f24_lec1.pdf` |
 | 2 How to Train a Neural Net | 45 of 81 pages | rendered from `mit6_7960_f24_lec2.pdf` |
+| 3 Approximation Theory | 18 of 43 pages | rendered from `mit6_7960_f24_lec3.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number.
@@ -145,7 +173,8 @@ PDF page number.
 **Use an image path you have actually read in a file. Never construct one from the pattern, and
 never assume a slide has an image because a neighbouring one does.** Many pages of each deck were
 deliberately not rendered (next section), so lecture 1's `slide-36.jpg` existing tells you nothing
-about `slide-37`, and lecture 2's `slide-38` tells you nothing about `slide-39`. Reading a path that is not in the repo returns an error rather than a URL, which
+about `slide-37`, lecture 2's `slide-38` tells you nothing about `slide-39`, and lecture 3's
+`slide-17` tells you nothing about `slide-18`. Reading a path that is not in the repo returns an error rather than a URL, which
 costs a turn; a guessed path is never worth it.
 
 Links are **relative**, like every other link here: `../raw/images/01-introduction/slide-41.png`
@@ -160,7 +189,10 @@ under the matching `## Slide N` heading of
 `grep -o 'raw/images/[^)]*' wiki/01-introduction.md`. Of lecture 2's 45 images, 43 appear in
 [`wiki/02-how-to-train-a-neural-net.md`](wiki/02-how-to-train-a-neural-net.md); slides 13 and 54,
 near-duplicates of their neighbours 12 and 55, are only under their headings in
-[`raw/slides/02-how-to-train-a-neural-net.md`](raw/slides/02-how-to-train-a-neural-net.md). The
+[`raw/slides/02-how-to-train-a-neural-net.md`](raw/slides/02-how-to-train-a-neural-net.md). All
+18 of lecture 3's images appear both in
+[`wiki/03-approximation-theory.md`](wiki/03-approximation-theory.md) and under their headings in
+[`raw/slides/03-approximation-theory.md`](raw/slides/03-approximation-theory.md). The
 concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 - **Prefer the transcription for numbers and formulas.** The slide file reproduces every
@@ -216,6 +248,24 @@ Not rendered, and why:
 - **Slide 56**: its two-box diagram is fully described in prose, and the rest of the slide is the
   PyTorch and TensorFlow logos and an uncredited screenshot of code.
 
+### What was rendered, and what was not — lecture 3
+
+The deck carries **no** OCW exclusion notice on any page, so nothing was withheld for licence
+reasons. Rendered (18): slides 2, 5, 6, 8, 12–17, 19, 27–30, 32, 38 and 42 — the width-or-depth
+networks, the staircase data set, the Weierstrass plot, the Lipschitz bow tie, the rectangle and
+hyperrectangle approximations, the four-ReLU rectangle, the wall-plus-wall surface plots, the
+assembled construction, the training-points-on-rectangles sketch, the kink diagrams, the layer
+recursion, the triangle map and its compositions, the Kaplan et al. scaling figures, and the
+audio-and-image preview.
+
+Not rendered, and why:
+
+- **Identical to a rendered slide:** 23 (slide 2 again, opening the width-versus-depth section).
+- **Handwritten text and equations the slide file reproduces exactly:** 3, 4, 7, 9, 10, 11, 18
+  (slide 10's theorem again, beside a small unlabelled scribble), 20, 21, 24–26, 31, 33–35, 37, 39
+  and 41.
+- **Title and dividers:** 1, 22, 36, 40; and slide 43, the OCW end page.
+
 ### Provenance and attribution
 
 Rendered slides are from *MIT 6.7960 Deep Learning, Fall 2024*, MIT OpenCourseWare
@@ -232,14 +282,20 @@ licence: **slide 11** is a screenshot of Gabriel Goh's Distill article "Why Mome
 visualizations from Olah et al.'s Distill article ("Courtesy of Olah, et al. Used under CC BY.").
 **Slide 68** collects DeepDream images whose credit line reads "Images created using a network
 trained on places by MIT Computer Science and AI Laboratory", from the Google blog post it links;
-OCW did not flag it. **Slide 70** includes a small generated image as the CLIP+GAN output. If a rights holder or the
+OCW did not flag it. **Slide 70** includes a small generated image as the CLIP+GAN output.
+
+Lecture 3's deck is Jeremy Bernstein's handwritten notes, and three of its rendered slides paste in
+figures from elsewhere, each credited by hand on the slide and none flagged by OCW. **Slide 6** is a
+plot titled "A pathological function of Weierstrass", credited "Hrothgar, Chebfun". **Slide 16**
+shows three 3D surface plots credited "Hongzhou Lin". **Slide 38** reproduces two figures from
+Kaplan, McCandlish et al. (2020), captioned "From Kaplan, McCandlish et al (2020)". If a rights holder or the
 course asks for a page to come down, delete the image file and every
 image embed that points at it.
 
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1 and 2:
+Notes for the next run, from lectures 1–3:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -253,4 +309,12 @@ Notes for the next run, from lectures 1 and 2:
 - `embed_slide_images.py` anchors a wiki image at the slide's **first** citation, and a range such
   as "slides 15–20" places every slide in it at that spot. Write the wiki so that each slide's first
   citation is the passage it belongs in, and avoid ranges in overview paragraphs.
+- **Handwritten decks** (lecture 3; likely lectures 7 and 23 too): the text layer is OCR noise,
+  so do not grep it for notices or strings; read every page, and choose figure pages from the slide
+  file, since hand-drawn ink is vector paths and the raster test misses it. Script and letter
+  ambiguities (ℓ against L, subscripts against superscripts) need the audit, and the lecturer
+  usually reads each formula aloud, so check the formulas against the transcript too.
+- **Audit with a different model from the transcriber.** A same-model audit catches misreadings
+  caused by resolution but not ones the two runs share. Lecture 3 was read at Sonnet and audited at
+  Opus from 600-dpi crops; lectures 1 and 2 were Sonnet audited by Sonnet.
 - After writing, run `check_math.mjs` and `verify_kb.py`.

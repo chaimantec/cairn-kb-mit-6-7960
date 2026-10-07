@@ -4,7 +4,8 @@ Instructors: Phillip Isola, Sara Beery and Jeremy Bernstein. Course site:
 [MIT OpenCourseWare](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This page
 collects what lecture 1 says about how the course runs, and maps its schedule onto the recorded
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
-[lecture 2](02-how-to-train-a-neural-net.md), and the OCW site; as
+[lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
+about the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -26,7 +27,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | --- | --- | --- |
 | 1 | Introduction to Deep Learning | [yes](01-introduction.md) |
 | 2 | How to Train a Neural Net | [yes](02-how-to-train-a-neural-net.md) |
-| 3 | Approximation Theory | not yet |
+| 3 | Approximation Theory | [yes](03-approximation-theory.md) |
 | 4 | Architectures: Grids | not yet |
 | 5 | Architectures: Graphs | not yet |
 | 6 | Generalization Theory | not yet |
@@ -89,6 +90,10 @@ Lecture 2's deck has no pointers of this kind. The only lecture number it prints
 the title slide and the agenda ("Lecture 2", "2. How to train a neural net"), and that matches the
 recording.
 
+Lecture 3's handwritten deck has none either. Its title slide reads "6.7960 :: Lecture 3", which
+matches the recording, and its last slide, "Preview: Inductive biases" (slide 42), names a topic
+without a lecture number. The architecture lectures that take it up are 4, 5, 8 and 10 above.
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -113,7 +118,9 @@ as a skill worth having as large-scale deep learning becomes more centralized (�
 PyTorch code to fill in, so familiarity with PyTorch is strongly recommended "unless you want to
 rewrite all of it in JAX or something". Lecture 2's announcements slide confirms the tutorials ran
 that week, alongside the release of **problem set 1**, due 9/24, and the start of office hours
-(slide 2).
+(slide 2). Lecture 3 says its depth-separation result is "also on the first problem set"
+(≈1:08:51), and recommends a graphing website for building functions out of ReLUs, which "is quite
+helpful on some of the homework problems" (≈32:41).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

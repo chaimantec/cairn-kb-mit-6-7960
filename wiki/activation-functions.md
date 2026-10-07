@@ -7,7 +7,9 @@ stack of linear layers collapses to a single linear map (see
 background (slide 31, "MLPs, Nonlinearities (ReLu)"). Covered so far:
 [lecture 1](01-introduction.md), slides 36–41, ≈28:01–38:49;
 [lecture 2](02-how-to-train-a-neural-net.md), slides 23–25 and 51, ≈20:13–25:43 and ≈49:44–51:18
-(GELU, the continuous–differentiable–smooth criterion, and the ReLU on the backward pass).
+(GELU, the continuous–differentiable–smooth criterion, and the ReLU on the backward pass);
+[lecture 3](03-approximation-theory.md), slides 15, 27–29 and 32 (what sums and compositions of
+ReLUs can build).
 
 ## The four in lecture 1
 
@@ -95,6 +97,31 @@ and blocks it for those that "were in that 0 part of the ReLU" (lecture 2, slide
 That is the derivative above at work: 1 where $z \gt 0$, 0 where $z \lt 0$. See
 [backpropagation](backpropagation.md). For the wider picture of which functions are hard to
 optimize, see [loss landscapes](loss-landscapes.md).
+
+## What ReLUs can build (lecture 3)
+
+Lecture 3 uses the ReLU as a building block for approximation, and three of its constructions are
+worth knowing.
+
+**Four ReLUs make a rectangle** (slide 15). With a constant $c$ scaling the slopes,
+
+$$f_c(x) = \text{relu}(cx) - \text{relu}(cx - 1) - \text{relu}(c(x-1) - 2) + \text{relu}(c(x-1) - 3),$$
+
+which is the slide's vector form written out. The first two ReLUs make a ramp up to height 1, the
+last two a ramp back down, and as $c \to \infty$ the ramps become vertical, leaving a rectangle that
+is 1 on $[0, 1]$ and 0 elsewhere. The lecturer built it live on a graphing website: with $c = 1$ it
+is a trapezoid, and raising $c$ "is making the slopes slopier" (≈33:27–35:01).
+
+**A ReLU thresholds a sum** (slide 16). Adding $d$ one-dimensional rectangles, one per axis, gives a
+surface that exceeds $d - 1$ only where all of them are on, so $\text{relu}(\text{sum} - (d-1))$ keeps
+just the $d$-dimensional box.
+
+**A ReLU at most doubles the kinks** (slide 29). Every ReLU network is piecewise linear (slide 27),
+and applying a ReLU to a piecewise linear function can split each linear piece in two where it
+crosses zero. In the slide's example a function with five kinks becomes one with nine. The triangle
+map $g(x) = \text{relu}[2 \cdot \text{relu}(x) - 4 \cdot \text{relu}(x - \tfrac{1}{2})]$ of slide 32
+doubles its linear regions every time it is composed with itself. This is the engine of lecture 3's
+depth-separation result; see [representational power](representational-power.md#depth-separation-lecture-3).
 
 ## How do you choose one?
 

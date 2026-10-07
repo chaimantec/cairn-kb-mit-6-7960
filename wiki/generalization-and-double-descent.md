@@ -5,7 +5,9 @@ Lecture 1 poses this as one of the course's central questions (slides 50–52, �
 assigns it to **lecture 6, Generalization Theory**, and **lecture 17, Out-of-Distribution
 Generalization**. The deck's banner says "Lecture 7" for generalization theory; in the recorded
 schedule it is lecture 6 (see the [course map](course-map.md#the-decks-lecture-pointers)).
-Covered so far: [lecture 1](01-introduction.md) only.
+Covered so far: [lecture 1](01-introduction.md); [lecture 3](03-approximation-theory.md), slides
+4, 19 and 34 (generalization as one piece of the approximation–optimization–generalization
+puzzle, and a network that fits but would not generalize).
 
 ## The puzzle
 
@@ -68,3 +70,25 @@ Slide 52 states where theory is heading (≈49:40):
 
 The course promises "a theoretical and a more experimental lecture around generalization, both in
 and out of distribution" — recorded lectures 6 and 17.
+
+## Fitting is not generalizing (lecture 3)
+
+Lecture 3 splits machine learning into three questions: whether a network that fits the data
+**exists** (approximation), whether training can **find** it (optimization), and whether it
+"work[s] well on unseen data" (generalization) (slide 4). Its results are about the first only, and
+it is explicit that they say nothing about the third: a deep network's extra power to approximate
+"does not mean that … very deep networks would generalise well" (slide 34).
+
+It also gives a concrete case of a network that can fit anything and would generalize badly. The
+universal approximation theorem it proves builds a network out of narrow rectangles (slides 12–17).
+Imagine training that representation (slide 19, ≈43:38–45:13). Each training point pulls up its own
+rectangle, "but there's all these other ones which are never actually going to move", and weight
+decay would suppress them. The result is a pulse at every training point and zero in between, where
+"visually, the obvious way to approximate this data is just to draw a line through it". So "the
+training performance is going to be really good, but the generalization performance is going to be
+really bad. Because you're just fitting the data on tiny little strips". In lecture 1's terms this
+is the lookup-table behaviour that deep nets, empirically, do not fall into.
+
+Lecture 3 adds a practical asymmetry: of the three pieces, generalization is the one you can
+diagnose directly, "because you could just compute the training error and the test error, and you
+can see if they're different" (≈1:11:10).

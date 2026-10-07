@@ -8,11 +8,11 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–2 of 24 only.** This knowledge base currently holds the first two
-> lectures (Introduction to Deep Learning; How to Train a Neural Net) and the concept pages they
-> support. For anything taught in lectures 3–24, it can tell you *which* lecture covers it — see
-> the [course map](wiki/course-map.md) — but not *what* that lecture says. Do not cite it as the
-> course beyond lecture 2. Build progress is in [TODO.md](TODO.md).
+> **Coverage: lectures 1–3 of 24 only.** This knowledge base currently holds the first three
+> lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory) and the
+> concept pages they support. For anything taught in lectures 4–24, it can tell you *which* lecture
+> covers it — see the [course map](wiki/course-map.md) — but not *what* that lecture says. Do not
+> cite it as the course beyond lecture 3. Build progress is in [TODO.md](TODO.md).
 
 ## Lecture pages
 
@@ -34,6 +34,16 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   programming (Software 2.0, Neural Module Networks); optimizing inputs instead of weights (unit
   visualization, DeepDream, CLIP+GAN); and the deck's worked one-iteration backprop example, with
   a misprint on slide 79 flagged.
+- [Lecture 3 — Approximation Theory](wiki/03-approximation-theory.md) — Jeremy Bernstein,
+  handwritten deck. Would you rather scale width or depth? The approximation–optimization–
+  generalization puzzle; formalizing approximation ($L_\infty$ and $L_1$ error); Lipschitz
+  functions and the RMS norm; a full proof that a 3-layer ReLU network with $4d(L/\epsilon)^d$
+  units approximates any $L$-Lipschitz function on the hypercube (rectangles, hyperrectangles, four
+  ReLUs per rectangle, thresholding), the live graphing demo, and why the construction would not
+  generalize; Barron, Hornik et al. and Stone–Weierstrass; whether universal approximation matters;
+  arguments for width; a depth separation by counting kinks ($(2n)^L$ bound, the triangle map,
+  $7 \times 10^{49}$ units for a 3-layer match); Kaplan et al.'s scaling laws and Chinchilla as
+  confounders; and a preview of inductive biases.
 
 ## Course pages
 
@@ -56,11 +66,13 @@ passages it draws on.
   $z_j = \mathbf{x}^T \mathbf{w}_ j + b_j$, the perceptron, why one layer is a linear classifier
   and fails on XOR, stacking layers into matrix form, why the non-linearity is essential, and the
   "two ramps make a pyramid" picture of non-linear classification; the MLP as a computation graph
-  and how it is backpropagated (lecture 2).
+  and how it is backpropagated (lecture 2); what "three-layer ReLU network" means, and ReLU MLPs as
+  piecewise linear functions (lecture 3).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
-  differentiable and smooth criterion (lecture 2); the ReLU as a gate on the backward pass.
+  differentiable and smooth criterion (lecture 2); the ReLU as a gate on the backward pass;
+  what ReLUs can build: rectangles from four ReLUs, thresholded sums, and kink doubling (lecture 3).
 - [Gradient descent](wiki/gradient-descent.md) — the training objective
   $\theta^{\ast} = \arg\min_\theta \sum_i L$, the cost $J(\theta)$, the update rule and learning
   rate, why differentiability matters, black-box versus first- and second-order optimization,
@@ -88,13 +100,25 @@ passages it draws on.
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
   descent and why the batch gradient is the average of per-example gradients (lecture 2).
-- [Representational power](wiki/representational-power.md) — one layer gives a linear surface;
-  two or more can represent any function (given a non-linearity); the Riemann-sum intuition; wide
-  versus deep efficiency; previewing lecture 3.
+- [Representational power](wiki/representational-power.md) — what networks can approximate,
+  across lectures 1 and 3: one layer gives a linear surface; the Riemann-sum intuition; the
+  formal question (families $G$ and $F$, error $\epsilon$); lecture 3's universal approximation
+  theorem and proof sketch, with its weaknesses; Barron and Hornik et al.; whether universal
+  approximation is sufficient or necessary; width versus depth, from lecture 1's discussion to
+  lecture 3's depth separation and minimum-width result; inductive biases.
+- [Lipschitz continuity](wiki/lipschitz-continuity.md) — $|g(x + \Delta x) - g(x)| \le L |\Delta x|$,
+  the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
+  (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
+  in lecture 3's proof.
+- [Scaling laws](wiki/scaling-laws.md) — as lecture 3 presents them: Kaplan, McCandlish et al.
+  (2020)'s power laws in compute, data and parameters, their finding that width versus depth
+  barely matters at fixed parameter count, and Chinchilla as an example of confounders. Previews
+  lecture 20.
 - [Generalization and double descent](wiki/generalization-and-double-descent.md) — why
   over-parameterized nets don't just memorize, the classical U-curve against double descent
   (Belkin et al., 2019), the interpolation threshold, capacity versus data, and the simplicity
-  hypothesis; previewing lectures 6 and 17.
+  hypothesis; previewing lectures 6 and 17. Lecture 3's rectangle network as a model that fits
+  but would not generalize.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -111,7 +135,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1 and 2 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–3 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

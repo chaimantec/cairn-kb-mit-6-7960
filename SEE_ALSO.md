@@ -35,6 +35,9 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   cover. CS336 has two lectures on scaling laws (its lectures 9 and 11), a page on
   [learning-rate scaling and muP](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/learning-rate-scaling-and-mup.md),
   and lectures on GPUs and parallelism — useful for "why do GPUs matter" beyond lecture 1's
-  one-paragraph answer. It is about language models specifically, and measures and builds rather
-  than proves.
+  one-paragraph answer. Lecture 3 here shows Kaplan et al.'s scaling laws and the Chinchilla
+  paper on two slides, to argue that width versus depth is hard to settle experimentally; CS336's
+  [lecture 9](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/09-scaling-laws.md)
+  tells the Kaplan-versus-Chinchilla story in full, including depth and width. It is about language
+  models specifically, and measures and builds rather than proves.
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/INDEX.md).
