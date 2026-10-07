@@ -4,7 +4,8 @@ The **loss landscape** is the cost $J(\theta)$ viewed as a surface over the para
 Gradient descent walks downhill on it, so its shape decides whether training is fast, slow,
 unstable or stuck. Lecture 1 draws one (slide 28); lecture 2 takes six one-parameter toy losses
 apart, one failure at a time, and shows two fixes. Covered so far: [lecture 1](01-introduction.md),
-slide 28; [lecture 2](02-how-to-train-a-neural-net.md), slides 7 and 10–25, ≈3:54–26:31.
+slide 28; [lecture 2](02-how-to-train-a-neural-net.md), slides 7 and 10–25, ≈3:54–26:31; [lecture 6](06-generalization-theory.md),
+slide 61, ≈1:14:30–1:15:19, on flat minima.
 
 ## Differentiable is not the same as easy
 
@@ -85,3 +86,15 @@ on (≈24:57). See [activation functions](activation-functions.md).
 Lecture 1 meets the same problems from the activation side: saturating tanh and sigmoid units give
 vanishing gradients, and the step function's zero gradient is why the original perceptron cannot
 be trained by gradient descent ([activation functions](activation-functions.md)).
+
+## Flat minima and generalization (lecture 6)
+
+Lecture 6 adds a reason the *shape* of a minimum matters beyond reaching it (slide 61,
+≈1:14:30–1:15:19). "Let's say that I have a really, really sharp well in my objective function, in my
+energy landscape. Well, gradient descent can't go into a really sharp well if I'm using fixed step
+sizes. It'll just jump right over it." So SGD, and gradient descent with a finite step size, tend to
+settle in **flat minima**, basins "that are low loss, but are low loss over kind of a large region of the
+parameter space". These "can be argued to generalize better than these narrow minima. The narrow minima
+might be more like just a weird solution that got lucky". The slide points to Vardi (2022) for a review,
+and the lecturer leaves the arguments to the papers. See [generalization and double
+descent](generalization-and-double-descent.md).

@@ -7,7 +7,9 @@ course gives both "a first touch" in [lecture 4](04-architectures-grids.md) and 
 encodings return in the transformers lecture (≈1:32, ≈1:15:19), which is lecture 8 in the recorded
 schedule (see the [course map](course-map.md)). Covered so far: lecture 4, slides 9–10 and 76–81,
 ≈9:59–12:17 and ≈1:09:53–1:14:32, and the end-of-lecture questions (≈1:16:05–1:20:43); [lecture 5](05-architectures-graphs.md),
-slides 43–44 and 46, ≈1:09:47–1:10:32 and ≈1:19:02–1:20:36, on positional encodings for graphs.
+slides 43–44 and 46, ≈1:09:47–1:10:32 and ≈1:19:02–1:20:36, on positional encodings for graphs; and
+[lecture 6](06-generalization-theory.md), slide 63, ≈1:17:40–1:18:26, on NeRF's built-in physics as a
+reason it generalizes.
 
 ## Why break shift invariance
 
@@ -104,3 +106,13 @@ From the questions (≈1:16:05–1:19:57):
 
 Slides 9 and 78–81 are excluded from OCW's licence, so this knowledge base has no images of them;
 the [slide file](../raw/slides/04-architectures-grids.md) describes them.
+
+## NeRF as built-in structure (lecture 6)
+
+Lecture 6 cites NeRF as an example of domain-specific constraints, one of its candidate explanations of why
+deep nets generalize (slide 63, whose figure is excluded from OCW's licence). Recalling Sara Beery's
+example from lecture 4, the lecturer says NeRF "is a neural architecture, but it uses equations of
+perspective projection, and it uses equations of light transport. And these are built into the process,
+and so it will generalize to new viewpoints because it's using structures. It's not just fitting to data.
+It's data plus structure, data plus constraints" (≈1:17:40–1:18:26). See [inductive
+bias](inductive-bias.md).

@@ -477,8 +477,6 @@ Lecture 11: RNNs
 
 ## Slide 51 — Why do deep nets generalize?
 
-![Slide 51 — Why do deep nets generalize?](../images/01-introduction/slide-51.jpg)
-
 Title "Why do deep nets generalize?". Bullets:
 
 - Deep nets have so many parameters they could just act like look up tables, regurgitating their training data
@@ -491,6 +489,8 @@ Two schematic plots (from the cited paper), both with y-axis "Risk" and x-axis "
 - **Panel B** (double descent). Two series: a solid black "Test risk" curve that falls (classical U-shape), then rises to a sharp peak at the vertical dotted line labelled "interpolation threshold" (arrow to the x-axis), then falls again and levels off at low risk on the right; and a dashed "Training risk" curve that decreases to 0 at the interpolation threshold and stays at 0 beyond. Left of the peak is labelled "under-parameterized" with "“classical” regime"; right of the peak is "over-parameterized" with "“modern” interpolating regime".
 
 Citation at bottom right: "[Double-descent: Belkin, Hsu, Ma, Mandal, PNAS 2019]".
+
+*Not rendered. This slide prints no OCW notice, but its double-descent figure is the same embedded image as lecture 6's slide 30, which OCW marks "© Belkin, et al. All rights reserved. This content is excluded from our Creative Commons license." It is treated as excluded.*
 
 ## Slide 52 — The simplicity hypothesis
 

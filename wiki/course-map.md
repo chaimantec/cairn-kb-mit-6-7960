@@ -5,8 +5,8 @@ Instructors: Phillip Isola, Sara Beery and Jeremy Bernstein. Course site:
 collects what lecture 1 says about how the course runs, and maps its schedule onto the recorded
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
-about the problem sets, what [lecture 4](04-architectures-grids.md) and [lecture 5](05-architectures-graphs.md) say
-about other lectures and the problem sets, and the OCW site; as
+about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
+[lecture 6](06-generalization-theory.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -31,7 +31,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 3 | Approximation Theory | [yes](03-approximation-theory.md) |
 | 4 | Architectures: Grids | [yes](04-architectures-grids.md) |
 | 5 | Architectures: Graphs | [yes](05-architectures-graphs.md) |
-| 6 | Generalization Theory | not yet |
+| 6 | Generalization Theory | [yes](06-generalization-theory.md) |
 | 7 | Scaling Rules for Optimization | not yet |
 | 8 | Architectures: Transformers | not yet |
 | 9 | Hacker's Guide to Deep Learning | not yet |
@@ -108,6 +108,14 @@ and "the approximation lecture that Jeremy gave" (lecture 3), and ahead to trans
 kind of graph net", without a number: "we're going to hear a lot more about that in a week or so"
 (≈0:48–2:20, ≈1:20:36). That is lecture 8 above.
 
+Lecture 6's deck is titled "Lecture 6: NN Generalization", matching the recording, which settles lecture
+1's "Lecture 7: Generalization theory" banner (the row above). It prints no other lecture number. Its
+recording points back to Sara's NeRF example (lecture 4, ≈1:17:40) and to graph nets' permutation symmetry
+(lecture 5, ≈23:57), and ahead without numbers: more on optimization "on Thursday's lecture" (≈4:37),
+lecture 7; generative and image-to-image models "a little bit later in the course" (≈20:02), lectures
+14–16; language models and prompting "later" (≈16:11), lecture 21; kernels "in the representation learning
+lectures" (≈1:06:45), lectures 11–13; and architectural symmetries "in transformers" (≈1:15:19), lecture 8.
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -138,7 +146,11 @@ helpful on some of the homework problems" (≈32:41). Lecture 5 sends the class 
 for the Bellman-Ford construction and for more pairs of graphs a graph net cannot tell apart
 (≈42:40, ≈1:09:00); on OCW that is **Homework 2**, whose ten-point part on message-passing graph
 neural networks recalls AGGREGATE, UPDATE and READOUT "from lecture". At the start of lecture 5 a
-problem set, "a two-week problem set", was due the following Tuesday (≈3:06–3:52).
+problem set, "a two-week problem set", was due the following Tuesday (≈3:06–3:52). Lecture 6, that
+Tuesday, confirms it: "Problem set one is due today. Problem set two goes out today", posted after the
+lecture as every problem set is (≈0:00–0:46). The lecturer recommends reading problem set 2's first
+question before Thursday's lecture (lecture 7), "because it can help motivate … what we'll see on
+Thursday"; on OCW, Homework 2's first question is "Steepest descent" (9 points).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

@@ -9,7 +9,10 @@ Covered so far: [lecture 1](01-introduction.md); [lecture 3](03-approximation-th
 4, 19 and 34 (generalization as one piece of the approximation–optimization–generalization
 puzzle, and a network that fits but would not generalize); [lecture 4](04-architectures-grids.md),
 slides 4–10, 32 and 34 (architecture as a way to generalize with less data and outside the training
-distribution).
+distribution); and [lecture 6](06-generalization-theory.md), Generalization Theory itself, slides
+3–65, ≈0:00–1:19:58, which gives the full treatment: memorization against generalization, double
+descent in detail, why the classical measures of complexity fail for deep nets, and the candidate
+inductive biases.
 
 ## The puzzle
 
@@ -71,7 +74,9 @@ Slide 52 states where theory is heading (≈49:40):
 - **Emerging theory:** "deep nets learn *simple* functions that generalize."
 
 The course promises "a theoretical and a more experimental lecture around generalization, both in
-and out of distribution" — recorded lectures 6 and 17.
+and out of distribution" — recorded lectures 6 and 17. Lecture 6, below, takes up the theoretical half and lands where lecture 1's slide 52
+points: classical measures of complexity fail for deep nets, and the candidate explanations are biases
+toward simple solutions.
 
 ## Fitting is not generalizing (lecture 3)
 
@@ -114,3 +119,137 @@ easier to learn, less overfitting" (slide 32), and because the same filter appli
 they "can be applied to arbitrarily-sized inputs (generalizes beyond the training data due to an
 architectural structure!)" (slide 34). See [inductive bias](inductive-bias.md) and
 [convolution](convolution.md).
+
+## Approximation versus generalization (lecture 6)
+
+Lecture 6 defines the terms with two risks (slide 3). Training minimizes the **empirical risk**, the
+average loss of the model $f_ \theta$ over the $N$ training pairs,
+$\widehat{\mathcal{R}}(\theta) = \frac{1}{N} \sum_ {i=1}^{N} \mathcal{L}(f_ \theta(\mathbf{x}_ i), \mathbf{y}_ i)$,
+where $\mathcal{L}$ is the loss. What matters is the **population risk** (test error), the expected loss
+on new samples from the data-generating distribution $\mathcal{P}$,
+$\mathcal{R}(\theta) = \mathbb{E}_ {(\mathbf{x},\mathbf{y}) \sim \mathcal{P}} \thinspace \mathcal{L}(f_ \theta(\mathbf{x}), \mathbf{y})$.
+**Generalization** is the question "how different is $\widehat{\mathcal{R}}(\theta)$ from
+$\mathcal{R}(\theta)$?", beside approximation (the best $\mathcal{R}(\theta^\ast)$ the model can
+achieve) and optimization (how well $\widehat{\mathcal{R}}$ is being minimized). "And that's all we
+actually care about because we want to do well when we deploy the system in the world" (≈5:24).
+
+Data come first: a cats-versus-dogs classifier trained only on cats cannot work, and "you can't really
+understand generalization without understanding the data distribution that you're training on"
+(slide 5, ≈6:58). The rest of the lecture is about the model.
+
+## Memorization versus generalization (lecture 6)
+
+The lecture's foil is the **filing cabinet**, a program that stores every training pair in a dictionary
+and returns 0 for any input it has not seen (slide 6). Its approximation error is zero; its
+generalization error is bad unless the true function is "0 almost everywhere" (≈8:30). Fitting can also
+be luck: Paul the octopus picked football winners correctly, but was "some random function that happened
+to fit the training data" (slide 7, ≈10:03).
+
+Lecture 6's slide 8 separates the two ideas. A filing cabinet and a 3-layer ReLU MLP both fit the same
+points exactly. **Memorization** is what a model predicts on the training points, which both get right;
+**generalization** is what it does on the points in between and beyond, where the cabinet predicts 0 and
+the MLP draws a smooth curve. "Most functions in the world are going to be smooth as opposed to spiky"
+(≈12:21), so the MLP's kind of interpolation is the better bet.
+
+Big modern models are not filing cabinets either. The lecturer's counting experiment (slides 9–11): a
+cabinet that answered random lists of fruit as well as GPT-4o does would need on the order of 100
+trillion entries for a text question and 12.5 trillion for drawing the fruits, more than such models are
+thought to be trained on (≈16:57–18:30). And a network can generalize **out of distribution**: pix2pix,
+trained to turn computer-generated edge maps into cat photos, also worked on hand-drawn sketches, and
+put a third eye, or eight, where they were drawn (slides 12–18, ≈19:16–22:23). The lecturer credits the
+ConvNet's patch-by-patch processing, which composes familiar parts into new arrangements (slide 19); see
+[inductive bias](inductive-bias.md).
+
+## Double descent in detail (lecture 6)
+
+Lecture 6 shows the phenomenon on a regression problem (slides 25–28, ≈30:10–33:14). Twenty noisy
+samples of a smooth curve are fit with a family of polynomials up to degree $d$. Degree 1 underfits,
+degree 3 (the true order) fits well, and degree 20 overfits, swinging "wildly to fit the deviations".
+Degree 1000 also passes through every sample, but between them it "adheres much more closely to the
+true smooth solution", reaching the noisy points with narrow spikes. A student anticipated it: with
+that much capacity there is "a large manifold of fits that all fit perfectly", some good and some bad,
+and which one you get depends on "how you're searching over that space" (≈32:27).
+
+The **simple + spiky hypothesis** (slide 29, citing Belkin, Rakhlin and Tsybakov 2018) reads the
+result as "learned model = 'simple' + 'spiky'": a smooth predictive component plus narrow spikes that
+memorize the noise, "memorization plus generalization" (≈34:01–34:47). It is provable for simple systems
+but not for deep nets.
+
+The lecturer's intuition for the second descent (≈37:53–38:39): at the **interpolation threshold**,
+"the point at which I can perfectly memorize all the training data", the model must contort itself to
+fit. With more capacity many solutions fit equally well, and something selects the smoothest among them;
+"the pressures that select within the set of things that fit the data the one that is the smoothest are
+sometimes called regularizers, or implicit regularizers, or inductive biases."
+
+Three practical remarks from lecture 6. Double descent is "a little finicky to actually observe in
+practice"; the lecturer could not reproduce it himself, and momentum, weight decay and other details
+"can make this disappear", which is fine, since "all the tricks that we use in practice are just getting
+rid of that spike and pushing us more out to the right" (slide 31's MNIST result, ≈40:58–42:28).
+Capacity can be measured in compute as well as parameters, "so there's kind of double descent also in
+compute time", and "in deep learning, we're out in this regime. We're past the first peak … you just
+train longer, and longer, and longer, and it smoothly will get better" (≈39:25–40:10). And with random
+Fourier features, the norm of the learned weights peaks exactly at the interpolation threshold and then
+falls as features are added: "more features means lower norm parameter solutions", provably for linear
+models and empirically for deep nets (slide 32, ≈42:28–44:03).
+
+## How should we measure complexity? (lecture 6)
+
+Occam's razor, "the simplest model that fits the data will generalize best", underlies most
+generalization theory, and its rigorous form is that "the shortest program that fits the data is the
+one that will generalize best" (slides 21–22, [Solomonoff 1964]). That is intractable, since it means
+searching all programs, so lecture 6 tries the classical stand-ins for "simple" one at a time.
+
+- **Number of parameters: no** (slides 24 and 33). Double descent shows more parameters need not
+  overfit. Slide 34's example: $h(x) = 10^{-100} f(x) + (1 - 10^{-100}) g(x)$, with $f$ a large network
+  and $g$ a small one, is fit almost exactly by $g$ alone, so "the count of parameters is not what
+  matters. Something about the size has to also be what matters" (≈45:36).
+- **Parameter norm: maybe** (slide 33). It tracks the double-descent picture better, "but parameter
+  norm is also not everything" (≈46:27).
+- **Number of distinct functions: no** (slides 35–45). This is Vapnik-Chervonenkis theory: if the
+  training set dwarfs the number of functions in the class, training error matches population error with
+  high probability, because few candidate functions can fit the data by luck (slide 36). Counting the
+  class's **dichotomies**, the binary labelings it can realize on the $n$ training points, slide 41 calls
+  that count the VC dimension $d$ and bounds the generalization error by $\sqrt{d / n}$. But neural nets
+  can fit random labels (slide 42): on CIFAR10 they reach about 100% training accuracy on shuffled labels,
+  with test accuracy near 10% (Zhang et al., 2017, slide 44). So they realize all $2^n$ dichotomies, the
+  bound becomes $\sqrt{2^n / n}$, and it is "extremely loose (in fact, vacuous)" (slide 43). Yet the same
+  networks generalize when the labels are real. The deeper problem is an assumption: "we're not just
+  picking a random hypothesis that fits the data. We're using gradient descent" (≈55:48).
+
+(Lecture 6 uses "VC dimension" for the count of dichotomies itself; textbook treatments of VC theory
+define the term differently, as a number of points.)
+
+The verdict, slide 46: "for deep learning, it's still an open question!" Slide 47's recap: deep nets
+generalize; generalization "requires inductive biases", since fitting the data cannot rule out the filing
+cabinet; those biases "can't just be about classical notions of complexity"; so deep learning "must have
+some nice inductive biases that control complexity in ways we don't fully know how to characterize!"
+
+## Candidate explanations (lecture 6)
+
+Of all the hypotheses that fit the training data, the **version space** (slide 49), why does training
+land on one that generalizes? Lecture 6 offers ideas that "are not yet completely standard or proven"
+(≈1:02:01):
+
+- **Simplicity bias in the parameter-function map** (slides 50–51, Valle Pérez, Camargo and Louis, ICLR
+  2019). "Most random settings of the weights in biases in a neural net map to simple functions",
+  simple in Lempel-Ziv complexity. Since most of parameter space maps to simple functions, learning tends
+  to reach the simple corner of the version space "just by chance" (≈1:05:07).
+- **Low-rank bias of depth** (slides 52–60, Huh et al., TMLR 2023). Deeper networks, even deep *linear*
+  ones that gain no capacity from depth, produce blockier, lower-rank kernels of their outputs, because
+  "products of matrices tend to be low rank": a greater proportion of a deep network's parameter space
+  maps the data to low-rank embeddings (≈1:08:18–1:12:56).
+- **Implicit regularization of optimizers** (slide 61): weight decay shrinks unused weights toward zero;
+  initialization near zero biases toward low-norm solutions; and SGD or GD with a finite step size "will
+  tend to overshoot or bounce out of minima that are too narrow", finding flat minima, which "can be argued
+  to generalize better" (≈1:13:43–1:15:19). See [loss landscapes](loss-landscapes.md).
+- **Architectural symmetries** (slide 62), which the lecturer calls "the most important": invariances
+  such as max pooling over orientations, equivariances such as a ConvNet's to shifts and a graph net's to
+  permutations, and compositionality, where the architecture, not learning, decides how the parts are
+  combined (≈1:15:19–1:17:40). See [inductive bias](inductive-bias.md).
+- **Domain-specific constraints** (slide 63): NeRF's projection and light-transport equations, and a
+  drug-interaction network's built-in structure, give "data plus structure, data plus constraints"
+  (≈1:17:40–1:18:26).
+
+The lecture closes on the theory answer revised: perhaps not the shortest program but one "short enough"
+(slide 64), and a remark the lecturer recalls from Ilya Sutskever: "Deep nets are finite; that is enough.
+Anything finite will look small once you have enough data" (slide 65, ≈1:19:12–1:19:58).

@@ -5,7 +5,8 @@ the things the course **expects you to have seen** (slide 26), and defers the de
 backpropagation, how gradients reach every parameter, the choice of step size — to lecture 2,
 which reviews the algorithm and its stochastic and momentum variants. Covered so far:
 [lecture 1](01-introduction.md), slides 26–30 and 64–66, ≈24:05–25:37;
-[lecture 2](02-how-to-train-a-neural-net.md), slides 4–11, ≈0:45–10:54. For the
+[lecture 2](02-how-to-train-a-neural-net.md), slides 4–11, ≈0:45–10:54; [lecture 6](06-generalization-theory.md),
+slide 61 and ≈35:34–40:10, on what the optimizer adds to generalization. For the
 symbols see [notation](notation.md).
 
 ## Learning as optimization
@@ -107,7 +108,27 @@ negative learning rate, "η = -0.2 (because we used positive increments)" (slide
 same downhill step as the minus form above with a positive rate.
 
 **When to stop.** "Often using something like a validation set and looking for some sort of
-plateauing of change on that validation set" (lecture 2, ≈41:12).
+plateauing of change on that validation set" (lecture 2, ≈41:12). Lecture 6 adds that the number of
+gradient-descent steps "is kind of a hyperparameter … And if you do too many, then you might be
+overfitting. And that's kind of a classical idea. But what we'll see is that in this neural net era, it
+tends to be just train forever" (≈36:20–37:07), because test error shows double descent in compute as
+well as in parameters: "we're past the first peak, and we're in the part where you just train longer,
+and longer, and longer, and it smoothly will get better" (≈39:25–40:10). See [generalization and double
+descent](generalization-and-double-descent.md).
 
 For classification, the loss $L$ in the objective above is usually the cross-entropy — see
 [softmax and cross-entropy](softmax-and-cross-entropy.md).
+
+## What the optimizer prefers (lecture 6)
+
+Gradient descent does not pick a random solution among those that fit the data, and lecture 6 makes
+that one of the candidate reasons deep nets generalize (slide 61, ≈1:12:56–1:15:19). **Weight decay**
+"acts like an L2 regularizer on weights, shrinking them toward zero all else being equal", so weights
+the network does not use go to zero and the solution has lower norm. **Initialization** near zero "biases
+solutions toward low norm. GD initialized near zero converges to minimum norm solution for linear models
+[Zhang et al. 2017, Gunasekar et al. 2017]". And **SGD, and GD with finite step size**, "converge to
+'flat' minima; they will tend to overshoot or bounce out of minima that are too narrow" (see [loss
+landscapes](loss-landscapes.md)). Because the optimizer is random (random initialization, random
+mini-batches), clean statements about which solution it reaches are hard; one makes empirical ones, "if
+we run this neural network over and over again with the Adam optimizer, or the SGD optimizer, here's what
+we observe", or probabilistic ones (≈35:34–36:20).

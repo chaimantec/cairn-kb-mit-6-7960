@@ -9,12 +9,12 @@
     "courseUrl": "https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/"
   },
   "coverage": {
-    "lecturesCovered": 5,
+    "lecturesCovered": 6,
     "lecturesTotal": 24,
-    "transcripts": 5,
-    "wikiLecturePages": 5,
+    "transcripts": 6,
+    "wikiLecturePages": 6,
     "wikiTopicPages": 20,
-    "note": "Lectures 1-5. lecturesTotal counts the catalog's 24 recordings: 23 lectures (numbered 1-21, 23, 24; there is no lecture 22) plus a PyTorch tutorial."
+    "note": "Lectures 1-6. lecturesTotal counts the catalog's 24 recordings: 23 lectures (numbered 1-21, 23, 24; there is no lecture 22) plus a PyTorch tutorial."
   },
   "license": {
     "file": "LICENSE.md",
@@ -25,31 +25,32 @@
     "primary": "slides",
     "slideDecks": {
       "available": 23,
-      "transcribed": 5
+      "transcribed": 6
     },
     "method": "page-images",
     "figuresAudited": true,
     "figureAudit": {
-      "decksAudited": 5,
-      "decksTotal": 5,
-      "note": "All five transcribed decks were audited against the PDF by an independent reader. Lecture 1 (Sonnet transcription, Sonnet audit): six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72), all agreeing, three small corrections applied; renders of slides 23, 45 and 70 also checked. Lecture 2 (Sonnet transcription, Sonnet audit): eight chart-, diagram- and number-heavy pages (10, 12, 14, 19, 51, 52, 79, 80) from cropped renders; seven agreed, slide 19 had two corrections, now applied; renders of slides 19 and 53 also checked. Lecture 3 (handwritten deck; Sonnet transcription, Opus audit): 19 equation-, diagram- and chart-heavy pages (5, 6, 10, 12-17, 27-33, 35, 38, 39) from 250-1200 dpi crops; every formula agreed; corrections applied on slides 6, 12, 27, 29, 30-33 (the layer symbol is a capital L) and 38 (values, and two series start points the first reading had invented), plus minor colour and arrow fixes; renders of slides 29 and 38 also checked. Lecture 4 (Sonnet transcription, Opus audit): 24 chart-, equation- and diagram-heavy pages (7, 8, 10, 18, 25, 31, 32, 37, 39-41, 48-52, 58-60, 62, 71, 77-79) from 600 dpi crops; every equation agreed; corrections on 13 pages, mostly counts (training points and peaks on slides 7, 8 and 10, nodes on 37 and 58, grid sizes on 59 and 60); it also found that slides 50-52 reuse slide 25's OCW-excluded clown fish image without a notice, so they are not rendered; renders of slides 42 and 74 also checked. Lecture 5 (Sonnet transcription, Opus audit): 27 graph-, chart- and equation-heavy pages (3, 5, 8-13, 15-20, 22, 23, 27, 28, 30, 35-37, 39-41, 43, 44) from 250-600 dpi crops, counting nodes, edges and bars from the PDF's vector data; every equation agreed and the flagged printed slips were confirmed, plus one more (slide 18's missing closing brace); corrections on 11 pages, mostly counts (nine red dots on slide 8, 16 edges on slide 9, eight curves on slide 41) and arrow ends (slides 16 and 43); renders of slides 36 and 41 also checked. A same-model audit (lectures 1 and 2) catches misreadings caused by resolution but not ones the two readers share."
+      "decksAudited": 6,
+      "decksTotal": 6,
+      "note": "All six transcribed decks were audited against the PDF by an independent reader. Lecture 1 (Sonnet transcription, Sonnet audit): six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72), all agreeing, three small corrections applied; renders of slides 23, 45 and 70 also checked. Lecture 2 (Sonnet transcription, Sonnet audit): eight chart-, diagram- and number-heavy pages (10, 12, 14, 19, 51, 52, 79, 80) from cropped renders; seven agreed, slide 19 had two corrections, now applied; renders of slides 19 and 53 also checked. Lecture 3 (handwritten deck; Sonnet transcription, Opus audit): 19 equation-, diagram- and chart-heavy pages (5, 6, 10, 12-17, 27-33, 35, 38, 39) from 250-1200 dpi crops; every formula agreed; corrections applied on slides 6, 12, 27, 29, 30-33 (the layer symbol is a capital L) and 38 (values, and two series start points the first reading had invented), plus minor colour and arrow fixes; renders of slides 29 and 38 also checked. Lecture 4 (Sonnet transcription, Opus audit): 24 chart-, equation- and diagram-heavy pages (7, 8, 10, 18, 25, 31, 32, 37, 39-41, 48-52, 58-60, 62, 71, 77-79) from 600 dpi crops; every equation agreed; corrections on 13 pages, mostly counts (training points and peaks on slides 7, 8 and 10, nodes on 37 and 58, grid sizes on 59 and 60); it also found that slides 50-52 reuse slide 25's OCW-excluded clown fish image without a notice, so they are not rendered; renders of slides 42 and 74 also checked. Lecture 5 (Sonnet transcription, Opus audit): 27 graph-, chart- and equation-heavy pages (3, 5, 8-13, 15-20, 22, 23, 27, 28, 30, 35-37, 39-41, 43, 44) from 250-600 dpi crops, counting nodes, edges and bars from the PDF's vector data; every equation agreed and the flagged printed slips were confirmed, plus one more (slide 18's missing closing brace); corrections on 11 pages, mostly counts (nine red dots on slide 8, 16 edges on slide 9, eight curves on slide 41) and arrow ends (slides 16 and 43); renders of slides 36 and 41 also checked. Lecture 6 (Sonnet transcription, Opus audit): 30 chart-, diagram-, table- and equation-heavy pages (3, 8, 10, 11, 19, 25-28, 30-32, 34, 37-39, 44, 49-54, 56-60, 62, 63) from 150-600 dpi crops and vector data; every equation and every cell of slide 44's table agreed; corrections on 16 pages, mostly positions and counts (stems and arrow targets on slide 8, off-curve samples and spikes on 25-28, log axes and marker positions on 31-32, purple circles on 37 and 39); it also found that slide 62's photograph is lecture 4's excluded heron image, so slide 62 is not rendered; renders of slides 8 and 28 also checked. A same-model audit (lectures 1 and 2) catches misreadings caused by resolution but not ones the two readers share."
     },
     "images": {
-      "lecturesWithImages": 5,
+      "lecturesWithImages": 6,
       "lecturesWithoutImages": [],
-      "lecturesTotal": 5,
-      "files": 134,
-      "megabytes": 11.3,
+      "lecturesTotal": 6,
+      "files": 161,
+      "megabytes": 13.5,
       "format": "whole slides rendered at 1400px, JPEG q85 or PNG whichever is smaller, named slide-N by PDF page number",
       "discovery": "inline in wiki/ and raw/slides/; no index file",
       "byLecture": {
-        "1": 21,
+        "1": 20,
         "2": 45,
         "3": 18,
         "4": 31,
-        "5": 19
+        "5": 19,
+        "6": 28
       },
-      "note": "Lecture 1: 21 of 81 pages. Lecture 2: 45 of 81 pages. Lecture 3: 18 of 43 pages. Lecture 4: 31 of 84 pages. Lecture 5: 19 of 47 pages. Not rendered: slides carrying an OCW 'All rights reserved ... excluded from our Creative Commons license' notice (22 in lecture 1, 7 in lecture 2, none in lecture 3, 35 in lecture 4, 14 in lecture 5), lecture 4's slides 50-52, which reuse slide 25's excluded photograph without a notice, build steps or repeats superseded by a rendered slide, text/agenda/equation-only slides (in lecture 3, handwritten text and equations the slide file reproduces), lecture 1's slides mostly hidden by a lecture-pointer banner, and lecture 2's slide 56 (logos and an uncredited code screenshot). Lecture 5's slides 12, 15, 21 and 29 reuse the graph drawing of excluded slide 3 but are rendered: the only shared image object is a small node glyph, and slide 3's credit and notice sit under its Pinterest figure, not that graph. The lists are in AGENTS.md. No other lecture is in this KB yet, so no other lecture has images."
+      "note": "Lecture 1: 20 of 81 pages. Lecture 2: 45 of 81 pages. Lecture 3: 18 of 43 pages. Lecture 4: 31 of 84 pages. Lecture 5: 19 of 47 pages. Lecture 6: 28 of 66 pages. Not rendered: slides carrying an OCW 'All rights reserved ... excluded from our Creative Commons license' notice (22 in lecture 1, 7 in lecture 2, none in lecture 3, 35 in lecture 4, 14 in lecture 5, 8 in lecture 6), slides that reuse an excluded image without a notice (lecture 4's slides 50-52, which reuse slide 25's photograph; lecture 6's slide 62, which reuses lecture 4's heron photograph; and lecture 1's slide 51, the Belkin et al. double-descent figure that lecture 6's deck marks as excluded, withdrawn when lecture 6 was added), build steps or repeats superseded by a rendered slide, text/agenda/equation-only slides (in lecture 3, handwritten text and equations the slide file reproduces), lecture 1's slides mostly hidden by a lecture-pointer banner, and lecture 2's slide 56 (logos and an uncredited code screenshot). Lecture 5's slides 12, 15, 21 and 29 reuse the graph drawing of excluded slide 3 but are rendered: the only shared image object is a small node glyph, and slide 3's credit and notice sit under its Pinterest figure, not that graph. The lists are in AGENTS.md. No other lecture is in this KB yet, so no other lecture has images."
     }
   },
   "provenance": {
@@ -58,7 +59,7 @@
       "claude-sonnet-5-5"
     ],
     "caveats": [
-      "Covers lectures 1-5 of 24 only. The course map says which later lecture teaches a topic, but nothing here records what those lectures say.",
+      "Covers lectures 1-6 of 24 only. The course map says which later lecture teaches a topic, but nothing here records what those lectures say.",
       "Transcripts are OCW's human-made captions with a light copy-edit; every change is listed in the file header and the unedited text is in raw/transcripts/original/.",
       "Lecture 1's deck labels later topics with 'Lecture N' banners that do not all match the recorded schedule (e.g. transformers 'Lecture 9', recorded as 8); wiki/course-map.md maps them.",
       "Slides 45 and 70 of lecture 1 are animation frames clipped in OCW's PDF; their heat maps and batch matrices are not recoverable from the deck.",
@@ -72,7 +73,10 @@
       "Lecture 4's slide 40 prints x_out[C, :] where its 0-based indexing means C - 1, and slide 39 leaves unclear whether the bias is inside the channel sum; the lecturer calls slide 25's vertical-edge filter 'horizontal edges'. The wiki flags all three.",
       "Lecture 5's deck has 14 of 47 slides excluded from OCW's licence (the application examples, J. Leskovec's tree-view illustrations, the two example architectures, the positional-encoding results); those exist here as prose descriptions only.",
       "Lecture 5's slide 41 plots eight training-accuracy curves but labels only three groups with arrows (sum with an MLP, sum with linear+ReLU, mean/max); per-curve values are read approximately from the plot.",
-      "Lecture 5's slides print small slips, transcribed as written and flagged: slide 18's max aggregation lacks its closing brace, slides 40-41 drop the opening bracket after g_1, slide 30's first coefficient c^{vu} carries no r, and slide 39's h^(t) is unbolded with no node subscript."
+      "Lecture 5's slides print small slips, transcribed as written and flagged: slide 18's max aggregation lacks its closing brace, slides 40-41 drop the opening bracket after g_1, slide 30's first coefficient c^{vu} carries no r, and slide 39's h^(t) is unbolded with no node subscript.",
+      "Lecture 6's deck has 8 of 66 slides excluded from OCW's licence (the Paul the octopus article, the pix2pix and edges2cats figures, all four Belkin et al. double-descent figures, and the NeRF and polypharmacy figures); those exist here as prose descriptions only, and slide 62 is not rendered because its photograph is lecture 4's excluded heron image.",
+      "Lecture 6's slides 10-11 print n = 30, m = 10 for a 30-fruit vocabulary and 10-fruit lists (the reverse of slide 9's definitions), and slide 10's s = 100 trillion matches neither 10^30 nor 30^10; the wiki reports the numbers without resolving them.",
+      "Lecture 6's slides 41 and 43 call the number of dichotomies the 'VC dimension'; the wiki follows the slides, with one note marked as outside the course material that textbook usage differs."
     ]
   },
   "entryPoint": "INDEX.md",

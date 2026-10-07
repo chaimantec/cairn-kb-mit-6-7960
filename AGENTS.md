@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which fetches files over raw.githubusercontent.com and follows
 relative markdown links.
 
-**Coverage is partial: lectures 1–5 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–6 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 ## Layout
 
@@ -40,17 +40,21 @@ relative markdown links.
   generalization theory to "Lecture 7" (recorded: 6), and so on. The mapping is in
   [`wiki/course-map.md`](wiki/course-map.md#the-decks-lecture-pointers). Always cite the
   *recorded* lecture number, and check later decks for the same drift. The decks of lectures 2
-  to 5 have no pointers to other lectures, and each one's own "Lecture N" matches the recording.
+  to 6 have no pointers to other lectures, and each one's own "Lecture N" matches the recording;
+  lecture 6's title slide, "Lecture 6: NN Generalization", settles lecture 1's "Lecture 7" banner.
   Lecture 3's last slide previews "Inductive biases" with no lecture number; lecture 4's recording
-  points ahead to "the transformers lecture" (8) without one, and lecture 5's to transformers "in a
-  week or so".
+  points ahead to "the transformers lecture" (8) without one, lecture 5's to transformers "in a
+  week or so", and lecture 6's to "Thursday's lecture" on optimization (7), the representation
+  learning lectures (11–13), image-to-image models "later in the course" and language models
+  "later".
 - **Reused deck.** Lecture 1's title slide says "6.S898 Deep Learning … Fall 2022", the course's
   earlier number and term, and lecture 5's footer prints "6.S898 Deep Learning" with "Fall 2024".
   The transcription keeps what is printed.
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5), which is not lecture content. Lecture 5's is a
-  4:3 page, and `slide_number_map.py` reports it as printing no number although it prints 47.
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6), which is not lecture
+  content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides, and
+  `slide_number_map.py` reports each as printing no number although they print 47 and 66.
 - **Lecture 3's deck is handwritten** — Jeremy Bernstein's iPad notes, in several ink colours on a
   dark background. Its PDF text layer is OCR of the handwriting and is useless (it reads
   "Hongenoucin" for a handwritten credit), so nothing was taken from it. The handwriting is vector
@@ -65,7 +69,11 @@ relative markdown links.
   fields, encoder–decoder, U-net, ResNet), so those figures exist here only as prose. Lecture 5's
   carries 14 in 47 pages: the application examples (Pinterest, molecules, polypharmacy, Google Maps,
   learned physics simulation), J. Leskovec's tree-view illustrations, the two example
-  architectures, and the positional-encoding results.
+  architectures, and the positional-encoding results. Lecture 6's carries 8 in 66 pages: the Paul
+  the octopus article (The Daily Beast), the pix2pix training pairs and network (Xie and Tu; Isola
+  et al.), Chris Hesse's edges2cats demo, all four Belkin et al. figures (the bias-variance U-curve,
+  double descent, the MNIST result and the random-Fourier-feature norms), and slide 63's NeRF and
+  polypharmacy figures ("© sources unknown").
 - **An excluded image can reappear without its notice.** Lecture 4's slides 50–52 print no notice,
   but their photo crop is the same embedded image object as slide 25's clown fish, which slide 25
   marks "© source unknown. All rights reserved". They are treated as excluded and not rendered.
@@ -77,6 +85,14 @@ relative markdown links.
   figure, not under that graph, which the deck draws itself and reuses with no notice on slides 12,
   15, 21 and 29. Those four are rendered. Check an image's size and placement
   (`page.get_image_rects()`) before treating a page as reusing excluded content.
+- **Reuse crosses decks, and xrefs do not.** An xref is local to one PDF, so compare images across
+  decks by a hash of their pixels (`hashlib.md5(fitz.Pixmap(doc, xref).samples)`). Lecture 6 found
+  two such reuses. Its slide 62 prints no notice, but its beak photograph is the same 800×533 image
+  as lecture 4's excluded slides 43, 53–55, 66–68, 70 and 71 (Fredo Durand's heron), mirrored and
+  cropped to its beak, so slide 62 is not rendered. And its excluded slide 30, "© Belkin, et al. All rights reserved", is pixel for
+  pixel the double-descent figure of lecture 1's slide 51, which carries no notice in lecture 1 and
+  had been rendered; that image was withdrawn when lecture 6 was added. A sweep of every rendered
+  image in lectures 1–6 against every excluded image in all six decks found no other match.
 
 ## Conventions
 
@@ -132,7 +148,12 @@ paragraph carrying an `[Ed: see slide 40]` note); restorations are "Sarah" → "
 → "sum" three times where the lecturer reads slide 40–41's sum of MLPs, plus four punctuation fixes
 and seven `[Ed: …]` notes (two naming Sara Beery and Jeremy Bernstein, four on unclear phrasing,
 one pointing a restoration to slide 40).
-Also done inline.
+Also done inline. Lecture 6: 104 markers identical, all 86 digit strings identical, word ratios
+1.00–1.27, and 1.00 throughout once its two `[Ed: …]` notes are removed (the high end is the 16:11
+paragraph carrying the note on slide 10's printed n and m). Its restorations are the student's
+"approximations supposed" → "approximation's supposed" (5:24) and "Sarah" → "Sara" (1:17:40, with an
+`[Ed: …]` note naming Sara Beery), plus two restored full stops, two lower-cased words and one
+restart marked with the captions' "--". Also done inline.
 
 ## Slides
 
@@ -216,6 +237,18 @@ and directions on 16 and 43; blob membership on 12 and 15; dot positions on 10; 
 equivalence class is now described more fully (a triangular prism and $K_{3,3}$). It also established that slides 3, 12, 15, 21 and 29 share one 19-node, 24-edge graph
 drawing (above). The renders of slides 36 and 41 were then checked against the corrected text.
 
+**Lecture 6's figure audit**, cross-model: Sonnet read the deck, and Opus checked 30 chart-, diagram-,
+table- and equation-heavy pages (3, 8, 10, 11, 19, 25–28, 30–32, 34, 37–39, 44, 49–54, 56–60, 62, 63)
+from 150–600 dpi crops, measuring curves, dots and circles from `page.get_drawings()` and charts from
+their embedded rasters. Every equation agreed, and every cell of slide 44's CIFAR10 table. Corrections
+followed on 16 pages, mostly where things sit: slide 8 (stems on nine dots, not ten; the green
+arrows land between the dots), 11 (eight blueberries), 25 (where the four off-curve samples are), 27
+and 28 (the model's swings and spikes; slide 28's 17th sample gets no spike), 31 and 32 (both are
+log-scaled, and the x positions of their markers), 37 and 39 (which circles are purple), 50, 51, 57,
+58, 60, 62 (24 edges, the blob, the bar angles) and 63 (the layout, and that the notice sits under
+the NeRF figure). It also identified slide 62's photograph as lecture 4's excluded heron (above).
+The renders of slides 8 and 28 were then checked against the corrected text.
+
 **Lecture 5's printed slips and oddities**, transcribed as written: slide 18's max aggregation has
 no closing brace; slide 30's polypharmacy update writes the first normalizing constant $c^{vu}$
 with no $r$ while the second is $c_r^v$; slides 40 and 41 print $g_1$ with no opening bracket before
@@ -226,19 +259,32 @@ node subscript; and slide 39 abbreviates the "Jegelka" that slide 36 prints in f
 max pooling" where the lecturer says Bellman-Ford's aggregate is a min (≈41:54); the wiki reports
 both.
 
+**Lecture 6's printed slips and oddities**, transcribed as written: slides 10 and 11 print "n = 30,
+m = 10" for a 30-fruit vocabulary and 10-fruit lists, the reverse of slide 9's definitions (n words
+from a vocabulary of size m), and slide 10's "s = 100 trillion" at p = 1 equals neither $10^{30}$ nor
+$30^{10}$ (it is close to $30 \times 29 \times \cdots \times 21$, ordered lists of ten different fruits);
+the lecturer says "10 to the 30th" (≈16:11), and the wiki gives all of it without resolving it.
+Slide 9 asks "What about much big fancy modern nets?" and writes m^n and p\*m^n as plain text, as
+slide 43 does d = 2^n; slide 50 says "weights in biases"; and slide 44's screenshot of Zhang et al.'s
+table clips the caption at its right edge. Slides 41 and 43 define the "VC dimension" $d$ as the
+number of dichotomies; the wiki follows the slides and adds one marked note that textbook usage
+differs. The lecturer says Paul the octopus got "6 out of 6" (≈9:16) where slide 7's article says
+"all eight (!) German matches"; the wiki reports both.
+
 ## Images
 
-**Lectures 1–5 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–6 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
 | Lecture | Files | Where they came from |
 | --- | --- | --- |
-| 1 Introduction to Deep Learning | 21 of 81 pages | rendered from `mit6_7960_f24_lec1.pdf` |
+| 1 Introduction to Deep Learning | 20 of 81 pages | rendered from `mit6_7960_f24_lec1.pdf` |
 | 2 How to Train a Neural Net | 45 of 81 pages | rendered from `mit6_7960_f24_lec2.pdf` |
 | 3 Approximation Theory | 18 of 43 pages | rendered from `mit6_7960_f24_lec3.pdf` |
 | 4 Architectures: Grids | 31 of 84 pages | rendered from `mit6_7960_f24_lec4.pdf` |
 | 5 Architectures: Graphs | 19 of 47 pages | rendered from `mit6_7960_f24_lec5.pdf` |
+| 6 Generalization Theory | 28 of 66 pages | rendered from `mit6_7960_f24_lec6.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number.
@@ -250,7 +296,8 @@ never assume a slide has an image because a neighbouring one does.** Many pages 
 deliberately not rendered (next section), so lecture 1's `slide-36.jpg` existing tells you nothing
 about `slide-37`, lecture 2's `slide-38` tells you nothing about `slide-39`, lecture 3's
 `slide-17` tells you nothing about `slide-18`, lecture 4's `slide-49` tells you nothing about
-`slide-50`, and lecture 5's `slide-23` tells you nothing about `slide-24`. The extension differs from slide to slide too (`.jpg` or `.png`, whichever was smaller), so
+`slide-50`, lecture 5's `slide-23` tells you nothing about `slide-24`, and lecture 6's `slide-28` tells
+you nothing about `slide-29`. The extension differs from slide to slide too (`.jpg` or `.png`, whichever was smaller), so
 copy the whole path. Reading a path that is not in the repo returns an error rather than a URL, which
 costs a turn; a guessed path is never worth it.
 
@@ -259,7 +306,7 @@ from `wiki/`, `../images/01-introduction/slide-41.png` from `raw/slides/`. To sh
 path and use the URL that comes back. Do not write an absolute `raw.githubusercontent.com` URL
 into a file.
 
-All 21 of lecture 1's images appear both in
+All 20 of lecture 1's images appear both in
 [`wiki/01-introduction.md`](wiki/01-introduction.md), in the passage that cites each slide, and
 under the matching `## Slide N` heading of
 [`raw/slides/01-introduction.md`](raw/slides/01-introduction.md). To list them:
@@ -274,6 +321,8 @@ lecture 4's images appear both in [`wiki/04-architectures-grids.md`](wiki/04-arc
 and under their headings in [`raw/slides/04-architectures-grids.md`](raw/slides/04-architectures-grids.md).
 All 19 of lecture 5's images appear both in [`wiki/05-architectures-graphs.md`](wiki/05-architectures-graphs.md)
 and under their headings in [`raw/slides/05-architectures-graphs.md`](raw/slides/05-architectures-graphs.md).
+All 28 of lecture 6's images appear both in [`wiki/06-generalization-theory.md`](wiki/06-generalization-theory.md)
+and under their headings in [`raw/slides/06-generalization-theory.md`](raw/slides/06-generalization-theory.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 - **Prefer the transcription for numbers and formulas.** The slide file reproduces every
@@ -283,11 +332,10 @@ The concept pages embed none; they cite slides, and the lecture pages carry the 
 
 ### What was rendered, and what was not — lecture 1
 
-Rendered (21): slides 14, 21, 22, 23, 28, 33, 34, 35, 36, 38, 40, 41, 42, 43, 45, 51, 55, 57, 58,
-59, 70 — the XOR plot, the enthusiasm curves, the loss surface, the linear-layer and perceptron
-diagrams, the three activation plots, stacked layers, the two-layer classification network,
-double descent, the classifier and loss diagrams, cross-entropy, and the start of the batched
-build.
+Rendered (20): slides 14, 21, 22, 23, 28, 33, 34, 35, 36, 38, 40, 41, 42, 43, 45, 55, 57, 58, 59,
+70 — the XOR plot, the enthusiasm curves, the loss surface, the linear-layer and perceptron
+diagrams, the three activation plots, stacked layers, the two-layer classification network, the
+classifier and loss diagrams, cross-entropy, and the start of the batched build.
 
 Not rendered, and why:
 
@@ -298,6 +346,8 @@ Not rendered, and why:
   determination, which does not pass to copies. They are described in full in the slide file, and
   that description is the only representation this KB has. The bar-chart slides 61 and 63 among
   them had a figure audit.
+- **Reusing an excluded image without a notice:** 51, the Belkin et al. double-descent figure, the
+  same image as lecture 6's excluded slide 30 (see above). It was rendered until lecture 6 was added.
 - **Build steps superseded by a rendered slide:** 7, 10, 12, 15, 18 (the enthusiasm curve before
   its final form on 21–23); 37 (slide 36 without its labels); 39 (slide 38's plot with bullet
   text); 56 (the loss diagram before 57 and 58).
@@ -398,15 +448,40 @@ Not rendered, and why:
 - **No figure worth a picture:** the title, roadmap, connections and summary slides (1, 2, 14, 32, 33,
   45) and slide 47, the OCW end page.
 
+### What was rendered, and what was not — lecture 6
+
+Rendered (28): slides 8, 11, 14–19, 21, 25–28, 34, 37–39, 49–54 and 56–60 — the filing cabinet
+against a ReLU MLP, the image-generation counting experiment, the edges2cats creations and the
+two-, three- and eight-eyed cat sequence, the oval-to-eye ConvNet diagram, Occam's razor, the four
+polynomial fits, the two networks of the parameter-count example, the three VC-theory circle
+diagrams, the version space, the simplicity-bias plot and diagram, the low-rank-bias scatter plots
+and kernels, the parameter-kernel map, the effective-rank distributions and the parameter landscape.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (8 slides): 7, 12, 13, 23, 30, 31, 32, 63** — the Paul the octopus
+  article, the pix2pix training pairs, the edges2cats demo, the four Belkin et al. figures (the
+  bias-variance U-curve, double descent, the MNIST result, the random-Fourier-feature norms), and the
+  NeRF and polypharmacy figures. Described in full in the slide file only.
+- **Reusing an excluded image without a notice:** 62 (lecture 4's heron photograph; see above).
+- **Build steps superseded by a rendered slide:** 29 (slide 28's plot reduced, beside the
+  "simple + spiky" text the file reproduces), 55 (slide 54's figure with a new caption line).
+- **Code, screenshots and tables the slide file reproduces exactly:** 6 and 9 (the filing-cabinet
+  code), 10 (the fruit list and a text-only ChatGPT exchange), 40 and 42 (the dichotomy and label
+  tables), 44 (Zhang et al.'s CIFAR10 table, transcribed cell by cell).
+- **No figure worth a picture:** the title, outline, dividers and text slides (1–5, 20, 22, 24, 33,
+  35, 36, 41, 43, 45–48, 61, 64, 65) and slide 66, the OCW end page.
+
 ### Provenance and attribution
 
 Rendered slides are from *MIT 6.7960 Deep Learning, Fall 2024*, MIT OpenCourseWare
 (<https://ocw.mit.edu>), CC BY-NC-SA 4.0, by Phillip Isola, Sara Beery and Jeremy Bernstein;
 lecture 1's deck is by Sara Beery, and lecture 2's names her as speaker. Two rendered lecture 1
-slides contain material from elsewhere that OCW did not flag. **Slide 51** reproduces the double-descent figure of Belkin, Hsu, Ma and Mandal,
-"Reconciling modern machine-learning practice and the classical bias–variance trade-off"
-(PNAS, 2019), credited on the slide. **Slides 45 and 70** show, at their clipped bottom edge, a
-fragment of an uncredited bird photograph from the next animation frame.
+slides contain material from elsewhere that OCW did not flag: **slides 45 and 70** show, at their
+clipped bottom edge, a fragment of an uncredited bird photograph from the next animation frame.
+Lecture 1's slide 51, which reproduces the double-descent figure of Belkin, Hsu, Ma and Mandal
+(PNAS, 2019), was rendered until lecture 6's deck marked the same image "All rights reserved"; it
+is no longer rendered.
 
 Lecture 2's rendered slides include third-party material that the slides credit under an open
 licence: **slide 11** is a screenshot of Gabriel Goh's Distill article "Why Momentum Really Works"
@@ -438,13 +513,26 @@ an uncredited chemical-structure drawing. **Slides 12, 15, 21 and 29** reuse the
 excluded slide 3 (see "An excluded image can reappear without its notice" above for why they are
 rendered).
 
+Lecture 6's deck names Phillip Isola as speaker. Several of its rendered slides carry material from
+elsewhere that OCW did not flag. **Slide 11** is a ChatGPT screenshot ("Created with ChatGPT.") whose
+reply is a generated image. **Slide 14** shows images made with the edges2cats demo, credited "Ivy
+Tasi @ivymyt" and "Vitaly Vidmirov @vvid" ("Images created using pix2pix and edges2cats."). **Slides
+15–19** show the same demo's input and output panels with the lecturer's sketches and pix2pix's
+outputs; the demo's own screenshot on slide 13 is excluded ("© Chris Hesse"), but these slides print
+no notice and share no image with it, so they are rendered, and they are the nearest case in this KB
+to that line. **Slide 21**'s drawing is credited "Image is in the public domain." **Slides 25–28**
+are uncredited polynomial-fit plots. **Slide 50**'s plot and **slide 51**'s diagram cite Valle
+Pérez, Camargo and Louis (ICLR 2019). **Slides 52–60** are from Huh, Mobahi, Zhang, Cheung, Agrawal
+and Isola (TMLR 2023), a paper of the lecturer's; slides 53, 54 and 60 print "Images courtesy of Huh,
+et al. Used under CC BY-NC-SA."
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.
 
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–5:
+Notes for the next run, from lectures 1–6:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -478,8 +566,11 @@ Notes for the next run, from lectures 1–5:
   usually reads each formula aloud, so check the formulas against the transcript too.
 - **Audit with a different model from the transcriber.** A same-model audit catches misreadings
   caused by resolution but not ones the two runs share. Lecture 3 was read at Sonnet and audited at
-  Opus from 600-dpi crops, and lectures 4 and 5 the same; lectures 1 and 2 were Sonnet audited
+  Opus from 600-dpi crops, and lectures 4, 5 and 6 the same; lectures 1 and 2 were Sonnet audited
   by Sonnet. Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
-  grid cells) on charts and diagrams, and lecture 5's on 11 of 27, again mostly counts. For decks of
+  grid cells) on charts and diagrams, lecture 5's on 11 of 27, again mostly counts, and lecture 6's
+  on 16 of 30, mostly positions and counts. Lecture 6's audit agent was stopped by a session limit
+  after 28 pages; it had appended each page to a report file, so a second agent did only the last
+  two. For decks of
   graph drawings, tell the auditor it may count nodes and edges from `page.get_drawings()`.
 - After writing, run `check_math.mjs` and `verify_kb.py`.

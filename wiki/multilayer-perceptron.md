@@ -9,7 +9,9 @@ computation graph, and its backward pass); [lecture 3](03-approximation-theory.m
 and 27–33 (what ReLU MLPs can approximate, and depth versus width); [lecture 4](04-architectures-grids.md),
 slides 3, 26 and 30 (the MLP's strengths and weaknesses as an architecture, and the fully connected
 layer that a convolution constrains); [lecture 5](05-architectures-graphs.md), slides 11, 22 and 23 (why an MLP
-on an adjacency matrix is not permutation invariant, and the MLP as a graph net over a single node). See also [activation functions](activation-functions.md),
+on an adjacency matrix is not permutation invariant, and the MLP as a graph net over a single node);
+[lecture 6](06-generalization-theory.md), slide 8 and ≈40:10–40:58 (how an MLP fits between its
+training points, and its last layer as a weighted sum of features). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -180,3 +182,19 @@ layer and a pointwise non-linearity, repeated (slide 23, ≈54:20–55:51). Conv
 passing "looks a lot like a neural network MLP", except that its neurons are vectors: aggregation is
 akin to a linear layer and the update to a pointwise one (slide 22, ≈48:53–49:42). See
 [graph neural networks](graph-neural-networks.md).
+
+## How an MLP fits between the data (lecture 6)
+
+Lecture 6 uses a 3-layer ReLU MLP as its first example of generalization (slide 8, ≈10:48–12:21). Fit to
+the same scalar data as a "filing cabinet" that memorizes each training point and predicts 0 elsewhere,
+the MLP also passes through every point, but between and beyond them it draws a continuous piecewise-linear
+curve rather than dropping to zero. Both have zero training error; what differs is "how you interpolate
+and extrapolate from the training data", and the MLP's smooth kind is the better bet because "most
+functions in the world are going to be smooth as opposed to spiky".
+
+Asked how polynomial regression relates to deep nets, the lecturer described an MLP's last layer as
+regression on features: "you can think of the last layer of an MLP as a linear combination of some basis
+functions, of some features. So every neuron on the previous layer is a feature of the data." Polynomial
+features give polynomial regression, sines and cosines give Fourier features, "and in deep learning,
+they'll be learned functions" (≈40:10–40:58). See [generalization and double
+descent](generalization-and-double-descent.md).

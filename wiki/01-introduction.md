@@ -332,10 +332,6 @@ hypothesis** (slide 52) restates the contrast: classically "big models learn com
 functions, and overfit"; the emerging theory is that "deep nets learn *simple* functions that
 generalize".
 
-![Slide 51: two risk-versus-capacity plots — (A) the classical U-shaped test-risk curve with a "sweet spot" between under- and over-fitting, and (B) double descent, where test risk peaks at the interpolation threshold and falls again in the over-parameterized "modern" interpolating regime while training risk stays at zero.](../raw/images/01-introduction/slide-51.jpg)
-
-*Slide 51 — the classical U-curve (A) against double descent (B), from Belkin et al., PNAS 2019.*
-
 Four student questions sharpen this section (≈45:01–49:40), and are written up on
 [generalization and double descent](generalization-and-double-descent.md):
 

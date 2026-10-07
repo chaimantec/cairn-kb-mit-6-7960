@@ -5,7 +5,8 @@ every local patch of a grid-structured input and writes one output per position.
 architecture the course builds for grids such as images, in [lecture 4](04-architectures-grids.md).
 Covered so far: lecture 4, slides 12–64 and 73–75, ≈13:04–59:38 and ≈1:08:14–1:10:38, plus the
 end-of-lecture questions on pooling and video (≈1:16:51 and ≈1:20:43–1:23:48); and [lecture 5](05-architectures-graphs.md)'s
-slides 12–13, ≈26:24–32:32, on the ConvNet as a graph net on a grid. The architectures
+slides 12–13, ≈26:24–32:32, on the ConvNet as a graph net on a grid; and [lecture 6](06-generalization-theory.md)'s
+slide 19, ≈21:37–23:57, on patch-wise processing as a reason ConvNets generalize. The architectures
 built from convolutional layers are on [skip connections](skip-connections.md); why the layer's
 assumptions help is on [inductive bias](inductive-bias.md).
 
@@ -183,3 +184,16 @@ The lecture closes on the idea in its plainest form (slide 82): convolution "jus
 image into patches and apply the same function to each patch. This concept appears in almost all
 modern architectures, such as CNNs, transformers, NeRFs, and more." In transformers, the lecturer
 added, "the patch-wise operation isn't necessarily convolution, use attention instead" (≈1:15:19).
+
+## Patch-wise processing and generalization (lecture 6)
+
+Lecture 6 credits the convolutional structure with a kind of generalization that surprised the lecturer
+(slides 15–19, ≈21:37–23:57). pix2pix, a ConvNet trained to turn sketches into cat photos, was given a
+sketch with three eyes, and then eight: "It's never seen a photo of a cat with three eyes. How would it
+know what to do? But it works. It just puts that eye where that eye was drawn." The explanation is that a
+ConvNet chops its input into patches "and then they independently and identically process every patch",
+so the problem factors into many independent local decisions, "When I see an oval, draw an eye", and the
+outputs are stitched back together by the architecture rather than by anything learned. Each patch is an
+ordinary, in-distribution case; only the arrangement is new. Lecture 6 calls this **compositionality** and
+counts translation equivariance among the architectural symmetries it thinks matter most for
+generalization (slide 62). See [inductive bias](inductive-bias.md).

@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–5 of 24 only.** This knowledge base currently holds the first five
+> **Coverage: lectures 1–6 of 24 only.** This knowledge base currently holds the first six
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
-> Architectures: Grids; Architectures: Graphs) and the concept pages they support. For anything
-> taught in lectures 6–24, it can tell you *which* lecture covers it — see the
+> Architectures: Grids; Architectures: Graphs; Generalization Theory) and the concept pages they
+> support. For anything taught in lectures 7–24, it can tell you *which* lecture covers it — see the
 > [course map](wiki/course-map.md) — but not *what* that lecture says. Do not cite it as the course
-> beyond lecture 5. Build progress is in
+> beyond lecture 6. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -69,6 +69,20 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   weight sharing; training; what GNNs can distinguish (equivalence classes, the 1-dim
   Weisfeiler-Leman bound, injective aggregation, sum versus mean on PROTEINS, cycles and diameter);
   and Laplacian-eigenvector positional encodings. 14 of its slides are excluded from OCW's licence.
+- [Lecture 6 — Generalization Theory](wiki/06-generalization-theory.md) — Phillip Isola. Why do
+  neural networks generalize? Empirical versus population risk; bad data and bad models (the
+  "filing cabinet" that memorizes, Paul the octopus); memorization versus generalization (a filing
+  cabinet and a ReLU MLP fit the same points); a counting experiment showing GPT-4o is no filing
+  cabinet; pix2pix and edges2cats generalizing to sketches with three and eight eyes, and the
+  ConvNet's compositional bias; Occam's razor and the shortest program (Solomonoff); bias and
+  variance; polynomial fits of degree 1, 3, 20 and 1000, the simple + spiky hypothesis and double
+  descent (Belkin et al.), with when to stop training; why parameter count, parameter norm and the
+  number of functions all fail as complexity measures; Vapnik-Chervonenkis theory, dichotomies and
+  the $\sqrt{d / n}$ bound, made vacuous by networks that fit random labels (Zhang et al.'s CIFAR10
+  table); the version space; candidate inductive biases — simplicity bias of the parameter-function
+  map, the low-rank bias of depth, implicit regularization by optimizers (weight decay,
+  initialization, flat minima), architectural symmetries, domain constraints; and Ilya Sutskever's
+  "anything finite will look small". 8 of its slides are excluded from OCW's licence.
 
 ## Course pages
 
@@ -77,7 +91,7 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   (several differ — e.g. transformers are lecture 8, not 9). Covers grading (65% problem sets,
   35% blog-post final project), compute, PyTorch, the collaboration rules and the AI-assistant
   policy; and which problem set goes with which lecture where a lecture says (lecture 5's
-  graph-network questions are Homework 2's).
+  graph-network questions are Homework 2's, which went out at lecture 6).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -95,7 +109,9 @@ passages it draws on.
   and how it is backpropagated (lecture 2); what "three-layer ReLU network" means, and ReLU MLPs as
   piecewise linear functions (lecture 3); the MLP weighed as an architecture, and the fully
   connected layer that a convolution constrains (lecture 4); an MLP on an adjacency matrix is not
-  permutation invariant, and an MLP is a graph net over a single node (lecture 5).
+  permutation invariant, and an MLP is a graph net over a single node (lecture 5); how an MLP
+  interpolates between training points where a memorizing "filing cabinet" cannot, and its last
+  layer as regression on features (lecture 6).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
@@ -106,7 +122,8 @@ passages it draws on.
   $\theta^{\ast} = \arg\min_\theta \sum_i L$, the cost $J(\theta)$, the update rule and learning
   rate, why differentiability matters, black-box versus first- and second-order optimization,
   stochastic gradient descent and batch size, momentum (and Adam), the plus-sign update convention,
-  and when to stop.
+  and when to stop ("just train forever", lecture 6); what the optimizer prefers — weight decay,
+  initialization near zero and flat minima (lecture 6).
 - [Backpropagation](wiki/backpropagation.md) — computation graphs, the shape rules and chain
   rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
   and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
@@ -116,7 +133,8 @@ passages it draws on.
 - [Loss landscapes](wiki/loss-landscapes.md) — differentiable versus "has a PyTorch gradient"
   versus easy to optimize; the six toy cases (convex, discontinuous, vanishing, zero and exploding
   gradient, local minima) and what gradient descent does on each; random seeds; evolution
-  strategies and gradient clipping; continuous, differentiable and smooth as a design criterion.
+  strategies and gradient clipping; continuous, differentiable and smooth as a design criterion;
+  why fixed-step gradient descent finds flat minima, argued to generalize better (lecture 6).
 - [Differentiable programming](wiki/differentiable-programming.md) — programs as computation
   graphs, the LeCun and Dietterich posts, human-programmed versus backprop-programmed parts
   (Neural Module Networks, Software 2.0, feature engineering), what PyTorch needs from an operation,
@@ -140,7 +158,8 @@ passages it draws on.
   lecture 3's depth separation and minimum-width result; inductive biases, and lecture 4's preview
   that better architectures approximate important function classes more efficiently; graph neural
   networks as deliberately non-universal, universal within multiset functions, and bounded by the
-  Weisfeiler-Leman test (lecture 5).
+  Weisfeiler-Leman test (lecture 5); approximation set beside generalization, and why parameter
+  count is not the capacity that matters (lecture 6).
 - [Lipschitz continuity](wiki/lipschitz-continuity.md) — $|g(x + \Delta x) - g(x)| \le L |\Delta x|$,
   the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
   (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
@@ -152,27 +171,35 @@ passages it draws on.
 - [Generalization and double descent](wiki/generalization-and-double-descent.md) — why
   over-parameterized nets don't just memorize, the classical U-curve against double descent
   (Belkin et al., 2019), the interpolation threshold, capacity versus data, and the simplicity
-  hypothesis; previewing lectures 6 and 17. Lecture 3's rectangle network as a model that fits
-  but would not generalize; lecture 4's case that architecture lets a model generalize with less
-  data and outside the training distribution.
+  hypothesis (lecture 1). Lecture 3's rectangle network as a model that fits but would not
+  generalize; lecture 4's case that architecture lets a model generalize with less data and outside
+  the training distribution. Lecture 6's full treatment: empirical and population risk,
+  memorization versus generalization, double descent on polynomial fits and the simple + spiky
+  hypothesis, why parameter count, norm and VC dimension fail (random labels make the VC bound
+  vacuous), and the candidate inductive biases; previews lecture 17.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
   responds to (lecture 2); convolutional feature maps and how they change with depth, and the
-  encoder–decoder (lecture 4); previewing lectures 11–13 and 18–19.
+  encoder–decoder (lecture 4); kernels of a network's output representation, and why deeper (even
+  linear) networks give lower-rank, more clustered ones (lecture 6); previewing lectures 11–13 and
+  18–19.
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
   model and sine-net fits), translation equivariance as the convolutional bias, positional encoding
   as removing it, and hand-crafted versus learned structure (lectures 3 and 4); permutation
   invariance and equivariance as the graph bias, and "universality is actually not what we're after
-  in architecture design" (lecture 5).
+  in architecture design" (lecture 5); why generalization requires inductive bias, the ConvNet's
+  compositional bias (the eight-eyed cat), and invariances, equivariances, compositionality and
+  domain constraints as the lecturer's favoured explanation of why deep nets generalize (lecture 6).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
   size, the five views, stacking and receptive fields, channels and filter banks with the parameter
   count rule, max and mean pooling, downsampling, strides and dilation, `im2col`, and convolution in
-  time and over video; a ConvNet as a graph net over a grid (lecture 5).
+  time and over video; a ConvNet as a graph net over a grid (lecture 5); patch-wise processing as a
+  reason ConvNets generalize to new arrangements (lecture 6).
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
@@ -182,12 +209,14 @@ passages it draws on.
   from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
   and density), with what NeRF is not and its limits (lecture 4); previews transformers. Positional
   encodings on graphs: one-hot node indices and Laplacian eigenvectors, and what they cost in
-  invariance (lecture 5).
+  invariance (lecture 5). NeRF's built-in projection and light transport as a reason it generalizes
+  to new viewpoints (lecture 6).
 - [Graph neural networks](wiki/graph-neural-networks.md) — lecture 5's architecture in full:
   graph tasks, permutation invariance and equivariance, message passing (AGGREGATE, UPDATE,
   READOUT), multiset aggregations and the universal sum-of-MLPs form, Bellman-Ford, how GNNs relate
   to ConvNets, MLPs and transformers, weight sharing and graph size, training, the
-  neighbourhood-tree and Weisfeiler-Leman limits, and positional encodings.
+  neighbourhood-tree and Weisfeiler-Leman limits, and positional encodings; permutation symmetry as
+  a source of generalization (lecture 6).
 
 ## Raw materials
 
@@ -200,7 +229,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–5 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–6 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

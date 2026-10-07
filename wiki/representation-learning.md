@@ -6,7 +6,8 @@ assigned to **lectures 11–13**, and as "reusing weights" (slides 76–77, ≈5
 to **lectures 18–19 on transfer learning**. Covered so far: [lecture 1](01-introduction.md); [lecture 2](02-how-to-train-a-neural-net.md),
 ≈1:04:32–1:10:02 (what an embedding is, and visualizing what a unit responds to);
 [lecture 4](04-architectures-grids.md), slides 43, 47, 63 and 67 (feature maps, how they change with
-depth, and the encoder–decoder).
+depth, and the encoder–decoder); [lecture 6](06-generalization-theory.md), slides 52–60 (kernels of a
+network's output representation, and the low-rank bias of depth).
 
 ## Compact, compositional representations
 
@@ -96,3 +97,20 @@ image to a low-dimensional vector $\mathbf{z}$, a decoder expands it back, and t
 output match the input. It is "one way to get a low-dimensional representation of an image", the
 structure of variational autoencoders, and close to masked autoencoders, which use attention instead
 of convolution. See [skip connections](skip-connections.md) for what its bottleneck costs.
+
+## Kernels, and why deeper representations cluster (lecture 6)
+
+Lecture 6 characterizes a network's output representation by its **kernel**, the matrix of similarities
+between the representations of every pair of inputs: "every row is a data point and the column is another
+data point" (slide 53, ≈1:06:45–1:08:18). A block-structured kernel means the network has clustered the
+data, "all the red points have grouped together into one block", which makes the classes easy to separate.
+The lecturer says these kernels will return "in the representation learning lectures" (lectures 11–13).
+
+Deeper networks give blockier kernels, and the "common understanding" is that they "have greater capacity
+to organize the data" (slides 52–53). But deep *linear* networks show the same effect though depth adds
+them no capacity (slide 54), so lecture 6, following Huh et al. (TMLR 2023), explains it differently:
+"products of matrices tend to be low rank" (slide 55). For random weights, a deeper network is more likely
+to map the data to a low-rank kernel, measured by its effective rank $\rho(K)$, and the distribution of
+effective rank moves lower as depth grows from 1 to 16 (slides 56–59, ≈1:09:04–1:12:56). Lower rank means
+the data have been organized into "a simpler format", which lecture 6 offers as one inductive bias behind
+generalization; see [generalization and double descent](generalization-and-double-descent.md).

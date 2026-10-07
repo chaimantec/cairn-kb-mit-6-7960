@@ -6,7 +6,9 @@ the full treatment: one universal approximation theorem proved in full, a depth-
 and the limits of both. Covered so far: [lecture 1](01-introduction.md),
 [lecture 3](03-approximation-theory.md), [lecture 4](04-architectures-grids.md)'s slides 3, 8 and
 9 (universality weighed against inductive bias, and the SIREN preview), and [lecture 5](05-architectures-graphs.md)'s
-slides 20 and 34–42 (what graph neural networks can approximate and distinguish).
+slides 20 and 34–42 (what graph neural networks can approximate and distinguish); and [lecture 6](06-generalization-theory.md)'s
+slides 3 and 33–34 (approximation set beside generalization, and why parameter count is not the measure of
+capacity that matters).
 
 Approximation is only one piece of the puzzle. Lecture 3's slide 4 splits machine learning into
 three questions: **approximation** ("Does there exist a neural net in my model family that fits the
@@ -204,3 +206,13 @@ and an injective sum-of-MLPs aggregation reaches that bound (slides 36–40, ≈
 practical check is slide 41: on a protein data set, sum with an MLP fits the training data while
 weaker aggregations, including the mean, plateau lower; "so the theory actually is meaningful here"
 (≈1:16:44). See [graph neural networks](graph-neural-networks.md).
+
+Lecture 6 sets approximation against the question the course turns to next (slide 3). Approximation asks
+"what is the best $\mathcal{R}(\theta^\ast)$ we can achieve with our model?", where $\mathcal{R}$ is the
+population risk, the expected loss on new data; generalization asks how far the training risk is from it.
+The lecture's point is that capacity in the approximation sense does not decide generalization. Fitting
+with "sufficient width or depth" is what earlier lectures showed (≈3:04), but a model can fit perfectly and
+generalize badly, and the number of parameters is not even the right measure of how complex a model is:
+$h(x) = 10^{-100} f(x) + (1 - 10^{-100}) g(x)$, for a large network $f$ and a small one $g$, is fit almost
+exactly by $g$'s few parameters (slide 34, ≈44:51–45:36). See [generalization and double
+descent](generalization-and-double-descent.md).

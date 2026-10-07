@@ -7,7 +7,9 @@ to flatten every input into a vector for an MLP, and makes it the organizing ide
 architecture lectures, starting with [lecture 4](04-architectures-grids.md). Covered so far:
 lecture 3's closing preview (≈1:18:12–1:22:07); lecture 4, slides 3–10 and 23–36, ≈1:32–13:04 and
 ≈19:13–30:04, and its answer on hand-crafted versus learned filters, ≈54:56–56:30; [lecture 5](05-architectures-graphs.md), on
-graphs: slides 11–13 and 34–44, ≈2:20–3:52, ≈17:51–30:16 and ≈1:05:56–1:20:36.
+graphs: slides 11–13 and 34–44, ≈2:20–3:52, ≈17:51–30:16 and ≈1:05:56–1:20:36; [lecture 6](06-generalization-theory.md),
+on why generalization needs inductive bias at all: slides 19, 47–63, ≈21:37–23:57 and
+≈58:53–1:18:26.
 
 ## Why an MLP is not enough
 
@@ -133,6 +135,44 @@ better with less data. But if you're in a space where you can get huge amounts o
 often, we don't know as much as we think we know about what optimality might be" (lecture 4,
 ≈55:44–56:30). See [differentiable programming](differentiable-programming.md), which lecture 2 frames
 as the split between human-programmed and learned parts of a program.
+
+## Why generalization needs inductive bias (lecture 6)
+
+Lecture 6 turns the idea into an argument. A model can fit its training data perfectly and still
+generalize badly: a "filing cabinet" that memorizes every training pair and returns 0 elsewhere has zero
+training error. So "generalization requires *inductive biases*. Can't be explained by just fitting the
+training data (we have to rule out the filing cabinet!)" (slide 47). And the classical measures of
+complexity, the number of parameters and the VC dimension, fail to explain deep nets, so the biases must
+be something else: deep learning "must have some nice inductive biases that control complexity in ways we
+don't fully know how to characterize!" See [generalization and double
+descent](generalization-and-double-descent.md).
+
+Its first example is compositional (slide 19, ≈21:37–23:57). pix2pix, a ConvNet trained to turn
+sketches into cat photos, draws a cat with three or eight eyes when given a sketch with three or eight
+ovals, though it never saw such a cat. The explanation is "the inductive biases of convolutional nets":
+the same patch function turns each oval into an eye ("When I see an oval, draw an eye"), and the
+architecture stitches the patches back together, so a new arrangement of familiar parts needs no new
+learning. Graph nets do the same for permutations: "That's baked into the architecture. It's not something
+you have to learn from the data. So architecture is one of the main levers we have for these feats of
+generalization" (≈23:57).
+
+The lecture's candidate biases go beyond architecture (slides 48–61). Random settings of a network's
+weights mostly compute simple functions, so training tends to land on simple ones (the parameter-function
+map); deeper networks are biased toward low-rank representations of their data; and optimizers prefer
+some solutions, through weight decay, initialization near zero and the flat minima that gradient descent
+with a finite step size finds. But "I think all of what I've said so far is not actually the most
+important. I think the most important is … the architectural symmetries" (≈1:15:19). Slide 62 names
+three: **invariances** (max pooling over oriented filters fires "regardless of what the orientation of
+that bird's beak is"), **equivariances** (a ConvNet's to shifts, a graph net's to permutations) and
+**compositionality**, where "the conjunction of components is just given by something that's defined by
+the architecture. It's not learned" (≈1:16:06–1:17:40). The lecturer thinks this is much of why large
+language models generalize: the architecture "carves the world at its joints" into words, sentences and
+paragraphs, and their compositions come "not from learning, but from just how the architecture is built"
+(≈1:17:40).
+
+Domain knowledge is the strongest form (slide 63). NeRF's projection and light-transport equations let
+it generalize to new viewpoints, and a drug-interaction network builds in how drugs interact: "It's not
+just fitting to data. It's data plus structure, data plus constraints" (≈1:17:40–1:18:26).
 
 ## Where it goes next
 

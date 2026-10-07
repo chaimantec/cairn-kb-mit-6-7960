@@ -6,7 +6,8 @@ passing**. In each layer every node gathers the vectors of its neighbours with a
 ignores their order, and updates its own vector from what it gathered. The course builds it in
 [lecture 5](05-architectures-graphs.md), the second of its architecture lectures, as a
 generalization of the convolutional network of [lecture 4](04-architectures-grids.md) and a step
-towards transformers. Covered so far: lecture 5, slides 2–46, ≈0:48–1:20:36.
+towards transformers. Covered so far: lecture 5, slides 2–46, ≈0:48–1:20:36; [lecture 6](06-generalization-theory.md),
+≈23:57 and ≈1:16:06, on permutation symmetry as a source of generalization.
 
 **Notation.** A graph $G$ has $n$ nodes, an adjacency matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$
 ($A_{ij} = 1$ when nodes $i$ and $j$ share an edge) and a feature matrix
@@ -155,3 +156,14 @@ challenge that eigenvectors are ambiguous up to sign flips and repeated eigenval
 trade-off: "now you might not generalize to new permutations, but you will be able to discriminate
 things you couldn't discriminate before" (≈1:19:50–1:20:36), the same trade as positional encoding
 in a ConvNet. See [neural fields and positional encoding](neural-fields-and-positional-encoding.md).
+
+## Symmetry as generalization (lecture 6)
+
+Lecture 6 returns to the graph net's symmetry as an example of how an architecture generalizes beyond its
+data. Because a graph net is permutation invariant or equivariant, "I don't have to have seen every
+permutation. I can just have seen some permutations, and then it will generalize to other permutations.
+That's baked into the architecture. It's not something you have to learn from the data" (≈23:57). Its
+slide 62 lists the equivariance among the architectural symmetries the lecturer considers the most
+important explanation of why deep nets generalize: "If I permute the labeling of the nodes, then I will
+permute the predictions" (≈1:16:06). Its slide 63 cites a polypharmacy network, the one lecture 5 shows,
+as an example of domain knowledge built into an architecture. See [inductive bias](inductive-bias.md).
