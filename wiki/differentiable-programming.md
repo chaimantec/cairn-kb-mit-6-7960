@@ -7,7 +7,8 @@ Lecture 1 frames it as a question of "what are you actually optimizing for, and 
 pushing the gradients through to?" (≈24:50) and assigns it to lecture 2, which builds it from
 computation graphs and [backpropagation](backpropagation.md). Covered so far:
 [lecture 1](01-introduction.md), slide 2; [lecture 2](02-how-to-train-a-neural-net.md), slides 26
-and 56–70, ≈27:16–29:36 and ≈57:27–1:12:21.
+and 56–70, ≈27:16–29:36 and ≈57:27–1:12:21; [lecture 4](04-architectures-grids.md), ≈54:56–56:30
+and ≈1:02:00 (learned versus hand-crafted filters, and using an encoder or decoder on its own).
 
 ## Programs as computation graphs
 
@@ -64,6 +65,18 @@ In PyTorch, an operation inside the network must be a torch operation with a gra
 else belongs in pre-processing, since "the pre-processing steps don't necessarily need to be
 differentiable, things like data augmentation". Building a complicated statistical model into a
 network can be "technically possible, but … intractable to actually learn" (≈1:15:24–1:18:35).
+
+Lecture 4 returns to the feature-engineering shift from the other side, in answer to a student who
+asked why convolutional filters are learned when signal processing designs them (≈54:56–56:30). The
+move to filters learned end to end was "this massive paradigm shift that happened maybe 10, 15 years
+ago", and "a bit of like a catastrophe emotionally for many researchers". The lecturer's rule for where
+the line belongs is data: "if you don't have enough data to learn the filters, well, then more
+handcrafting, more knowledge, more inductive bias tends to be better… But if you're in a space where
+you can get huge amounts of data to learn from, often, we don't know as much as we think we know about
+what optimality might be." See [inductive bias](inductive-bias.md). The same lecture applies the
+modular view to an encoder–decoder: once trained, "you could use the encoder to build some
+representation of input images. But you can also use the decoder to generate images. So these
+components can be used separately and can be valuable separately" (≈1:02:00).
 
 ## Optimizing inputs instead of weights
 

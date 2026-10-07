@@ -8,11 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–3 of 24 only.** This knowledge base currently holds the first three
-> lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory) and the
-> concept pages they support. For anything taught in lectures 4–24, it can tell you *which* lecture
-> covers it — see the [course map](wiki/course-map.md) — but not *what* that lecture says. Do not
-> cite it as the course beyond lecture 3. Build progress is in [TODO.md](TODO.md).
+> **Coverage: lectures 1–4 of 24 only.** This knowledge base currently holds the first four
+> lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
+> Architectures: Grids) and the concept pages they support. For anything taught in lectures 5–24, it
+> can tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
+> that lecture says. Do not cite it as the course beyond lecture 4. Build progress is in
+> [TODO.md](TODO.md).
 
 ## Lecture pages
 
@@ -44,6 +45,18 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   arguments for width; a depth separation by counting kinks ($(2n)^L$ bound, the triangle map,
   $7 \times 10^{49}$ units for a 3-layer match); Kaplan et al.'s scaling laws and Chinchilla as
   confounders; and a preview of inductive biases.
+- [Lecture 4 — Architectures: Grids](wiki/04-architectures-grids.md) — Sara Beery. Why build
+  better architectures: the MLP's pros and cons, the hypothesis-space picture (more data or a more
+  constrained architecture), and ReLU-net, exact-model and sine-net (SIREN) fits of a 1D function;
+  convolutional networks from classifying overlapping patches to semantic segmentation; translation
+  equivariance; the convolution formula (and why it is really cross-correlation); fully connected,
+  locally connected and weight-shared layers; the Toeplitz matrix; five views on convolutional
+  layers; stacking and receptive fields; multichannel inputs and outputs, filter banks, feature maps
+  and the 27-parameter quiz; max and mean pooling; downsampling, strides and dilated filters;
+  learned versus hand-crafted filters; AlexNet, VGG16 and ResNet18 feature maps; `im2col`; the
+  architecture zoo (encoder–decoder, U-net, ResNet's residual connection); convolution in time and
+  3D convolution over video; positional encoding; and neural fields (SIREN, NeRF). 35 of its slides
+  are excluded from OCW's licence and described in prose only.
 
 ## Course pages
 
@@ -67,12 +80,14 @@ passages it draws on.
   and fails on XOR, stacking layers into matrix form, why the non-linearity is essential, and the
   "two ramps make a pyramid" picture of non-linear classification; the MLP as a computation graph
   and how it is backpropagated (lecture 2); what "three-layer ReLU network" means, and ReLU MLPs as
-  piecewise linear functions (lecture 3).
+  piecewise linear functions (lecture 3); the MLP weighed as an architecture, and the fully
+  connected layer that a convolution constrains (lecture 4).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
   differentiable and smooth criterion (lecture 2); the ReLU as a gate on the backward pass;
-  what ReLUs can build: rectangles from four ReLUs, thresholded sums, and kink doubling (lecture 3).
+  what ReLUs can build: rectangles from four ReLUs, thresholded sums, and kink doubling (lecture 3);
+  sine activations (SIREN) as an inductive bias for periodic functions and images (lecture 4).
 - [Gradient descent](wiki/gradient-descent.md) — the training objective
   $\theta^{\ast} = \arg\min_\theta \sum_i L$, the cost $J(\theta)$, the update rule and learning
   rate, why differentiability matters, black-box versus first- and second-order optimization,
@@ -90,7 +105,8 @@ passages it draws on.
 - [Differentiable programming](wiki/differentiable-programming.md) — programs as computation
   graphs, the LeCun and Dietterich posts, human-programmed versus backprop-programmed parts
   (Neural Module Networks, Software 2.0, feature engineering), what PyTorch needs from an operation,
-  and optimizing inputs: unit visualization, DeepDream and CLIP+GAN.
+  and optimizing inputs: unit visualization, DeepDream and CLIP+GAN; learned versus hand-crafted
+  filters, and using an encoder or decoder on its own (lecture 4).
 - [Softmax and cross-entropy](wiki/softmax-and-cross-entropy.md) — argmax readout, one-hot
   labels, $H(y, \hat{y}) = -\sum_k y_k \log \hat{y}_ {k}$, the "how much better you could have done"
   reading of the loss, the clown fish / grizzly / chameleon examples, and the "scores, not
@@ -99,13 +115,15 @@ passages it draws on.
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
-  descent and why the batch gradient is the average of per-example gradients (lecture 2).
+  descent and why the batch gradient is the average of per-example gradients (lecture 2);
+  channels, filter-bank shapes, `im2col` and video as a 4D input (lecture 4).
 - [Representational power](wiki/representational-power.md) — what networks can approximate,
   across lectures 1 and 3: one layer gives a linear surface; the Riemann-sum intuition; the
   formal question (families $G$ and $F$, error $\epsilon$); lecture 3's universal approximation
   theorem and proof sketch, with its weaknesses; Barron and Hornik et al.; whether universal
   approximation is sufficient or necessary; width versus depth, from lecture 1's discussion to
-  lecture 3's depth separation and minimum-width result; inductive biases.
+  lecture 3's depth separation and minimum-width result; inductive biases, and lecture 4's preview
+  that better architectures approximate important function classes more efficiently.
 - [Lipschitz continuity](wiki/lipschitz-continuity.md) — $|g(x + \Delta x) - g(x)| \le L |\Delta x|$,
   the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
   (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
@@ -118,11 +136,32 @@ passages it draws on.
   over-parameterized nets don't just memorize, the classical U-curve against double descent
   (Belkin et al., 2019), the interpolation threshold, capacity versus data, and the simplicity
   hypothesis; previewing lectures 6 and 17. Lecture 3's rectangle network as a model that fits
-  but would not generalize.
+  but would not generalize; lecture 4's case that architecture lets a model generalize with less
+  data and outside the training distribution.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
-  responds to (lecture 2); previewing lectures 11–13 and 18–19.
+  responds to (lecture 2); convolutional feature maps and how they change with depth, and the
+  encoder–decoder (lecture 4); previewing lectures 11–13 and 18–19.
+- [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
+  data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
+  architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
+  model and sine-net fits), translation equivariance as the convolutional bias, positional encoding
+  as removing it, and hand-crafted versus learned structure (lectures 3 and 4).
+- [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
+  overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
+  sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
+  size, the five views, stacking and receptive fields, channels and filter banks with the parameter
+  count rule, max and mean pooling, downsampling, strides and dilation, `im2col`, and convolution in
+  time and over video.
+- [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
+  skip connections across the "U", and ResNet's residual connection
+  $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
+  learning its own depth (lecture 4); previews transformers.
+- [Neural fields and positional encoding](wiki/neural-fields-and-positional-encoding.md) — why and
+  how to break shift invariance with a constructed positional encoding, neural fields as networks
+  from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
+  and density), with what NeRF is not and its limits (lecture 4); previews transformers.
 
 ## Raw materials
 
@@ -135,7 +174,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–3 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–4 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

@@ -24,6 +24,11 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   networks, which this KB does not yet reach. Lecture 2 here is the course's own account of
   backpropagation; use that first. Its examples come from NLP rather than vision, and its notation
   differs (e.g. $h = f(Wx + b)$ for a layer).
+  It also has a one-dimensional counterpart to 6.7960 lecture 4's convolutions: its lecture 17 and
+  its [convolutional neural networks](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/convolutional-neural-networks.md)
+  page slide filters over the words of a sentence, with a numerical worked example, padding, max
+  pooling, stride and dilation. Use it for convolution over sequences; lecture 4 here is the
+  course's own treatment of convolution over images.
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/INDEX.md).
 
 - **CS336 — Language Modeling from Scratch** (Stanford, Percy Liang and Tatsunori Hashimoto,

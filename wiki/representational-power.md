@@ -3,8 +3,9 @@
 Which functions a neural network can represent, and at what cost. Lecture 1 previews this as
 "why we can approximate" (slides 46–47, ≈40:25–42:42), and lecture 3, Approximation Theory, gives
 the full treatment: one universal approximation theorem proved in full, a depth-separation result,
-and the limits of both. Covered so far: [lecture 1](01-introduction.md) and
-[lecture 3](03-approximation-theory.md).
+and the limits of both. Covered so far: [lecture 1](01-introduction.md),
+[lecture 3](03-approximation-theory.md), and [lecture 4](04-architectures-grids.md)'s slides 3, 8 and
+9 (universality weighed against inductive bias, and the SIREN preview).
 
 Approximation is only one piece of the puzzle. Lecture 3's slide 4 splits machine learning into
 three questions: **approximation** ("Does there exist a neural net in my model family that fits the
@@ -177,3 +178,13 @@ inherent sequential structure" (≈1:20:32). Matching the architecture to that s
 of the architecture lectures: grids (lecture 4), graphs (5), transformers (8) and memory (10). See
 the [course map](course-map.md). How networks *generalize* from data, rather than merely fit it, is
 a separate question; see [generalization and double descent](generalization-and-double-descent.md).
+
+Lecture 4, the first architecture lecture, picks the thread up (see [inductive bias](inductive-bias.md)).
+It credits the MLP's universality as a strength and its weak inductive biases as the cost: an
+architecture that can represent the true function "and is otherwise minimal" learns from far less data
+(slides 3 and 8). Its preview result is that "better architectures can approximate important function
+classes more efficiently" (slide 9): SIREN, with sine activations, fits a photograph faster than ReLU
+or tanh networks. The slide is careful about what that shows: the result "may be due to improved
+approximation ability but it might also be due to improved optimization ability; these two effects
+are typically coupled in experiments", the same approximation-versus-optimization split as lecture 3's
+puzzle.

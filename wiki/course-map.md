@@ -5,7 +5,8 @@ Instructors: Phillip Isola, Sara Beery and Jeremy Bernstein. Course site:
 collects what lecture 1 says about how the course runs, and maps its schedule onto the recorded
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
-about the problem sets, and the OCW site; as
+about the problem sets, what [lecture 4](04-architectures-grids.md) says about later lectures, and the
+OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -28,7 +29,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 1 | Introduction to Deep Learning | [yes](01-introduction.md) |
 | 2 | How to Train a Neural Net | [yes](02-how-to-train-a-neural-net.md) |
 | 3 | Approximation Theory | [yes](03-approximation-theory.md) |
-| 4 | Architectures: Grids | not yet |
+| 4 | Architectures: Grids | [yes](04-architectures-grids.md) |
 | 5 | Architectures: Graphs | not yet |
 | 6 | Generalization Theory | not yet |
 | 7 | Scaling Rules for Optimization | not yet |
@@ -93,6 +94,12 @@ recording.
 Lecture 3's handwritten deck has none either. Its title slide reads "6.7960 :: Lecture 3", which
 matches the recording, and its last slide, "Preview: Inductive biases" (slide 42), names a topic
 without a lecture number. The architecture lectures that take it up are 4, 5, 8 and 10 above.
+
+Lecture 4's deck (titled "Lecture 4: Architectures for Grids", matching the recording) prints no
+other lecture number either. Its recording points ahead twice without a number: positional encodings
+will be covered "a lot more… when we get into lectures on transformers later on" (≈1:32, again at
+≈1:15:19), and skip connections "get surfaced via self-attention in transformers" (≈1:07:27). Both
+mean lecture 8 in the table above.
 
 ## Coursework and policies
 

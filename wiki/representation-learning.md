@@ -4,7 +4,9 @@ What deep networks learn internally, and why those internal representations can 
 Lecture 1 previews it twice: as "how deep networks represent data" (slides 71–73, ≈55:02–57:19),
 assigned to **lectures 11–13**, and as "reusing weights" (slides 76–77, ≈57:19–58:53), assigned
 to **lectures 18–19 on transfer learning**. Covered so far: [lecture 1](01-introduction.md); [lecture 2](02-how-to-train-a-neural-net.md),
-≈1:04:32–1:10:02 (what an embedding is, and visualizing what a unit responds to).
+≈1:04:32–1:10:02 (what an embedding is, and visualizing what a unit responds to);
+[lecture 4](04-architectures-grids.md), slides 43, 47, 63 and 67 (feature maps, how they change with
+depth, and the encoder–decoder).
 
 ## Compact, compositional representations
 
@@ -75,3 +77,22 @@ The same lecture shows one way to see what a unit has learned: optimize the inpu
 it. For the "cat" output this gives "what a given trained model thinks is most cat like"; for a
 hidden neuron it is "a mechanism to probe what the model is paying attention to" (slides 66–67,
 ≈1:04:32–1:05:19). See [differentiable programming](differentiable-programming.md).
+
+## Feature maps in a convolutional network (lecture 4)
+
+Lecture 4 shows the hierarchy inside a [convolutional network](convolution.md). Each layer "can be
+thought of as a set of C **feature maps** aka **channels**", each an $N \times M$ image (slide 43,
+≈38:39–39:24). On a heron photograph passed through AlexNet, the 64 maps after the first layer mostly
+trace edges, and a few show the bird's silhouette; after the second, they are smaller and blobbier and
+"can often be quite difficult to interpret". Slide 63 follows the same photo deeper through AlexNet,
+VGG16 and ResNet18: early maps are "very fine grained or very detailed", later ones "much more diffuse",
+because each later unit's **receptive field** covers more of the image. They become "more semantically
+meaningful but less affected by subtle texture or variation in the initial input image" (≈58:03–58:51).
+Nothing forces the maps of a layer to differ, but they usually do, "because that gives it more
+capacity"; when some are ignored, it is "feature collapse" (≈39:24–40:09).
+
+The same lecture gives the **encoder–decoder** (slide 67, ≈1:00:25–1:02:00): an encoder compresses an
+image to a low-dimensional vector $\mathbf{z}$, a decoder expands it back, and training makes the
+output match the input. It is "one way to get a low-dimensional representation of an image", the
+structure of variational autoencoders, and close to masked autoencoders, which use attention instead
+of convolution. See [skip connections](skip-connections.md) for what its bottleneck costs.

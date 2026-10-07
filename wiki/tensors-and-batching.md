@@ -5,7 +5,9 @@ multi-dimensional arrays — **tensors**. Lecture 1 lists "parallel processing, 
 **expected background** (slide 67) and gives the core idea in about two minutes (slides 68–70,
 ≈53:30–55:02). Covered so far: [lecture 1](01-introduction.md), plus the course's
 [notation](notation.md) handout; [lecture 2](02-how-to-train-a-neural-net.md), slides 9 and 45 (batches
-in stochastic gradient descent and in backpropagation).
+in stochastic gradient descent and in backpropagation); [lecture 4](04-architectures-grids.md),
+slides 39–47, 64 and 74 (channels, filter banks, implementing convolution as a batched matrix product,
+and video as a four-dimensional input).
 
 ## Why batch
 
@@ -66,3 +68,19 @@ $J = \frac{1}{N} \sum_{i=1}^{N} J_i$, so its gradient is the average of the per-
 "because when you take a derivative, it can move inside the sum" (slide 45, ≈43:30–44:17). With
 large-memory GPUs "that batch size could be thousands" (≈44:17). See
 [gradient descent](gradient-descent.md) and [backpropagation](backpropagation.md).
+
+## Channels and grids (lecture 4)
+
+Lecture 4 is where the channel axis earns its place. A colour image has three channels, and every
+convolutional layer turns $C_{\text{in}}$ channels into $C_{\text{out}}$:
+$\mathbf{x}_ {\text{in}} \in \mathbb{R}^{C_{\text{in}} \times H \times W} \to \mathbf{x}_ {\text{out}} \in \mathbb{R}^{C_{\text{out}} \times H \times W}$
+(slide 42), with each layer "a set of C **feature maps** aka **channels**" (slide 43). The parameter
+count follows from the shapes: mapping $C_l$ channels to $C_{(l+1)}$ with $K_1 \times K_2$ filters
+takes $C_{(l+1)}$ filters of $K_1 \times K_2 \times C_l$ parameters each (slide 46). One slide of the
+deck, slide 47, writes shapes channels last, $[H \times W \times 3]$, against the course convention.
+A video adds a time axis, "a four dimensional input" of channels, two spatial axes and time (slide 74,
+≈1:09:53). See [convolution](convolution.md).
+
+Slide 64 gives the standard way a convolution becomes a batched matrix product, the operation GPUs are
+fast at: `im2col` rearranges the input into one row per patch, `bmm` multiplies the rows by the kernel,
+and `col2im` puts the result back into an image. The recording does not discuss it.

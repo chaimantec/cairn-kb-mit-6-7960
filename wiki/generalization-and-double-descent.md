@@ -7,7 +7,9 @@ Generalization**. The deck's banner says "Lecture 7" for generalization theory; 
 schedule it is lecture 6 (see the [course map](course-map.md#the-decks-lecture-pointers)).
 Covered so far: [lecture 1](01-introduction.md); [lecture 3](03-approximation-theory.md), slides
 4, 19 and 34 (generalization as one piece of the approximation–optimization–generalization
-puzzle, and a network that fits but would not generalize).
+puzzle, and a network that fits but would not generalize); [lecture 4](04-architectures-grids.md),
+slides 4–10, 32 and 34 (architecture as a way to generalize with less data and outside the training
+distribution).
 
 ## The puzzle
 
@@ -92,3 +94,23 @@ is the lookup-table behaviour that deep nets, empirically, do not fall into.
 Lecture 3 adds a practical asymmetry: of the three pieces, generalization is the one you can
 diagnose directly, "because you could just compute the training error and the test error, and you
 can see if they're different" (≈1:11:10).
+
+## Architecture as a route to generalization (lecture 4)
+
+Lecture 4 makes the architecture itself a generalization tool. Its picture (slides 4–6, ≈4:36–7:40):
+of all the functions that fit the training data, optimization returns one that "won't necessarily be
+very close to the true solution". More data shrinks that set; so does a **hypothesis space** built into
+the architecture. "We can pin down truth *either* by adding more data, or by using a more constrained
+architecture" (slide 6).
+
+The lecture's one-dimensional example separates two kinds of generalization (slides 7–8,
+≈7:40–9:59). A 5-layer ReLU network trained on many points "start[s] getting really, really nice fits
+in the distribution where you have data, but you get really poor generalization out of distribution."
+A model of the right form, $y = ax + \sin(bx^2)$, gets the whole curve from a few points. Slide 8:
+"Architectures enable us to generalize *outside the training distribution*."
+
+Convolutional layers make the point concretely. Their weight sharing gives "Fewer parameters —>
+easier to learn, less overfitting" (slide 32), and because the same filter applies at any position
+they "can be applied to arbitrarily-sized inputs (generalizes beyond the training data due to an
+architectural structure!)" (slide 34). See [inductive bias](inductive-bias.md) and
+[convolution](convolution.md).

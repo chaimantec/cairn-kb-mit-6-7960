@@ -6,8 +6,10 @@ to have seen** (slide 31), and reviews them so that its notation is fixed before
 built on it. Covered so far in this knowledge base: [lecture 1](01-introduction.md), slides 32–45,
 ≈25:37–40:25; [lecture 2](02-how-to-train-a-neural-net.md), slides 27 and 50–52 (the MLP as a
 computation graph, and its backward pass); [lecture 3](03-approximation-theory.md), slides 15–17
-and 27–33 (what ReLU MLPs can approximate, and depth versus width). See also [activation functions](activation-functions.md) and
-[representational power](representational-power.md).
+and 27–33 (what ReLU MLPs can approximate, and depth versus width); [lecture 4](04-architectures-grids.md),
+slides 3, 26 and 30 (the MLP's strengths and weaknesses as an architecture, and the fully connected
+layer that a convolution constrains). See also [activation functions](activation-functions.md),
+[representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
 
@@ -146,3 +148,24 @@ Two facts about ReLU MLPs from the same lecture are worth keeping:
   shallow one needs exponentially many neurons for (slides 30–33).
 
 Both are developed on [representational power](representational-power.md).
+
+## The MLP as an architecture, and what replaces it (lecture 4)
+
+Lecture 4 opens the course's architecture lectures by weighing the MLP as a design (slide 3,
+≈1:32–4:36). In its favour: it is **universal**; it is **simple**, "one of the only models that we
+actually have really elegant theory for"; and it is **embarrassingly parallel**, since the pointwise
+non-linearity is independent for every neuron and the linear layer independent for every example in a
+batch. Against it: **weak inductive biases** ("there's not a lot of structure or intuition baked into
+this model"); being **sample inefficient**, or data hungry; and **dense layers that take a lot of
+compute**, since a high-resolution image flattened into a vector has thousands of inputs, each
+connected to every output (≈4:36).
+
+The lecture's first alternative keeps the linear layer and constrains it. A fully connected layer,
+$\mathbf{x}_ {\text{out}} = \mathbf{W}\mathbf{x}_ {\text{in}} + \mathbf{b}$, multiplies by a dense
+matrix in which "every single one of those values matters" (slides 26 and 30). A convolutional layer
+is the same product with a matrix that is zero except for a band of shared weights along the diagonal
+(slide 31): fewer parameters, the same function at every position, and applicable to inputs of any
+size, which an MLP is not: applied to a larger image, "You just wouldn't have weights for some of that
+size" (≈28:31). The MLP's own lack of bias is what lets lecture 4's 5-layer ReLU network fit training
+points perfectly and extrapolate badly beyond them (slide 7). See [convolution](convolution.md) and
+[inductive bias](inductive-bias.md).

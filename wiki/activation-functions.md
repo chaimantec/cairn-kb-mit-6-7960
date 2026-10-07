@@ -9,7 +9,8 @@ background (slide 31, "MLPs, Nonlinearities (ReLu)"). Covered so far:
 [lecture 2](02-how-to-train-a-neural-net.md), slides 23–25 and 51, ≈20:13–25:43 and ≈49:44–51:18
 (GELU, the continuous–differentiable–smooth criterion, and the ReLU on the backward pass);
 [lecture 3](03-approximation-theory.md), slides 15, 27–29 and 32 (what sums and compositions of
-ReLUs can build).
+ReLUs can build); [lecture 4](04-architectures-grids.md), slides 7–10, ≈7:40–13:04 (sine activations
+as an inductive bias).
 
 ## The four in lecture 1
 
@@ -122,6 +123,21 @@ crosses zero. In the slide's example a function with five kinks becomes one with
 map $g(x) = \text{relu}[2 \cdot \text{relu}(x) - 4 \cdot \text{relu}(x - \tfrac{1}{2})]$ of slide 32
 doubles its linear regions every time it is composed with itself. This is the engine of lecture 3's
 depth-separation result; see [representational power](representational-power.md#depth-separation-lecture-3).
+
+## Sine activations as an inductive bias (lecture 4)
+
+Lecture 4 compares activations not for trainability but for what they assume about the function
+(slides 7–10, ≈7:40–12:17). Fitted to a few points of a wiggly one-dimensional function, a 5-layer
+ReLU network fits the data and goes flat or straight beyond it, while a 5-layer **sin-net**, with
+sinusoidal activations (the SIREN of Sitzmann et al., 2020), starts "seeing some periodicity that
+maybe starts to match the periodicity in the function." Asked why its output is periodic, a student
+answered that it is built from sines, and the lecturer agreed: "we've just added an inductive bias in
+our model architecture that says that the distribution should be periodic." On images, SIREN fits a
+photograph faster than ReLU or tanh networks, because "a Fourier basis is a good basis for
+representing images, and the fundamental building blocks of Fourier basis are sinusoids" (slide 9,
+≈10:45). This is the exception lecture 1's answer below allows for: an activation chosen to match
+known structure in the data. See [inductive bias](inductive-bias.md) and
+[neural fields and positional encoding](neural-fields-and-positional-encoding.md).
 
 ## How do you choose one?
 
