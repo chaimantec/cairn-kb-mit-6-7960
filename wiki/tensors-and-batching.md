@@ -7,7 +7,8 @@ multi-dimensional arrays — **tensors**. Lecture 1 lists "parallel processing, 
 [notation](notation.md) handout; [lecture 2](02-how-to-train-a-neural-net.md), slides 9 and 45 (batches
 in stochastic gradient descent and in backpropagation); [lecture 4](04-architectures-grids.md),
 slides 39–47, 64 and 74 (channels, filter banks, implementing convolution as a batched matrix product,
-and video as a four-dimensional input).
+and video as a four-dimensional input); [lecture 8](08-architectures-transformers.md), slides 16, 34 and 39 (a set of tokens
+as an $N \times d$ matrix, and attention as matrix products).
 
 ## Why batch
 
@@ -84,3 +85,16 @@ A video adds a time axis, "a four dimensional input" of channels, two spatial ax
 Slide 64 gives the standard way a convolution becomes a batched matrix product, the operation GPUs are
 fast at: `im2col` rearranges the input into one row per patch, `bmm` multiplies the rows by the kernel,
 and `col2im` puts the result back into an image. The recording does not discuss it.
+
+## Tokens as a matrix (lecture 8)
+
+Lecture 8 writes a set of $N$ tokens, each a vector in $\mathbb{R}^d$, as a matrix
+$\mathbf{T} \in \mathbb{R}^{N \times d}$ whose rows are the transposed tokens, $N$ tokens by $d$
+channels (slide 16, ≈16:14–16:59). This is the exception to channels-first noted above. With that
+layout, a transformer layer is a handful of matrix products. The queries of every token are
+$\mathbf{T}_ {\text{in}} \mathbf{W}_ q^{\mathsf{T}}$, the attention matrix comes from the product of
+queries and transposed keys, and the output is the attention matrix times the values (slide 34): "everything
+just becomes these matrix multiplies in a very simple, notational form" (≈46:32). The pseudocode of slide 39
+is a loop of `nn.matmul` calls, which "maps wonderfully onto modern compute that loves matrix multiplies"
+(≈1:00:29). The lecturer also names the fit to GPU hardware as a reason tokens all have the same size
+(≈13:56). See [transformers](transformers.md).

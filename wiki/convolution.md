@@ -6,7 +6,9 @@ architecture the course builds for grids such as images, in [lecture 4](04-archi
 Covered so far: lecture 4, slides 12–64 and 73–75, ≈13:04–59:38 and ≈1:08:14–1:10:38, plus the
 end-of-lecture questions on pooling and video (≈1:16:51 and ≈1:20:43–1:23:48); and [lecture 5](05-architectures-graphs.md)'s
 slides 12–13, ≈26:24–32:32, on the ConvNet as a graph net on a grid; and [lecture 6](06-generalization-theory.md)'s
-slide 19, ≈21:37–23:57, on patch-wise processing as a reason ConvNets generalize. The architectures
+slide 19, ≈21:37–23:57, on patch-wise processing as a reason ConvNets generalize; and [lecture 8](08-architectures-transformers.md)'s
+slides 4–5, 18 and 35, ≈3:02–6:57, ≈20:52 and ≈52:45–53:31, on locality as a limitation, the 1x1
+convolution and the Toeplitz matrix beside attention. The architectures
 built from convolutional layers are on [skip connections](skip-connections.md); why the layer's
 assumptions help is on [inductive bias](inductive-bias.md).
 
@@ -197,3 +199,20 @@ outputs are stitched back together by the architecture rather than by anything l
 ordinary, in-distribution case; only the arrangement is new. Lecture 6 calls this **compositionality** and
 counts translation equivariance among the architectural symmetries it thinks matter most for
 generalization (slide 62). See [inductive bias](inductive-bias.md).
+
+## Locality as a limitation (lecture 8)
+
+Lecture 8 starts from the other side of locality: "CNNs are built around the idea of locality, and are
+not well-suited to modeling long distance relationships" (slide 4). A deep enough ConvNet can relate
+distant parts of an image, "but it might not be the best way of doing that. Because, remember, the CNN
+filters are all local" (≈3:02). Its slide 5 traces two inputs, $x_1$ and $x_7$, through a two-layer
+network with filters of length 3. Each layer widens the set of units that depend on an input by one on
+each side, so after two layers no output depends on both: "this dye just bleeds out slowly in
+convolutional networks" (≈4:38–6:11). Attention is the transformer's answer; see
+[transformers](transformers.md).
+
+Convolution stays in the picture. Tokenizing an image starts, "just like a ConvNet", by chopping it into
+patches (≈12:22). A transformer's token-wise MLP is "Equivalent to a CNN with 1x1 kernels run over token
+sequence" (slide 18, ≈20:52). And slide 35 sets the convolution's Toeplitz matrix, with $k + 1$ learnable
+parameters for a kernel of size $k$ and translation equivariance, beside the fully connected layer's
+$N^2$ parameters and the attention layer's pattern of diagonal blocks (≈52:45–53:31).

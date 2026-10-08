@@ -7,7 +7,9 @@ to **lectures 18–19 on transfer learning**. Covered so far: [lecture 1](01-int
 ≈1:04:32–1:10:02 (what an embedding is, and visualizing what a unit responds to);
 [lecture 4](04-architectures-grids.md), slides 43, 47, 63 and 67 (feature maps, how they change with
 depth, and the encoder–decoder); [lecture 6](06-generalization-theory.md), slides 52–60 (kernels of a
-network's output representation, and the low-rank bias of depth).
+network's output representation, and the low-rank bias of depth); [lecture 8](08-architectures-transformers.md), slides 11 and
+31, ≈8:32–10:04 and ≈41:48–42:36 (tokens as representations at every layer, and attention maps in a
+trained transformer).
 
 ## Compact, compositional representations
 
@@ -114,3 +116,19 @@ to map the data to a low-rank kernel, measured by its effective rank $\rho(K)$, 
 effective rank moves lower as depth grows from 1 to 16 (slides 56–59, ≈1:09:04–1:12:56). Lower rank means
 the data have been organized into "a simpler format", which lecture 6 offers as one inductive bias behind
 generalization; see [generalization and double descent](generalization-and-double-descent.md).
+
+## Tokens, and attention maps (lecture 8)
+
+Lecture 8 defines a token as "a vector of neurons" with the connotation of "an encapsulated bundle of
+information", and uses the word for the representation of the data at *any* layer, not only for the
+units of the input vocabulary as natural language processing usually does (slide 11, ≈8:32–10:04). A
+token starts as the flattened pixels of a patch, "but later on, it could be more abstract" (≈29:20).
+
+What a trained transformer's tokens attend to says something about what it has learned. In DINO (Caron
+et al., 2021), shown on slide 31 as a video, the self-attention of a token on a horse falls on the horse's
+other patches, "So it's solving the segmentation problem. It's like, if I want to understand something
+about this part of the image, I should attend to other things that are related to it, and I shouldn't
+cross object boundaries" (≈41:48–42:36). The lecturer is careful about what that shows. The strategy was
+found by backpropagation, it "often has an intuitive interpretation … but it doesn't have to", and
+whether it always arises is "more empirical science … it's not provable" (≈43:22–44:55). See
+[transformers](transformers.md).

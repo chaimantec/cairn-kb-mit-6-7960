@@ -8,6 +8,8 @@ ResNet. Covered so far: lecture 4, slides 66–72, ≈59:38–1:08:14. Every fig
 deck is excluded from OCW's licence, so this knowledge base describes them in prose only (in the
 [slide file](../raw/slides/04-architectures-grids.md)). [Lecture 7](07-scaling-rules-for-optimization.md),
 slide 26, ≈11:36–12:21 and ≈1:09:26–1:14:52, asks how much each residual block should contribute.
+[lecture 8](08-architectures-transformers.md), slides 38–39 and 53, ≈57:23 and ≈1:12:15, puts residual connections in the
+transformer block.
 
 ## The problem: what a bottleneck loses
 
@@ -72,7 +74,8 @@ $\mathbf{W}$ on the skip path "could be learned to be all zeros" (≈1:07:27–1
 
 Lecture 4 says "that same type of skipped connection is also something that gets surfaced via
 self-attention in transformers, which we'll talk about more in the transformer architecture"
-(≈1:07:27). In the recorded schedule that is lecture 8; see the [course map](course-map.md).
+(≈1:07:27). In the recorded schedule that is lecture 8; see the [course map](course-map.md) and the
+section below.
 
 ## How much should each block contribute? (lecture 7)
 
@@ -89,3 +92,14 @@ marked "needs more research". The lecturer adds that "a standard transformer blo
 1 over L multiplier. The standard thing is actually to put 1 over square root L", because at
 initialization the blocks add up like the steps of a random walk; which is right "is unclear"
 (≈1:13:20–1:14:05). See [scaling rules](scaling-rules.md#depth-the-residual-block-multiplier).
+
+## In the transformer block (lecture 8)
+
+The vision transformer block of lecture 8 has a residual connection around each of its two halves, the
+multihead self-attention and the token-wise MLP (slide 38). "These pluses here are residual connections.
+So I think in the CNN lecture, we talked about ResNets. So we'll just take an identity pass around all
+this processing. And that has some advantages" (≈57:23). Each half applies a token norm (layer norm) to
+its input first, and the pseudocode of slide 39 writes both with the input added back, as in
+`T = nn.matmul(A,V) + T` for the attention half, each marked "# note residual connection".
+In the "Attention Is All You Need" figure, the lecturer reads every "Add & Norm" box as "just the
+residual connection" (slide 53, ≈1:12:15). See [transformers](transformers.md).

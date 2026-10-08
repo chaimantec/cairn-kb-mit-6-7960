@@ -9,7 +9,8 @@ lecture 3's closing preview (≈1:18:12–1:22:07); lecture 4, slides 3–10 and
 ≈19:13–30:04, and its answer on hand-crafted versus learned filters, ≈54:56–56:30; [lecture 5](05-architectures-graphs.md), on
 graphs: slides 11–13 and 34–44, ≈2:20–3:52, ≈17:51–30:16 and ≈1:05:56–1:20:36; [lecture 6](06-generalization-theory.md),
 on why generalization needs inductive bias at all: slides 19, 47–63, ≈21:37–23:57 and
-≈58:53–1:18:26.
+≈58:53–1:18:26; [lecture 8](08-architectures-transformers.md), on transformers: slides 4–5, 15 and 41–47, ≈3:02–6:57,
+≈11:35–16:14, ≈51:59 and ≈1:00:29–1:05:51.
 
 ## Why an MLP is not enough
 
@@ -174,10 +175,27 @@ Domain knowledge is the strongest form (slide 63). NeRF's projection and light-t
 it generalize to new viewpoints, and a drug-interaction network builds in how drugs interact: "It's not
 just fitting to data. It's data plus structure, data plus constraints" (≈1:17:40–1:18:26).
 
+## Transformers: few built-in biases, and where the rest go (lecture 8)
+
+Lecture 8's transformer is built to assume little. It starts from a limitation of the convolutional bias:
+locality is usually right ("If I want to understand something about the population in this room, I
+don't need to go and look at Mars"), "But that's not always a good idea", and "CNNs are … not
+well-suited to modeling long distance relationships" (slides 4–5, ≈3:02–6:11). Attention lets any token
+draw on any other. Without positional codes a transformer is permutation equivariant, the same symmetry
+as a graph net (slide 41, ≈1:01:16).
+
+What domain knowledge it has goes in at two places. The tokenizer chops the input into chunks, usually
+local ones, "because locality is a very good inductive bias" (slide 15, ≈15:29). The positional encoding
+tells the system "what it means to be local for your domain. You give it the inductive bias of what
+locality actually represents" (slides 42–47, ≈1:02:02–1:05:51). Everything between is generic, which is
+the point: "once you turn your data into a set of tokens, then you just use a transformer" (≈11:35), and
+homogeneous models share hardware, code and lessons across modalities. The lecturer calls specializing
+to a modality "of interest as well. It's just a trade-off" (≈51:59). See [transformers](transformers.md).
+
 ## Where it goes next
 
-Lectures 4 and 5 cover grids and graphs. The [course map](course-map.md) lists the architecture
-lectures that follow: transformers (8) and memory (10). Lecture 5 calls transformers "a special kind
+Lectures 4, 5 and 8 cover grids, graphs and transformers. The [course map](course-map.md) lists the
+architecture lecture that follows: memory (10). Lecture 5 calls transformers "a special kind
 of graph net" (≈1:35), graph nets whose aggregation is attention (≈56:38). Lecture 4 itself points ahead twice: positional
 encodings return "in the transformers lecture" (≈1:15:19), and its closing slide says the idea of
 applying one function to every patch "appears in almost all modern architectures, such as CNNs,

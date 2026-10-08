@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md) and [lecture 7](07-scaling-rules-for-optimization.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md) and [lecture 8](08-architectures-transformers.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -33,7 +33,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 5 | Architectures: Graphs | [yes](05-architectures-graphs.md) |
 | 6 | Generalization Theory | [yes](06-generalization-theory.md) |
 | 7 | Scaling Rules for Optimization | [yes](07-scaling-rules-for-optimization.md) |
-| 8 | Architectures: Transformers | not yet |
+| 8 | Architectures: Transformers | [yes](08-architectures-transformers.md) |
 | 9 | Hacker's Guide to Deep Learning | not yet |
 | 10 | Architectures: Memory | not yet |
 | 11 | Representation Learning: Reconstruction-Based | not yet |
@@ -125,6 +125,16 @@ without numbers to implementing a transformer and its layer norm, "I think at so
 Transformers are lecture 8 above. Nothing in it says whether the lecturer's lecture 23 continues its modular
 theory.
 
+Lecture 8's deck is titled "Lecture 8: Transformers", matching the recording, which settles lecture 1's
+"Lecture 9: Transformers" banner (the row above), though its outline (slide 2) is still headed "9.
+Transformers". It prints no other lecture number. Its recording points back to "the GNN lecture" (lecture 5,
+≈7:43, ≈8:32, ≈1:04:18), to ResNets "in the CNN lecture" (lecture 4, ≈57:23) and to "what Jeremy was
+talking about" on normalizing weight updates (lecture 7, ≈58:09). It points ahead without numbers to "the
+problem set coming out next week" (≈40:15), Homework 3 below; to autoregressive and generative models,
+which "we're going to come back to … a little later" (≈1:05:51, again at ≈1:13:49), lectures 14–16; and to
+large language models, "We'll talk more about those later" (≈1:07:25), lecture 21. Multihead attention is
+left to "the reading", the book chapter the lecture says it follows "almost exactly" (≈55:49, ≈1:10:38).
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -164,6 +174,10 @@ refers to "the homework" throughout: the steepest-descent solutions under the in
 norm, the bonus upper bound for a linear predictor, and the RMS-RMS normalization are all "on the homework"
 (≈39:07, ≈41:27, ≈44:33, ≈1:02:24). Those are Homework 2's "Steepest descent" part and its
 "Hyperparameter transfer" part (6 points), whose learning-rate question begins "We saw in lecture 7".
+Lecture 8 announces that "the problem set coming out next week" will "implement a bunch of transformers and
+all the variations. It'll implement GPT" (≈40:15). On OCW that is **Homework 3**, 35 points: "RNNs versus
+transformers" (8 points), "Implementing a Transformer" (11), "Vision Transformers" (6) and "DialogueGPT"
+(10), with the code for the last three in a Colab notebook.
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

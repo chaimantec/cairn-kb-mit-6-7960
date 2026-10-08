@@ -12,7 +12,9 @@ layer that a convolution constrains); [lecture 5](05-architectures-graphs.md), s
 on an adjacency matrix is not permutation invariant, and the MLP as a graph net over a single node);
 [lecture 6](06-generalization-theory.md), slide 8 and ≈40:10–40:58 (how an MLP fits between its
 training points, and its last layer as a weighted sum of features); [lecture 7](07-scaling-rules-for-optimization.md),
-slide 22 and ≈53:51–56:11 (the neural, tensor and spectral perspectives). See also [activation functions](activation-functions.md),
+slide 22 and ≈53:51–56:11 (the neural, tensor and spectral perspectives); [lecture 8](08-architectures-transformers.md),
+slides 17–21 and 36, ≈16:59–22:24 and ≈55:49 (token nets as MLPs over vectors, and the token-wise MLP
+inside a transformer). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -210,3 +212,18 @@ decomposition, drawn as orthogonal, diagonal and semi-orthogonal factors: "not e
 eigenvalue decomposition, but every matrix has a singular value decomposition". The point is not to train
 in that form, but to picture training as changing the singular values, by neither too much nor too little
 each step. See [norms](norms.md) and [scaling rules](scaling-rules.md).
+
+## Token nets: the MLP over vectors (lecture 8)
+
+Lecture 8 builds the transformer by lifting the MLP from scalars to vectors. Networks over tokens have
+"two basic operations", just as MLPs do: a linear combination and a unit-wise nonlinearity (≈16:59–17:47).
+The linear combination of neurons $\mathbf{x}_ {\text{out}} = \mathbf{W} \mathbf{x}_ {\text{in}}$
+becomes one of tokens, $\mathbf{T}_ {\text{out}} = \mathbf{W} \mathbf{T}_ {\text{in}}$, which scales whole
+token vectors and is "a low rank transformation over the neurons" (slide 17, ≈19:20). The pointwise ReLU
+becomes a token-wise function $F_\theta$ applied to every token, and "F is typically an MLP", so
+"transformers are like a meta architecture. Like, the units of the architecture are other neural
+networks" (slide 18, ≈20:06–20:52). Slide 21 draws a neural net and a token net side by side ("The motif
+is the same", ≈22:24), and slide 36 the MLP beside the vanilla transformer, with self-attention in place
+of the linear layers and a token-wise MLP in place of the ReLU (≈55:49). One more difference: an MLP's
+ReLU has no parameters, while a transformer's token-wise MLP is learned (≈25:28). See
+[transformers](transformers.md).

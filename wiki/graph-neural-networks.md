@@ -7,7 +7,9 @@ ignores their order, and updates its own vector from what it gathered. The cours
 [lecture 5](05-architectures-graphs.md), the second of its architecture lectures, as a
 generalization of the convolutional network of [lecture 4](04-architectures-grids.md) and a step
 towards transformers. Covered so far: lecture 5, slides 2–46, ≈0:48–1:20:36; [lecture 6](06-generalization-theory.md),
-≈23:57 and ≈1:16:06, on permutation symmetry as a source of generalization.
+≈23:57 and ≈1:16:06, on permutation symmetry as a source of generalization; and [lecture 8](08-architectures-transformers.md), slides 11,
+22–24, 41 and 47, ≈7:43–8:32, ≈22:24–23:55, ≈1:01:16 and ≈1:04:18–1:05:51, on transformers as graph nets
+over fully connected graphs.
 
 **Notation.** A graph $G$ has $n$ nodes, an adjacency matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$
 ($A_{ij} = 1$ when nodes $i$ and $j$ share an edge) and a feature matrix
@@ -100,8 +102,8 @@ paths, $d_v^{(k)} = \min_{u \in \mathcal{N}(v)} d_u^{(k-1)} + \text{cost}(u, v)$
   (≈53:31–54:20; see [backpropagation](backpropagation.md)).
 - **A transformer is a GNN whose aggregation is attention**,
   $\mathbf{m}_ {\mathcal{N}(v)} = \sum_{u \in \mathcal{N}(v)} \alpha_{v,u} \mathbf{h}_ u$ with weights
-  that depend on the node vectors (slide 24, ≈49:42 and ≈56:38). The course develops this in the
-  transformers lecture, lecture 8 on the [course map](course-map.md).
+  that depend on the node vectors (slide 24, ≈49:42 and ≈56:38). Lecture 8 develops this; see
+  [transformers as graph nets](#transformers-as-graph-nets-lecture-8) below.
 
 ## Weight sharing and graph size
 
@@ -167,3 +169,20 @@ slide 62 lists the equivariance among the architectural symmetries the lecturer 
 important explanation of why deep nets generalize: "If I permute the labeling of the nodes, then I will
 permute the predictions" (≈1:16:06). Its slide 63 cites a polypharmacy network, the one lecture 5 shows,
 as an example of domain knowledge built into an architecture. See [inductive bias](inductive-bias.md).
+
+## Transformers as graph nets (lecture 8)
+
+Lecture 8 builds the transformer from the same parts. Its **tokens** are "a new name for what we actually
+saw in the GNN lecture", the node attribute vectors (slide 11, ≈7:43–8:32). Its **token net** alternates a
+linear combination of tokens with a token-wise nonlinearity, and slide 22 sets that beside a GNN's
+AGGREGATE and COMBINE: the same wiring. Two differences remain (≈22:24–23:55). In a GNN "how we aggregate
+is determined by the graph connectivity", the adjacency matrix, and the aggregate may be nonlinear. A
+transformer connects every token to every other, "Transformers may be viewed as Graph Neural Networks over
+fully-connected graphs" (slide 24), and computes the weights of each linear combination by attention. And
+GNNs often share weights across depth, where transformers typically do not, "but you can".
+
+Without positional information a transformer is permutation equivariant, as a graph net is (slide 41,
+≈1:01:16). Among lecture 8's examples of positional encodings for transformers is the one lecture 5 ends
+on, the eigenvectors of the graph Laplacian: the first "is really smooth. It's like, where am I globally?
+And then other eigenvectors are, like, high frequency, almost like a Fourier basis" (slide 47,
+≈1:04:18–1:05:51). See [transformers](transformers.md).

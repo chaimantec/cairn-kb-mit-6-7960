@@ -29,10 +29,12 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   page slide filters over the words of a sentence, with a numerical worked example, padding, max
   pooling, stride and dilation. Use it for convolution over sequences; lecture 4 here is the
   course's own treatment of convolution over images.
-  Lecture 5 here calls transformers graph nets whose aggregation is attention, and leaves them to
-  6.7960 lecture 8, which this KB does not yet cover. Until it does, CS224N's
+  6.7960 lecture 8 is in this KB: transformers built from tokens, query-key-value attention and
+  positional encodings, with the ViT block, causal masking for GPT and cross-attention, mostly in
+  vision terms. CS224N's
   [lecture 8](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/08-self-attention-and-transformers.md)
-  is the place for self-attention as query-key-value lookup and the transformer block.
+  is a second treatment from the language side, self-attention as query-key-value lookup and the
+  transformer block; use lecture 8 here first for this course's notation and framing.
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/INDEX.md).
 
 - **CS336 — Language Modeling from Scratch** (Stanford, Percy Liang and Tatsunori Hashimoto,

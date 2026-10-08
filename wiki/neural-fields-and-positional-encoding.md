@@ -9,7 +9,8 @@ schedule (see the [course map](course-map.md)). Covered so far: lecture 4, slide
 ≈9:59–12:17 and ≈1:09:53–1:14:32, and the end-of-lecture questions (≈1:16:05–1:20:43); [lecture 5](05-architectures-graphs.md),
 slides 43–44 and 46, ≈1:09:47–1:10:32 and ≈1:19:02–1:20:36, on positional encodings for graphs; and
 [lecture 6](06-generalization-theory.md), slide 63, ≈1:17:40–1:18:26, on NeRF's built-in physics as a
-reason it generalizes.
+reason it generalizes; and [lecture 8](08-architectures-transformers.md), slides 41–47 and 53,
+≈1:00:29–1:05:51 and ≈1:12:15, on positional encodings for transformers.
 
 ## Why break shift invariance
 
@@ -116,3 +117,21 @@ perspective projection, and it uses equations of light transport. And these are 
 and so it will generalize to new viewpoints because it's using structures. It's not just fitting to data.
 It's data plus structure, data plus constraints" (≈1:17:40–1:18:26). See [inductive
 bias](inductive-bias.md).
+
+## Positional encodings in transformers (lecture 8)
+
+Lecture 8 brings positional encoding back as the third of the transformer's ideas. A transformer is
+permutation equivariant, "a set-to-set mapping" in which "the ordering of the tokens doesn't matter"
+(slide 41, ≈1:01:16). When order matters, the remedy is lecture 4's. Slide 42 repeats its picture of a
+filter that sees a position input beside the signal, and slide 43 does the same for tokens: "Add location
+information to the token code vectors" (≈1:02:02–1:02:48). The "vanilla" choice is a **Fourier positional
+code** (slide 44): rather than the Cartesian coordinates of a patch, the values of $\sin(x)$, $\sin(x/B)$,
+up to $\sin(x/B^4)$, and the same in $y$, at that location. Why a Fourier basis helps is left to the book
+chapter and called "an open science question" (≈1:03:33–1:04:18).
+
+The positional encoding is where domain knowledge enters a transformer: "that's the part where you tell
+the system what it means to be local for your domain" (≈1:04:18). Lecture 8's examples are ScaleMAE's
+ground-sample-distance encoding for satellite images at different scales (slide 45); spherical harmonics,
+"sinusoids on the sphere", for positions on the globe (slide 46); and, for graphs, the eigenvectors of the
+graph Laplacian, as in lecture 5 (slide 47, ≈1:04:18–1:05:51). "Attention Is All You Need" used a
+sinusoidal positional encoding (slide 53, ≈1:12:15). See [transformers](transformers.md).

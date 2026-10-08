@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–7 of 24 only.** This knowledge base currently holds the first seven
+> **Coverage: lectures 1–8 of 24 only.** This knowledge base currently holds the first eight
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization) and the concept pages they support. For anything taught in lectures 8–24, it can
+> Optimization; Architectures: Transformers) and the concept pages they support. For anything taught in lectures 9–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 7. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 8. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -96,6 +96,23 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   (RMS-RMS norm about 1 at initialization and for every update); depth and the $1/L$ versus
   $1/\sqrt{L}$ residual multiplier; the lecturer's modular theory (modules with a norm); references;
   and what problem set 2 asks. 3 of its slides are excluded from OCW's licence.
+- [Lecture 8 — Architectures: Transformers](wiki/08-architectures-transformers.md) — Phillip Isola.
+  Transformers as three ideas, only one of them new: tokens, attention and positional encoding;
+  "everything old is new again" (Pierre Menard's *Don Quixote*); the locality limit of CNNs (receptive
+  fields that grow slowly, far-apart patches that never interact) against the fully connected layer's
+  $n^2$ parameters; tokens as vectors of neurons, arrays and sets of tokens, and tokenizing images
+  (patches), text (byte pairs) and audio; the $N \times d$ token matrix; token nets (linear combinations
+  of tokens and token-wise MLPs) as MLPs over vectors and as graph nets over fully connected graphs;
+  attention as weights computed from the data, the animal-counting and impala-colour intuitions,
+  query-key-value attention with its database analogy (and the typo on slide 29), self-attention and
+  DINO's attention maps; the self-attention layer
+  $\text{softmax}(\mathbf{Q} \mathbf{K}^{\mathsf{T}} / \sqrt{m}) \mathbf{V}$ and why $\mathbf{A}$ is not
+  learned directly; fc, conv and attention as a family of linear layers; the vanilla transformer,
+  multihead self-attention, the ViT block with token norm (layer norm) and residual connections, and its
+  pseudocode; permutation equivariance and positional encodings (Fourier codes, ScaleMAE, spherical
+  harmonics, Laplacian eigenvectors); autoregressive models, GPT and causal masking; "Attention Is All
+  You Need" read against the lecture; cross-attention for image captioning; and Homework 3. 7 of its
+  slides are excluded from OCW's licence.
 
 ## Course pages
 
@@ -105,7 +122,7 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   35% blog-post final project), compute, PyTorch, the collaboration rules and the AI-assistant
   policy; and which problem set goes with which lecture where a lecture says (lecture 5's
   graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
-  Homework 2's, which went out at lecture 6).
+  Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation is Homework 3).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -126,7 +143,8 @@ passages it draws on.
   permutation invariant, and an MLP is a graph net over a single node (lecture 5); how an MLP
   interpolates between training points where a memorizing "filing cabinet" cannot, and its last
   layer as regression on features (lecture 6); the neural, tensor and spectral perspectives on a
-  network (lecture 7).
+  network (lecture 7); token nets as MLPs over vectors, and the token-wise MLP inside a transformer
+  (lecture 8).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
@@ -182,12 +200,14 @@ passages it draws on.
   labels, $H(y, \hat{y}) = -\sum_k y_k \log \hat{y}_ {k}$, the "how much better you could have done"
   reading of the loss, the clown fish / grizzly / chameleon examples, and the "scores, not
   probabilities" caution; why to optimize toward a class through its logits, not its softmax
-  probability (lecture 2).
+  probability (lecture 2); the softmax that normalizes attention scores, and next-word prediction as
+  classification (lecture 8).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
   descent and why the batch gradient is the average of per-example gradients (lecture 2);
-  channels, filter-bank shapes, `im2col` and video as a 4D input (lecture 4).
+  channels, filter-bank shapes, `im2col` and video as a 4D input (lecture 4); a set of tokens as an
+  $N \times d$ matrix, and a transformer layer as a handful of matrix products (lecture 8).
 - [Representational power](wiki/representational-power.md) — what networks can approximate,
   across lectures 1 and 3: one layer gives a linear surface; the Riemann-sum intuition; the
   formal question (families $G$ and $F$, error $\epsilon$); lecture 3's universal approximation
@@ -227,7 +247,8 @@ passages it draws on.
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
   responds to (lecture 2); convolutional feature maps and how they change with depth, and the
   encoder–decoder (lecture 4); kernels of a network's output representation, and why deeper (even
-  linear) networks give lower-rank, more clustered ones (lecture 6); previewing lectures 11–13 and
+  linear) networks give lower-rank, more clustered ones (lecture 6); tokens as representations at every
+  layer, and DINO's attention maps that stay inside objects (lecture 8); previewing lectures 11–13 and
   18–19.
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
@@ -237,32 +258,44 @@ passages it draws on.
   invariance and equivariance as the graph bias, and "universality is actually not what we're after
   in architecture design" (lecture 5); why generalization requires inductive bias, the ConvNet's
   compositional bias (the eight-eyed cat), and invariances, equivariances, compositionality and
-  domain constraints as the lecturer's favoured explanation of why deep nets generalize (lecture 6).
+  domain constraints as the lecturer's favoured explanation of why deep nets generalize (lecture 6);
+  the transformer's few built-in biases, with locality left to the tokenizer and domain knowledge to the
+  positional encoding (lecture 8).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
   size, the five views, stacking and receptive fields, channels and filter banks with the parameter
   count rule, max and mean pooling, downsampling, strides and dilation, `im2col`, and convolution in
   time and over video; a ConvNet as a graph net over a grid (lecture 5); patch-wise processing as a
-  reason ConvNets generalize to new arrangements (lecture 6).
+  reason ConvNets generalize to new arrangements (lecture 6); locality as a limitation, the $1 \times 1$
+  convolution as a token-wise MLP, and the Toeplitz matrix beside attention (lecture 8).
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
   learning its own depth (lecture 4); previews transformers. How much each residual block should
-  contribute, $1/L$ or $1/\sqrt{L}$ (lecture 7).
+  contribute, $1/L$ or $1/\sqrt{L}$ (lecture 7). The residual connections of the transformer block
+  (lecture 8).
 - [Neural fields and positional encoding](wiki/neural-fields-and-positional-encoding.md) — why and
   how to break shift invariance with a constructed positional encoding, neural fields as networks
   from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
   and density), with what NeRF is not and its limits (lecture 4); previews transformers. Positional
   encodings on graphs: one-hot node indices and Laplacian eigenvectors, and what they cost in
   invariance (lecture 5). NeRF's built-in projection and light transport as a reason it generalizes
-  to new viewpoints (lecture 6).
+  to new viewpoints (lecture 6). Positional encodings for transformers: why permutation equivariance
+  needs them, Fourier codes, ScaleMAE, spherical harmonics and Laplacian eigenvectors (lecture 8).
 - [Graph neural networks](wiki/graph-neural-networks.md) — lecture 5's architecture in full:
   graph tasks, permutation invariance and equivariance, message passing (AGGREGATE, UPDATE,
   READOUT), multiset aggregations and the universal sum-of-MLPs form, Bellman-Ford, how GNNs relate
   to ConvNets, MLPs and transformers, weight sharing and graph size, training, the
   neighbourhood-tree and Weisfeiler-Leman limits, and positional encodings; permutation symmetry as
-  a source of generalization (lecture 6).
+  a source of generalization (lecture 6); transformers as graph nets over fully connected graphs
+  (lecture 8).
+- [Transformers](wiki/transformers.md) — lecture 8's architecture in full: why attention (the limit of
+  locality), tokens and tokenizing, token nets, attention as data-dependent weights, query-key-value
+  attention and self-attention, why $\mathbf{A}$ is not learned directly, multihead attention, attention
+  in the family of linear layers, the ViT block (token norm, residual connections), permutation
+  equivariance and positional encodings, autoregressive models, GPT and causal masking, "Attention Is All
+  You Need", cross-attention, and why transformers are everywhere.
 
 ## Raw materials
 
@@ -275,7 +308,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–7 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–8 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

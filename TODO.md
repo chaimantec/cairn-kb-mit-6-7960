@@ -17,7 +17,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 05 Architectures: Graphs — video 0niIwb37nF0 (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 06 Generalization Theory — video EiO8BBa-xdc (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 07 Scaling Rules for Optimization — video VcGPE4s_oNw (OCW human captions; light copy-edit, verbatim in original/)
-- [ ] 08 Architectures: Transformers — video Q1HOKrNeh2M
+- [x] 08 Architectures: Transformers — video Q1HOKrNeh2M (OCW human captions; light copy-edit, verbatim in original/)
 - [ ] 09 Hacker's Guide to Deep Learning — video DC2Hw9DiLCg
 - [ ] 10 Architectures: Memory — video IiHknRHA-Gk
 - [ ] 11 Representation Learning: Reconstruction-Based — video QxOzQRtd440
@@ -48,6 +48,8 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 05 Architectures: Graphs — mit6_7960_f24_lec5.pdf (47 pages; read by Sonnet, audited by Opus on 27 pages)
 - [x] 06 Generalization Theory — mit6_7960_f24_lec6.pdf (66 pages; read by Sonnet, audited by Opus on 30 pages)
 - [x] 07 Scaling Rules for Optimization — mit6_7960_f24_lec7.pdf (32 pages, handwritten; read by Sonnet, audited by Opus on 24 pages)
+- [x] 08 Architectures: Transformers — mit6_7960_f24_lec8.pdf (55 pages; read by Sonnet)
+- [x] 08 — Opus figure audit on 33 pages applied (19 corrected)
 
 ## Wiki
 - [x] wiki/01-introduction.md
@@ -57,6 +59,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] wiki/05-architectures-graphs.md
 - [x] wiki/06-generalization-theory.md
 - [x] wiki/07-scaling-rules-for-optimization.md
+- [x] wiki/08-architectures-transformers.md
 - [x] Topic pages (cross-lecture concepts) for lecture 1
 - [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
 - [x] Topic pages for lecture 3: lipschitz-continuity, scaling-laws new; representational-power rewritten; MLP, activations, generalization, course-map extended
@@ -64,6 +67,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Topic pages for lecture 5: graph-neural-networks new; inductive-bias, convolution, representational-power, neural-fields-and-positional-encoding, multilayer-perceptron, backpropagation, course-map extended
 - [x] Topic pages for lecture 6: generalization-and-double-descent and inductive-bias extended in depth; gradient-descent, loss-landscapes, representation-learning, multilayer-perceptron, convolution, graph-neural-networks, neural-fields-and-positional-encoding, representational-power, course-map extended
 - [x] Topic pages for lecture 7: steepest-descent, second-order-methods, norms, scaling-rules new; gradient-descent, loss-landscapes, skip-connections, lipschitz-continuity, backpropagation, multilayer-perceptron, differentiable-programming, scaling-laws, course-map extended
+- [x] Topic pages for lecture 8: transformers new; graph-neural-networks, convolution, neural-fields-and-positional-encoding, inductive-bias, skip-connections, multilayer-perceptron, softmax-and-cross-entropy, tensors-and-batching, representation-learning, course-map extended
 - [x] INDEX.md table of contents
 
 ## Images
@@ -74,6 +78,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] raw/images/05-architectures-graphs/ — 19 images; 14 OCW-excluded slides never rendered
 - [x] raw/images/06-generalization-theory/ — 28 images; 8 OCW-excluded slides and slide 62 (reuses lecture 4's excluded bird photo) never rendered
 - [x] raw/images/07-scaling-rules-for-optimization/ — 9 images; 3 OCW-excluded slides (7, 25, 26) never rendered
+- [x] raw/images/08-architectures-transformers/ — 34 images; 7 OCW-excluded slides (4, 6, 7, 8, 31, 45, 53) never rendered; no reuse of excluded images found by pixel hash across decks 1–8
 - [x] AGENTS.md — the Images conventions section
 
 ## Publish
@@ -100,3 +105,6 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 7: apply the Opus figure audit
 - [x] Lecture 7: INDEX, AGENTS, kb.json, SEE_ALSO updated
 - [x] Lecture 7: verify_kb.py clean, review read; commit and push
+- [x] Lecture 8: apply the Opus figure audit
+- [x] Lecture 8: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 8: verify_kb.py clean, review read; commit and push

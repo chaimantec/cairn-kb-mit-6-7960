@@ -5,7 +5,8 @@ Lecture 1 lists "softmax, cross-entropy loss" among what the course **expects yo
 (slide 53), and reviews them on a running example: classifying photos into animal classes — clown
 fish, grizzly bear, chameleon and so on. Covered so far: [lecture 1](01-introduction.md), slides
 53–66, ≈49:40–53:30; [lecture 2](02-how-to-train-a-neural-net.md), ≈1:03:45–1:04:32 (logits
-versus probabilities as optimization targets).
+versus probabilities as optimization targets); [lecture 8](08-architectures-transformers.md), slides 29, 34 and 49, ≈35:36,
+≈48:51 and ≈1:07:25 (the softmax inside attention, and next-word prediction as classification).
 
 ## From last layer to prediction
 
@@ -90,3 +91,14 @@ to a class is often to make the alternatives unlikely, rather than to make the c
 likely. Whereas if you optimize pre softmax logits, this tends to actually be a bit more stable"
 (≈1:03:45–1:04:32). Its "cat" visualization therefore maximizes the output neuron "maybe pre
 softmax".
+
+## The softmax inside attention, and next-word classification (lecture 8)
+
+Lecture 8 uses the softmax away from the output layer. In query-key-value attention, the dot products
+of a query with every key form a score vector $\mathbf{s}$, and $\mathbf{A} = \text{softmax}(\mathbf{s})$
+turns the scores into weights for a weighted sum of values, "just normalizing that vector so it sums to
+1" (slide 29, ≈35:36). In the full self-attention layer the softmax is applied to the scaled query-key
+products, "to ensure that everything sums to 1. So that has some nice normalization and numerical
+advantages" (slide 34, ≈48:51). And a language model is trained as a classifier: given a sequence, "use
+supervised learning to try to classify what is the next word in a vocabulary of possible words" (slide
+49, ≈1:07:25). See [transformers](transformers.md).
