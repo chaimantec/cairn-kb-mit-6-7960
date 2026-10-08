@@ -10,7 +10,9 @@ lecture 3's closing preview (≈1:18:12–1:22:07); lecture 4, slides 3–10 and
 graphs: slides 11–13 and 34–44, ≈2:20–3:52, ≈17:51–30:16 and ≈1:05:56–1:20:36; [lecture 6](06-generalization-theory.md),
 on why generalization needs inductive bias at all: slides 19, 47–63, ≈21:37–23:57 and
 ≈58:53–1:18:26; [lecture 8](08-architectures-transformers.md), on transformers: slides 4–5, 15 and 41–47, ≈3:02–6:57,
-≈11:35–16:14, ≈51:59 and ≈1:00:29–1:05:51.
+≈11:35–16:14, ≈51:59 and ≈1:00:29–1:05:51; [lecture 9](09-hackers-guide-to-deep-learning.md), on data augmentation as the alternative to
+built-in invariance and on the biases that standardization and one-hot labels remove: slides 9, 13 and 40,
+≈16:24–19:29, ≈31:02–32:34 and ≈1:02:38–1:03:24.
 
 ## Why an MLP is not enough
 
@@ -191,6 +193,23 @@ locality actually represents" (slides 42–47, ≈1:02:02–1:05:51). Everything
 the point: "once you turn your data into a set of tokens, then you just use a transformer" (≈11:35), and
 homogeneous models share hardware, code and lessons across modalities. The lecturer calls specializing
 to a modality "of interest as well. It's just a trade-off" (≈51:59). See [transformers](transformers.md).
+
+## Augmentation instead of architecture, and biases removed on purpose (lecture 9)
+
+Lecture 9 gives the practitioner's counterpoint to building symmetries into an architecture. Geometric
+deep learning would design a network invariant to flips, crops and lighting changes. Data augmentation
+instead trains any network on transformed copies of the data, so "I can send this to an MLP, and it will
+be invariant to these operations too". The lecturer's view is that this "is the way to go for most of the
+types of invariances you actually want", because it is simple, intuitive and "architecture agnostic",
+and it "decouples these properties from the architecture design" (≈31:02–32:34). See
+[data augmentation](data-augmentation.md).
+
+The same lecture names two preprocessing choices that remove a bias. Standardizing every input dimension
+(slide 9) removes "inductive bias about the unit of measurement, which might be good or might be bad": "no
+one dimension is treated as more important a priori than another dimension". A student's example of when
+it is bad: horizontal and vertical distances that are physically the same quantity should not be scaled
+separately (≈17:56–18:44). And one-hot labels make every pair of classes equally far apart, which "removes
+inductive bias about how we represent target variables" (slide 40, ≈1:02:38–1:03:24).
 
 ## Where it goes next
 

@@ -12,7 +12,8 @@ slides 4–10, 32 and 34 (architecture as a way to generalize with less data and
 distribution); and [lecture 6](06-generalization-theory.md), Generalization Theory itself, slides
 3–65, ≈0:00–1:19:58, which gives the full treatment: memorization against generalization, double
 descent in detail, why the classical measures of complexity fail for deep nets, and the candidate
-inductive biases.
+inductive biases; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 3, 4 and 14–18, ≈1:34–7:01 and ≈33:20–41:03 (shortcuts
+that will not generalize, and making the training problem hard enough to generalize).
 
 ## The puzzle
 
@@ -253,3 +254,22 @@ land on one that generalizes? Lecture 6 offers ideas that "are not yet completel
 The lecture closes on the theory answer revised: perhaps not the shortest program but one "short enough"
 (slide 64), and a remark the lecturer recalls from Ilya Sutskever: "Deep nets are finite; that is enough.
 Anything finite will look small once you have enough data" (slide 65, ≈1:19:12–1:19:58).
+
+## Practical generalization (lecture 9)
+
+Lecture 9 opens by recalling the random-labels result as the reason for "the (temporary) success of
+hacking over theory" (slide 3): the VC-style bounds are vacuous for networks that can fit random labels,
+"and yet, deep nets generalize" (≈1:34–2:23).
+
+Its first example of a model that will *not* generalize is a shortcut. A chest-scan classifier reached
+very high accuracy by reading an "R" marker in the corner of the image, which revealed something like the
+hospital the scan came from, rather than looking at the tissue (slide 4, ≈5:30–7:01). It was right "for
+the wrong reason because it won't generalize to other hospitals".
+
+The lecture also argues that a training problem can be too easy to generalize from. A loss curve that
+drops at once and goes flat is "Bad! Your data is too easy" (slide 15). Data augmentation and domain
+randomization make the problem harder, and "the last one, which is the hardest to train on, is going to
+generalize the best" (≈35:42). OpenAI's robot hand, trained with every physics and visual randomization,
+took about ten times longer to reach the same training performance, and was the version expected to
+work in reality (slide 18): "High train accuracy can mean problem is too easy. Add more data to make
+problem harder." See [data augmentation](data-augmentation.md).

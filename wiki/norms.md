@@ -9,7 +9,7 @@ whether the norm of a network's parameters measures its complexity. [Lecture
 a step decides the optimization algorithm, and a matrix norm decides how to scale a network. Its
 rule of thumb: "Whenever anyone talks about too big or too small, you should always ask in which
 norm?" (≈51:32). Covered so far: lecture 3, slide 9, ≈12:20–13:57; lecture 6, slides 33 and 61; lecture 7,
-slides 16–19 and 21–25, ≈35:15–1:04:46.
+slides 16–19 and 21–25, ≈35:15–1:04:46; lecture 9, slide 10, ≈21:02–22:34.
 
 **Notation.** $\mathbf{v}$ is a vector in $\mathbb{R}^d$ with entries $v_i$; $\mathbf{M}$ is a matrix.
 A subscript names the norm.
@@ -110,3 +110,11 @@ ReLU has no weights and needs none, but how should the norms of two modules comb
 composed? The lecturer's research aims to make that automatic, so that building an architecture also
 builds the norm its optimizer should use (slides 28–30, ≈1:17:55–1:19:28). See [scaling
 rules](scaling-rules.md#a-modular-theory).
+
+## The RMS norm as a normalization layer (lecture 9)
+
+Lecture 9 uses the RMS norm as a layer. RMS-norm divides an activation vector by its RMS norm, which
+"will tend to map data points onto the unit hypersphere"; layer norm first subtracts the vector's mean.
+"In high dimensions, these things behave almost identically", but in two dimensions RMS-norm maps points
+onto a circle and layer norm onto just two points (slide 10, ≈21:02–22:34). See
+[normalization layers](normalization-layers.md).

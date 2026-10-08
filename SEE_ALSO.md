@@ -49,7 +49,8 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   is a second treatment of learning-rate transfer, from a course that trains language models; use
   lecture 7 here first for this course's version. Lecture 20 is not yet covered here, and CS336 has
   two lectures on scaling laws (its lectures 9 and 11), and lectures on GPUs and parallelism — useful for "why do GPUs matter" beyond lecture 1's
-  one-paragraph answer. Lecture 3 here shows Kaplan et al.'s scaling laws and the Chinchilla
+  one-paragraph answer, and beyond lecture 9's compute checklist here (one device before many, saturating
+  GPUs, mixed precision; its slides 68–70), which the recording does not reach. Lecture 3 here shows Kaplan et al.'s scaling laws and the Chinchilla
   paper on two slides, to argue that width versus depth is hard to settle experimentally; CS336's
   [lecture 9](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/09-scaling-laws.md)
   tells the Kaplan-versus-Chinchilla story in full, including depth and width. It is about language

@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–8 of 24 only.** This knowledge base currently holds the first eight
+> **Coverage: lectures 1–9 of 24 only.** This knowledge base currently holds the first nine
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers) and the concept pages they support. For anything taught in lectures 9–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning) and the concept pages they support. For anything taught in lectures 10–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 8. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 9. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -113,6 +113,19 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   harmonics, Laplacian eigenvectors); autoregressive models, GPT and causal masking; "Attention Is All
   You Need" read against the lecture; cross-attention for image captioning; and Homework 3. 7 of its
   slides are excluded from OCW's licence.
+- [Lecture 9 — Hacker's Guide to Deep Learning](wiki/09-hackers-guide-to-deep-learning.md) — Phillip
+  Isola, an opinionated practical lecture. Hacking over theory; look at the data ("become friends with
+  every pixel"): the chest X-ray classifier that read an "R" marker, looking at outputs as well as the loss,
+  class imbalance, data as loaded versus as stored (uint8, DeCAF and Caffe), and the `inspect_data`
+  function; standardizing inputs; why normalization layers misbehave in low dimensions; prime-sized dummy
+  dimensions, dtype casts and einops; data augmentation versus invariant architectures, what a good training
+  curve looks like, domain randomization and OpenAI's robot hand; changing the data rather than the learner,
+  putting "the universe" into $X$ so that $P(Y \mid X)$ is nearly a point, StyleGAN2 against DALL-E; keep
+  models simple and popular, pretrained models, colorization reduced to per-pixel classification, softmax
+  regression, the 2024 default recipe (one-hot, cross-entropy, Adam, transformer), against batch norm,
+  scaling, removing the nonessential, copilots; and, mostly from the slides alone, optimization (one, few,
+  many data points; log loss at chance; learning rate and batch size; EMAs), evaluation, the spice rack,
+  common PyTorch bugs and compute. 21 of its slides are excluded from OCW's licence.
 
 ## Course pages
 
@@ -157,7 +170,9 @@ passages it draws on.
   stochastic gradient descent and batch size, momentum (and Adam), the plus-sign update convention,
   and when to stop ("just train forever", lecture 6); what the optimizer prefers — weight decay,
   initialization near zero and flat minima (lecture 6); gradient descent derived as steepest descent
-  in the Euclidean norm, sign gradient descent, and full-batch optimization (lecture 7).
+  in the Euclidean norm, sign gradient descent, and full-batch optimization (lecture 7); practical
+  advice — one data point before many, learning rate and batch size, epochs, Adam against SGD, and
+  exponential moving averages (lecture 9).
 - [Steepest descent](wiki/steepest-descent.md) — lecture 7's first-order method: replace the
   non-linear part of the Taylor expansion with $\frac{\lambda}{2} \Vert \Delta \mathbf{w} \Vert^2$
   and minimize; the Euclidean norm gives gradient descent ($-\mathbf{g}/\lambda$), the infinity norm
@@ -174,7 +189,8 @@ passages it draws on.
   norms (and why KL is not one); dual norms; Frobenius, spectral, nuclear and Schatten $p$-norms;
   induced operator norms, the spectral norm and the RMS-RMS operator norm
   ($\sqrt{d_{\text{in}}/d_{\text{out}}}$ times the spectral norm); parameter norm as a complexity
-  measure (lecture 6); composing norms across modules (lecture 7). Spans lectures 3, 6 and 7.
+  measure (lecture 6); composing norms across modules (lecture 7); the RMS norm as a normalization layer
+  (lecture 9). Spans lectures 3, 6, 7 and 9.
 - [Backpropagation](wiki/backpropagation.md) — computation graphs, the shape rules and chain
   rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
   and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
@@ -201,13 +217,17 @@ passages it draws on.
   reading of the loss, the clown fish / grizzly / chameleon examples, and the "scores, not
   probabilities" caution; why to optimize toward a class through its logits, not its softmax
   probability (lecture 2); the softmax that normalizes attention scores, and next-word prediction as
-  classification (lecture 8).
+  classification (lecture 8); softmax regression as the default formulation and why, colorization
+  turned into per-pixel classification, and the log loss at chance, $\ln 0.5 = -0.69$ and
+  $\ln 0.1 = -2.3$ (lecture 9).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
   descent and why the batch gradient is the average of per-example gradients (lecture 2);
   channels, filter-bank shapes, `im2col` and video as a 4D input (lecture 4); a set of tokens as an
-  $N \times d$ matrix, and a transformer layer as a handful of matrix products (lecture 8).
+  $N \times d$ matrix, and a transformer layer as a handful of matrix products (lecture 8); inspecting
+  tensors before the forward pass, prime-sized dummy dimensions, dtype casts, einops, and keeping every
+  dimension large (lecture 9).
 - [Representational power](wiki/representational-power.md) — what networks can approximate,
   across lectures 1 and 3: one layer gives a linear surface; the Riemann-sum intuition; the
   formal question (families $G$ and $F$, error $\epsilon$); lecture 3's universal approximation
@@ -225,7 +245,9 @@ passages it draws on.
 - [Scaling laws](wiki/scaling-laws.md) — as lecture 3 presents them: Kaplan, McCandlish et al.
   (2020)'s power laws in compute, data and parameters, their finding that width versus depth
   barely matters at fixed parameter count, and Chinchilla as an example of confounders. Previews
-  lecture 20. Not the same as lecture 7's scaling *rules* (below).
+  lecture 20. Lecture 9's practical version: scale data, model and compute, scale as a proxy for
+  coverage, and scaling as "necessary but not sufficient". Not the same as lecture 7's scaling *rules*
+  (below).
 - [Scaling rules](wiki/scaling-rules.md) — lecture 7's answer to "the optimal learning rate drifts"
   and "deeper performs worse": hyperparameter transfer, the Goldilocks update and "in which norm?",
   the width rule ($\Vert \mathbf{W}_ \ell \Vert_{\text{RMS-RMS}} \sim 1$ at initialization and
@@ -241,7 +263,9 @@ passages it draws on.
   the training distribution. Lecture 6's full treatment: empirical and population risk,
   memorization versus generalization, double descent on polynomial fits and the simple + spiky
   hypothesis, why parameter count, norm and VC dimension fail (random labels make the VC bound
-  vacuous), and the candidate inductive biases; previews lecture 17.
+  vacuous), and the candidate inductive biases; previews lecture 17. Lecture 9's practical side: a
+  shortcut that will not generalize, training problems too easy to generalize from, and domain
+  randomization.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -260,7 +284,8 @@ passages it draws on.
   compositional bias (the eight-eyed cat), and invariances, equivariances, compositionality and
   domain constraints as the lecturer's favoured explanation of why deep nets generalize (lecture 6);
   the transformer's few built-in biases, with locality left to the tokenizer and domain knowledge to the
-  positional encoding (lecture 8).
+  positional encoding (lecture 8); data augmentation as the architecture-agnostic alternative, and the
+  biases that standardization and one-hot labels remove (lecture 9).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
@@ -268,7 +293,8 @@ passages it draws on.
   count rule, max and mean pooling, downsampling, strides and dilation, `im2col`, and convolution in
   time and over video; a ConvNet as a graph net over a grid (lecture 5); patch-wise processing as a
   reason ConvNets generalize to new arrangements (lecture 6); locality as a limitation, the $1 \times 1$
-  convolution as a token-wise MLP, and the Toeplitz matrix beside attention (lecture 8).
+  convolution as a token-wise MLP, and the Toeplitz matrix beside attention (lecture 8); a ConvNet slid
+  over an image to classify every pixel (lecture 9).
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
@@ -295,7 +321,15 @@ passages it draws on.
   attention and self-attention, why $\mathbf{A}$ is not learned directly, multihead attention, attention
   in the family of linear layers, the ViT block (token norm, residual connections), permutation
   equivariance and positional encodings, autoregressive models, GPT and causal masking, "Attention Is All
-  You Need", cross-attention, and why transformers are everywhere.
+  You Need", cross-attention, and why transformers are everywhere; the transformer in lecture 9's
+  default recipe, and "attention is not all you need".
+- [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
+  transformer's token norm) and batch norm: what each divides by, why they behave alike in high
+  dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
+  one gives zero, the pix2pix bug), and lecture 9's case against batch norm. Spans lectures 3, 7, 8 and 9.
+- [Data augmentation](wiki/data-augmentation.md) — label-preserving transformations, augmentation
+  against invariant architectures (geometric deep learning), making the training problem harder on
+  purpose, domain randomization and the domain gap, and OpenAI's robot hand (lecture 9).
 
 ## Raw materials
 
@@ -308,7 +342,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–8 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–9 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

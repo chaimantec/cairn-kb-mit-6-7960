@@ -8,7 +8,9 @@ which reviews the algorithm and its stochastic and momentum variants. Covered so
 [lecture 2](02-how-to-train-a-neural-net.md), slides 4–11, ≈0:45–10:54; [lecture 6](06-generalization-theory.md),
 slide 61 and ≈35:34–40:10, on what the optimizer adds to generalization;
 [lecture 7](07-scaling-rules-for-optimization.md), slides 4–7 and 16–18, ≈3:06–13:55 and
-≈33:37–39:53, which derives gradient descent as steepest descent in the Euclidean norm. For the
+≈33:37–39:53, which derives gradient descent as steepest descent in the Euclidean norm; [lecture 9](09-hackers-guide-to-deep-learning.md),
+slides 48–55, ≈1:10:21–1:13:23, practical advice on learning rate, batch size, optimizers and moving
+averages. For the
 symbols see [notation](notation.md).
 
 ## Learning as optimization
@@ -160,3 +162,35 @@ just use Adam to train neural networks" (≈21:05); see [second-order methods](s
 And the learning rate that works best is not stable as a network grows: naively, the optimal learning
 rate drifts as width increases, so it has to be retuned at every size (slide 7, ≈8:30–10:04). Lecture 7's
 fix is to measure and normalize each update in the right norm; see [scaling rules](scaling-rules.md).
+
+## Practical advice (lecture 9)
+
+Lecture 9's optimization slides, mostly left to be read after the lecture, are a checklist.
+
+- **One, few, many** (slide 48): "figure out optimization on one/few/many datapoints, in that order":
+  overfit a single data point, then a batch, then the dataset or a miniature version of it. "First make
+  sure you can fit train set, then consider generalization to test set" (≈1:10:21).
+- **Learning rate and batch size** are "the most important hyperparameters" (slide 50). "Use a constant
+  rate; don't schedule until everything else is figured out." Schedule "according to number of iterations
+  of SGD, not epochs". "Use biggest batch size that will fit in memory." "Always retune lr when *anything*
+  changes in your model", because most changes alter the scale of the gradients and so the **effective
+  learning rate**. An aside reads "Until Jeremy solves lr-free optimization", Jeremy Bernstein's
+  [lecture 7](07-scaling-rules-for-optimization.md) being about learning rates that transfer across width
+  and depth.
+- **Epochs** (slide 51): "there are no epochs in the wild", single-epoch training is the trend in LLMs,
+  and a schedule tied to epochs "makes it hard to compare learning curves between experiments"; "be
+  careful with cosine lr (looks like it is converging when it is not)".
+- **Extreme settings** (slide 53): "If optimization never diverges, your learning rate is too low."
+- **Optimizers** (slide 55): "Adam (or AdamW) is good for prototyping (generally just works). SGD may be
+  slightly better for performance (but requires more tuning of hyperparameters). Clip gradients to
+  improve stability."
+
+**Exponential moving averages** (slide 54, ≈1:11:53–1:13:23). An EMA keeps a running average of a
+quantity $\theta$ whose weights decay exponentially into the past, with a decay factor $\beta$:
+
+$$\theta_{\texttt{EMA}}^{t} \leftarrow \beta \thinspace \theta_{\texttt{EMA}}^{t-1} + (1 - \beta) \thinspace \theta^{t-1}$$
+
+(the slide leaves the assignment sign blank). "Time averages (EMA) can achieve a similar effect as 'space'
+averages (e.g., average gradients over batch)": the batch averages gradients across examples, the EMA
+across iterations. Applied to gradients, "it is known as momentum", which connects it to the momentum
+above; the slide suggests trying it on weights, data, activations and targets too.

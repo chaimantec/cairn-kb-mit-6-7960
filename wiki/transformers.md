@@ -7,7 +7,8 @@ then transforms each token separately. A **positional encoding** added to each t
 came from, because attention by itself ignores order. The course presents it as "the architecture that
 you should use today", while warning that "next year, there'll be a new architecture" (lecture 8,
 ≈0:00). Covered so far: [lecture 8](08-architectures-transformers.md), slides 1–54, ≈0:00–1:13:49, with
-the graph-net view previewed in [lecture 5](05-architectures-graphs.md) (slide 24, ≈49:42, ≈56:38).
+the graph-net view previewed in [lecture 5](05-architectures-graphs.md) (slide 24, ≈49:42, ≈56:38), and
+the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61).
 
 **Notation.** A token $\mathbf{t}_ i \in \mathbb{R}^d$ is a vector of $d$ neurons, and $N$ tokens are
 stacked as the rows of $\mathbf{T} \in \mathbb{R}^{N \times d}$, with $\mathbf{T}_ {\text{in}}$ and
@@ -172,6 +173,16 @@ modern compute" (≈1:00:29; also ≈13:56). And homogeneity pays: "everything r
 hardware. The code bases are all the same. The lessons are transferable between different modalities",
 traded against what specializing to a modality would buy (≈51:59). Domain knowledge enters in two
 places, the tokenizer and the positional encoding.
+
+## The default architecture (lecture 9)
+
+Lecture 9's "recipe for deep learning in a new domain", one of its "good default choices ca 2024", ends:
+"Use a generic optimizer (Adam) and a standard architecture (transformer) to solve the learning problem"
+(slide 41, as printed "an standard architecture"). The next slide says to use layer norm, the
+transformer's token norm, rather than batch norm (slide 42; see
+[normalization layers](normalization-layers.md)). The lecture also cautions against reading the
+transformer's origin paper as a recipe: "attention is not all you need. Attention is one thing that works
+pretty well and has certain effects"; tuning is choosing a combination of "spices" (slide 61, ≈1:14:09).
 
 ## Where it goes next
 

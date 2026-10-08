@@ -8,7 +8,8 @@ end-of-lecture questions on pooling and video (≈1:16:51 and ≈1:20:43–1:23:
 slides 12–13, ≈26:24–32:32, on the ConvNet as a graph net on a grid; and [lecture 6](06-generalization-theory.md)'s
 slide 19, ≈21:37–23:57, on patch-wise processing as a reason ConvNets generalize; and [lecture 8](08-architectures-transformers.md)'s
 slides 4–5, 18 and 35, ≈3:02–6:57, ≈20:52 and ≈52:45–53:31, on locality as a limitation, the 1x1
-convolution and the Toeplitz matrix beside attention. The architectures
+convolution and the Toeplitz matrix beside attention; and [lecture 9](09-hackers-guide-to-deep-learning.md)'s
+slides 37–39, ≈1:01:06, on classifying every pixel by sliding a classifier over the image. The architectures
 built from convolutional layers are on [skip connections](skip-connections.md); why the layer's
 assumptions help is on [inductive bias](inductive-bias.md).
 
@@ -216,3 +217,12 @@ patches (≈12:22). A transformer's token-wise MLP is "Equivalent to a CNN with 
 sequence" (slide 18, ≈20:52). And slide 35 sets the convolution's Toeplitz matrix, with $k + 1$ learnable
 parameters for a kernel of size $k$ and translation equivariance, beside the fully connected layer's
 $N^2$ parameters and the attention layer's pattern of diagonal blocks (≈52:45–53:31).
+
+## Classifying every pixel (lecture 9)
+
+Lecture 9's colorization case study needs a colour class for every pixel, not one label per image. A
+student names the architecture that does it: a ConvNet. "ConvNet just says, I will predict the label of
+the center pixel of a patch. And if I slide that ConvNet across the whole image, I will be predicting the
+label, the color, of every pixel in the image" (≈1:01:06). Slides 37–39 (excluded from OCW's licence) draw
+a patch around one input pixel predicting the class of that one output pixel, then the patch slid over the
+image producing the whole colourized output. See [lecture 9](09-hackers-guide-to-deep-learning.md#transform-your-problem-into-a-solved-problem).

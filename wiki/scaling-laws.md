@@ -4,7 +4,8 @@ Empirical laws for how a model's test loss falls as compute, data and parameters
 uses them for a narrower question: whether it matters how parameters are split between width and
 depth. The course gives scaling laws a lecture of their own, **lecture 20, Scaling Laws**, which
 this knowledge base does not yet cover (see the [course map](course-map.md)). Covered so far:
-[lecture 3](03-approximation-theory.md), slides 37–39 only.
+[lecture 3](03-approximation-theory.md), slides 37–39; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 25 and 44,
+≈49:29–52:35 and ≈1:05:43–1:08:04, where scale is practical advice.
 
 ## Why lecture 3 brings them up
 
@@ -75,6 +76,25 @@ these problems are unsolved" (≈1:16:34).
 
 For a full treatment of the Kaplan-versus-Chinchilla dispute from another course, see the CS336
 knowledge base listed in [SEE_ALSO](../SEE_ALSO.md).
+
+## Scale as practical advice (lecture 9)
+
+Lecture 9 turns scaling into a rule of thumb. "The easiest way to get better performance" is to scale the
+data ("more (diverse) training examples"), the model ("more layers, more channels") and the compute
+("train for longer"): "in the current era, I would say these are the top three factors that determine
+success … but working at small scale forces efficiency, and *then* when you do scale up, you get more bang
+for your buck" (slide 44). The lecturer calls it "kind of the scale is all you need recipe", "not
+necessarily the entire story, but it is part of the story" (≈1:05:43). His example is a colorization
+baseline left training for two weeks while he and his collaborator were away, which beat "all the kind of
+crazy advanced architectures and variants that we tried" (≈1:06:31). Of the "bitter lesson": "truth might
+be simple and easy. And if it is, all the better." His summary: "scaling is necessary but not sufficient"
+(≈1:07:18–1:08:04).
+
+Scale of data has three senses on slide 25: many $\lbrace x, y \rbrace$ pairs, an input $x$ that is "a big
+object, replete with information", and a big output $y$. A student working on rare events (crash
+detection) objects that scale alone wastes most of the data on the common case. The lecturer agrees that
+"data diversity and coverage over the classes of interest, that's the key thing that matters. So scale is
+kind of a proxy for, actually, coverage" (≈51:04–51:49).
 
 ## Not the same as scaling rules
 

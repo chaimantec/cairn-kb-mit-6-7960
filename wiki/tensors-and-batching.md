@@ -8,7 +8,8 @@ multi-dimensional arrays — **tensors**. Lecture 1 lists "parallel processing, 
 in stochastic gradient descent and in backpropagation); [lecture 4](04-architectures-grids.md),
 slides 39–47, 64 and 74 (channels, filter banks, implementing convolution as a batched matrix product,
 and video as a four-dimensional input); [lecture 8](08-architectures-transformers.md), slides 16, 34 and 39 (a set of tokens
-as an $N \times d$ matrix, and attention as matrix products).
+as an $N \times d$ matrix, and attention as matrix products); [lecture 9](09-hackers-guide-to-deep-learning.md), slides 7–12, ≈10:52–30:17
+(inspecting tensors, prime-sized dummy dimensions, dtype casts, einops, and keeping every dimension large).
 
 ## Why batch
 
@@ -98,3 +99,29 @@ just becomes these matrix multiplies in a very simple, notational form" (≈46:3
 is a loop of `nn.matmul` calls, which "maps wonderfully onto modern compute that loves matrix multiplies"
 (≈1:00:29). The lecturer also names the fit to GPU hardware as a reason tokens all have the same size
 (≈13:56). See [transformers](transformers.md).
+
+## Inspecting and reshaping tensors (lecture 9)
+
+Lecture 9 treats tensor bookkeeping as a main source of bugs. "The data as it is loaded is not always the
+data as it is stored" (slide 7). The recipe is to inspect the tensor right before the forward pass, with
+slide 8's `inspect_data`, which prints its type, shape, `requires_grad`, range, mean and variance.
+"The shape of the tensors in deep learning are super critical" (≈14:49).
+
+Slide 11 adds three checks. **Summary statistics** catch values in $[0, 255]$ where the model expects
+$[0, 1]$. **Shape**: test with "dummy data of prime dimensions: there are no common factors, so mistaken
+reshaping/flattening/permuting will be more obvious", since "a 64x64x64x64 array can be permuted without
+knowing". With a different size on every axis, a wrong permutation throws a shape-mismatch error
+(≈24:51–26:22). **Type**: "check for casting, especially to lower precision. What's -1 for a byte?" A
+standardized tensor cast to uint8 loses its negative values (≈26:22–27:10).
+
+"A lot of your code will just be reshaping tensors" (slide 12): "transposing, permuting, reshaping,
+flattening, unflattening, unsqueezing, squeezing. This is like half the code in PyTorch" (≈27:10). PyTorch's
+reshape is row-contiguous, as a student answers (≈27:56). The lecturer recommends einops, whose
+`rearrange(ims, 'b h w c -> h (b w) c')` names every axis and flattens batch and width into one, and whose
+reverse pattern undoes it (≈28:43–30:17).
+
+Slide 10 asks for large tensors along every axis: "All tensor dimensions should be big numbers:
+[BxNxMxC] data batches, [NxM] weights", "at least 10 and above" (≈24:06), because normalization layers
+misbehave in low dimensions; see [normalization layers](normalization-layers.md). For batch size and GPU
+utilization, slide 50 says "use biggest batch size that will fit in memory", and slide 69 "increase batch
+size until ~100% utilization".

@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md) and [lecture 8](08-architectures-transformers.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md) and [lecture 9](09-hackers-guide-to-deep-learning.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -34,7 +34,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 6 | Generalization Theory | [yes](06-generalization-theory.md) |
 | 7 | Scaling Rules for Optimization | [yes](07-scaling-rules-for-optimization.md) |
 | 8 | Architectures: Transformers | [yes](08-architectures-transformers.md) |
-| 9 | Hacker's Guide to Deep Learning | not yet |
+| 9 | Hacker's Guide to Deep Learning | [yes](09-hackers-guide-to-deep-learning.md) |
 | 10 | Architectures: Memory | not yet |
 | 11 | Representation Learning: Reconstruction-Based | not yet |
 | 12 | Representation Learning: Similarity-Based | not yet |
@@ -135,6 +135,16 @@ which "we're going to come back to … a little later" (≈1:05:51, again at ≈
 large language models, "We'll talk more about those later" (≈1:07:25), lecture 21. Multihead attention is
 left to "the reading", the book chapter the lecture says it follows "almost exactly" (≈55:49, ≈1:10:38).
 
+Lecture 9's deck is titled "Lecture 9: Hacker's guide to DL", and its outline (slide 2) is headed "9. Hacker's
+guide to DL", both matching the recording. It prints no other lecture number; slide 23 points to "the generative
+modeling lectures" without one, and slide 50's aside "Until Jeremy solves lr-free optimization" names Jeremy
+Bernstein. The recording points back to "the generalization lecture" for the random-labels paper (lecture 6,
+≈1:34), to the RMS norm that "Jeremy introduced … in one of his lectures" (lectures 3 and 7, ≈21:02) and to data
+augmentation in "Pset 1" (≈30:17). It points ahead without numbers to generative models ("we'll talk about
+generative models later", ≈7:48, and "the generative modeling lectures", ≈47:10), lectures 14–16; to pre-training
+and transfer learning "a little bit later" (≈57:57), lectures 18–19; and to foundation models (≈50:16). It also
+says the next problem set will clarify how to turn off Colab's autocomplete (≈1:08:50).
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -195,7 +205,9 @@ would office hours — questions about lecture material, clarifications of probl
 tips for getting started — but not to do the work: "just like you are not allowed to ask an expert
 friend to do your homework for you, you also should not ask an expert AI". When unsure, "imagine
 the AI as a human and apply the same norm". If you use one on a problem set, say which and how at
-the top, in "a few sentences".
+the top, in "a few sentences". Lecture 9 restates the policy for coding assistants: "You shouldn't use AI
+assistants in a way you wouldn't use a friend", so not on the problem sets to write code, but "for your final
+projects and for life in general, you should absolutely use coding assistants" (slide 46, ≈1:08:50–1:09:36).
 
 ## Course materials on OCW
 

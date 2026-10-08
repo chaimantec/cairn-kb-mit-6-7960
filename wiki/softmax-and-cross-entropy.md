@@ -6,7 +6,9 @@ Lecture 1 lists "softmax, cross-entropy loss" among what the course **expects yo
 fish, grizzly bear, chameleon and so on. Covered so far: [lecture 1](01-introduction.md), slides
 53–66, ≈49:40–53:30; [lecture 2](02-how-to-train-a-neural-net.md), ≈1:03:45–1:04:32 (logits
 versus probabilities as optimization targets); [lecture 8](08-architectures-transformers.md), slides 29, 34 and 49, ≈35:36,
-≈48:51 and ≈1:07:25 (the softmax inside attention, and next-word prediction as classification).
+≈48:51 and ≈1:07:25 (the softmax inside attention, and next-word prediction as classification);
+[lecture 9](09-hackers-guide-to-deep-learning.md), slides 29–41 and 49, ≈58:43–1:03:24 and ≈1:10:21–1:11:53 (classification as the
+default formulation, colorization turned into classification, and the loss at chance).
 
 ## From last layer to prediction
 
@@ -102,3 +104,31 @@ products, "to ensure that everything sums to 1. So that has some nice normalizat
 advantages" (slide 34, ≈48:51). And a language model is trained as a classifier: given a sequence, "use
 supervised learning to try to classify what is the next word in a vocabulary of possible words" (slide
 49, ≈1:07:25). See [transformers](transformers.md).
+
+## Softmax regression as the default formulation (lecture 9)
+
+Lecture 9's advice is to "formulate your problem as **softmax regression** (a.k.a. classification)",
+with a cross-entropy loss and one-hot labels (slide 40). It gives three reasons. First, "no restriction on
+shape of predictive distribution [up to quantization]": the predicted categorical distribution can put
+its mass anywhere over the classes, "the most general way of quantifying uncertainty or modeling a
+distribution over a discrete variable", while least-squares regression "assumes Gaussian predictions"
+(≈1:01:51–1:02:38). Second, discrete classes are easy to label and to talk about. Third, "all labels are
+equidistant under 1-hot representation", which "removes inductive bias about how we represent target
+variables" (≈1:02:38–1:03:24). Slide 41's "recipe for deep learning in a new domain", one of its "good
+default choices ca 2024", starts the same way: turn the data into one-hot vectors and the goal into a
+cross-entropy loss, then use Adam and a transformer.
+
+The lecture's worked case is image colorization, a task that looks like regression (predict a colour for
+every pixel) and is turned into classification (slides 29–39, from Zhang, Isola and Efros, ECCV 2016).
+The continuous plane of colour values is quantized into $K$ cells, so that each pixel's target becomes a
+one-hot vector over $K$ colour classes, $\mathbf{y} \in \mathbb{R}^{H 	imes W 	imes K}$ in place of
+$\mathbf{y} \in \mathbb{R}^{H 	imes W 	imes 2}$ (slide 34). "Rather than cat, dog, elephant, it will be
+the blue class, the yellow class" (≈1:00:18). A ConvNet slid over the image then classifies every pixel.
+See [lecture 9](09-hackers-guide-to-deep-learning.md#transform-your-problem-into-a-solved-problem).
+
+**Know the loss at chance.** Slide 49 says to sanity-check the loss "against a suitable reference value";
+for classification with cross-entropy, the uniform distribution. "Get to know log loss numbers": the slide
+prints $-0.69 = \ln(0.5)$, chance on binary classification, and $-2.3 = \ln(0.1)$, chance on 10-way
+classification. These are log probabilities; with the cross-entropy defined above as a negative log
+probability, the loss at chance is 0.69 and 2.3. "If you get that number as your loss, is that good? …
+No, that's chance" (≈1:11:07).
