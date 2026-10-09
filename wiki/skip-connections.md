@@ -9,7 +9,7 @@ deck is excluded from OCW's licence, so this knowledge base describes them in pr
 [slide file](../raw/slides/04-architectures-grids.md)). [Lecture 7](07-scaling-rules-for-optimization.md),
 slide 26, ≈11:36–12:21 and ≈1:09:26–1:14:52, asks how much each residual block should contribute.
 [lecture 8](08-architectures-transformers.md), slides 38–39 and 53, ≈57:23 and ≈1:12:15, puts residual connections in the
-transformer block.
+transformer block. [lecture 10](10-architectures-memory.md) compares the LSTM's cell state to a residual connection (≈40:22).
 
 ## The problem: what a bottleneck loses
 
@@ -103,3 +103,11 @@ its input first, and the pseudocode of slide 39 writes both with the input added
 `T = nn.matmul(A,V) + T` for the attention half, each marked "# note residual connection".
 In the "Attention Is All You Need" figure, the lecturer reads every "Add & Norm" box as "just the
 residual connection" (slide 53, ≈1:12:15). See [transformers](transformers.md).
+
+## The LSTM's cell state (lecture 10)
+
+Lecture 10 compares the LSTM to a residual connection. Its cell state is multiplied by a forget gate that defaults to
+about 1, so by default the state passes on unchanged: "Because the default is the identity, it's kind of like a skip
+connection or a residual connection in a ResNet. You have this component where you could just learn, throughout this
+entire thing, to only ever send the identity" (≈40:22). That identity path is what keeps its gradients from vanishing;
+see [recurrent neural networks](recurrent-neural-networks.md).

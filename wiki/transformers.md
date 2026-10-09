@@ -8,7 +8,7 @@ came from, because attention by itself ignores order. The course presents it as 
 you should use today", while warning that "next year, there'll be a new architecture" (lecture 8,
 ≈0:00). Covered so far: [lecture 8](08-architectures-transformers.md), slides 1–54, ≈0:00–1:13:49, with
 the graph-net view previewed in [lecture 5](05-architectures-graphs.md) (slide 24, ≈49:42, ≈56:38), and
-the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61).
+the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61); and attention set against recurrence and convolution, with the efforts to lengthen its context, in [lecture 10](10-architectures-memory.md) (slides 57–64, ≈58:19–1:10:02).
 
 **Notation.** A token $\mathbf{t}_ i \in \mathbb{R}^d$ is a vector of $d$ neurons, and $N$ tokens are
 stacked as the rows of $\mathbf{T} \in \mathbb{R}^{N \times d}$, with $\mathbf{T}_ {\text{in}}$ and
@@ -184,9 +184,30 @@ transformer's token norm, rather than batch norm (slide 42; see
 transformer's origin paper as a recipe: "attention is not all you need. Attention is one thing that works
 pretty well and has certain effects"; tuning is choosing a combination of "spices" (slide 61, ≈1:14:09).
 
+## Attention against recurrence, and longer contexts (lecture 10)
+
+Lecture 10 sets attention beside the other two ways of modeling arbitrarily long sequences (slide 58). Recurrence
+shares its weights across time and passes a hidden state forward; convolution shares its weights across time but
+sees nothing outside its window; attention's weights are "dynamically determined as a function of the data"
+(≈59:56–1:00:41; see [recurrent neural networks](recurrent-neural-networks.md)). Slide 59 reproduces Table 1 of "Attention Is All You Need": for sequence length $n$
+and representation dimension $d$, self-attention costs $O(n^2 \cdot d)$ per layer with $O(1)$ sequential operations
+and an $O(1)$ maximum path length, where a recurrent layer costs $O(n \cdot d^2)$ with $O(n)$ of each. The title, in
+the lecturer's reading, says "we don't need memory. All we need is attention", and the price is the $n^2$, which
+"takes a lot of memory" (≈1:01:29–1:02:17).
+
+Three lines of work stretch the context within limited memory (slides 60–62): sparsifying attention, such as the
+Reformer's hashing, which reaches $O(n \log n)$, or the low-rank approximations of Performers and Linformers, which
+reach $O(n)$, often at "the
+expense of a little bit of performance"; combining local and global attention, as in Transformer XL, the Longformer
+and Big Bird; and retrieval, as in RETRO, which separates a lighter language model from a trillion-token database of
+facts (≈1:03:02–1:06:07). Context windows grew from BERT's 512 tokens to GPT-4's 8,000, with a 32K version, and about
+100K for an Anthropic model (slide 63). But Mangalam et al. found that most video benchmarks need only about two
+seconds of context, so the benefit of a longer one may simply go unmeasured (slide 64, ≈1:06:52–1:10:02; see
+[lecture 10](10-architectures-memory.md)).
+
 ## Where it goes next
 
 The problem set announced in lecture 8, Homework 3 on OCW, implements a transformer, a vision transformer and a small
-GPT ([lecture 8](08-architectures-transformers.md#the-problem-set)). Autoregressive and generative
+GPT ([lecture 8](08-architectures-transformers.md#the-problem-set)). Autoregression continues in [lecture 10](10-architectures-memory.md) (see [autoregressive models](autoregressive-models.md)), and generative
 models return in the generative-model lectures (14–16), and language models in lecture 21; see the
 [course map](course-map.md).

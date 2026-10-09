@@ -9,7 +9,8 @@ slides 12–13, ≈26:24–32:32, on the ConvNet as a graph net on a grid; and [
 slide 19, ≈21:37–23:57, on patch-wise processing as a reason ConvNets generalize; and [lecture 8](08-architectures-transformers.md)'s
 slides 4–5, 18 and 35, ≈3:02–6:57, ≈20:52 and ≈52:45–53:31, on locality as a limitation, the 1x1
 convolution and the Toeplitz matrix beside attention; and [lecture 9](09-hackers-guide-to-deep-learning.md)'s
-slides 37–39, ≈1:01:06, on classifying every pixel by sliding a classifier over the image. The architectures
+slides 37–39, ≈1:01:06, on classifying every pixel by sliding a classifier over the image; and [lecture 10](10-architectures-memory.md)'s slides 10–18 and 58, ≈4:41–10:05 and ≈59:56–1:00:41, on convolution in time and what
+it forgets. The architectures
 built from convolutional layers are on [skip connections](skip-connections.md); why the layer's
 assumptions help is on [inductive bias](inductive-bias.md).
 
@@ -226,3 +227,16 @@ the center pixel of a patch. And if I slide that ConvNet across the whole image,
 label, the color, of every pixel in the image" (≈1:01:06). Slides 37–39 (excluded from OCW's licence) draw
 a patch around one input pixel predicting the class of that one output pixel, then the patch slid over the
 image producing the whole colourized output. See [lecture 9](09-hackers-guide-to-deep-learning.md#transform-your-problem-into-a-solved-problem).
+
+## Convolution in time, and what it forgets (lecture 10)
+
+Lecture 10 returns to video as a space–time cube with axes $m$ and $n$ for the image and $t$ for time (slide 10), "really
+four dimensions" once colour is counted (≈4:41–5:27). Slicing it shows temporal structure: one row of pixels through
+time turns walkers into diagonal stripes, and one column shows who passes a position first, the idea behind photo
+finishes (slides 11–12, ≈5:27–6:13). A one-dimensional convolution in time (slide 13) learns a filter over a fixed
+window, three steps on the slide, and slides it along, a sequence-to-sequence model for a sequence of any length
+(≈6:59–7:46); slide 14 draws the 3D version on the cube. Its limit is the window. With "that same weight matrix" at
+every time, a later output has no access to anything before its window, so the lecturer's cat Frank, seen early in a
+video, is taken for a "tiger" outdoors later on (slides 15–16, ≈8:33–9:20). That forgetting motivates [recurrent neural networks](recurrent-neural-networks.md). On slide
+58 convolution is one of three ways to model long sequences: "conv weights are shared across time", but "you don't get
+to see anything outside of the time window of that convolution" (≈59:56–1:00:41).

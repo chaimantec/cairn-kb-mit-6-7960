@@ -8,7 +8,8 @@ fish, grizzly bear, chameleon and so on. Covered so far: [lecture 1](01-introduc
 versus probabilities as optimization targets); [lecture 8](08-architectures-transformers.md), slides 29, 34 and 49, ≈35:36,
 ≈48:51 and ≈1:07:25 (the softmax inside attention, and next-word prediction as classification);
 [lecture 9](09-hackers-guide-to-deep-learning.md), slides 29–41 and 49, ≈58:43–1:03:24 and ≈1:10:21–1:11:53 (classification as the
-default formulation, colorization turned into classification, and the loss at chance).
+default formulation, colorization turned into classification, and the loss at chance); [lecture 10](10-architectures-memory.md), slides 44–46 and 49–50, ≈48:08–51:16 and ≈53:37 (the next-word classifier, the size of
+its vocabulary, and maximum likelihood as cross-entropy).
 
 ## From last layer to prediction
 
@@ -132,3 +133,13 @@ prints $-0.69 = \ln(0.5)$, chance on binary classification, and $-2.3 = \ln(0.1)
 classification. These are log probabilities; with the cross-entropy defined above as a negative log
 probability, the loss at chance is 0.69 and 2.3. "If you get that number as your loss, is that good? …
 No, that's chance" (≈1:11:07).
+
+## Next-word classification over a vocabulary (lecture 10)
+
+Lecture 10 models each factor of a sentence's probability, such as $p(\texttt{time} \mid \texttt{Once, upon, a})$, as a
+next-word classifier: a network and a softmax that "will squish the outputs into a probability mass function", trained by
+cross-entropy (slide 44, ≈48:55–49:41). The classes are a choice: words, with $K$ around 100,000, which needs a lot of data
+and "can be quite unstable"; characters, $K = 26$, which makes the sequence much longer to predict; or byte pairs in between
+(slides 45–46, ≈49:41–51:16). With one-hot targets, maximizing the likelihood of each target word is minimizing the
+cross-entropy $\sum_i H(\mathbf{y}_ i, \hat{\mathbf{y}}_ i)$ between targets and outputs (slides 49–50, ≈53:37). See
+[autoregressive models](autoregressive-models.md).

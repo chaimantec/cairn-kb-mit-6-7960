@@ -9,7 +9,7 @@ whether the norm of a network's parameters measures its complexity. [Lecture
 a step decides the optimization algorithm, and a matrix norm decides how to scale a network. Its
 rule of thumb: "Whenever anyone talks about too big or too small, you should always ask in which
 norm?" (≈51:32). Covered so far: lecture 3, slide 9, ≈12:20–13:57; lecture 6, slides 33 and 61; lecture 7,
-slides 16–19 and 21–25, ≈35:15–1:04:46; lecture 9, slide 10, ≈21:02–22:34.
+slides 16–19 and 21–25, ≈35:15–1:04:46; lecture 9, slide 10, ≈21:02–22:34; lecture 10, ≈31:06–31:53 (whether the spectral norm can stop an RNN's gradients vanishing).
 
 **Notation.** $\mathbf{v}$ is a vector in $\mathbb{R}^d$ with entries $v_i$; $\mathbf{M}$ is a matrix.
 A subscript names the norm.
@@ -118,3 +118,11 @@ Lecture 9 uses the RMS norm as a layer. RMS-norm divides an activation vector by
 "In high dimensions, these things behave almost identically", but in two dimensions RMS-norm maps points
 onto a circle and layer norm onto just two points (slide 10, ≈21:02–22:34). See
 [normalization layers](normalization-layers.md).
+
+## The spectral norm and recurrence (lecture 10)
+
+In [lecture 10](10-architectures-memory.md) a student asked whether the spectral norm of lecture 7 would cure a recurrent network's vanishing and exploding
+gradients. Normalizing the weights could keep them near 1, but the recurrence raises the weight matrix to a power: "You
+could take a spectral norm over that exponential, but you're still going to take the exponential first. So that might help
+you with the exploding gradients problem, but it's not going to change the fact that the small things are going to go to 0"
+(≈31:06–31:53). See [recurrent neural networks](recurrent-neural-networks.md).

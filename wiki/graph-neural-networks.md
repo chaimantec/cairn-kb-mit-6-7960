@@ -9,7 +9,8 @@ generalization of the convolutional network of [lecture 4](04-architectures-grid
 towards transformers. Covered so far: lecture 5, slides 2–46, ≈0:48–1:20:36; [lecture 6](06-generalization-theory.md),
 ≈23:57 and ≈1:16:06, on permutation symmetry as a source of generalization; and [lecture 8](08-architectures-transformers.md), slides 11,
 22–24, 41 and 47, ≈7:43–8:32, ≈22:24–23:55, ≈1:01:16 and ≈1:04:18–1:05:51, on transformers as graph nets
-over fully connected graphs.
+over fully connected graphs; and [lecture 10](10-architectures-memory.md), slides 47–53, ≈52:03–52:51, on a GNN as the encoder of a
+molecule-to-text model.
 
 **Notation.** A graph $G$ has $n$ nodes, an adjacency matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$
 ($A_{ij} = 1$ when nodes $i$ and $j$ share an edge) and a feature matrix
@@ -186,3 +187,9 @@ Without positional information a transformer is permutation equivariant, as a gr
 on, the eigenvectors of the graph Laplacian: the first "is really smooth. It's like, where am I globally?
 And then other eigenvectors are, like, high frequency, almost like a Fourier basis" (slide 47,
 ≈1:04:18–1:05:51). See [transformers](transformers.md).
+
+## A GNN as an encoder (lecture 10)
+
+Lecture 10's molecule-to-text example runs a molecule (caffeine, in the lecture) through a GNN to get a representation that
+conditions the first step of an LSTM, which then writes a description word by word, "a mild stimulant that enhances
+cognitive ability" (slides 47–48, ≈52:03–52:51). See [autoregressive models](autoregressive-models.md).

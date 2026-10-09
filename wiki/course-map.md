@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md) and [lecture 9](09-hackers-guide-to-deep-learning.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md) and [lecture 10](10-architectures-memory.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -35,7 +35,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 7 | Scaling Rules for Optimization | [yes](07-scaling-rules-for-optimization.md) |
 | 8 | Architectures: Transformers | [yes](08-architectures-transformers.md) |
 | 9 | Hacker's Guide to Deep Learning | [yes](09-hackers-guide-to-deep-learning.md) |
-| 10 | Architectures: Memory | not yet |
+| 10 | Architectures: Memory | [yes](10-architectures-memory.md) |
 | 11 | Representation Learning: Reconstruction-Based | not yet |
 | 12 | Representation Learning: Similarity-Based | not yet |
 | 13 | Representation Learning: Theory | not yet |
@@ -145,6 +145,15 @@ generative models later", ≈7:48, and "the generative modeling lectures", ≈47
 and transfer learning "a little bit later" (≈57:57), lectures 18–19; and to foundation models (≈50:16). It also
 says the next problem set will clarify how to turn off Colab's autocomplete (≈1:08:50).
 
+Lecture 10's deck is titled "Lecture 10: Memory and sequence modeling", matching the recording, which settles lecture 1's
+"Lecture 11: RNNs" banner (the row above). But its outline (slide 2) and the repeat of it near the end (slide 67) are headed
+"11. Memory and sequence modeling", and the last outline (slide 68) "9. Memory and sequence modeling"; cite the lecture as 10.
+It prints no other lecture number. The recording opens by calling it "our last of this mini series" on architectures, after
+"CNNs, GNNs, things like transformers" (≈0:00), and points back to adding time to CNNs "when we introduced CNNs" (lecture 4,
+≈3:54), to backpropagation over shared parameters, "It's been a couple of weeks" (lecture 2, ≈25:39), to the spectral norm "a
+couple lectures ago" (lecture 7, ≈31:06), to "the transformer lecture last week" (lecture 8, ≈47:22) and to "the hacker
+lecture" (lecture 9, ≈48:55). It names no later lecture.
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -187,7 +196,9 @@ norm, the bonus upper bound for a linear predictor, and the RMS-RMS normalizatio
 Lecture 8 announces that "the problem set coming out next week" will "implement a bunch of transformers and
 all the variations. It'll implement GPT" (≈40:15). On OCW that is **Homework 3**, 35 points: "RNNs versus
 transformers" (8 points), "Implementing a Transformer" (11), "Vision Transformers" (6) and "DialogueGPT"
-(10), with the code for the last three in a Colab notebook.
+(10), with the code for the last three in a Colab notebook. Its first problem is lecture 10's material: a simple RNN worked
+by hand, the fate of the first input's contribution over a long sequence, and the cost of a forward pass against a
+self-attention layer's ([lecture 10](10-architectures-memory.md#the-problem-set)).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

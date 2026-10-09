@@ -7,7 +7,7 @@ apart, one failure at a time, and shows two fixes. Covered so far: [lecture 1](0
 slide 28; [lecture 2](02-how-to-train-a-neural-net.md), slides 7 and 10–25, ≈3:54–26:31; [lecture 6](06-generalization-theory.md),
 slide 61, ≈1:14:30–1:15:19, on flat minima; [lecture 7](07-scaling-rules-for-optimization.md),
 slides 7, 10 and 12, ≈10:04 and ≈20:20–21:05 and ≈47:38–50:45, on curvature and on directions in weight
-space that are not alike.
+space that are not alike; [lecture 10](10-architectures-memory.md), slide 30, ≈28:46–34:57, on gradients that vanish or explode through time.
 
 ## Differentiable is not the same as easy
 
@@ -120,3 +120,11 @@ fast (≈49:58). See [steepest descent](steepest-descent.md).
 The lecture's other view of a landscape is training loss as a function of the learning rate. On slide 7
 those curves shift as a network is widened, so that "the whole loss kind of landscape as a function of
 step size is kind of drifting" (≈10:04); see [scaling rules](scaling-rules.md).
+
+## Vanishing and exploding through time (lecture 10)
+
+Lecture 10 meets vanishing and exploding gradients in a recurrent network. Without nonlinearities, the hidden state after
+$N$ steps carries the earliest inputs multiplied by the $N$-th power of the recurrent weight matrix, so small values go to
+0 and large ones to infinity, and gradients vanish or explode (slide 30, ≈28:46–31:06). Exploding gradients can be
+normalized, regularized or clipped, but nothing similar rescues gradients that go to 0, which is why the LSTM makes
+remembering the default (≈34:11–34:57). See [recurrent neural networks](recurrent-neural-networks.md).

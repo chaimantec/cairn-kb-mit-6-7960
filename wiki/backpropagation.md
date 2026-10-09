@@ -8,7 +8,7 @@ linear layer, a ReLU, a whole MLP and any directed acyclic graph. Covered so far
 [lecture 1](01-introduction.md) in passing; [lecture 2](02-how-to-train-a-neural-net.md), slides
 26–55 and the worked example on slides 72–80, ≈27:16–57:27; [lecture 5](05-architectures-graphs.md)
 in passing, for graph neural networks (≈53:31–54:20); [lecture 7](07-scaling-rules-for-optimization.md),
-on what backpropagation never computes (≈28:59–32:49). For the symbols, see
+on what backpropagation never computes (≈28:59–32:49); [lecture 10](10-architectures-memory.md), slides 25–28, ≈18:36–27:10, on backpropagation through time. For the symbols, see
 [notation](notation.md).
 
 ## The setting: a computation graph
@@ -150,6 +150,16 @@ Graph neural networks (lecture 5) are trained the same way. Their message passin
 pass, not an optimization: "So how would you train that? You just backpropagate through this
 computation graph. Nothing different" (≈53:31–54:20). Every node in a layer uses the same aggregation
 and update functions, a case of parameter sharing. See [graph neural networks](graph-neural-networks.md).
+
+## Through time (lecture 10)
+
+A recurrent neural network has a cycle, so it is not a DAG. Lecture 10's "hack" is to choose a fixed window during
+training and unroll the network through it, which makes it a DAG again, and the chain rule then runs back through the
+hidden states, one factor per step (slide 25, ≈18:36–20:08). The loss is a sum over the steps of the sequence (slide 26),
+and the recurrent weights $\mathbf{W}$ are used at every step, so their gradient is the sum over the steps: the
+parameter-sharing rule above (slides 27–28, ≈24:04–26:25). In PyTorch, autograd does the summing "as long as you don't do
+deep copies" (≈26:25). That product of one factor per step is also why gradients through many steps vanish or explode;
+see [recurrent neural networks](recurrent-neural-networks.md).
 
 ## A worked example
 

@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–9 of 24 only.** This knowledge base currently holds the first nine
+> **Coverage: lectures 1–10 of 24 only.** This knowledge base currently holds the first ten
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning) and the concept pages they support. For anything taught in lectures 10–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory) and the concept pages they support. For anything taught in lectures 11–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 9. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 10. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -126,6 +126,23 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   scaling, removing the nonessential, copilots; and, mostly from the slides alone, optimization (one, few,
   many data points; log loss at chance; learning rate and batch size; EMAs), evaluation, the spice rack,
   common PyTorch bugs and compute. 21 of its slides are excluded from OCW's licence.
+- [Lecture 10 — Architectures: Memory](wiki/10-architectures-memory.md) — Sara Beery. Memory and sequence
+  modeling, the last architecture lecture: why one video frame is not enough (the chair pulled away); video as a
+  space–time cube and its row and column slices (photo finishes); convolution in time and how its fixed window
+  forgets (Frank the cat taken for a tiger); recurrent neural networks, the hidden state
+  $\mathbf{h}_ t = f(\mathbf{h}_ {t-1}, \mathbf{x}_ {\texttt{in}}[t])$, the cycle that is not a DAG, the simplest
+  RNN with $\mathbf{W}$, $\mathbf{U}$ and $\mathbf{V}$, deep RNNs, and the "Turing complete" claim; backpropagation
+  through time over a truncated window, with summed gradients for shared weights; long-range dependencies,
+  powers of $\mathbf{W}$, vanishing and exploding gradients, and why the spectral norm does not fix vanishing;
+  LSTMs (cell state, forget, input and output gates, the identity default likened to a residual connection);
+  autoregressive models, the factorization $p(\mathbf{X}) = \prod_i p(\mathbf{x}_ i \mid \mathbf{x}_ 1, \ldots, \mathbf{x}_ {i-1})$,
+  next-word classification over words, characters or byte pairs; a molecule-to-text GNN + LSTM with maximum
+  likelihood, teacher forcing, sampling and beam search; recurrence, convolution and attention compared, with the
+  cost table of "Attention Is All You Need"; longer-context transformers (Reformer, Performers, Linformers,
+  Transformer XL, Longformer, Big Bird, RETRO), context windows from BERT to 100K tokens, and Mangalam et al.'s
+  certificate lengths (most video benchmarks need about two seconds); parameters as slow memory and activations
+  as fast memory, hypernets and codebooks; and Homework 3's RNN problem. 20 of its slides are excluded from OCW's
+  licence.
 
 ## Course pages
 
@@ -135,7 +152,7 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   35% blog-post final project), compute, PyTorch, the collaboration rules and the AI-assistant
   policy; and which problem set goes with which lecture where a lecture says (lecture 5's
   graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
-  Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation is Homework 3).
+  Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation and lecture 10's RNN problem are Homework 3).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -157,13 +174,14 @@ passages it draws on.
   interpolates between training points where a memorizing "filing cabinet" cannot, and its last
   layer as regression on features (lecture 6); the neural, tensor and spectral perspectives on a
   network (lecture 7); token nets as MLPs over vectors, and the token-wise MLP inside a transformer
-  (lecture 8).
+  (lecture 8); an RNN without its recurrence (lecture 10).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
   differentiable and smooth criterion (lecture 2); the ReLU as a gate on the backward pass;
   what ReLUs can build: rectangles from four ReLUs, thresholded sums, and kink doubling (lecture 3);
-  sine activations (SIREN) as an inductive bias for periodic functions and images (lecture 4).
+  sine activations (SIREN) as an inductive bias for periodic functions and images (lecture 4); sigmoid and
+  tanh as the LSTM's gates (lecture 10).
 - [Gradient descent](wiki/gradient-descent.md) — the training objective
   $\theta^{\ast} = \arg\min_\theta \sum_i L$, the cost $J(\theta)$, the update rule and learning
   rate, why differentiability matters, black-box versus first- and second-order optimization,
@@ -190,7 +208,8 @@ passages it draws on.
   induced operator norms, the spectral norm and the RMS-RMS operator norm
   ($\sqrt{d_{\text{in}}/d_{\text{out}}}$ times the spectral norm); parameter norm as a complexity
   measure (lecture 6); composing norms across modules (lecture 7); the RMS norm as a normalization layer
-  (lecture 9). Spans lectures 3, 6, 7 and 9.
+  (lecture 9); the spectral norm against an RNN's vanishing gradients (lecture 10). Spans lectures 3, 6, 7, 9
+  and 10.
 - [Backpropagation](wiki/backpropagation.md) — computation graphs, the shape rules and chain
   rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
   and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
@@ -198,14 +217,16 @@ passages it draws on.
   memory, merge and branch rules for DAGs, parameter sharing, and the worked example's numbers;
   graph neural networks trained by backpropagating through unrolled message passing (lecture 5); why
   backpropagation never forms the network's output Jacobian $\partial f / \partial \mathbf{w}$, and
-  forward mode (lecture 7).
+  forward mode (lecture 7); backpropagation through time, with summed gradients for shared recurrent
+  weights (lecture 10).
 - [Loss landscapes](wiki/loss-landscapes.md) — differentiable versus "has a PyTorch gradient"
   versus easy to optimize; the six toy cases (convex, discontinuous, vanishing, zero and exploding
   gradient, local minima) and what gradient descent does on each; random seeds; evolution
   strategies and gradient clipping; continuous, differentiable and smooth as a design criterion;
   why fixed-step gradient descent finds flat minima, argued to generalize better (lecture 6);
   linearization and non-linear part, Newton's method heading for a maximum, a non-isotropic weight
-  space, and the loss-versus-learning-rate curves that drift with width (lecture 7).
+  space, and the loss-versus-learning-rate curves that drift with width (lecture 7); gradients that vanish or explode
+  through a recurrent network (lecture 10).
 - [Differentiable programming](wiki/differentiable-programming.md) — programs as computation
   graphs, the LeCun and Dietterich posts, human-programmed versus backprop-programmed parts
   (Neural Module Networks, Software 2.0, feature engineering), what PyTorch needs from an operation,
@@ -219,7 +240,8 @@ passages it draws on.
   probability (lecture 2); the softmax that normalizes attention scores, and next-word prediction as
   classification (lecture 8); softmax regression as the default formulation and why, colorization
   turned into per-pixel classification, and the log loss at chance, $\ln 0.5 = -0.69$ and
-  $\ln 0.1 = -2.3$ (lecture 9).
+  $\ln 0.1 = -2.3$ (lecture 9); next-word classification over words, characters or byte pairs, and
+  maximum likelihood as cross-entropy (lecture 10).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
@@ -294,13 +316,14 @@ passages it draws on.
   time and over video; a ConvNet as a graph net over a grid (lecture 5); patch-wise processing as a
   reason ConvNets generalize to new arrangements (lecture 6); locality as a limitation, the $1 \times 1$
   convolution as a token-wise MLP, and the Toeplitz matrix beside attention (lecture 8); a ConvNet slid
-  over an image to classify every pixel (lecture 9).
+  over an image to classify every pixel (lecture 9); convolution in time, slices of the space–time cube,
+  and what a fixed window forgets (lecture 10).
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
   learning its own depth (lecture 4); previews transformers. How much each residual block should
   contribute, $1/L$ or $1/\sqrt{L}$ (lecture 7). The residual connections of the transformer block
-  (lecture 8).
+  (lecture 8), and the LSTM's identity default compared to one (lecture 10).
 - [Neural fields and positional encoding](wiki/neural-fields-and-positional-encoding.md) — why and
   how to break shift invariance with a constructed positional encoding, neural fields as networks
   from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
@@ -315,14 +338,26 @@ passages it draws on.
   to ConvNets, MLPs and transformers, weight sharing and graph size, training, the
   neighbourhood-tree and Weisfeiler-Leman limits, and positional encodings; permutation symmetry as
   a source of generalization (lecture 6); transformers as graph nets over fully connected graphs
-  (lecture 8).
+  (lecture 8); a GNN encoding a molecule for an LSTM decoder (lecture 10).
 - [Transformers](wiki/transformers.md) — lecture 8's architecture in full: why attention (the limit of
   locality), tokens and tokenizing, token nets, attention as data-dependent weights, query-key-value
   attention and self-attention, why $\mathbf{A}$ is not learned directly, multihead attention, attention
   in the family of linear layers, the ViT block (token norm, residual connections), permutation
   equivariance and positional encodings, autoregressive models, GPT and causal masking, "Attention Is All
   You Need", cross-attention, and why transformers are everywhere; the transformer in lecture 9's
-  default recipe, and "attention is not all you need".
+  default recipe, and "attention is not all you need"; attention against recurrence and convolution, the cost
+  table of "Attention Is All You Need", longer contexts (sparse, local plus global, retrieval) and whether
+  benchmarks need them (lecture 10).
+- [Recurrent neural networks](wiki/recurrent-neural-networks.md) — lecture 10's RNNs and LSTMs: what a convolution
+  over time forgets, the hidden state and the recurrence shared over time, the simplest RNN and its MLP
+  relative, the cycle in the graph and backpropagation through time over a truncated window, summed gradients
+  for shared weights, why powers of $\mathbf{W}$ make gradients vanish or explode (and why the spectral norm
+  does not help), the LSTM's cell state and gates in a table, its identity default, and RNNs against
+  convolution and attention; Homework 3's RNN problem.
+- [Autoregressive models](wiki/autoregressive-models.md) — predict, append, repeat (lectures 8 and 10); the
+  factorization of a sequence's probability into next-element conditionals, and lecture 9's point that longer
+  prompts make prediction easier; each factor as a classifier over words, characters or byte pairs; maximum
+  likelihood and teacher forcing; GPT's causal masking (lecture 8); sampling and beam search (lecture 10).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
@@ -342,7 +377,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–9 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–10 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

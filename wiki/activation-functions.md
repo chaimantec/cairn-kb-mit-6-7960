@@ -10,7 +10,7 @@ background (slide 31, "MLPs, Nonlinearities (ReLu)"). Covered so far:
 (GELU, the continuous–differentiable–smooth criterion, and the ReLU on the backward pass);
 [lecture 3](03-approximation-theory.md), slides 15, 27–29 and 32 (what sums and compositions of
 ReLUs can build); [lecture 4](04-architectures-grids.md), slides 7–10, ≈7:40–13:04 (sine activations
-as an inductive bias).
+as an inductive bias); [lecture 10](10-architectures-memory.md), slides 36–39, ≈36:29–37:15 and ≈41:53 (sigmoid and tanh inside the LSTM).
 
 ## The four in lecture 1
 
@@ -138,6 +138,14 @@ representing images, and the fundamental building blocks of Fourier basis are si
 ≈10:45). This is the exception lecture 1's answer below allows for: an activation chosen to match
 known structure in the data. See [inductive bias](inductive-bias.md) and
 [neural fields and positional encoding](neural-fields-and-positional-encoding.md).
+
+## Sigmoid and tanh in the LSTM (lecture 10)
+
+Lecture 10's LSTM uses the sigmoid as a gate. Its forget, input and output gates are sigmoids of a linear function of the
+previous hidden state and the input, so each entry lies between 0 and 1 and multiplies the cell state element-wise, about 1
+to remember and about 0 to forget (slides 36–39). "The reason you use a sigmoid function here is because it's bounded
+between 0 and 1. So you want large values to map to 1 and small values to map to 0" (≈41:53); a ReLU "would be unbounded"
+(≈37:15). The candidate values and the output go through tanh (slides 37 and 39). See [recurrent neural networks](recurrent-neural-networks.md).
 
 ## How do you choose one?
 

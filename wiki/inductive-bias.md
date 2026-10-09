@@ -213,8 +213,9 @@ inductive bias about how we represent target variables" (slide 40, ≈1:02:38–
 
 ## Where it goes next
 
-Lectures 4, 5 and 8 cover grids, graphs and transformers. The [course map](course-map.md) lists the
-architecture lecture that follows: memory (10). Lecture 5 calls transformers "a special kind
+Lectures 4, 5 and 8 cover grids, graphs and transformers. The architecture lecture that
+follows, memory ([lecture 10](10-architectures-memory.md)), does not use the term; its comparison of recurrence, convolution and attention by how
+each shares weights across time is on [recurrent neural networks](recurrent-neural-networks.md). Lecture 5 calls transformers "a special kind
 of graph net" (≈1:35), graph nets whose aggregation is attention (≈56:38). Lecture 4 itself points ahead twice: positional
 encodings return "in the transformers lecture" (≈1:15:19), and its closing slide says the idea of
 applying one function to every patch "appears in almost all modern architectures, such as CNNs,

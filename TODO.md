@@ -19,7 +19,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 07 Scaling Rules for Optimization — video VcGPE4s_oNw (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 08 Architectures: Transformers — video Q1HOKrNeh2M (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 09 Hacker's Guide to Deep Learning — video DC2Hw9DiLCg (OCW human captions; light copy-edit, verbatim in original/)
-- [ ] 10 Architectures: Memory — video IiHknRHA-Gk
+- [x] 10 Architectures: Memory — video IiHknRHA-Gk (OCW human captions; light copy-edit, verbatim in original/)
 - [ ] 11 Representation Learning: Reconstruction-Based — video QxOzQRtd440
 - [ ] 12 Representation Learning: Similarity-Based — video yUh1fEGGdl4
 - [ ] 13 Representation Learning: Theory — video -eC0-5mXHQg
@@ -52,6 +52,8 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 08 — Opus figure audit on 33 pages applied (19 corrected)
 - [x] 09 Hacker's Guide to Deep Learning — mit6_7960_f24_lec9.pdf (72 pages; read by Sonnet)
 - [x] 09 — Opus figure audit on 34 pages applied (13 corrected)
+- [x] 10 Architectures: Memory — mit6_7960_f24_lec10.pdf (69 pages; read by Sonnet)
+- [x] 10 — Opus figure audit on 44 pages applied (10 corrected)
 
 ## Wiki
 - [x] wiki/01-introduction.md
@@ -63,6 +65,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] wiki/07-scaling-rules-for-optimization.md
 - [x] wiki/08-architectures-transformers.md
 - [x] wiki/09-hackers-guide-to-deep-learning.md
+- [x] wiki/10-architectures-memory.md
 - [x] Topic pages (cross-lecture concepts) for lecture 1
 - [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
 - [x] Topic pages for lecture 3: lipschitz-continuity, scaling-laws new; representational-power rewritten; MLP, activations, generalization, course-map extended
@@ -72,6 +75,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Topic pages for lecture 7: steepest-descent, second-order-methods, norms, scaling-rules new; gradient-descent, loss-landscapes, skip-connections, lipschitz-continuity, backpropagation, multilayer-perceptron, differentiable-programming, scaling-laws, course-map extended
 - [x] Topic pages for lecture 8: transformers new; graph-neural-networks, convolution, neural-fields-and-positional-encoding, inductive-bias, skip-connections, multilayer-perceptron, softmax-and-cross-entropy, tensors-and-batching, representation-learning, course-map extended
 - [x] Topic pages for lecture 9: normalization-layers, data-augmentation new; softmax-and-cross-entropy, tensors-and-batching, gradient-descent, inductive-bias, scaling-laws, generalization-and-double-descent, norms, convolution, transformers, course-map extended
+- [x] Topic pages for lecture 10: recurrent-neural-networks, autoregressive-models new; transformers, convolution, backpropagation, loss-landscapes, skip-connections, softmax-and-cross-entropy, activation-functions, norms, multilayer-perceptron, graph-neural-networks, inductive-bias, course-map extended
 - [x] INDEX.md table of contents
 
 ## Images
@@ -84,6 +88,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] raw/images/07-scaling-rules-for-optimization/ — 9 images; 3 OCW-excluded slides (7, 25, 26) never rendered
 - [x] raw/images/08-architectures-transformers/ — 34 images; 7 OCW-excluded slides (4, 6, 7, 8, 31, 45, 53) never rendered; no reuse of excluded images found by pixel hash across decks 1–8
 - [x] raw/images/09-hackers-guide-to-deep-learning/ — 11 images; 21 OCW-excluded slides never rendered; slide 57 reuses slide 4's output pictures but not its excluded X-ray, so it is rendered
+- [x] raw/images/10-architectures-memory/ — 32 images; 20 OCW-excluded slides never rendered; no reuse of excluded images found by pixel hash across decks 1–10
 - [x] AGENTS.md — the Images conventions section
 
 ## Publish
@@ -115,3 +120,5 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 8: verify_kb.py clean, review read; commit and push
 - [x] Lecture 9: INDEX, AGENTS, kb.json, SEE_ALSO updated
 - [x] Lecture 9: verify_kb.py clean, review read; commit and push
+- [x] Lecture 10: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 10: verify_kb.py clean, review read; commit and push

@@ -14,7 +14,7 @@ on an adjacency matrix is not permutation invariant, and the MLP as a graph net 
 training points, and its last layer as a weighted sum of features); [lecture 7](07-scaling-rules-for-optimization.md),
 slide 22 and ≈53:51–56:11 (the neural, tensor and spectral perspectives); [lecture 8](08-architectures-transformers.md),
 slides 17–21 and 36, ≈16:59–22:24 and ≈55:49 (token nets as MLPs over vectors, and the token-wise MLP
-inside a transformer). See also [activation functions](activation-functions.md),
+inside a transformer); [lecture 10](10-architectures-memory.md), slide 23, ≈14:44–15:30 (an RNN without its recurrence). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -227,3 +227,15 @@ is the same", ≈22:24), and slide 36 the MLP beside the vanilla transformer, wi
 of the linear layers and a token-wise MLP in place of the ReLU (≈55:49). One more difference: an MLP's
 ReLU has no parameters, while a transformer's token-wise MLP is learned (≈25:28). See
 [transformers](transformers.md).
+
+## An RNN without its recurrence (lecture 10)
+
+Lecture 10's simplest recurrent network (slide 23) is
+
+$$\mathbf{h}_ t = \sigma_1(\mathbf{W}\mathbf{h}_ {t-1} + \mathbf{U}\mathbf{x}_ {\texttt{in}}[t] + \mathbf{b}), \qquad \mathbf{x}_ {\texttt{out}}[t] = \sigma_2(\mathbf{V}\mathbf{h}_ t + \mathbf{c})$$
+
+where $\mathbf{x}_ {\texttt{in}}[t]$ is the input at time $t$, $\mathbf{h}_ t$ the hidden state, $\mathbf{W}$, $\mathbf{U}$
+and $\mathbf{V}$ the recurrent, input and output weights, $\mathbf{b}$ and $\mathbf{c}$ biases and $\sigma_1$, $\sigma_2$
+nonlinearities. Remove $\mathbf{W}$, and the map from input to output, beyond scalars, "starts looking a little bit like that
+multi-layer perceptron that we're very familiar with. So the only difference here is that recurrence" (≈14:44–15:30). See
+[recurrent neural networks](recurrent-neural-networks.md).

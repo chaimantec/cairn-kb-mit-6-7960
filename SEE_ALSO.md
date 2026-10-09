@@ -20,8 +20,7 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   [backpropagation](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/backpropagation.md)
   and [vanishing and exploding gradients](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/vanishing-and-exploding-gradients.md).
   Reach for it for a second treatment of what 6.7960 lectures 1–2 cover — backpropagation
-  derived by hand as well as algorithmically, and vanishing and exploding gradients in recurrent
-  networks, which this KB does not yet reach. Lecture 2 here is the course's own account of
+  derived by hand as well as algorithmically. Lecture 2 here is the course's own account of
   backpropagation; use that first. Its examples come from NLP rather than vision, and its notation
   differs (e.g. $h = f(Wx + b)$ for a layer).
   It also has a one-dimensional counterpart to 6.7960 lecture 4's convolutions: its lecture 17 and
@@ -35,6 +34,13 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   [lecture 8](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/08-self-attention-and-transformers.md)
   is a second treatment from the language side, self-attention as query-key-value lookup and the
   transformer block; use lecture 8 here first for this course's notation and framing.
+  6.7960 lecture 10 is in this KB as well: RNNs, backpropagation through time, vanishing and exploding
+  gradients from powers of the recurrent weights, the LSTM's gates (after Chris Olah), and a molecule-to-text
+  LSTM trained with teacher forcing and decoded with beam search. CS224N gives each more time, from the language
+  side: its [recurrent neural networks](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/recurrent-neural-networks.md) and [LSTM](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/lstm.md) pages, the
+  vanishing-gradient page above, its [lecture 6](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/06-sequence-to-sequence-models.md) on sequence-to-sequence
+  models and beam search, and [decoding algorithms](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/decoding-algorithms.md) beyond beam search. Use lecture 10
+  here first for this course's notation ($\mathbf{W}$, $\mathbf{U}$, $\mathbf{V}$, and the LSTM's $C_t$).
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/INDEX.md).
 
 - **CS336 — Language Modeling from Scratch** (Stanford, Percy Liang and Tatsunori Hashimoto,
