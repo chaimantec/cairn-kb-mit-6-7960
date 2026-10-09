@@ -450,8 +450,11 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–12 only; see [AGENTS.md](AGENTS.md#images)
-  for which slides have images and which deliberately do not.
+  and in the wiki passage that cites them. Lectures 1–12 only, and only some slides of each: slides
+  carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
+  **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
+  (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers
+  and formulas, show one image rather than a gallery, and keep the slide citation.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.
 - [`SEE_ALSO.md`](SEE_ALSO.md) — sibling knowledge bases that cover the same ground from another

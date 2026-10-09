@@ -136,3 +136,5 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 11: verify_kb.py clean, review read; commit and push
 - [x] Lecture 12: INDEX, AGENTS, kb.json, SEE_ALSO updated
 - [x] Lecture 12: verify_kb.py clean, review read; commit and push
+- [x] AGENTS.md cut to the rules every build follows (101 KB to about 27 KB); the per-lecture record moved verbatim to BUILD_LOG.md, image attribution to LICENSE.md, the chat's image rules into INDEX.md
+- [ ] From lecture 13 on: per-lecture details go to BUILD_LOG.md and attribution to LICENSE.md; AGENTS.md gets only new general lessons and the image-table row
