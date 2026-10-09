@@ -6,7 +6,8 @@ combination of all the tokens, with weights computed from the tokens themselves.
 then transforms each token separately. A **positional encoding** added to each token records where it
 came from, because attention by itself ignores order. The course presents it as "the architecture that
 you should use today", while warning that "next year, there'll be a new architecture" (lecture 8,
-≈0:00). Covered so far: [lecture 8](08-architectures-transformers.md), slides 1–54, ≈0:00–1:13:49, with
+≈0:00). Covered so far: [lecture 8](08-architectures-transformers.md), slides 1–54, ≈0:00–1:13:49; masked autoencoders and BERT in
+[lecture 11](11-representation-learning-reconstruction-based.md) (slides 59–60, ≈1:11:26–1:15:20); with
 the graph-net view previewed in [lecture 5](05-architectures-graphs.md) (slide 24, ≈49:42, ≈56:38), and
 the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61); and attention set against recurrence and convolution, with the efforts to lengthen its context, in [lecture 10](10-architectures-memory.md) (slides 57–64, ≈58:19–1:10:02).
 
@@ -204,6 +205,18 @@ facts (≈1:03:02–1:06:07). Context windows grew from BERT's 512 tokens to GPT
 100K for an Anthropic model (slide 63). But Mangalam et al. found that most video benchmarks need only about two
 seconds of context, so the benefit of a longer one may simply go unmeasured (slide 64, ≈1:06:52–1:10:02; see
 [lecture 10](10-architectures-memory.md)).
+
+## Masking tokens: masked autoencoders and BERT (lecture 11)
+
+Lecture 11 uses the transformer to learn representations without labels. The **masked autoencoder** (slide 59, He, Chen, Xie, et
+al. 2021) takes a vision transformer, which "already tokenized the image" into patches, removes some of the tokens and predicts the
+missing ones (≈1:12:14). Attention makes this easy: "I can only keep four of these tokens, but then the attention mechanism will scale
+in a way that is proportional to the number of tokens … So it has this nice kind of architectural invariance to the number of tokens
+you put in". The decoder is another transformer given "some blank tokens", trained so that they are filled in with the missing
+pixels (≈1:13:01). "Masked autoencoders are just a new name for another model which was very popular called BERT", which masks tokens
+of text (slide 60). Autoregressive language models are the same idea with only the final token masked, which fits generation and is
+why, in the lecturer's account, BERT has gone out of fashion (≈1:13:47–1:15:20). See [self-supervised learning](self-supervised-learning.md).
+Lecture 11 also shows a trained vision transformer, CLIP, separating the classes of a data set layer by layer (slide 13, ≈16:17–17:50).
 
 ## Where it goes next
 

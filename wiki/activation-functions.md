@@ -10,7 +10,8 @@ background (slide 31, "MLPs, Nonlinearities (ReLu)"). Covered so far:
 (GELU, the continuous–differentiable–smooth criterion, and the ReLU on the backward pass);
 [lecture 3](03-approximation-theory.md), slides 15, 27–29 and 32 (what sums and compositions of
 ReLUs can build); [lecture 4](04-architectures-grids.md), slides 7–10, ≈7:40–13:04 (sine activations
-as an inductive bias); [lecture 10](10-architectures-memory.md), slides 36–39, ≈36:29–37:15 and ≈41:53 (sigmoid and tanh inside the LSTM).
+as an inductive bias); [lecture 10](10-architectures-memory.md), slides 36–39, ≈36:29–37:15 and ≈41:53 (sigmoid and tanh inside the LSTM);
+[lecture 11](11-representation-learning-reconstruction-based.md), slides 8–9, ≈7:46–10:49 (the ReLU and sigmoid as maps of a distribution).
 
 ## The four in lecture 1
 
@@ -146,6 +147,16 @@ previous hidden state and the input, so each entry lies between 0 and 1 and mult
 to remember and about 0 to forget (slides 36–39). "The reason you use a sigmoid function here is because it's bounded
 between 0 and 1. So you want large values to map to 1 and small values to map to 0" (≈41:53); a ReLU "would be unbounded"
 (≈37:15). The candidate values and the output go through tanh (slides 37 and 39). See [recurrent neural networks](recurrent-neural-networks.md).
+
+## What a non-linearity does to a distribution (lecture 11)
+
+Lecture 11 draws functions not as graphs but as maps from input points to output points, which shows what a layer does to a whole
+distribution of data (slides 7–9). On a line (slide 8), a ReLU "takes all of your data in the negative half space and maps it to
+0", so "You'll usually have a spike of density at 0", and a sigmoid "will map most of your inputs to either 0 or 1, but in a soft
+way" (≈7:46). In two dimensions (slide 9), the ReLU "maps all data to the positive orthant", and "most of the points get mapped to
+these axes. You get this what's called a sparse representation": in each dimension about half the values are negative and become
+0, and everything in the strictly negative orthant lands on the origin. "And in high dimensions, I think this effect becomes even
+more extreme" (≈10:02–10:49). See [representation learning](representation-learning.md).
 
 ## How do you choose one?
 

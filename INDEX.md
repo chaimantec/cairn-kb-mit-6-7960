@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–10 of 24 only.** This knowledge base currently holds the first ten
+> **Coverage: lectures 1–11 of 24 only.** This knowledge base currently holds the first eleven
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory) and the concept pages they support. For anything taught in lectures 11–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based) and the concept pages they support. For anything taught in lectures 12–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 10. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 11. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -143,6 +143,22 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   certificate lengths (most video benchmarks need about two seconds); parameters as slow memory and activations
   as fast memory, hypernets and codebooks; and Homework 3's RNN problem. 20 of its slides are excluded from OCW's
   licence.
+- [Lecture 11 — Representation Learning: Reconstruction-Based](wiki/11-representation-learning-reconstruction-based.md) —
+  Phillip Isola. The first of three representation-learning lectures: layers as representations, the encoding direction
+  against generative modeling, x2vec and the encoder; functions drawn as maps of a distribution, with what linear, ReLU
+  (positive orthant, sparsity), L2/RMS/layer norm (the hypersphere) and softmax (the simplex) do to a cloud of points; a
+  width-2 MLP training layer by layer, SGD against steepest descent in the spectral norm, and CLIP's classes separating
+  with depth; deep net "electrophysiology" and Zeiler and Fergus's layer-by-layer filters beside the visual cortex; the
+  definition $f : \mathcal{X} \to \mathbb{R}^d$, $\mathbf{z} = f(\mathbf{x})$; why learn representations (transfer
+  learning, not blank slates, linear adaptation and fine-tuning, pretrain–adapt–test, learning from little data by
+  pretraining on massive data); what makes a representation good (compact, explanatory, disentangled, interpretable,
+  the Fourier transform); compression against prediction; the autoencoder, its $L_2$ objective, why the identity is
+  not trivial, linear autoencoders as PCA; the coloured-shapes experiment (shape improves with depth, colour worsens:
+  every representation trades off); clustering as an encoder to integers ("making up new words"), k-means as an $L_2$
+  autoencoder, VQ nets; self-supervised learning, colorization and the object units it finds, pretext tasks and
+  imputation; masked autoencoders and BERT, and why BERT fell out of fashion; why masked prediction beats autoencoding
+  (three hypotheses, "ongoing science"); LeCun's cake; and Homework 4's autoencoder question. 22 of its slides are
+  excluded from OCW's licence.
 
 ## Course pages
 
@@ -152,7 +168,8 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   35% blog-post final project), compute, PyTorch, the collaboration rules and the AI-assistant
   policy; and which problem set goes with which lecture where a lecture says (lecture 5's
   graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
-  Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation and lecture 10's RNN problem are Homework 3).
+  Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation and lecture 10's RNN problem are Homework 3; lecture 11's coloured-shapes
+  autoencoder, which the lecturer calls "p set 3", is Homework 4).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -174,14 +191,14 @@ passages it draws on.
   interpolates between training points where a memorizing "filing cabinet" cannot, and its last
   layer as regression on features (lecture 6); the neural, tensor and spectral perspectives on a
   network (lecture 7); token nets as MLPs over vectors, and the token-wise MLP inside a transformer
-  (lecture 8); an RNN without its recurrence (lecture 10).
+  (lecture 8); an RNN without its recurrence (lecture 10); a width-2 MLP's layers drawn as it trains (lecture 11).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
   differentiable and smooth criterion (lecture 2); the ReLU as a gate on the backward pass;
   what ReLUs can build: rectangles from four ReLUs, thresholded sums, and kink doubling (lecture 3);
   sine activations (SIREN) as an inductive bias for periodic functions and images (lecture 4); sigmoid and
-  tanh as the LSTM's gates (lecture 10).
+  tanh as the LSTM's gates (lecture 10); the ReLU and sigmoid as maps of a distribution, and the ReLU's sparsity (lecture 11).
 - [Gradient descent](wiki/gradient-descent.md) — the training objective
   $\theta^{\ast} = \arg\min_\theta \sum_i L$, the cost $J(\theta)$, the update rule and learning
   rate, why differentiability matters, black-box versus first- and second-order optimization,
@@ -197,7 +214,7 @@ passages it draws on.
   sign gradient descent, any norm a step size $\Vert \mathbf{g} \Vert^{\dagger} / \lambda$ times a
   step direction (the dual norm); steepest descent for matrices and the spectral norm in problem set 2;
   no guarantee unless the model is an upper bound; and why another norm — the squeezed map,
-  preconditioning, where the linear term breaks down.
+  preconditioning, where the linear term breaks down; SGD against spectral descent on a small MLP (lecture 11).
 - [Second-order methods](wiki/second-order-methods.md) — first- versus second-order (lecture 2); the
   Taylor expansion, linearization and non-linear part; Newton's method $-\mathbf{H}^{-1}\mathbf{g}$ and
   its problems (a $d \times d$ Hessian, heading for a maximum, cubic regularization); the Gauss-Newton
@@ -241,7 +258,7 @@ passages it draws on.
   classification (lecture 8); softmax regression as the default formulation and why, colorization
   turned into per-pixel classification, and the log loss at chance, $\ln 0.5 = -0.69$ and
   $\ln 0.1 = -2.3$ (lecture 9); next-word classification over words, characters or byte pairs, and
-  maximum likelihood as cross-entropy (lecture 10).
+  maximum likelihood as cross-entropy (lecture 10); the softmax as a map onto the simplex (lecture 11).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
@@ -294,8 +311,27 @@ passages it draws on.
   responds to (lecture 2); convolutional feature maps and how they change with depth, and the
   encoder–decoder (lecture 4); kernels of a network's output representation, and why deeper (even
   linear) networks give lower-rank, more clustered ones (lecture 6); tokens as representations at every
-  layer, and DINO's attention maps that stay inside objects (lecture 8); previewing lectures 11–13 and
-  18–19.
+  layer, and DINO's attention maps that stay inside objects (lecture 8); what a representation is (the encoder
+  $f : \mathcal{X} \to \mathbb{R}^d$), layers as transformations of a distribution, probing a network like a brain
+  (Zeiler and Fergus), what makes a representation good, the trade-offs every representation makes, and
+  compression against prediction (lecture 11); previewing lectures 12–13 and 18–19.
+- [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
+  reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
+  PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
+  autoencoder with an integer bottleneck, vector-quantized autoencoders (VQVAE, VQGAN), masked autoencoders, and
+  why masked prediction beats reconstruction (lecture 11); the convolutional encoder–decoder (lecture 4);
+  Homework 4's autoencoder question.
+- [Self-supervised learning](wiki/self-supervised-learning.md) — learning by predicting part of the raw data from
+  another part: learning without labels, compression against prediction, the pretext-task trick, colorization and
+  the object units it finds ("words are not arbitrary"), imputation (spatial, temporal, channel), masked autoencoders,
+  BERT and next-word prediction, three hypotheses for why prediction beats reconstruction, and LeCun's cake
+  (lecture 11); colorization as classification (lecture 9).
+- [Transfer learning](wiki/transfer-learning.md) — reusing a learned representation: "a good representation is one
+  that makes a subsequent learning task easier", deep nets as not blank slates, linear adaptation (linear probes) and
+  fine-tuning, pretrain–adapt–test, learning from little data by pretraining on massive data, how big the ratio is,
+  transfer across domains, and the open theory (lecture 11); reusing lower layers (lecture 1), pretrained parameters
+  in a larger network (lecture 2), and starting from a pretrained model (lecture 9). Lectures 18–19 are not yet
+  covered.
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
@@ -317,13 +353,15 @@ passages it draws on.
   reason ConvNets generalize to new arrangements (lecture 6); locality as a limitation, the $1 \times 1$
   convolution as a token-wise MLP, and the Toeplitz matrix beside attention (lecture 8); a ConvNet slid
   over an image to classify every pixel (lecture 9); convolution in time, slices of the space–time cube,
-  and what a fixed window forgets (lecture 10).
+  and what a fixed window forgets (lecture 10); what a trained ConvNet's filters respond to, layer by layer, and the
+  Fourier transform turning convolution into a product (lecture 11).
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
   learning its own depth (lecture 4); previews transformers. How much each residual block should
   contribute, $1/L$ or $1/\sqrt{L}$ (lecture 7). The residual connections of the transformer block
-  (lecture 8), and the LSTM's identity default compared to one (lecture 10).
+  (lecture 8), and the LSTM's identity default compared to one (lecture 10); a skip around an autoencoder's bottleneck
+  defeats it (lecture 11).
 - [Neural fields and positional encoding](wiki/neural-fields-and-positional-encoding.md) — why and
   how to break shift invariance with a constructed positional encoding, neural fields as networks
   from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
@@ -347,7 +385,7 @@ passages it draws on.
   You Need", cross-attention, and why transformers are everywhere; the transformer in lecture 9's
   default recipe, and "attention is not all you need"; attention against recurrence and convolution, the cost
   table of "Attention Is All You Need", longer contexts (sparse, local plus global, retrieval) and whether
-  benchmarks need them (lecture 10).
+  benchmarks need them (lecture 10); masked autoencoders and BERT, masking tokens to learn without labels (lecture 11).
 - [Recurrent neural networks](wiki/recurrent-neural-networks.md) — lecture 10's RNNs and LSTMs: what a convolution
   over time forgets, the hidden state and the recurrence shared over time, the simplest RNN and its MLP
   relative, the cycle in the graph and backpropagation through time over a truncated window, summed gradients
@@ -357,11 +395,13 @@ passages it draws on.
 - [Autoregressive models](wiki/autoregressive-models.md) — predict, append, repeat (lectures 8 and 10); the
   factorization of a sequence's probability into next-element conditionals, and lecture 9's point that longer
   prompts make prediction easier; each factor as a classifier over words, characters or byte pairs; maximum
-  likelihood and teacher forcing; GPT's causal masking (lecture 8); sampling and beam search (lecture 10).
+  likelihood and teacher forcing; GPT's causal masking (lecture 8); sampling and beam search (lecture 10); next-word
+  prediction as self-supervised learning that masks only the future, set beside BERT (lecture 11).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
-  one gives zero, the pix2pix bug), and lecture 9's case against batch norm. Spans lectures 3, 7, 8 and 9.
+  one gives zero, the pix2pix bug), and lecture 9's case against batch norm; the L2 norm as a map onto the
+  hypersphere (lecture 11). Spans lectures 3, 7, 8, 9 and 11.
 - [Data augmentation](wiki/data-augmentation.md) — label-preserving transformations, augmentation
   against invariant architectures (geometric deep learning), making the training problem harder on
   purpose, domain randomization and the domain gap, and OpenAI's robot hand (lecture 9).
@@ -377,7 +417,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–10 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–11 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

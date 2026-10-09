@@ -7,7 +7,8 @@ works" ([lecture 8](08-architectures-transformers.md), ≈1:06:38). Covered so f
 ≈1:05:51–1:10:38 (autoregression, GPT and causal masking); [lecture 9](09-hackers-guide-to-deep-learning.md), slide 21,
 ≈42:35–44:51 (longer prompts make the next word easier to predict); [lecture 10](10-architectures-memory.md), slides
 40–53, ≈41:53–58:19 (the probability model, next-word classification, the choice of vocabulary, a molecule-to-text
-model, teacher forcing, sampling and beam search). Generative models are the subject of lectures 14–16 and language
+model, teacher forcing, sampling and beam search); [lecture 11](11-representation-learning-reconstruction-based.md), ≈1:10:38 and ≈1:13:47–1:15:20
+(next-word prediction as self-supervised learning, set beside BERT's masking). Generative models are the subject of lectures 14–16 and language
 models of lecture 21 (see the [course map](course-map.md)).
 
 ## Predict, append, repeat
@@ -86,3 +87,15 @@ sequence with the best overall score, the model's confidence in the whole senten
 $p_\theta(\mathbf{y}_ 1, \ldots, \mathbf{y}_ T \mid \mathbf{x})$ (≈55:10–55:56). To predict a word several steps ahead, the
 lecturer would still step through the words in between, "there's signal in those intermediate words", perhaps with beam
 search (≈56:45–57:32).
+
+## Next-word prediction as masking the future (lecture 11)
+
+Lecture 11 files language models under self-supervised learning: "the way that language models work is they predict the next word in
+a sequence … And most people still call language models self-supervised because they're just predicting the raw data. It happens the
+raw data is semantic and is words" (≈1:10:38). Set beside BERT, which masks tokens in the middle of a text and predicts them,
+autoregressive models "are just the same, except they're only masking the final word as opposed to interleaving words. And that has
+some advantages in that I can decode in sequential order" (≈1:13:47). That ordering is why the lecturer thinks BERT went out of fashion:
+in conversation, "time is an axis that is important and not symmetric with other axes. I have to answer the question after the question
+has been asked", so masking only the future "just fits into language models"; the biggest models did that, "And because those were the
+biggest models, they just worked the best". For learning a sentence embedding, "I bet the BERT method is still going to work better if
+scaled the same amount" (≈1:14:33–1:15:20). See [self-supervised learning](self-supervised-learning.md).

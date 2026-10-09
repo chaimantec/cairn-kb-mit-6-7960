@@ -9,7 +9,11 @@ to **lectures 18–19 on transfer learning**. Covered so far: [lecture 1](01-int
 depth, and the encoder–decoder); [lecture 6](06-generalization-theory.md), slides 52–60 (kernels of a
 network's output representation, and the low-rank bias of depth); [lecture 8](08-architectures-transformers.md), slides 11 and
 31, ≈8:32–10:04 and ≈41:48–42:36 (tokens as representations at every layer, and attention maps in a
-trained transformer).
+trained transformer); [lecture 11](11-representation-learning-reconstruction-based.md), slides 3–35 and 42–43, ≈0:00–45:43
+and ≈54:21–58:19 (what a representation is, layers as transformations of a distribution, probing a network like a brain,
+why representations are learned, what makes one good, and the trade-offs any one makes). Lecture 11's methods for learning
+one without labels have their own pages: [autoencoders](autoencoders.md), [self-supervised learning](self-supervised-learning.md)
+and, for what a representation is used for, [transfer learning](transfer-learning.md).
 
 ## Compact, compositional representations
 
@@ -132,3 +136,92 @@ cross object boundaries" (≈41:48–42:36). The lecturer is careful about what 
 found by backpropagation, it "often has an intuitive interpretation … but it doesn't have to", and
 whether it always arises is "more empirical science … it's not provable" (≈43:22–44:55). See
 [transformers](transformers.md).
+
+## What a representation is (lecture 11)
+
+Lecture 11 opens the course's "next third" with this perspective (≈0:00). "Deep nets transform datapoints, layer by layer",
+and "Each layer is a different *representation* of the data" (slide 3). The forward direction, "from observed data to latent
+embeddings", is **representation learning**; the reverse, "from latent embeddings to observed data", is **generative
+modeling**, which "can roughly be thought of as" its inverse (slide 3, ≈2:23). One name for the forward map is **x2vec**,
+after word2vec, for any modality (slide 4, ≈3:08). Another, a student points out, is feature extraction: "another name for the
+same thing" (≈3:55–4:40).
+
+Slide 22 makes it precise, restricting attention mainly to vector embeddings. "A representation of a data domain
+$\mathcal{X}$ is a function $f : \mathcal{X} 	o \mathbb{R}^d$ that assigns a feature vector to each input in that domain. This
+function is called an **encoder**." And "A representation of a datapoint $\mathbf{x}$ is a vector
+$\mathbf{z} \in \mathbb{R}^d$ with $\mathbf{z} = f(\mathbf{x})$." For a neural network, $f$ is parameterized by its weights and
+biases, so "the representation, by this definition, is its weights and biases"; "When we say the learned representation, we
+usually mean f" (≈27:08).
+
+The cartoon the lecture reuses draws the data space as a blob, "some complicated object, high-dimensional, weird topology", and
+the representation space as a circle, "because … the representation is, oftentimes, a simpler space", whose distribution "will
+typically be a Gaussian distribution" (slide 5, ≈5:27). A representation need not be smaller than its input, though "Often, the
+representation you want to be a smaller object" (≈4:40).
+
+## Layers as transformations of a distribution (lecture 11)
+
+To see what each layer does to the data, lecture 11 draws a function not as a graph but as a **mapping** from points on an input
+line or plane to points on an output one (slides 6–9). Seen this way a linear layer rotates, squishes and scales; a ReLU maps
+everything into the positive orthant and onto the axes, a sparse representation; an L2, RMS or layer norm puts every point on
+the unit hypersphere; and a softmax puts it on the simplex (≈7:46–12:21). See [activation functions](activation-functions.md),
+[normalization layers](normalization-layers.md) and [softmax and cross-entropy](softmax-and-cross-entropy.md).
+
+Stacking these, a width-2 MLP trained to separate a red cloud from a surrounding blue one moves the two classes apart layer by
+layer, and "each of the layers now can be understood as a different representation of the data distribution and a better and
+better representation" for the task (slide 10, ≈13:53–14:39); see [multilayer perceptron](multilayer-perceptron.md). In CLIP,
+a large vision network with its embeddings reduced to two dimensions by PCA, the classes of a data set separate as depth grows
+(slide 13, ≈16:17–17:50). The general picture: from "entangled, complicated data at the input" a network, "layer by layer,
+gradually morphing, disentangling it through these geometric transformations", reaches "clean separation of your semantics of
+interest", and "the output space is a simpler object than the input space" (≈17:50–18:36).
+
+## Probing a network like a brain (lecture 11)
+
+Lecture 11 returns to the visual-cortex hierarchy of lecture 1 (Serre, 2014; slide 14): five or six layers of linear filtering
+and pointwise non-linearity, edges first, then conjunctions of edges, up to a layer called IT "where the semantics are
+segregated" (≈19:23–20:09). It then probes an artificial network the way a neuroscientist probes a brain, **deep net
+"electrophysiology"** (slides 15–16): record a unit's activation and find the inputs that turn it on. "One of the modern names for
+this type of work is interpretability or mechanistic interpretability … but it's an old problem" (≈20:55).
+
+The results are Zeiler and Fergus's (2014), the image patches that most activate units at each layer of a convolutional network
+(slides 17–20): oriented edges and colour at layer 1 ("like a greenness detector"), conjunctions of edges such as crosses, circles
+and gradients at layer 2, a crude face template at layer 3, and dog faces separated from human faces at layer 5 (≈21:43–24:47).
+"The rough story is that deep nets and the neuroscience models of the brain are quite in alignment here" (slide 21, ≈24:47).
+Modern networks with "dozens or hundreds of layers" have "very precise detectors deep in the network that code for very specific
+things", in language models too, as in the paper "The Sentiment Neuron" (≈24:47). One difference: the brain has only about seven
+layers of filters, "But the brain has recurrence, so it uses those seven layers over and over again" (≈25:32).
+
+The same probe on a network trained only to colorize grayscale images finds units for faces, dog faces and flowers at layer 5
+(slide 55). Whatever the training task, "the units that carve the world at its joints … turn out to be objects and semantics and
+the words that humans have" (≈1:09:08); see [self-supervised learning](self-supervised-learning.md).
+
+## Why learn one, and what makes one good (lecture 11)
+
+The main reason to learn a representation is "to do more learning": to adapt it to new tasks with little data (slide 24,
+≈27:54); see [transfer learning](transfer-learning.md). Slide 31 lists what a good one is: **compact** (minimal), **explanatory**
+(sufficient), **disentangled** (independent factors), **interpretable**, and above all one that will "Make subsequent problem
+solving easy". Minimal and sufficient go together: "very low-dimensional or low-information, but sufficient, that they are
+sufficient statistics for solving your tasks", like a scene reduced to "Just three things and where they are, but not all the
+weird, photometric details" (≈40:17–41:04). Compactness also has "an Occam's razor generalization theory type of" justification
+(≈40:17). The class adds unit variance, context awareness and robustness to small changes in the input (≈41:51–42:36). The classic
+example of the last property is the Fourier transform: "It's a representation of data that makes convolution really easy. It
+makes convolution just into a product" (≈42:36–43:23).
+
+## Every representation trades something off (lecture 11)
+
+An autoencoder trained on coloured shapes (slides 42–43) organizes them sensibly, with a query's nearest neighbours in its code
+being the same shape in about the same colour (≈55:12). But measured layer by layer, shape gets easier to read off with depth and
+colour harder. Pixels are a representation too, and "color is very superficial and explicit in pixel space … Shape is not
+explicitly represented in pixel space" (≈57:32). So "every representation is good at some things and bad at other things, and
+there's trade-offs … autoencoding doesn't strictly result in better representations. It results in different representations.
+That's a fundamental principle" (≈58:19).
+
+## Learning without labels (lecture 11)
+
+A representation can come from supervised training on any task, but the lecture's interest is in methods that "just try to learn
+good representations generically", from data with no labels (≈43:23). The output can be embeddings, clusters or metrics (slide
+34), and there are "two general principles": **compression**, the route of [autoencoders](autoencoders.md), PCA, k-means and
+vector-quantized autoencoders, and **prediction** of held-out data, the route of [self-supervised learning](self-supervised-learning.md)
+(slide 35, ≈44:11–44:58). Clustering is itself representation learning, an encoder to integers, and in the lecturer's view "the
+problem of making up new words for things", words being the atoms of language, "the best representation of the world that humans
+have discovered" (slide 45, ≈1:00:38–1:01:23). Lecture 11 ends on LeCun's cake, whose bulk is representation learning: "the bulk
+of intelligence, and I agree with that point" (slide 63, ≈1:20:05). Metric (similarity-based) learning is lecture 12's subject.

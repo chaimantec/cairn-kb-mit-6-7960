@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which fetches files over raw.githubusercontent.com and follows
 relative markdown links.
 
-**Coverage is partial: lectures 1–10 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–11 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 ## Layout
 
@@ -64,17 +64,25 @@ relative markdown links.
   no other lecture number. Its recording points back to CNNs over time (4), backpropagation over shared parameters
   (2), the spectral norm (7), "the transformer lecture last week" (8) and "the hacker lecture" (9), and names no
   later lecture.
+  Lecture 11's title slide, "Lecture 11: Representation Learning I", matches the recording and lecture 1's slide 73
+  banner, but its outline (slide 2) is headed "12. Representation Learning I"; cite it as lecture 11. It prints no
+  other lecture number. Its recording points back to problem set 2's spectral descent, to the normalization picture
+  "in one of the last lectures" (9), to "the colorization problem I showed you before" (9), to the vision transformer
+  (8) and to autoregression "which we talked about before" (8 and 10), and ahead to "the next lecture" on metric or
+  contrastive learning (12), generative modeling "in a few weeks" (14–16), "a few lectures on transfer learning"
+  (18–19), and variational autoencoders, linear probes and low-rank fine-tuning, and CLIP, all "later" without numbers.
+  It also assigns the coloured-shapes experiments to "your p set 3"; on OCW they are in Homework 4.
 - **Reused deck.** Lecture 1's title slide says "6.S898 Deep Learning … Fall 2022", the course's
   earlier number and term, and lecture 5's footer prints "6.S898 Deep Learning" with "Fall 2024".
   The transcription keeps what is printed.
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
-  792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", and of lecture 10's
-  page 69, a 792×612 page that prints "69".
+  792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
+  page 69, a 792×612 page that prints "69", and of lecture 11's page 65, a 792×612 page that prints "65".
 - **Lecture 3's deck is handwritten** — Jeremy Bernstein's iPad notes, in several ink colours on a
   dark background. Its PDF text layer is OCR of the handwriting and is useless (it reads
   "Hongenoucin" for a handwritten credit), so nothing was taken from it. The handwriting is vector
@@ -119,6 +127,12 @@ relative markdown links.
   over the video strip (19), the cat photographs of the Frank example (15–18, 55, 56; "© source unknown",
   although the lecturer introduces the cat as her own), the Reformer figure (60, "© Kitaev, et al.") and the
   Longformer attention patterns (61, "© Beltagy, et al.").
+  Lecture 11's carries 22 in 65 pages: the car photograph of the x2vec and probing examples (slides 4, 15, 16), Serre's
+  visual-cortex diagram (14 and 21, "© Springer Science+Business Media"), Zeiler and Fergus's patch mosaics (17–21, "©
+  Zeiler and Fergus"), the crossed-out chalkboard (24), the angelfish photographs of learning via compression (36–38)
+  and of colorization (53, 54), the orange bird of the $L_2$ autoencoder, the pretext tasks and imputation (40, 41, 57,
+  58), the bird, parrot and temple of slide 45, the conv5 stimulus photographs (55), and Yann LeCun's cake slide (63,
+  "© Yann LeCun, IEEE"). Slide 21's one notice names both holders ("Left © Springer … Right © Zeiler and Fergus").
 - **An excluded image can reappear without its notice.** Lecture 4's slides 50–52 print no notice,
   but their photo crop is the same embedded image object as slide 25's clown fish, which slide 25
   marks "© source unknown. All rights reserved". They are treated as excluded and not rendered.
@@ -157,7 +171,18 @@ relative markdown links.
   the same image. Lecture 10's unnoticed images were hashed the same way against every excluded image in decks
   1–10, and none matched. Its slide 59 reproduces Table 1 of "Attention Is All You Need" with no notice; lecture 8's
   excluded slide 53 shows the same paper's architecture figure and first page, a different image, so slide 59 is not
-  excluded by it (it is not rendered anyway: its table is transcribed cell by cell).
+  excluded by it (it is not rendered anyway: its table is transcribed cell by cell). Lecture 11 found one reuse across
+  decks: its slide 13, the CLIP "ViT block x3" figure, prints no notice but is the figure of lecture 1's excluded slide 73
+  ("© Torralba, Isola, and Freeman"), at a different resolution (2928 against 3715 px) and the same position on the page;
+  over its inked pixels the two differ by a mean of 0.7 grey levels in 256. So slide 13 is not rendered. Three in-deck
+  matches turned out not to be visible reuse, because `page.get_image_info()` shows where an image is actually drawn:
+  slide 31 lists the three image objects that slide 4 lists beside its car photograph, but neither page draws them (slide
+  31's building, road and car cards are vector drawings); slide 39 draws a small copy of slides 40–41's excluded bird
+  photograph only outside the page (x 1950 on a 1920-wide page, y negative); and slides 40 and 41 draw slide 42's
+  coloured-shapes grid only below the page (y 1840–2391 on a 1080-high page), so their notices cannot cover it. Slides
+  31, 39 and 42 are rendered. The coarse hash also flagged slide 9's near-black 938×938 masks against lecture 4's
+  120×124 crop and slides 10–12's near-white plots against lecture 1's slide 73; measured over inked pixels they differ by
+  about 55 grey levels, and they are different images.
 
 ## Conventions
 
@@ -248,7 +273,18 @@ spoken "quadratic relationship" beside the powers of W she has just written). It
 eight `[Ed: …]` notes (identifying lecture 2, lecture 7 as Jeremy Bernstein's, slide 31's CMU reading and slide 64's
 Mangalam et al.; and four places where the spoken wording differs from the slides or the board: "v" for slide 23's
 W, "quadratic", "maximizing cross-entropy" against slide 50's "minimize", and the Reformer against slide 60). Also
-done inline.
+done inline. Lecture 11: 105 markers identical, all 65 digit strings identical but one, word ratios 0.99–1.27, and
+0.99–1.01 once its `[Ed: …]` notes are removed (the high end is the 1:18:30 paragraph, which carries two notes). The one
+digit change is deliberate: "Think of the 4DA transform" → "Fourier transform" (42:36), which "makes convolution just into a
+product". Its other restorations are "RMSE norm" → "RMS norm" (10:49), "three-vision transformer blocks. In the transforming"
+→ "three vision transformer blocks. In the transformer" (17:04, slide 13), "beta prime" → "b prime" (34:10, slide 29's
+$\mathbf{b}'$), "CoLab" → "Colab", "date A" → "data A" (38:45), "sufficient in explanatory" → "sufficient and explanatory"
+(45:43), "asked" → "ask" (53:36), "Are autoencoder is" → "Are autoencoders" (54:21), "little f in little g" → "and" (1:04:28),
+"Imagenet" → "ImageNet" and "math prediction" and "mass prediction" → "masked prediction" (1:18:30), plus three restored full
+stops and one stray one removed, and nine `[Ed: …]` notes (identifying lectures 8 and 9 and Kaiming He; the captions'
+"0.10" and "0.01" for the one-hot points (1, 0) and (0, 1); a student's "two vectors", probably "2vecs"; "z is equal to the
+encoder applied to f" against slide 22's $\mathbf{z} = f(\mathbf{x})$; a dropped "like"; and a student's inaudible
+reference to the autoencoder). Also done inline.
 
 ## Slides
 
@@ -471,9 +507,36 @@ upper summation limit is an upright sans-serif T. In the recording the lecturer 
 26 times 26 of them (≈51:16), where lecture 8 has one for "I-N-G", and closes on "another picture of Frank" that the OCW
 deck does not contain (≈1:12:21); the wiki gives each beside the slide.
 
+**Lecture 11's figure audit**, cross-model: Sonnet read the deck, and Opus checked 43 figure-, diagram-, chart-, table- and
+equation-heavy pages (3–5, 7–14, 16–21, 25, 26, 28, 31, 32, 35, 38–40, 42–49, 52, 53, 55, 57–61 and 63) from 55–600 dpi renders,
+the embedded rasters at native resolution, the vector data and the text layer. The first auditor was stopped by a session limit
+after six pages; it had appended each page to its report, so a second agent did the other 37. Every equation agreed symbol for
+symbol, including slide 9's softmax, which prints a minus sign and $\tau$ in both exponents, and all 18 cells of slide 35's
+table; both charts (slides 43 and 61) are vector, and their values were measured from the marker positions. Corrections followed
+on 13 pages, all counts, positions and drawing order, none an object described that is not on the page: slide 3 has three sheets
+and five dotted paths, not four and four; slide 9's mapping column has a grey-grid picture beside the red cloud in every row;
+slide 10 adds the planes' transformed frames; slide 14's left red arrow does not start at the fox's red dot; slide 16's two lines
+reach the frame's top-right corner only; slide 19 has 108 patches, not 324, and its second row of blocks begins with posts and
+railings, not vehicles; slide 20's upper-right quadrant has four women and two dogs; on slides 4 and 31 the car silhouette is in
+front of the road card; slide 38's fifth column has ten shades, not nine; slide 46 has 500 dots, not about 400; slide 58's
+channel-imputation cubes have three channel slabs, one observed below and two above; and slide 60's curved arrow ends in the gap
+of the X. Smaller fixes followed on 5, 8, 11, 12, 35, 39, 40, 43, 55, 57, 61 and 63. The renders of slides 9 and 61 were then
+checked against the corrected text.
+
+**Lecture 11's printed slips and oddities**, transcribed as written: slide 2's outline is headed "12. Representation Learning I"
+(above); slides 25–28 print "Neural" where "Neutral" is meant; slides 16 and 54 cite "Torralba., ICLR 2015" with a stray full
+stop; slide 9's softmax writes the exponent as $e^{-\tau x_{\texttt{in}}[i]}$ while its wiring-graph node writes
+$e^{-\mathbf{x}_ {\texttt{in}_ i}}$, with no $\tau$ and a bold $\mathbf{x}$; slide 60 cites "[He, Chen, Xie, et al. 2021]", the
+masked-autoencoder paper of slide 59, under its BERT figure; and slide 63, Yann LeCun's slide pasted whole, carries its own footer
+and page number "59". In the recording the lecturer says "z is equal to the encoder applied to f" (≈27:08) where slide 22 writes
+$\mathbf{z} = f(\mathbf{x})$; names expectation maximization as k-means' optimizer (≈1:03:42) where slide 48 says "Block coordinate
+descent"; works the linear-autoencoder-equals-PCA derivation from equations the OCW deck does not contain (slide 41 prints only
+its conclusion); and assigns the coloured-shapes experiments to "p set 3" (≈54:21), which OCW publishes as Homework 4. The wiki
+gives each beside the slide, and gives the PCA argument in the lecturer's words without reconstructing his equations.
+
 ## Images
 
-**Lectures 1–10 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–11 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -489,6 +552,7 @@ it.
 | 8 Architectures: Transformers | 34 of 55 pages | rendered from `mit6_7960_f24_lec8.pdf` |
 | 9 Hacker's Guide to Deep Learning | 11 of 72 pages | rendered from `mit6_7960_f24_lec9.pdf` |
 | 10 Architectures: Memory | 32 of 69 pages | rendered from `mit6_7960_f24_lec10.pdf` |
+| 11 Representation Learning: Reconstruction-Based | 25 of 65 pages | rendered from `mit6_7960_f24_lec11.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number.
@@ -502,7 +566,7 @@ about `slide-37`, lecture 2's `slide-38` tells you nothing about `slide-39`, lec
 `slide-17` tells you nothing about `slide-18`, lecture 4's `slide-49` tells you nothing about
 `slide-50`, lecture 5's `slide-23` tells you nothing about `slide-24`, lecture 6's `slide-28` tells
 you nothing about `slide-29`, lecture 7's `slide-18` tells you nothing about `slide-19`, lecture 8's `slide-17` tells you nothing about
-`slide-18`, lecture 9's `slide-24` tells you nothing about `slide-25`, and lecture 10's `slide-28` tells you nothing about `slide-29`. The extension differs from slide to slide too (`.jpg` or `.png`, whichever was smaller), so
+`slide-18`, lecture 9's `slide-24` tells you nothing about `slide-25`, lecture 10's `slide-28` tells you nothing about `slide-29`, and lecture 11's `slide-12` tells you nothing about `slide-13`. The extension differs from slide to slide too (`.jpg` or `.png`, whichever was smaller), so
 copy the whole path. Reading a path that is not in the repo returns an error rather than a URL, which
 costs a turn; a guessed path is never worth it.
 
@@ -536,6 +600,8 @@ All 11 of lecture 9's images appear both in [`wiki/09-hackers-guide-to-deep-lear
 and under their headings in [`raw/slides/09-hackers-guide-to-deep-learning.md`](raw/slides/09-hackers-guide-to-deep-learning.md).
 All 32 of lecture 10's images appear both in [`wiki/10-architectures-memory.md`](wiki/10-architectures-memory.md)
 and under their headings in [`raw/slides/10-architectures-memory.md`](raw/slides/10-architectures-memory.md).
+All 25 of lecture 11's images appear both in [`wiki/11-representation-learning-reconstruction-based.md`](wiki/11-representation-learning-reconstruction-based.md)
+and under their headings in [`raw/slides/11-representation-learning-reconstruction-based.md`](raw/slides/11-representation-learning-reconstruction-based.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 - **Prefer the transcription for numbers and formulas.** The slide file reproduces every
@@ -774,6 +840,27 @@ Not rendered, and why:
   2.0") and carries no course content.
 - **Title, outline, divider and end page:** 1, 2, 40, 67, 68 and slide 69, the OCW end page.
 
+### What was rendered, and what was not — lecture 11
+
+Rendered (25): slides 3, 5, 7–12, 25–28, 31, 39, 42–44, 46, 47, 50–52 and 59–61 — the layered prism of representation
+learning and generative modeling, the x2vec data-space and representation-space cartoon, a function as a plot and as a
+mapping, four scalar layers as mappings, the wiring graph, equation and mapping of the linear, relu, L2-norm and softmax
+layers, the MLP training layer by layer and its stack, SGD against steepest descent in the spectral norm, training and
+testing on different tasks, linear adaptation, finetuning, pretraining–adapting–testing, the properties of a good
+representation, the autoencoder diagram, the coloured-shapes data, the nearest neighbours and the shape and colour
+accuracy chart, clustering as an encoder, k-means as a scatter plot and as an encoder and decoder, data compression,
+label prediction and data prediction, the masked autoencoder, BERT, and masked prediction against autoencoding.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (22 slides): 4, 14–21, 24, 36–38, 40, 41, 45, 53–55, 57, 58, 63** — listed under "OCW
+  excludes some figures" above. Described in full in the slide file only.
+- **Reusing an excluded image without a notice:** 13, the CLIP figure of lecture 1's excluded slide 73 (see above).
+- **Build steps superseded by a rendered slide:** 6 (slide 7's left plot alone).
+- **Text, equations and tables the slide file reproduces exactly:** 22, 29, 32–35 (32–34's learner diagrams are three
+  boxes and arrows, and 35 is a table transcribed cell by cell), 48 and 49 (the k-means and VQ boxes), 56, 62 and 64.
+- **Title, outline, dividers and end page:** 1, 2, 23, 30 and slide 65, the OCW end page.
+
 ### Provenance and attribution
 
 Rendered slides are from *MIT 6.7960 Deep Learning, Fall 2024*, MIT OpenCourseWare
@@ -858,6 +945,15 @@ drawing, which the lecturer calls a caffeine molecule (≈52:03). **Slide 27** i
 parameter-sharing diagram, and **slides 41–42** repeat lecture 8's autoregressive-model slides. Every photograph in the
 deck is on an excluded slide.
 
+Lecture 11's deck names Phillip Isola as speaker. Its rendered slides are mostly the lecturer's diagrams and plots, and a
+few carry material from elsewhere. **Slide 59** is the masked-autoencoder figure, credited "Courtesy of He, et al. Used
+under CC BY." **Slide 60**'s left panel is an uncredited figure of BERT pre-training; the citation printed on the slide,
+"[He, Chen, Xie, et al. 2021]", repeats slide 59's masked-autoencoder paper. **Slide 61**'s chart cites "[Zhang, Isola,
+Efros, ECCV 2016]", a paper of the lecturer's, whose photographs on slides 53 and 54 are excluded. **Slides 9–12**'s
+mapping figures print no credit, and slide 12 links the Colab notebook that made them; slide 13's figure in the same style
+is the one lecture 1's deck credits to Torralba, Isola and Freeman, and it is not rendered. **Slides 42–43**'s coloured
+shapes and **slides 46–47**'s scatter plots are uncredited. Every photograph in the deck is on an excluded slide.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.
 
@@ -902,15 +998,16 @@ Notes for the next run, from lectures 1–10:
   still not rendered, and their handwriting is transcribed in full.
 - **Audit with a different model from the transcriber.** A same-model audit catches misreadings
   caused by resolution but not ones the two runs share. Lecture 3 was read at Sonnet and audited at
-  Opus from 600-dpi crops, and lectures 4, 5, 6, 7, 8, 9 and 10 the same; lectures 1 and 2 were Sonnet audited
+  Opus from 600-dpi crops, and lectures 4, 5, 6, 7, 8, 9, 10 and 11 the same; lectures 1 and 2 were Sonnet audited
   by Sonnet. Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
   grid cells) on charts and diagrams, lecture 5's on 11 of 27, again mostly counts, lecture 6's
   on 16 of 30, mostly positions and counts, lecture 7's on 15 of 24, mostly colours, counts and
   arrow directions, lecture 8's on 19 of 33, mostly counts and where arrows go, with no formula wrong, and lecture 9's on 13 of 34,
   mostly counts and positions, plus one object described that is not on the page (slide 30's spoon), and lecture 10's on 10 of 44,
-  two of them details described that are not on the page (slide 26's arrows, slide 33's label), with no formula wrong. Lecture 6's audit agent was stopped by a session limit
+  two of them details described that are not on the page (slide 26's arrows, slide 33's label), with no formula wrong, and lecture 11's
+  on 13 of 43, all counts, positions and drawing order, with no formula wrong. Lecture 6's audit agent was stopped by a session limit
   after 28 pages; it had appended each page to a report file, so a second agent did only the last
-  two. For decks of
+  two. Lecture 11's first auditor stopped after six of 43 pages the same way, and a second agent finished the other 37. For decks of
   graph drawings, tell the auditor it may count nodes and edges from `page.get_drawings()`.
 - **Typed decks with LaTeXiT equations** (lecture 8): the text layer holds each equation as base64 junk, so
   it is good for titles, labels, citations, notices and code but never for an equation. Lecture 8's code
@@ -926,4 +1023,12 @@ Notes for the next run, from lectures 1–10:
   image object the notice belongs to before deciding.
 - **A notice binds even where it looks wrong.** Lecture 10's photographs of the lecturer's own cat print "© source
   unknown. All rights reserved"; they are treated as excluded like any other.
+- **Check where a shared image is drawn, not only that it is shared** (lecture 11). `page.get_images()` lists every image a
+  page's resources hold, including ones it never draws or draws off the page; `page.get_image_info(xrefs=True)` gives the
+  bounding box of each drawing. Lecture 11's slide 31 lists three image objects of excluded slide 4 but draws none of them,
+  slide 39 draws an excluded photograph only outside the page, and excluded slides 40–41 draw slide 42's grid only below it.
+- **Settle a coarse-hash match by the mean grey difference over inked pixels** (lecture 11). Near-black masks and near-white
+  plots pass the 8–248-bit guard and still match at 16 × 16. Resizing both images to 256 × 256 and averaging the absolute
+  difference over pixels darker than 200 in either separated lecture 11's slide 13 (0.7, the same figure as lecture 1's
+  excluded slide 73) from slides 10–12 (about 55, different figures in the same style).
 - After writing, run `check_math.mjs` and `verify_kb.py`.

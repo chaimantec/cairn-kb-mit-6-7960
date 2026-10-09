@@ -9,7 +9,8 @@ versus probabilities as optimization targets); [lecture 8](08-architectures-tran
 ≈48:51 and ≈1:07:25 (the softmax inside attention, and next-word prediction as classification);
 [lecture 9](09-hackers-guide-to-deep-learning.md), slides 29–41 and 49, ≈58:43–1:03:24 and ≈1:10:21–1:11:53 (classification as the
 default formulation, colorization turned into classification, and the loss at chance); [lecture 10](10-architectures-memory.md), slides 44–46 and 49–50, ≈48:08–51:16 and ≈53:37 (the next-word classifier, the size of
-its vocabulary, and maximum likelihood as cross-entropy).
+its vocabulary, and maximum likelihood as cross-entropy); [lecture 11](11-representation-learning-reconstruction-based.md), slides 9–10, ≈11:35–14:39 (the
+softmax as a map onto the simplex).
 
 ## From last layer to prediction
 
@@ -143,3 +144,14 @@ and "can be quite unstable"; characters, $K = 26$, which makes the sequence much
 (slides 45–46, ≈49:41–51:16). With one-hot targets, maximizing the likelihood of each target word is minimizing the
 cross-entropy $\sum_i H(\mathbf{y}_ i, \hat{\mathbf{y}}_ i)$ between targets and outputs (slides 49–50, ≈53:37). See
 [autoregressive models](autoregressive-models.md).
+
+## The softmax as a map onto the simplex (lecture 11)
+
+Lecture 11 draws the softmax as a map of a two-dimensional cloud of points, and asks why its output lies on a line (slide 9). A
+student answers that it is the line $x_1 + x_2 = 1$: "that's the simplex … the set of points in Rd, where the dimensions sum to 1.
+And the output of a softmax is going to be a point in the simplex" (≈11:35–12:21). Slide 9 prints the softmax as
+$x_{\texttt{out}}[i] = e^{-\tau x_{\texttt{in}}[i]} / \sum_{k=1}^{K} e^{-\tau x_{\texttt{in}}[k]}$, with a minus sign in the exponent and
+a coefficient $\tau$ coloured as a learnable parameter; the lecture does not comment on either. In a width-2 MLP trained with
+cross-entropy (slide 10), the last layer's softmax "clamps that back down to this simplex", and each class's points head to its
+corner, "the one-hot labels for your data" (≈13:53–14:39); in a classifier with many classes, training pushes the classes "to the
+vertices of the simplex" (≈17:50).

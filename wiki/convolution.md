@@ -10,7 +10,8 @@ slide 19, ≈21:37–23:57, on patch-wise processing as a reason ConvNets genera
 slides 4–5, 18 and 35, ≈3:02–6:57, ≈20:52 and ≈52:45–53:31, on locality as a limitation, the 1x1
 convolution and the Toeplitz matrix beside attention; and [lecture 9](09-hackers-guide-to-deep-learning.md)'s
 slides 37–39, ≈1:01:06, on classifying every pixel by sliding a classifier over the image; and [lecture 10](10-architectures-memory.md)'s slides 10–18 and 58, ≈4:41–10:05 and ≈59:56–1:00:41, on convolution in time and what
-it forgets. The architectures
+it forgets; and [lecture 11](11-representation-learning-reconstruction-based.md)'s slides 17–21, ≈21:43–25:32, on what the filters at each layer of a trained
+ConvNet respond to. The architectures
 built from convolutional layers are on [skip connections](skip-connections.md); why the layer's
 assumptions help is on [inductive bias](inductive-bias.md).
 
@@ -240,3 +241,16 @@ every time, a later output has no access to anything before its window, so the l
 video, is taken for a "tiger" outdoors later on (slides 15–16, ≈8:33–9:20). That forgetting motivates [recurrent neural networks](recurrent-neural-networks.md). On slide
 58 convolution is one of three ways to model long sequences: "conv weights are shared across time", but "you don't get
 to see anything outside of the time window of that convolution" (≈59:56–1:00:41).
+
+## What a trained ConvNet's filters respond to (lecture 11)
+
+Lecture 11 probes a trained convolutional network the way a neuroscientist probes a brain, using Zeiler and Fergus's (2014) study of "a
+vanilla convolutional network with five or six layers" (slides 17–20, ≈21:43). Each first-layer filter outputs a feature map, and for
+each the slides show the nine image patches that activate it most. One is "like an edge detector. It's looking for an oriented line, a
+bright followed by a dark transition"; another is "like a greenness detector". "What is the idea of a filter? A filter is trying to
+filter out something from the data, find the thing it's looking for and throw away everything else" (≈22:28). The second layer responds to
+"some conjunction of edges, higher-order patterns", such as a cross from two orientations, gradients or circles (≈23:14); the third to
+crude templates such as faces; the fifth to dog faces as distinct from human faces (≈24:00). Slide 21 sets these beside the visual
+cortex's hierarchy, and the two "are quite in alignment" (≈24:47). The same lecture's example of a representation that makes a later
+problem easy is the Fourier transform: "It makes convolution just into a product" (≈42:36–43:23). See
+[representation learning](representation-learning.md).

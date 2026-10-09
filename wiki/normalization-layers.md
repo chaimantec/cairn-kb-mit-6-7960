@@ -8,7 +8,8 @@ over the examples of a batch instead of over the entries of one vector. Covered 
 [lecture 3](03-approximation-theory.md) (≈13:09–13:57) and [lecture 7](07-scaling-rules-for-optimization.md)
 (≈1:00:05–1:01:37); layer norm in the transformer block of [lecture 8](08-architectures-transformers.md)
 (slide 38, ≈57:23–58:56); and the practical advice of [lecture 9](09-hackers-guide-to-deep-learning.md)
-(slides 10, 42 and 43, ≈21:02–24:06 and ≈1:04:10–1:05:43).
+(slides 10, 42 and 43, ≈21:02–24:06 and ≈1:04:10–1:05:43); and the L2 norm drawn as a map of a whole distribution in
+[lecture 11](11-representation-learning-reconstruction-based.md) (slide 9, ≈10:49–11:35).
 
 **Notation.** $x_{\text{in}}$ is the vector a layer normalizes, $x_{\text{in}}[k]$ its $k$-th entry, $d$
 its dimension, and $x_{\text{out}}$ the result. The RMS norm of a vector $\mathbf{v} \in \mathbb{R}^d$ is
@@ -87,6 +88,17 @@ not really resolved". And the usual fixes add complexity: running batch norm sep
 makes "your results change dramatically depending on how many machines are in your cluster". Slide 56's
 "switch to evaluation mode by model.eval() (PyTorch) … no, really" is the everyday form of the
 train-test difference.
+
+## What a normalization does to a distribution (lecture 11)
+
+Lecture 11 draws each layer as a map from a cloud of input points to a cloud of output points (slide 9). The L2 norm,
+$x_{\texttt{out}}[i] = x_{\texttt{in}}[i] / \lVert \mathbf{x}_ {\texttt{in}} \rVert_ 2$, "and same with RMS norm, and same
+with LayerNorm, which is a variation on this", takes all of the data and "will map it to vectors that have norm 1": in two
+dimensions onto the circle, in high dimensions onto the hypersphere (≈10:49–11:35). The lecturer had shown this picture "in one
+of the last lectures, but I didn't really fully explain it", lecture 9's drawing of the RMS norm and layer norm. One reason the
+map is nice: "the numerics are going to be bounded somehow. The vectors will not go to infinity or not go to 0" (≈11:35). The
+same lecture lists low-dimensional embeddings' weird interactions "with BatchNorm and LayerNorm" among the reasons an
+autoencoder's bottleneck is hard to work with (≈1:17:41); see [autoencoders](autoencoders.md).
 
 ## See also
 

@@ -6,7 +6,8 @@ comes out: the Euclidean norm gives ordinary gradient descent, the infinity norm
 descent, and every norm has a solution with the same two-part shape, a step size times a step
 direction. The course develops it in [lecture 7](07-scaling-rules-for-optimization.md) as one of
 three classical methods that start from a Taylor expansion, and problem set 2 works out the details.
-Covered so far: lecture 7, slides 16–19, ≈33:37–50:45.
+Covered so far: lecture 7, slides 16–19, ≈33:37–50:45; [lecture 11](11-representation-learning-reconstruction-based.md), slide 12, ≈15:30–16:17 (SGD against steepest
+descent in the spectral norm on a small MLP).
 
 **Notation** follows lecture 7. $\mathcal{L}(\mathbf{w})$ is the loss as a function of the weights
 $\mathbf{w}$ (the [course notation](notation.md)'s total cost $J$),
@@ -121,3 +122,14 @@ Two ways to read the choice of norm:
 Choosing the norm for a whole network is the open problem behind the lecturer's modular theory, where
 each layer type carries its own norm and composing layers is meant to compose their norms (lecture 7,
 slides 28–30); see [scaling rules](scaling-rules.md#a-modular-theory).
+
+## SGD against spectral descent, on a small MLP (lecture 11)
+
+Lecture 11 trains the same width-2 MLP twice, "just for fun", with SGD (learning rate 0.01) and with "the spectral descent method
+that you worked out in your problem set 2", steepest descent in the spectral norm (learning rate 0.002), where "you are normalizing
+the updates by their spectral norm" (slide 12, ≈15:30). "It's a little bit hard to read too much into this. Well, the spectral
+descent is descending faster, but that depends on the learning rate, so there's some caveats. But it is getting to a lower loss",
+separating the two classes better: "different optimization schemes actually do perform differently". The lecturer notices that the
+first linear layer looks "almost like a rotation, which is a orthogonal transformation. And if your updates are orthogonalized, then
+maybe that somehow relates to this first layer finding this orthogonal transformation … it's a little complicated" (≈15:30–16:17).
+Slide 12 links the Colab code that made the figures.

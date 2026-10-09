@@ -10,6 +10,7 @@ deck is excluded from OCW's licence, so this knowledge base describes them in pr
 slide 26, ≈11:36–12:21 and ≈1:09:26–1:14:52, asks how much each residual block should contribute.
 [lecture 8](08-architectures-transformers.md), slides 38–39 and 53, ≈57:23 and ≈1:12:15, puts residual connections in the
 transformer block. [lecture 10](10-architectures-memory.md) compares the LSTM's cell state to a residual connection (≈40:22).
+[Lecture 11](11-representation-learning-reconstruction-based.md) warns that a residual connection across an autoencoder's bottleneck defeats it (≈1:17:41).
 
 ## The problem: what a bottleneck loses
 
@@ -111,3 +112,12 @@ about 1, so by default the state passes on unchanged: "Because the default is th
 connection or a residual connection in a ResNet. You have this component where you could just learn, throughout this
 entire thing, to only ever send the identity" (≈40:22). That identity path is what keeps its gradients from vanishing;
 see [recurrent neural networks](recurrent-neural-networks.md).
+
+## A skip around an autoencoder's bottleneck (lecture 11)
+
+The U-net's skips exist so that detail can bypass the bottleneck. In an autoencoder that is exactly the failure. Lecture 11 asks what
+would be wrong with an autoencoder whose encoder and decoder had residual connections between them, and a student answers that it
+would not force the low-dimensional representation: "Yeah. It skips the bottleneck. So there's all these little gotchas like that"
+(≈1:17:41). The point belongs to slide 62's second hypothesis for why masked prediction learns better representations than
+autoencoding: "Autoencoders have shortcuts where they can copy part of the input and get a decent loss." See
+[autoencoders](autoencoders.md).

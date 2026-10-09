@@ -14,7 +14,8 @@ on an adjacency matrix is not permutation invariant, and the MLP as a graph net 
 training points, and its last layer as a weighted sum of features); [lecture 7](07-scaling-rules-for-optimization.md),
 slide 22 and ≈53:51–56:11 (the neural, tensor and spectral perspectives); [lecture 8](08-architectures-transformers.md),
 slides 17–21 and 36, ≈16:59–22:24 and ≈55:49 (token nets as MLPs over vectors, and the token-wise MLP
-inside a transformer); [lecture 10](10-architectures-memory.md), slide 23, ≈14:44–15:30 (an RNN without its recurrence). See also [activation functions](activation-functions.md),
+inside a transformer); [lecture 10](10-architectures-memory.md), slide 23, ≈14:44–15:30 (an RNN without its recurrence); [lecture 11](11-representation-learning-reconstruction-based.md),
+slides 10–12, ≈13:08–16:17 (a width-2 MLP's layers drawn as it trains). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -239,3 +240,15 @@ and $\mathbf{V}$ the recurrent, input and output weights, $\mathbf{b}$ and $\mat
 nonlinearities. Remove $\mathbf{W}$, and the map from input to output, beyond scalars, "starts looking a little bit like that
 multi-layer perceptron that we're very familiar with. So the only difference here is that recurrence" (≈14:44–15:30). See
 [recurrent neural networks](recurrent-neural-networks.md).
+
+## Watching an MLP's layers train (lecture 11)
+
+Lecture 11 draws every layer of a small MLP as a map from one cloud of points to the next (slide 10). The network is "a
+three-layer MLP because there's three linear layers, so our convention is three layers", with ReLUs between them and a softmax on
+top, trained with cross-entropy; the data are a red cloud at the origin surrounded by blue points, which no hyperplane separates
+(≈13:08–13:53). Every layer has width 2, so "There's nothing hidden … It's just the raw activation values at each of these layers"
+(≈14:39). As it trains the red points move away from the blue: a linear layer shifts them, "the ReLU snaps it back onto the axes",
+the next linear layer skews, until they spread out on a line and the softmax puts each class at its one-hot label (≈13:53–14:39).
+"Each of the layers now can be understood as a different representation of the data distribution and a better and better
+representation" for the task (≈14:39). Slide 12 trains it with SGD and with steepest descent in the spectral norm; see
+[steepest descent](steepest-descent.md) and [representation learning](representation-learning.md).

@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md) and [lecture 10](10-architectures-memory.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md) and [lecture 11](11-representation-learning-reconstruction-based.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -36,7 +36,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 8 | Architectures: Transformers | [yes](08-architectures-transformers.md) |
 | 9 | Hacker's Guide to Deep Learning | [yes](09-hackers-guide-to-deep-learning.md) |
 | 10 | Architectures: Memory | [yes](10-architectures-memory.md) |
-| 11 | Representation Learning: Reconstruction-Based | not yet |
+| 11 | Representation Learning: Reconstruction-Based | [yes](11-representation-learning-reconstruction-based.md) |
 | 12 | Representation Learning: Similarity-Based | not yet |
 | 13 | Representation Learning: Theory | not yet |
 | 14 | Generative Models: Basics | not yet |
@@ -154,6 +154,17 @@ It prints no other lecture number. The recording opens by calling it "our last o
 couple lectures ago" (lecture 7, ≈31:06), to "the transformer lecture last week" (lecture 8, ≈47:22) and to "the hacker
 lecture" (lecture 9, ≈48:55). It names no later lecture.
 
+Lecture 11's deck is titled "Lecture 11: Representation Learning I", matching the recording and lecture 1's banner on its slide 73,
+but its outline (slide 2) is headed "12. Representation Learning I"; cite the lecture as 11. It prints no other lecture number. The
+recording opens the course's "next third", on representation learning and generative modeling (≈0:00), and points back to the problem
+set 2 spectral-descent method (≈15:30), to the normalization picture "I showed in one of the last lectures" (lecture 9, ≈10:49), to "the
+colorization problem I showed you before" (lecture 9, ≈1:06:50), to the vision transformer's tokens (lecture 8, ≈1:12:14) and to
+autoregressive generation "which we talked about before" (lectures 8 and 10, ≈1:14:33). It points ahead to the next lecture on "metric
+learning or contrastive learning" (lecture 12, ≈1:35; metrics "in the next lectures", ≈44:11), to generative modeling "in a few weeks"
+(lectures 14–16, ≈2:23), to variational autoencoders "later" (≈48:06), to "a few lectures on transfer learning" (lectures 18–19, ≈27:54),
+to linear probes and low-rank fine-tuning "in a future lecture" (≈36:27) and to CLIP "a little bit later in the course" (≈17:04), the
+last three without numbers.
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -198,7 +209,11 @@ all the variations. It'll implement GPT" (≈40:15). On OCW that is **Homework 3
 transformers" (8 points), "Implementing a Transformer" (11), "Vision Transformers" (6) and "DialogueGPT"
 (10), with the code for the last three in a Colab notebook. Its first problem is lecture 10's material: a simple RNN worked
 by hand, the fate of the first input's contribution over a long sequence, and the cost of a forward pass against a
-self-attention layer's ([lecture 10](10-architectures-memory.md#the-problem-set)).
+self-attention layer's ([lecture 10](10-architectures-memory.md#the-problem-set)). Lecture 11 says the class will
+run its coloured-shapes autoencoder experiments "on your p set 3" (≈54:21); on OCW they are in **Homework 4**, whose second section,
+"Reconstruction and Similarities in Representation Learning" (12 points), has an autoencoder question (6 points) and a contrastive-learning
+question (6 points) on $64 \times 64$ images of coloured shapes ([lecture 11](11-representation-learning-reconstruction-based.md#the-problem-set)).
+Its first section, on similarity-based learning (13 points), belongs with lecture 12. Homework 5 has a section on variational autoencoders (14 points) and one on diffusion models (17 points).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

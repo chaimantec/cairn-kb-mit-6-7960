@@ -41,6 +41,16 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   vanishing-gradient page above, its [lecture 6](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/06-sequence-to-sequence-models.md) on sequence-to-sequence
   models and beam search, and [decoding algorithms](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/decoding-algorithms.md) beyond beam search. Use lecture 10
   here first for this course's notation ($\mathbf{W}$, $\mathbf{U}$, $\mathbf{V}$, and the LSTM's $C_t$).
+  6.7960 lecture 11 is in this KB too: representation learning by compression (autoencoders, PCA, k-means, VQ nets) and by
+  prediction (self-supervised learning, masked autoencoders, BERT), with pretraining, linear probes and fine-tuning as the
+  reason to learn a representation. It treats BERT in a few minutes as the text version of the masked autoencoder; CS224N's
+  [lecture 9](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/09-pretraining.md) and its
+  [BERT](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/bert.md),
+  [pretraining and fine-tuning](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/pretraining-and-finetuning.md)
+  and [parameter-efficient finetuning](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/parameter-efficient-finetuning.md)
+  pages cover masked language modeling and adaptation from the language side, including the low-rank fine-tuning that
+  lecture 11 defers to "a future lecture". Use lecture 11 here first for this course's framing: compression against
+  prediction, and an encoder $f$ that gives each data point its representation $\mathbf{z} = f(\mathbf{x})$.
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/INDEX.md).
 
 - **CS336 — Language Modeling from Scratch** (Stanford, Percy Liang and Tatsunori Hashimoto,
