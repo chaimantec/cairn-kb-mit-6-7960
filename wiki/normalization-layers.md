@@ -9,7 +9,8 @@ over the examples of a batch instead of over the entries of one vector. Covered 
 (≈1:00:05–1:01:37); layer norm in the transformer block of [lecture 8](08-architectures-transformers.md)
 (slide 38, ≈57:23–58:56); and the practical advice of [lecture 9](09-hackers-guide-to-deep-learning.md)
 (slides 10, 42 and 43, ≈21:02–24:06 and ≈1:04:10–1:05:43); and the L2 norm drawn as a map of a whole distribution in
-[lecture 11](11-representation-learning-reconstruction-based.md) (slide 9, ≈10:49–11:35).
+[lecture 11](11-representation-learning-reconstruction-based.md) (slide 9, ≈10:49–11:35); and representations normalized onto a hypersphere in [lecture 12](12-representation-learning-similarity-based.md) (slides 15, 28 and 31,
+≈20:57 and ≈35:07–35:54).
 
 **Notation.** $x_{\text{in}}$ is the vector a layer normalizes, $x_{\text{in}}[k]$ its $k$-th entry, $d$
 its dimension, and $x_{\text{out}}$ the result. The RMS norm of a vector $\mathbf{v} \in \mathbb{R}^d$ is
@@ -99,6 +100,15 @@ of the last lectures, but I didn't really fully explain it", lecture 9's drawing
 map is nice: "the numerics are going to be bounded somehow. The vectors will not go to infinity or not go to 0" (≈11:35). The
 same lecture lists low-dimensional embeddings' weird interactions "with BatchNorm and LayerNorm" among the reasons an
 autoencoder's bottleneck is hard to work with (≈1:17:41); see [autoencoders](autoencoders.md).
+
+## Normalizing a representation onto the hypersphere (lecture 12)
+
+Lecture 12 normalizes the output of an encoder for a different reason. Metric learning's "Normalization of representations:
+angle instead of distance" (slide 15) means that "distance would be essentially just equivalent to angle", measured by inner
+products, and "you don't end up having things that get really blown up by scale. You're removing the scale complexity" (≈20:57).
+Contrastive learning's encoder maps onto the unit hypersphere, $f : \mathcal{X} \rightarrow \mathbb{S}^{d-1}$, for "more stable
+training (logistic regression needs regularization)" and because "well-clustered classes on hypersphere are linearly separable
+(cut off caps)" (slides 28 and 31). See [contrastive learning](contrastive-learning.md).
 
 ## See also
 

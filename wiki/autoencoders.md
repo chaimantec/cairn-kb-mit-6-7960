@@ -130,5 +130,6 @@ grouping or smoothness of the representation space". Homework 5 has a section on
 
 - [Representation learning](representation-learning.md) — what a representation is, and how to tell a good one.
 - [Self-supervised learning](self-supervised-learning.md) — learning by prediction rather than compression.
+- [Contrastive learning](contrastive-learning.md) — learning from similarity rather than reconstruction (lecture 12).
 - [Skip connections](skip-connections.md) — what a bottleneck loses, and why a skip around it defeats an autoencoder.
 - [Lecture 11](11-representation-learning-reconstruction-based.md) — the lecture these sections come from.

@@ -10,7 +10,8 @@ versus probabilities as optimization targets); [lecture 8](08-architectures-tran
 [lecture 9](09-hackers-guide-to-deep-learning.md), slides 29–41 and 49, ≈58:43–1:03:24 and ≈1:10:21–1:11:53 (classification as the
 default formulation, colorization turned into classification, and the loss at chance); [lecture 10](10-architectures-memory.md), slides 44–46 and 49–50, ≈48:08–51:16 and ≈53:37 (the next-word classifier, the size of
 its vocabulary, and maximum likelihood as cross-entropy); [lecture 11](11-representation-learning-reconstruction-based.md), slides 9–10, ≈11:35–14:39 (the
-softmax as a map onto the simplex).
+softmax as a map onto the simplex); [lecture 12](12-representation-learning-similarity-based.md), slides 28–39 and 53, ≈31:11–35:54 and ≈43:43 (the contrastive loss as
+a softmax cross-entropy over similarities).
 
 ## From last layer to prediction
 
@@ -155,3 +156,18 @@ a coefficient $\tau$ coloured as a learnable parameter; the lecture does not com
 cross-entropy (slide 10), the last layer's softmax "clamps that back down to this simplex", and each class's points head to its
 corner, "the one-hot labels for your data" (≈13:53–14:39); in a classifier with many classes, training pushes the classes "to the
 vertices of the simplex" (≈17:50).
+
+## A softmax over similarities (lecture 12)
+
+Lecture 12's self-supervised contrastive loss is a "Cross-entropy for softmax 'classifier' to discriminate 'classes' defined by
+similarities" (slide 28). The logits are inner products between unit-norm representations divided by a temperature $\tau$, the
+numerator holds the positive pair and the denominator adds the negatives:
+
+$$-\log \frac{e^{f(\mathbf{x})^{\top} f(\mathbf{x}^+)/\tau}}{e^{f(\mathbf{x})^{\top} f(\mathbf{x}^+)/\tau} + \sum_{i=1}^{N} e^{f(\mathbf{x})^{\top} f(\mathbf{x}_ i^-)/\tau}}$$
+
+Here $f$ is the encoder, $\mathbf{x}$ an anchor, $\mathbf{x}^+$ its positive and $\mathbf{x}_ i^-$ its $N$ negatives. It "looks to
+us maybe close to a softmax" (≈31:57), and slide 39 calls it a "cross-entropy loss to distinguish data points". Mapping onto a
+hypersphere keeps the logits bounded, which the lecture compares to regularizing logistic regression (slide 31, ≈35:54). Lecture
+12 also sets cross-entropy against contrastive objectives: "Contrastive learning provides more geometric and robustness feedback
+than cross-entropy loss" (slide 53), and for open-set problems a cross-entropy loss "based on a fixed number of categories" says
+"almost nothing" about new categories (≈1:13:28). See [contrastive learning](contrastive-learning.md).

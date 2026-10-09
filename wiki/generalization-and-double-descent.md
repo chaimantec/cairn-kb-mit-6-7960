@@ -13,7 +13,8 @@ distribution); and [lecture 6](06-generalization-theory.md), Generalization Theo
 3–65, ≈0:00–1:19:58, which gives the full treatment: memorization against generalization, double
 descent in detail, why the classical measures of complexity fail for deep nets, and the candidate
 inductive biases; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 3, 4 and 14–18, ≈1:34–7:01 and ≈33:20–41:03 (shortcuts
-that will not generalize, and making the training problem hard enough to generalize).
+that will not generalize, and making the training problem hard enough to generalize); and [lecture 12](12-representation-learning-similarity-based.md), slides 6–9,
+≈7:45–11:37 (the geometry of representations that generalize).
 
 ## The puzzle
 
@@ -273,3 +274,14 @@ generalize the best" (≈35:42). OpenAI's robot hand, trained with every physics
 took about ten times longer to reach the same training performance, and was the version expected to
 work in reality (slide 18): "High train accuracy can mean problem is too easy. Add more data to make
 problem harder." See [data augmentation](data-augmentation.md).
+
+## The geometry of representations that generalize (lecture 12)
+
+Lecture 12 looks for generalization in the shape of a representation. A NeurIPS 2020 competition asked "can we build
+complexity measures that accurately predict the generalization of models?", and its "3 winning strategies look at: Geometry of
+representation: consistency, separation" and "Robustness to perturbations" (slide 6, ≈7:45–8:30). Slides 7 and 8 (Chuang et al.,
+2021) show why. A CIFAR-10 network trained with the true labels puts its training data into ten tight, separated clusters
+("generalizes"). Trained on random labels, "you still will get clusters because the model can learn to memorize", but they are
+"much less concise ... much less separable" ("cannot generalize"), so a small perturbation is "pretty quickly moving into another
+color" (≈9:16–10:50). Concentration, separation and robustness to irrelevant perturbations become three of the lecture's five
+properties of a good representation (slide 9); see [representation learning](representation-learning.md).

@@ -8,7 +8,9 @@ later, **18 (models)** and **19 (data)**, which this knowledge base does not yet
 [course map](course-map.md)). Covered so far: [lecture 1](01-introduction.md), slides 76–77, ≈57:19–58:53 (reusing
 weights); [lecture 2](02-how-to-train-a-neural-net.md), ≈56:42 and ≈1:10:48–1:12:21 (pretrained parameters inside a
 larger network); [lecture 9](09-hackers-guide-to-deep-learning.md), slides 27–28, ≈56:26–58:43 (start from a pretrained
-model); lecture 11, slides 23–29, ≈27:54–39:32.
+model); lecture 11, slides 23–29, ≈27:54–39:32; [lecture 12](12-representation-learning-similarity-based.md), slides 3, 30 and 60–68, ≈2:20–3:05 and ≈1:03:23–1:10:21
+(transfer as a reason to learn representations, self-supervised against supervised pretraining, and linear probes on
+iNaturalist).
 
 ## A good representation makes the next task easier
 
@@ -78,6 +80,17 @@ thought. Theoretically, I would say it's very much an open question" (lecture 11
 Arora's papers and talks, which phrase the question this way, "but I would say it's in its early days". Lecture 1 frames it
 the same way, as the open question of "what do we really need to learn from scratch versus what is generally useful"
 (≈57:19–58:53).
+
+## The benchmark decides what transfers (lecture 12)
+
+Lecture 12 lists "To do more learning (transfer learning)" among the reasons to learn representations: a representation "that
+then is more easily finetuned ... maybe requiring less training data in that finetuning step" (slide 3, ≈2:20–3:05). Its case
+study measures a self-supervised representation through a **linear probe**, "taking a representation space and then just learning
+a linear projection that's going to actually be our categorizer", trained with labels (≈1:03:23). On iNaturalist 2021, SimCLR and
+MoCo probes nearly match a supervised model on coarse levels of the taxonomy but trail it by about 30 points on species, where on
+ImageNet the gap is about 7 (slides 60–66). "The benchmarks that we use really influence our idea of what's good enough": on
+ImageNet's coarse categories, self-supervised representations look "very, very close to as good as supervised representations",
+but that is "contextualized on the task of interest" (≈1:09:36–1:10:21). See [contrastive learning](contrastive-learning.md).
 
 ## In practice
 

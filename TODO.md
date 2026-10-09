@@ -21,7 +21,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 09 Hacker's Guide to Deep Learning — video DC2Hw9DiLCg (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 10 Architectures: Memory — video IiHknRHA-Gk (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 11 Representation Learning: Reconstruction-Based — video QxOzQRtd440 (OCW human captions; light copy-edit, verbatim in original/)
-- [ ] 12 Representation Learning: Similarity-Based — video yUh1fEGGdl4
+- [x] 12 Representation Learning: Similarity-Based — video yUh1fEGGdl4 (OCW human captions; light copy-edit, verbatim in original/)
 - [ ] 13 Representation Learning: Theory — video -eC0-5mXHQg
 - [ ] 14 Generative Models: Basics — video hJlrAHqGOS8
 - [ ] 15 Generative Models: Representation Learning Meets Generative Modeling — video 8zzfcYIELdo
@@ -56,6 +56,8 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 10 — Opus figure audit on 44 pages applied (10 corrected)
 - [x] 11 Representation Learning: Reconstruction-Based — mit6_7960_f24_lec11.pdf (65 pages; read by Sonnet)
 - [x] 11 — Opus figure audit on 43 pages applied (13 corrected; first auditor stopped by a session limit after 6 pages, a second did the other 37)
+- [x] 12 Representation Learning: Similarity-Based — mit6_7960_f24_lec12.pdf (70 pages; read by Sonnet; 37 OCW notices, 35 of them drawn as glyph outlines the text layer cannot see)
+- [x] 12 — Opus figure audit on 46 pages applied (26 corrected; both first auditors stopped by a session limit after 15 and 10 pages, two more did the other 21)
 
 ## Wiki
 - [x] wiki/01-introduction.md
@@ -69,6 +71,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] wiki/09-hackers-guide-to-deep-learning.md
 - [x] wiki/10-architectures-memory.md
 - [x] wiki/11-representation-learning-reconstruction-based.md
+- [x] wiki/12-representation-learning-similarity-based.md
 - [x] Topic pages (cross-lecture concepts) for lecture 1
 - [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
 - [x] Topic pages for lecture 3: lipschitz-continuity, scaling-laws new; representational-power rewritten; MLP, activations, generalization, course-map extended
@@ -80,6 +83,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Topic pages for lecture 9: normalization-layers, data-augmentation new; softmax-and-cross-entropy, tensors-and-batching, gradient-descent, inductive-bias, scaling-laws, generalization-and-double-descent, norms, convolution, transformers, course-map extended
 - [x] Topic pages for lecture 10: recurrent-neural-networks, autoregressive-models new; transformers, convolution, backpropagation, loss-landscapes, skip-connections, softmax-and-cross-entropy, activation-functions, norms, multilayer-perceptron, graph-neural-networks, inductive-bias, course-map extended
 - [x] Topic pages for lecture 11: autoencoders, self-supervised-learning, transfer-learning new; representation-learning, normalization-layers, activation-functions, softmax-and-cross-entropy, multilayer-perceptron, steepest-descent, transformers, autoregressive-models, skip-connections, convolution, course-map extended
+- [x] Topic pages for lecture 12: metric-learning, contrastive-learning new; representation-learning, self-supervised-learning, data-augmentation, transfer-learning, softmax-and-cross-entropy, generalization-and-double-descent, inductive-bias, transformers, normalization-layers, autoencoders, course-map extended
 - [x] INDEX.md table of contents
 
 ## Images
@@ -94,6 +98,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] raw/images/09-hackers-guide-to-deep-learning/ — 11 images; 21 OCW-excluded slides never rendered; slide 57 reuses slide 4's output pictures but not its excluded X-ray, so it is rendered
 - [x] raw/images/10-architectures-memory/ — 32 images; 20 OCW-excluded slides never rendered; no reuse of excluded images found by pixel hash across decks 1–10
 - [x] raw/images/11-representation-learning-reconstruction-based/ — 25 images; 22 OCW-excluded slides and slide 13 (lecture 1's excluded slide 73 figure) never rendered
+- [x] raw/images/12-representation-learning-similarity-based/ — 8 images (slides 8, 22, 23, 35, 43, 49, 50, 51); 37 OCW-excluded slides never rendered (35 of their notices are glyph outlines the text layer misses); no reuse of excluded images found by pixel hash across decks 1–12 in either direction
 - [x] AGENTS.md — the Images conventions section
 
 ## Publish
@@ -129,3 +134,5 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 10: verify_kb.py clean, review read; commit and push
 - [x] Lecture 11: INDEX, AGENTS, kb.json, SEE_ALSO updated
 - [x] Lecture 11: verify_kb.py clean, review read; commit and push
+- [x] Lecture 12: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 12: verify_kb.py clean, review read; commit and push

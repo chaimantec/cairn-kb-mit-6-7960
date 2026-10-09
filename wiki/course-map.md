@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md) and [lecture 11](11-representation-learning-reconstruction-based.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md) and [lecture 12](12-representation-learning-similarity-based.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -37,7 +37,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 9 | Hacker's Guide to Deep Learning | [yes](09-hackers-guide-to-deep-learning.md) |
 | 10 | Architectures: Memory | [yes](10-architectures-memory.md) |
 | 11 | Representation Learning: Reconstruction-Based | [yes](11-representation-learning-reconstruction-based.md) |
-| 12 | Representation Learning: Similarity-Based | not yet |
+| 12 | Representation Learning: Similarity-Based | [yes](12-representation-learning-similarity-based.md) |
 | 13 | Representation Learning: Theory | not yet |
 | 14 | Generative Models: Basics | not yet |
 | 15 | Generative Models: Representation Learning Meets Generative Modeling | not yet |
@@ -165,6 +165,13 @@ learning or contrastive learning" (lecture 12, ≈1:35; metrics "in the next lec
 to linear probes and low-rank fine-tuning "in a future lecture" (≈36:27) and to CLIP "a little bit later in the course" (≈17:04), the
 last three without numbers.
 
+Lecture 12's deck is titled "Lecture 12: Similarity-based Representation Learning", matching the recording, and prints no other
+lecture number; its roadmap (slides 2 and 26) carries none. Its slide 45 points to a "geometric DL lecture", which is not the title
+of any lecture in the schedule: [lecture 9](09-hackers-guide-to-deep-learning.md) is where data augmentation is set against
+geometric deep learning, and lectures 4 and 5 build symmetries into architectures. The recording points ahead only to "Thursday"
+(lecture 13, ≈1:15:46), and back to "the geometric deep learning lecture" (≈52:23) without a number. Its contrastive-learning
+material is Homework 4's first section ([lecture 12](12-representation-learning-similarity-based.md#the-problem-set)).
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -213,7 +220,7 @@ self-attention layer's ([lecture 10](10-architectures-memory.md#the-problem-set)
 run its coloured-shapes autoencoder experiments "on your p set 3" (≈54:21); on OCW they are in **Homework 4**, whose second section,
 "Reconstruction and Similarities in Representation Learning" (12 points), has an autoencoder question (6 points) and a contrastive-learning
 question (6 points) on $64 \times 64$ images of coloured shapes ([lecture 11](11-representation-learning-reconstruction-based.md#the-problem-set)).
-Its first section, on similarity-based learning (13 points), belongs with lecture 12. Homework 5 has a section on variational autoencoders (14 points) and one on diffusion models (17 points).
+Its first section, on similarity-based learning (13 points), belongs with lecture 12 ([lecture 12](12-representation-learning-similarity-based.md#the-problem-set)). Homework 5 has a section on variational autoencoders (14 points) and one on diffusion models (17 points).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

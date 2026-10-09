@@ -218,6 +218,15 @@ of text (slide 60). Autoregressive language models are the same idea with only t
 why, in the lecturer's account, BERT has gone out of fashion (≈1:13:47–1:15:20). See [self-supervised learning](self-supervised-learning.md).
 Lecture 11 also shows a trained vision transformer, CLIP, separating the classes of a data set layer by layer (slide 13, ≈16:17–17:50).
 
+## Projections for similarity and for information (lecture 12)
+
+Lecture 12 draws a parallel between the transformer and the projection head of contrastive learning, where the loss is applied
+to a projection $g(\mathbf{h})$ while the representation $\mathbf{h}$ itself is kept for later use. "When you think about a
+transformer, there's one set of projections where you're calculating similarity between things. And then there's this other
+set of projections that you use to actually pass information", which "seems to suggest that it might be valuable to have
+differences between the representations we actually use to keep information and the representations we use to calculate
+similarity or difference" (≈57:03). See [contrastive learning](contrastive-learning.md).
+
 ## Where it goes next
 
 The problem set announced in lecture 8, Homework 3 on OCW, implements a transformer, a vision transformer and a small

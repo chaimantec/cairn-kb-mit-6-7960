@@ -33,7 +33,7 @@ reconstruction.
 The deck is titled "Lecture 11", matching the recording, but its outline slide is headed "12. Representation
 Learning I" (slide 2). See the [course map](course-map.md#the-decks-lecture-pointers). The outline is: nets learn
 representations; why learn representations?; autoencoders; clustering and VQ; self-supervised learning by
-reconstruction (slide 2). The next lecture covers "a different type of representation learning, which is called
+reconstruction (slide 2). The next lecture, [lecture 12](12-representation-learning-similarity-based.md), covers "a different type of representation learning, which is called
 metric learning or contrastive learning, where you learn about similarities and distances" (≈1:35).
 
 ## Two directions through a network
@@ -341,7 +341,7 @@ The lecture turns to methods that "don't target some supervised task, they just 
 generically": **unsupervised** or **self-supervised learning**, where the data "is not xy pairs, but it's just x" (slide
 33, ≈43:23). What comes out can be embeddings, clusters or metrics (slide 34). "A metric is a function of x1 and x2, so
 it's a bivariate function as opposed to an embedding, which is a univariate function"; metrics are the next lectures'
-subject (≈44:11).
+subject (≈44:11; see [metric learning](metric-learning.md)).
 
 "In my opinion, there's two general principles for how to learn a good vector embedding without having an explicit
 supervised task": **compression**, "find a good compression of your data", and **prediction**, "be able to predict
@@ -674,7 +674,7 @@ $f : \mathcal{X} \to \mathbb{R}^d$ and $g : \mathbb{R}^d \to \mathcal{X}$. It as
 and cannot determine (a sample's index, its colour, whether two red samples sit closer than a red and a blue one, and the same for unseen
 samples), then has you implement the reconstruction loss, visualize the trained encoder by nearest neighbours on training and validation
 images, and explain any clusters you see, since "The Autoencoder objective alone … doesn't enforce any grouping or smoothness of the
-representation space". The section's other question, on contrastive learning, belongs with lecture 12. See [sources](../sources.md).
+representation space". The section's other question, on contrastive learning, belongs with [lecture 12](12-representation-learning-similarity-based.md#the-problem-set). See [sources](../sources.md).
 
 ## See also
 
@@ -687,3 +687,4 @@ representation space". The section's other question, on contrastive learning, be
 - [Normalization layers](normalization-layers.md), [activation functions](activation-functions.md) and
   [softmax and cross-entropy](softmax-and-cross-entropy.md) — what each layer does to a distribution of points.
 - [Lecture 10 — Architectures: Memory](10-architectures-memory.md), the previous lecture.
+- [Lecture 12 — Representation Learning: Similarity-Based](12-representation-learning-similarity-based.md), the next lecture.

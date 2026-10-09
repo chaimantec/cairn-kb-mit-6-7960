@@ -13,7 +13,9 @@ trained transformer); [lecture 11](11-representation-learning-reconstruction-bas
 and ≈54:21–58:19 (what a representation is, layers as transformations of a distribution, probing a network like a brain,
 why representations are learned, what makes one good, and the trade-offs any one makes). Lecture 11's methods for learning
 one without labels have their own pages: [autoencoders](autoencoders.md), [self-supervised learning](self-supervised-learning.md)
-and, for what a representation is used for, [transfer learning](transfer-learning.md).
+and, for what a representation is used for, [transfer learning](transfer-learning.md). [lecture 12](12-representation-learning-similarity-based.md), slides 3–9, 40–46 and
+69, ≈1:33–11:37, ≈45:15–54:42 and ≈1:14:13–1:15:46, lists what a good representation should be and learns one from similarity;
+its methods are on [metric learning](metric-learning.md) and [contrastive learning](contrastive-learning.md).
 
 ## Compact, compositional representations
 
@@ -224,4 +226,35 @@ vector-quantized autoencoders, and **prediction** of held-out data, the route of
 (slide 35, ≈44:11–44:58). Clustering is itself representation learning, an encoder to integers, and in the lecturer's view "the
 problem of making up new words for things", words being the atoms of language, "the best representation of the world that humans
 have discovered" (slide 45, ≈1:00:38–1:01:23). Lecture 11 ends on LeCun's cake, whose bulk is representation learning: "the bulk
-of intelligence, and I agree with that point" (slide 63, ≈1:20:05). Metric (similarity-based) learning is lecture 12's subject.
+of intelligence, and I agree with that point" (slide 63, ≈1:20:05). Metric (similarity-based) learning is lecture 12's subject; see the next section.
+
+## Five properties, and similarity as the signal (lecture 12)
+
+Lecture 12 starts from the same question, "Why learn representations?", with five answers: to improve generalization, to do
+more learning (transfer), to exploit geometric similarity for new data or queries (has this face been seen before; which items
+are similar to a query), to improve clustering with side information, and dimensionality reduction (slide 3, ≈1:33–3:51). It then
+builds up a list of what a good representation is (slides 5 and 9):
+
+1. compact (*minimal*): "We don't want to have more capacity than we actually need";
+2. explanatory (*sufficient*): it keeps "the dimensions that matter", which depends on the downstream task;
+3. concentration: data from the same class is close together;
+4. separation: classes are well separated;
+5. robustness to irrelevant perturbations: "if you saw me from this angle, you'd want to be robust to me looking the other
+   direction" (≈6:12–10:50).
+
+The evidence for the middle three is empirical. The winning entries of a NeurIPS 2020 competition on predicting generalization
+looked at the geometry of the representation (consistency and separation) and at robustness to perturbations (slide 6), and a
+CIFAR-10 network trained on true labels gives tight, separated clusters, while one trained on random labels memorizes into
+fuzzy, overlapping ones (slides 7–8, ≈8:30–10:50; see [generalization](generalization-and-double-descent.md)).
+
+To get these properties, the lecture trains on "feedback in terms of similarity: pairs of similar/dissimilar inputs" (slide 10):
+first with labels ([metric learning](metric-learning.md)), then without ([contrastive learning](contrastive-learning.md)). Its
+account of what the contrastive recipe does splits the list in two: the loss encourages concentration (**alignment**) and
+separation (**uniformity** over a hypersphere), and the data, through the choice of positive pairs, encourages robustness, as
+**learned invariance** (slides 40–46, ≈45:15–53:56). The summary: "Good representations capture relevant similarity/dissimilarity
+information", with "well-clustered, compact and separated/spread out classes" that preserve relevant information and "teach
+relevant invariances ('forget' irrelevant information)" (slide 69).
+
+What counts as relevant is set by the task. A contrastive representation trained on iNaturalist without labels groups a bird held
+in a hand with other birds held in hands rather than with its species, so "for contrastive learning to work well, you need to have a
+good similarity measure for your problem of interest" (slides 67–68, ≈1:07:16), the same lesson as lecture 11's trade-offs.

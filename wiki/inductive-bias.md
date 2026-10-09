@@ -12,7 +12,8 @@ on why generalization needs inductive bias at all: slides 19, 47–63, ≈21:37�
 ≈58:53–1:18:26; [lecture 8](08-architectures-transformers.md), on transformers: slides 4–5, 15 and 41–47, ≈3:02–6:57,
 ≈11:35–16:14, ≈51:59 and ≈1:00:29–1:05:51; [lecture 9](09-hackers-guide-to-deep-learning.md), on data augmentation as the alternative to
 built-in invariance and on the biases that standardization and one-hot labels remove: slides 9, 13 and 40,
-≈16:24–19:29, ≈31:02–32:34 and ≈1:02:38–1:03:24.
+≈16:24–19:29, ≈31:02–32:34 and ≈1:02:38–1:03:24; and [lecture 12](12-representation-learning-similarity-based.md), on invariance
+learned from augmented pairs against invariance hard-coded into an architecture: slide 45, ≈52:23–53:56.
 
 ## Why an MLP is not enough
 
@@ -210,6 +211,18 @@ one dimension is treated as more important a priori than another dimension". A s
 it is bad: horizontal and vertical distances that are physically the same quantity should not be scaled
 separately (≈17:56–18:44). And one-hot labels make every pair of classes equally far apart, which "removes
 inductive bias about how we represent target variables" (slide 40, ≈1:02:38–1:03:24).
+
+## Learned invariance (lecture 12)
+
+Lecture 12 returns to lecture 9's choice from the side of representation learning. In self-supervised
+[contrastive learning](contrastive-learning.md), two augmentations of one input are trained to the same representation, so the
+"learned representation is invariant to perturbations induced by data augmentations: learned invariance" (slide 45). The slide
+then asks: "Learned versus hard-coded invariances (geometric DL lecture): when would we use which?" Symmetries can be built in,
+"If you want to be symmetrically invariant, you could build symmetry directly into your representation", but many invariances
+"can be really difficult to define mathematically", and augmentation builds them in "without actually being able to mathematically
+define explicitly what it means to be, for example, invariant to pose within a scene or distance in these complex geometric
+spaces, particularly for nonrigid objects" (≈52:23–53:56). The price is that each augmentation is an assumption: random flips make
+left and right shoes indistinguishable (≈39:00–39:47).
 
 ## Where it goes next
 

@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–11 of 24 only.** This knowledge base currently holds the first eleven
+> **Coverage: lectures 1–12 of 24 only.** This knowledge base currently holds the first twelve
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based) and the concept pages they support. For anything taught in lectures 12–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based) and the concept pages they support. For anything taught in lectures 13–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 11. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 12. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -159,6 +159,20 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   imputation; masked autoencoders and BERT, and why BERT fell out of fashion; why masked prediction beats autoencoding
   (three hypotheses, "ongoing science"); LeCun's cake; and Homework 4's autoencoder question. 22 of its slides are
   excluded from OCW's licence.
+- [Lecture 12 — Representation Learning: Similarity-Based](wiki/12-representation-learning-similarity-based.md) —
+  Sara Beery. Why learn representations, and five properties of a good one (compact, explanatory, concentration,
+  separation, robustness), with the NeurIPS 2020 generalization competition and CIFAR-10 t-SNE plots under true and
+  random labels; similarity as the training signal (the elephant described through a rhinoceros); metric learning: the
+  linear map $\mathbf{z} = \mathbf{W}\mathbf{x}$ as a Mahalanobis distance, Xing et al.'s constrained problem (2003),
+  deep metric learning and normalized representations; contrastive losses: the moths, the triplet loss and triplet
+  network, the lifted structured loss, bird embeddings and nearest neighbours (CUB), what makes images "similar", and
+  hard, semi-hard and easy negatives; self-supervised contrastive learning: the InfoNCE-style loss on a hypersphere,
+  symmetry and matching marginal, why a hypersphere, augmentations as positives and SimCLR, other "views" (CMC,
+  video, CLIP); what the loss does (a mutual-information bound, alignment and uniformity, the circle toy example and the
+  Wang–Isola encoder plots) and what the pairs do (learned invariance, the shoes); the SimCLR ingredients
+  (augmentation, projection heads, batch size, false negatives, supervised contrastive learning); the iNaturalist 2021
+  case study (a 30-point species gap against 7 on ImageNet; birds retrieved by being held in hands); and Homework 4's
+  similarity-based section. 37 of its 70 slides are excluded from OCW's licence.
 
 ## Course pages
 
@@ -169,7 +183,7 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   policy; and which problem set goes with which lecture where a lecture says (lecture 5's
   graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
   Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation and lecture 10's RNN problem are Homework 3; lecture 11's coloured-shapes
-  autoencoder, which the lecturer calls "p set 3", is Homework 4).
+  autoencoder, which the lecturer calls "p set 3", is Homework 4, whose first section goes with lecture 12).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -258,7 +272,8 @@ passages it draws on.
   classification (lecture 8); softmax regression as the default formulation and why, colorization
   turned into per-pixel classification, and the log loss at chance, $\ln 0.5 = -0.69$ and
   $\ln 0.1 = -2.3$ (lecture 9); next-word classification over words, characters or byte pairs, and
-  maximum likelihood as cross-entropy (lecture 10); the softmax as a map onto the simplex (lecture 11).
+  maximum likelihood as cross-entropy (lecture 10); the softmax as a map onto the simplex (lecture 11); the contrastive
+  loss as a softmax cross-entropy over similarities with a temperature (lecture 12).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
@@ -304,7 +319,8 @@ passages it draws on.
   hypothesis, why parameter count, norm and VC dimension fail (random labels make the VC bound
   vacuous), and the candidate inductive biases; previews lecture 17. Lecture 9's practical side: a
   shortcut that will not generalize, training problems too easy to generalize from, and domain
-  randomization.
+  randomization. Lecture 12's geometry of representations that generalize: consistency, separation and robustness, and
+  CIFAR-10 representations under true and random labels.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -314,7 +330,9 @@ passages it draws on.
   layer, and DINO's attention maps that stay inside objects (lecture 8); what a representation is (the encoder
   $f : \mathcal{X} \to \mathbb{R}^d$), layers as transformations of a distribution, probing a network like a brain
   (Zeiler and Fergus), what makes a representation good, the trade-offs every representation makes, and
-  compression against prediction (lecture 11); previewing lectures 12–13 and 18–19.
+  compression against prediction (lecture 11); five properties of a good representation, similarity as the signal, the
+  loss giving alignment and uniformity and the data giving invariance, and why "relevant" depends on the task (lecture 12);
+  previewing lectures 13 and 18–19.
 - [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
   reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
   PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
@@ -325,12 +343,13 @@ passages it draws on.
   another part: learning without labels, compression against prediction, the pretext-task trick, colorization and
   the object units it finds ("words are not arbitrary"), imputation (spatial, temporal, channel), masked autoencoders,
   BERT and next-word prediction, three hypotheses for why prediction beats reconstruction, and LeCun's cake
-  (lecture 11); colorization as classification (lecture 9).
+  (lecture 11); colorization as classification (lecture 9); self-supervision by similarity, contrastive learning (lecture 12).
 - [Transfer learning](wiki/transfer-learning.md) — reusing a learned representation: "a good representation is one
   that makes a subsequent learning task easier", deep nets as not blank slates, linear adaptation (linear probes) and
   fine-tuning, pretrain–adapt–test, learning from little data by pretraining on massive data, how big the ratio is,
   transfer across domains, and the open theory (lecture 11); reusing lower layers (lecture 1), pretrained parameters
-  in a larger network (lecture 2), and starting from a pretrained model (lecture 9). Lectures 18–19 are not yet
+  in a larger network (lecture 2), and starting from a pretrained model (lecture 9); linear probes of self-supervised
+  representations on iNaturalist, and how the benchmark decides what transfers (lecture 12). Lectures 18–19 are not yet
   covered.
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
@@ -354,7 +373,8 @@ passages it draws on.
   convolution as a token-wise MLP, and the Toeplitz matrix beside attention (lecture 8); a ConvNet slid
   over an image to classify every pixel (lecture 9); convolution in time, slices of the space–time cube,
   and what a fixed window forgets (lecture 10); what a trained ConvNet's filters respond to, layer by layer, and the
-  Fourier transform turning convolution into a product (lecture 11).
+  Fourier transform turning convolution into a product (lecture 11); invariance learned from augmented pairs against
+  invariance hard-coded into an architecture (lecture 12).
 - [Skip connections](wiki/skip-connections.md) — what an encoder–decoder's bottleneck loses, U-net's
   skip connections across the "U", and ResNet's residual connection
   $\mathbf{x}_ {\text{out}} = F(\mathbf{x}_ {\text{in}}) + \mathbf{x}_ {\text{in}}$, including
@@ -385,7 +405,8 @@ passages it draws on.
   You Need", cross-attention, and why transformers are everywhere; the transformer in lecture 9's
   default recipe, and "attention is not all you need"; attention against recurrence and convolution, the cost
   table of "Attention Is All You Need", longer contexts (sparse, local plus global, retrieval) and whether
-  benchmarks need them (lecture 10); masked autoencoders and BERT, masking tokens to learn without labels (lecture 11).
+  benchmarks need them (lecture 10); masked autoencoders and BERT, masking tokens to learn without labels (lecture 11);
+  separate projections for similarity and for information, compared to a projection head (lecture 12).
 - [Recurrent neural networks](wiki/recurrent-neural-networks.md) — lecture 10's RNNs and LSTMs: what a convolution
   over time forgets, the hidden state and the recurrence shared over time, the simplest RNN and its MLP
   relative, the cycle in the graph and backpropagation through time over a truncated window, summed gradients
@@ -401,10 +422,22 @@ passages it draws on.
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
   one gives zero, the pix2pix bug), and lecture 9's case against batch norm; the L2 norm as a map onto the
-  hypersphere (lecture 11). Spans lectures 3, 7, 8, 9 and 11.
+  hypersphere (lecture 11); representations normalized onto the hypersphere so that similarity is an angle (lecture 12).
+  Spans lectures 3, 7, 8, 9, 11 and 12.
 - [Data augmentation](wiki/data-augmentation.md) — label-preserving transformations, augmentation
   against invariant architectures (geometric deep learning), making the training problem harder on
-  purpose, domain randomization and the domain gap, and OpenAI's robot hand (lecture 9).
+  purpose, domain randomization and the domain gap, and OpenAI's robot hand (lecture 9); augmentations as the positive
+  pairs of contrastive learning, the invariances they teach (and the left and right shoes), and SimCLR's need for heavy
+  augmentation (lecture 12).
+- [Metric learning](wiki/metric-learning.md) — learning a distance from similar and dissimilar pairs: relative
+  judgements, the linear map as a Mahalanobis distance, Xing et al.'s constrained problem, deep metric learning and
+  normalized representations, the triplet loss, triplet networks and the lifted structured loss, what a learned bird
+  embedding groups, and hard negatives (lecture 12).
+- [Contrastive learning](wiki/contrastive-learning.md) — pulling positive pairs together and pushing negatives apart:
+  from triplets to many negatives, the softmax loss on a hypersphere (NCE, InfoNCE), positives from augmentation
+  (SimCLR) or from other views (CMC, video, CLIP), false negatives and supervised contrastive learning, alignment and
+  uniformity, learned invariance, the SimCLR ingredients (augmentation, projection head, batch size, negatives), and
+  the iNaturalist case study of where it falls short (lecture 12); Homework 4's similarity-based section.
 
 ## Raw materials
 
@@ -417,7 +450,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–11 only; see [AGENTS.md](AGENTS.md#images)
+  and in the wiki passage that cites them. Lectures 1–12 only; see [AGENTS.md](AGENTS.md#images)
   for which slides have images and which deliberately do not.
 - [`sources.md`](sources.md) — every course document on OCW (slide decks, problem sets, the
   notation handout) with its canonical URL. The PDFs are not committed; cite those URLs.

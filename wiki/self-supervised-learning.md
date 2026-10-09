@@ -8,7 +8,8 @@ big finding over the last decade that led to this revolution in how we do deep l
 supervised learning to self-supervised learning" (≈1:09:53). Covered so far: lecture 11, slides 33–35 and 50–64,
 ≈43:23–45:43 and ≈1:05:15–1:20:51; colorization as a project in [lecture 9](09-hackers-guide-to-deep-learning.md),
 slides 29–39; next-word prediction in [lecture 8](08-architectures-transformers.md) and
-[lecture 10](10-architectures-memory.md).
+[lecture 10](10-architectures-memory.md); and self-supervision by similarity rather than prediction, contrastive learning, in
+[lecture 12](12-representation-learning-similarity-based.md), slides 27–37, 47–51 and 54–68, ≈30:25–43:43 and ≈53:56–1:10:21.
 
 ## Learning without labels
 
@@ -107,8 +108,21 @@ observed part" (the cake génoise). "Self-supervision is about not having labels
 tied to a task. It's just generally compress the universe into something that's predictive of the future and is compact
 … representation learning is the bulk of intelligence, and I agree with that point" (≈1:20:05).
 
+## Self-supervision by similarity (lecture 12)
+
+Lecture 11's two routes, compression and prediction, are joined in lecture 12 by a third: learn from **similarity** without
+labels. "Self-supervised contrastive representation learning" takes "Ideas from metric learning and self-supervision" (slide 27):
+the positive pair is two augmentations of one data point, the negatives are other data points, and a softmax cross-entropy over
+their inner products pulls the pair together and pushes the rest apart (slides 28–34). The supervision is made from the data,
+as in a pretext task, and "a lot of modern work actually really is just people coming up with creative ways to supervise models
+without requiring labels because ... handcrafted, human-generated labels are very expensive" (≈42:52). It "can outperform
+supervised pre-training (for some tasks)" (slide 30). Its limit is the same as a pretext task's: the representation learns what
+the pairs encode. On iNaturalist, SimCLR and MoCo trail a supervised model by about 30 points at the species level, where on
+ImageNet the gap is about 7 (slide 64). See [contrastive learning](contrastive-learning.md).
+
 ## See also
 
+- [Contrastive learning](contrastive-learning.md) — self-supervision by similarity (lecture 12).
 - [Representation learning](representation-learning.md) — what the learned representation is and how it is probed.
 - [Autoencoders](autoencoders.md) — the compression route.
 - [Transfer learning](transfer-learning.md) — what a pretrained representation is for.

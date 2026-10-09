@@ -51,6 +51,12 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   pages cover masked language modeling and adaptation from the language side, including the low-rank fine-tuning that
   lecture 11 defers to "a future lecture". Use lecture 11 here first for this course's framing: compression against
   prediction, and an encoder $f$ that gives each data point its representation $\mathbf{z} = f(\mathbf{x})$.
+  6.7960 lecture 12 is here as well: metric learning, the triplet loss, and self-supervised contrastive learning (an
+  InfoNCE-style loss on a hypersphere, SimCLR, alignment and uniformity), whose slide 37 cites CLIP for image–text pairs in a
+  single line. CS224N's [lecture 19](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/19-multimodal-deep-learning.md)
+  and its [contrastive vision-language models](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/wiki/contrastive-vision-language-models.md)
+  page treat that image–text case at length, with CLIP placed in a lineage of cross-modal embedding models from 2014 on. Use
+  lecture 12 here first for the general method and this course's notation.
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs224n/main/INDEX.md).
 
 - **CS336 — Language Modeling from Scratch** (Stanford, Percy Liang and Tatsunori Hashimoto,
@@ -71,4 +77,8 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   [lecture 9](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/09-scaling-laws.md)
   tells the Kaplan-versus-Chinchilla story in full, including depth and width. It is about language
   models specifically, and measures and builds rather than proves.
+  For 6.7960 lecture 12's contrastive learning, CS336's [CLIP](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/clip.md)
+  and [contrastive image-text pretraining](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/contrastive-image-text-pretraining.md)
+  pages cover the image–text case (CLIP and SigLIP) as pretraining for multimodal language models; lecture 12 here covers the
+  method itself (triplet loss, InfoNCE, SimCLR, alignment and uniformity) and names CLIP only as a citation.
   Start at [INDEX](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/INDEX.md).
