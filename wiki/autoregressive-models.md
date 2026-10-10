@@ -8,8 +8,9 @@ works" ([lecture 8](08-architectures-transformers.md), ≈1:06:38). Covered so f
 ≈42:35–44:51 (longer prompts make the next word easier to predict); [lecture 10](10-architectures-memory.md), slides
 40–53, ≈41:53–58:19 (the probability model, next-word classification, the choice of vocabulary, a molecule-to-text
 model, teacher forcing, sampling and beam search); [lecture 11](11-representation-learning-reconstruction-based.md), ≈1:10:38 and ≈1:13:47–1:15:20
-(next-word prediction as self-supervised learning, set beside BERT's masking). Generative models are the subject of lectures 14–16 and language
-models of lecture 21 (see the [course map](course-map.md)).
+(next-word prediction as self-supervised learning, set beside BERT's masking); [lecture 14](14-generative-models-basics.md), slides 35–42 and
+52–53, ≈59:43–1:07:34 and ≈1:15:21–1:16:52 (autoregressive models as generative density models, of words, pixels and audio, and their kinship with
+diffusion models). Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
 
 ## Predict, append, repeat
 
@@ -99,3 +100,30 @@ in conversation, "time is an axis that is important and not symmetric with other
 has been asked", so masking only the future "just fits into language models"; the biggest models did that, "And because those were the
 biggest models, they just worked the best". For learning a sentence embedding, "I bet the BERT method is still going to work better if
 scaled the same amount" (≈1:14:33–1:15:20). See [self-supervised learning](self-supervised-learning.md).
+
+## Autoregressive models as generative models (lecture 14)
+
+Lecture 14 places autoregressive models in the course's taxonomy of [generative models](generative-models.md), as "the simplest
+one to understand" (≈59:43). Training is supervised learning on prefixes and next elements; sampling feeds each sampled output
+back in as input (slide 36). That this is a valid probability model rests on the chain rule of probability,
+$p(\mathbf{X}) = \prod_{i=1}^{n} p(\mathbf{x}_ i \mid \mathbf{x}_ 1, \ldots, \mathbf{x}_ {i-1})$, so that modeling every
+conditional by a next-element classifier and maximizing the likelihood of the training sequences is maximum-likelihood
+density modeling (slides 37–38, ≈1:01:17–1:02:03).
+
+**Which kind of generative model is it?** Asked whether it is a density model, an energy model or a sampler, the class voted
+mostly for density model, and the lecturer agrees: it outputs "the density over the next pixel given the previous pixels", and
+"the product of all the conditional probabilities is the probability of the entire image. That's a density that integrates to
+1" (≈1:04:24–1:05:58).
+
+**Pixels and audio.** The same model draws an image pixel by pixel: quantize the colours into classes, predict a categorical
+distribution over the next pixel's colour from the pixels so far, sample it, write it in, and repeat (slide 39,
+≈1:02:49–1:03:36). The loss on one pixel is the log probability of the ground-truth colour, the predicted log probabilities
+multiplied elementwise by the one-hot label (slide 40), and summed over all the pixels of a training image it is the image's
+log-likelihood (≈1:06:47). Slide 41 shows the training pairs and the sampling loop on bird images, and slide 42 cites WaveNet,
+which models raw audio the same way: "it looks exactly like language modeling" (≈1:05:58).
+
+**Kinship with diffusion.** Read backwards, an autoregressive model's training data is a "reverse autoregressive sequence" that
+erases a data point one element at a time until nothing is left, just as a [diffusion model](diffusion-models.md) noises it until
+it is a simple Gaussian; each model learns to reverse its sequence one simple step at a time (slides 52–53, ≈1:15:21–1:16:52).
+The lecturer: "an autoregressive model is a small variation on a diffusion model" (≈3:48).
+

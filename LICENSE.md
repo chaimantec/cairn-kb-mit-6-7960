@@ -161,5 +161,15 @@ only by the handwritten handle "@kellerjordan0" and carrying no OCW notice; it i
 excludes. Lecture 7's deck reproduces other plots from the same author's posts, and OCW excluded those, so this is the nearest
 case in this KB to that line after lecture 12's slide 43. The photographs in the deck are on its two excluded slides, 4 and 22.
 
+Lecture 14's deck names Phillip Isola as speaker, and most of its 28 rendered slides are his own diagrams and pixel art: the
+cartoon birds, dice, knob and trapezoids, the procedural map tiles, the density and energy plots, and the pixel-art robin of the
+autoregressive and diffusion slides. Slide 2's figure is the one lecture 11's deck uses for the two directions through a network.
+Two rendered slides carry material from elsewhere, with no OCW notice. **Slide 5** is a screenshot of eight images from OpenAI's
+DALL-E 2 page, credited "https://openai.com/dall-e-2/" and "Created with DallE.". **Slide 42** reproduces WaveNet's diagram of its
+layers of nodes, credited "[Wavenet, https://deepmind.com/blog/wavenet-generative-model-raw-audio/]". Both are rendered by the rule
+that only a notice excludes. The deck's other third-party figures are on its excluded slides, 6 (DiffDock, Corso et al., and an
+MRI-to-CT model, Wolterink et al.) and 54–59 (the GAN slides' flamingo images), and on slides 49 and 50, which are withheld because
+their chain is Ho, Jain and Abbeel's diffusion diagram, which OCW excludes where Homework 5 prints it.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

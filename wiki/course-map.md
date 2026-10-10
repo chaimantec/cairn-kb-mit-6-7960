@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md) and [lecture 12](12-representation-learning-similarity-based.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md) and [lecture 14](14-generative-models-basics.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -39,7 +39,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 11 | Representation Learning: Reconstruction-Based | [yes](11-representation-learning-reconstruction-based.md) |
 | 12 | Representation Learning: Similarity-Based | [yes](12-representation-learning-similarity-based.md) |
 | 13 | Representation Learning: Theory | [yes](13-representation-learning-theory.md) |
-| 14 | Generative Models: Basics | not yet |
+| 14 | Generative Models: Basics | [yes](14-generative-models-basics.md) |
 | 15 | Generative Models: Representation Learning Meets Generative Modeling | not yet |
 | 16 | Generative Models: Conditional Models | not yet |
 | 17 | Generalization: Out-of-Distribution (OOD) | not yet |
@@ -181,6 +181,15 @@ to the perspectives "in even the earlier lectures" (lecture 7, ≈5:36), to "the
 lecture two" (it was lecture 3, ≈10:13) and to whether "Phillip talked about" overparameterized networks "in one of his
 lectures" (≈55:23). It names no later lecture ([lecture 13](13-representation-learning-theory.md#pointers-to-other-lectures)).
 
+Lecture 14's deck is titled "Lecture 14: Deep Generative Models I", and its slide 2 lists the three generative-modeling lectures by
+number, all matching the recorded schedule: "Lecture 14: fundamentals, a tour of popular models", "Lecture 15: generative modeling meets
+representation learning" and "Lecture 16: conditional models, data prediction". It prints no other lecture number. The recording opens
+"another section of the course", with "three lectures on generative models" (≈0:00), and says next week covers variational autoencoders,
+then conditional models, and that the applications of generative models come "in lecture 16" (≈1:31). It points back to the three
+representation-learning lectures (11–13, ≈0:45), to "that hacker's guide lecture" (lecture 9, ≈9:59), to the filing cabinet "from the
+lecture on generalization" (lecture 6, ≈37:18), to the colorization examples (lectures 9 and 11, ≈1:02:49) and to RNNs (lecture 10,
+≈1:07:34) ([lecture 14](14-generative-models-basics.md#pointers-to-other-lectures)).
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -229,7 +238,7 @@ self-attention layer's ([lecture 10](10-architectures-memory.md#the-problem-set)
 run its coloured-shapes autoencoder experiments "on your p set 3" (≈54:21); on OCW they are in **Homework 4**, whose second section,
 "Reconstruction and Similarities in Representation Learning" (12 points), has an autoencoder question (6 points) and a contrastive-learning
 question (6 points) on $64 \times 64$ images of coloured shapes ([lecture 11](11-representation-learning-reconstruction-based.md#the-problem-set)).
-Its first section, on similarity-based learning (13 points), belongs with lecture 12 ([lecture 12](12-representation-learning-similarity-based.md#the-problem-set)). Lecture 13 opens with Homework 2's question 4, steepest descent under the spectral norm, and shows its answer ([lecture 13](13-representation-learning-theory.md#the-problem-set)); no problem set covers its Gaussian processes. Homework 5 has a section on variational autoencoders (14 points) and one on diffusion models (17 points).
+Its first section, on similarity-based learning (13 points), belongs with lecture 12 ([lecture 12](12-representation-learning-similarity-based.md#the-problem-set)). Lecture 13 opens with Homework 2's question 4, steepest descent under the spectral norm, and shows its answer ([lecture 13](13-representation-learning-theory.md#the-problem-set)); no problem set covers its Gaussian processes. Homework 5 has a section on variational autoencoders (14 points) and one on diffusion models (17 points), the second of which belongs with lecture 14 ([lecture 14](14-generative-models-basics.md#the-problem-set)); its header prints "Fall 2025".
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

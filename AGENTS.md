@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–13 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–14 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -66,8 +66,9 @@ general form and the lecture's details there; keep this file free of per-lecture
   notice can be text or **glyph outlines**: 35 of lecture 12's 37 notices are filled vector paths that `get_text()`
   cannot see. So take the excluded set from the slide file's `*OCW notice` lines, which a vision model wrote, and
   use the text layer and a vector scan only to cross-check (see Rebuilding).
-- **An excluded image can reappear without its notice**, in the same deck or another, and such a slide is not
-  rendered either. Slides withheld this way so far:
+- **An excluded image can reappear without its notice**, in the same deck, another deck or a problem set, and such a
+  slide is not rendered either. A deck can also paste its own pictures over a third-party raster, so that the page shows
+  little of it; the raster is still the third party's figure. Slides withheld this way so far:
 
   | Lecture | Slide | Reuses |
   | --- | --- | --- |
@@ -75,6 +76,7 @@ general form and the lecture's details there; keep this file free of per-lecture
   | 4 | 50–52 | slide 25's clown fish crop |
   | 6 | 62 | lecture 4's excluded heron photograph (slides 43, 53–55, 66–68, 70, 71) |
   | 11 | 13 | lecture 1's excluded slide 73 (the CLIP figure, at another resolution) |
+  | 14 | 49, 50 | Homework 5's excluded Figure 3, Ho, Jain and Abbeel's diffusion diagram, under the deck's pixel-art overlays |
 
   A shared image is not always a shared figure, so check size, placement and which image a notice sits beside
   before withholding. Rendered after such a check: lecture 5's slides 12, 15, 21 and 29 (the shared object is a
@@ -137,7 +139,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–13 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–14 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -156,6 +158,7 @@ it.
 | 11 Representation Learning: Reconstruction-Based | 25 of 65 pages | rendered from `mit6_7960_f24_lec11.pdf` |
 | 12 Representation Learning: Similarity-Based | 8 of 70 pages | rendered from `mit6_7960_f24_lec12.pdf` |
 | 13 Representation Learning: Theory | 10 of 28 pages | rendered from `mit6_7960_f24_lec13.pdf` |
+| 14 Generative Models: Basics | 28 of 60 pages | rendered from `mit6_7960_f24_lec14.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -192,7 +195,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–13:
+Notes for the next run, from lectures 1–14:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -203,8 +206,8 @@ Notes for the next run, from lectures 1–13:
   scan the vector data for notices drawn as outlines: short, wide, filled paths of many segments (`page.get_drawings()`,
   fill set, 40 or more items, under 60 pt high) mark outlined small print, and every page with them should be either a
   notice or a "Courtesy … Used under CC" credit. Lecture 12's text layer showed two of its 37 notices.
-- **Check every candidate image for reuse of an excluded one**, in its own deck and across all decks so far, and every
-  image already rendered against the new deck's excluded ones. xrefs are local to one PDF, so compare by a hash of the
+- **Check every candidate image for reuse of an excluded one**, in its own deck and across all decks and problem sets
+  so far, and every image already rendered against the new deck's excluded ones. xrefs are local to one PDF, so compare by a hash of the
   pixels (`hashlib.md5(fitz.Pixmap(doc, xref).samples)`), and also by a coarse 16×16 perceptual hash, mirrored too.
   Skip coarse hashes with fewer than 8 or more than 248 bits set (near-uniform masks match each other), and settle
   any coarse match by resizing both images to 256 × 256 and averaging the absolute grey difference over pixels darker
@@ -213,7 +216,9 @@ Notes for the next run, from lectures 1–13:
   not at all, while `page.get_image_info(xrefs=True)` gives where each is drawn. Leave out page backgrounds: an image
   drawn on more than a third of a deck's pages, or a raster covering more than 90% of a page. The handwritten decks share
   one background image, so without that filter every page matches every excluded page of another handwritten deck,
-  exactly. The excluded set the sweep uses must be the slide file's, plus the withheld slides in the table above.
+  exactly. But a raster drawn on one page only is not a background however much of it it covers (lecture 14's DALL-E
+  screenshot is drawn larger than its page), so sweep those too. The excluded set the sweep uses must be the slide
+  file's, plus the withheld slides in the table above, plus the images on every problem-set page with a notice.
 - `embed_slide_images.py` anchors a wiki image at the slide's **first** citation, and a range such
   as "slides 15–20" places every slide in it at that spot. Write the wiki so that each slide's first
   citation is the passage it belongs in, and avoid ranges in overview paragraphs. It matches any

@@ -17,6 +17,7 @@ and, for what a representation is used for, [transfer learning](transfer-learnin
 69, ≈1:33–11:37, ≈45:15–54:42 and ≈1:14:13–1:15:46, lists what a good representation should be and learns one from similarity;
 its methods are on [metric learning](metric-learning.md) and [contrastive learning](contrastive-learning.md). [lecture 13](13-representation-learning-theory.md),
 slides 4–7 and 20–26, ≈4:49–8:41 and ≈45:07–1:12:44, asks what similarity an untrained architecture already builds in.
+[lecture 14](14-generative-models-basics.md), slide 2, ≈0:45 and ≈2:18, turns the direction round, into generative modeling.
 
 ## Compact, compositional representations
 
@@ -279,3 +280,13 @@ noised copy much less so (slide 22). In a Gaussian process, "the covariance stru
 the inputs" (≈38:47), so the covariance function is to an untrained architecture what a learned metric is to a trained encoder. The
 lecturer is clear that this has had "very little impact on what people actually do in deep learning" (≈1:00:54). See
 [Gaussian processes](gaussian-processes.md) and [inductive bias](inductive-bias.md#the-architectures-opinion-about-similarity-lecture-13).
+
+## The inverse direction: generative modeling (lecture 14)
+
+Lecture 14 opens the generative-modeling lectures with lecture 11's picture of a network as a box from data to embedding, now with a
+second, downward arrow: "the way I like to think about generative modeling is it's just the inverse of representation learning …
+we'll be going from simple low-dimensional embeddings to data" (slide 2, ≈0:45). The two are "very tightly coupled", and the next
+lecture covers models that do both at once. The lecturer: "my favorite topic is representation learning, but my even more favorite
+topic is generative modeling. And I think they're really the same topic" (≈2:18). The latent variables a generator takes as input
+play the part of the embedding: "control knobs that specify all the attributes of the data" (≈23:03). See
+[generative models](generative-models.md).

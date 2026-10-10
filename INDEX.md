@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–13 of 24 only.** This knowledge base currently holds the first thirteen
+> **Coverage: lectures 1–14 of 24 only.** This knowledge base currently holds the first fourteen
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory) and the concept pages they support. For anything taught in lectures 14–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics) and the concept pages they support. For anything taught in lectures 15–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 13. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 14. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -187,6 +187,19 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   compositional arccosine kernel; questions on overfitting, why infinite width, why not use the kernel (cubic cost), the
   Berry-Esseen theorem and the result's small practical impact; and a closing doubt about initializing at variance one
   over fan-in. Its slides 4 and 22 are excluded from OCW's licence.
+- [Lecture 14 — Generative Models: Basics](wiki/14-generative-models-basics.md) — Phillip Isola (deck titled "Deep
+  Generative Models I"). The first of three lectures on generative models, framed as the inverse of representation
+  learning. Two definitions of a generative model, and examples (DALL-E 2, DiffDock, MRI-to-CT); networks that output
+  distributions, random variables, mass and density functions; generators fed dice, the dice as knobs and as latent
+  variables, a procedural river drawn from coin flips (Concept #1: noise is latent variables); the direct and indirect
+  approaches; density models, constant mass, and maximum likelihood derived from the KL divergence; the filing cabinet as an
+  overfit generative model, and test likelihood; energy-based models, why energies suffice, and the contrastive-divergence
+  gradient derived step by step (Concept #2: represent the data-generating process directly or indirectly); autoregressive
+  models of words, pixels and audio (WaveNet) as density models; diffusion models, from "just add noise" to Gaussian
+  diffusion and a training algorithm with its Colab; autoregression and diffusion as the same trick (Concept #3: turn
+  generative modeling into a sequence of supervised learning problems); GANs, their objectives and the min-max game; and
+  Homework 5's diffusion section. Slides 6 and 54–59 are excluded from OCW's licence, and slides 49–50 reuse an excluded
+  figure.
 
 ## Course pages
 
@@ -198,7 +211,7 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
   Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation and lecture 10's RNN problem are Homework 3; lecture 11's coloured-shapes
   autoencoder, which the lecturer calls "p set 3", is Homework 4, whose first section goes with lecture 12; lecture 13
-  opens with Homework 2's spectral-norm question).
+  opens with Homework 2's spectral-norm question; Homework 5's diffusion section goes with lecture 14).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -290,7 +303,8 @@ passages it draws on.
   turned into per-pixel classification, and the log loss at chance, $\ln 0.5 = -0.69$ and
   $\ln 0.1 = -2.3$ (lecture 9); next-word classification over words, characters or byte pairs, and
   maximum likelihood as cross-entropy (lecture 10); the softmax as a map onto the simplex (lecture 11); the contrastive
-  loss as a softmax cross-entropy over similarities with a temperature (lecture 12).
+  loss as a softmax cross-entropy over similarities with a temperature (lecture 12); classifiers as a distribution on the
+  simplex, logits as energies, and next-word and next-pixel classifiers inside generative models (lecture 14).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
@@ -340,6 +354,7 @@ passages it draws on.
   shortcut that will not generalize, training problems too easy to generalize from, and domain
   randomization. Lecture 12's geometry of representations that generalize: consistency, separation and robustness, and
   CIFAR-10 representations under true and random labels. Lecture 13: whether an infinitely wide network must overfit.
+  Lecture 14: the filing cabinet as an overfit generative model, and test likelihood.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -352,13 +367,13 @@ passages it draws on.
   compression against prediction (lecture 11); five properties of a good representation, similarity as the signal, the
   loss giving alignment and uniformity and the data giving invariance, and why "relevant" depends on the task (lecture 12);
   a network as a map through vector spaces, and the similarity an untrained architecture builds in (lecture 13);
-  previewing lectures 18–19.
+  generative modeling as its inverse (lecture 14); previewing lectures 18–19.
 - [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
   reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
   PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
   autoencoder with an integer bottleneck, vector-quantized autoencoders (VQVAE, VQGAN), masked autoencoders, and
   why masked prediction beats reconstruction (lecture 11); the convolutional encoder–decoder (lecture 4);
-  Homework 4's autoencoder question.
+  Homework 4's autoencoder question; variational autoencoders, sent to lecture 15 (lecture 14).
 - [Self-supervised learning](wiki/self-supervised-learning.md) — learning by predicting part of the raw data from
   another part: learning without labels, compression against prediction, the pretext-task trick, colorization and
   the object units it finds ("words are not arbitrary"), imputation (spatial, temporal, channel), masked autoencoders,
@@ -383,7 +398,8 @@ passages it draws on.
   the transformer's few built-in biases, with locality left to the tokenizer and domain knowledge to the
   positional encoding (lecture 8); data augmentation as the architecture-agnostic alternative, and the
   biases that standardization and one-hot labels remove (lecture 9); learned against hard-coded invariance (lecture 12);
-  the architecture's opinion about similarity, read off the infinite-width covariance function (lecture 13).
+  the architecture's opinion about similarity, read off the infinite-width covariance function (lecture 13); the usual
+  inductive biases applied to generative models (lecture 14).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
@@ -438,7 +454,8 @@ passages it draws on.
   factorization of a sequence's probability into next-element conditionals, and lecture 9's point that longer
   prompts make prediction easier; each factor as a classifier over words, characters or byte pairs; maximum
   likelihood and teacher forcing; GPT's causal masking (lecture 8); sampling and beam search (lecture 10); next-word
-  prediction as self-supervised learning that masks only the future, set beside BERT (lecture 11).
+  prediction as self-supervised learning that masks only the future, set beside BERT (lecture 11); autoregressive models
+  as generative density models of words, pixels and audio, and their kinship with diffusion (lecture 14).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
@@ -458,7 +475,8 @@ passages it draws on.
   from triplets to many negatives, the softmax loss on a hypersphere (NCE, InfoNCE), positives from augmentation
   (SimCLR) or from other views (CMC, video, CLIP), false negatives and supervised contrastive learning, alignment and
   uniformity, learned invariance, the SimCLR ingredients (augmentation, projection head, batch size, negatives), and
-  the iNaturalist case study of where it falls short (lecture 12); Homework 4's similarity-based section.
+  the iNaturalist case study of where it falls short (lecture 12); Homework 4's similarity-based section; contrastive
+  divergence, a distant relative (lecture 14).
 - [Kernel methods](wiki/kernel-methods.md) — fitting data with a bump function on every training point,
   $f(x) = \sum_i \alpha_i \thinspace k(x, x_i)$, and the reproducing kernel Hilbert space; the kernel as the modelling
   choice; the correspondences with Gaussian processes (the posterior mean as the minimum-norm kernel interpolator) and
@@ -468,6 +486,21 @@ passages it draws on.
   jointly Gaussian: the picture, a random vector plotted as a function, the formal definition, covariance functions as
   "nearby", prediction by conditioning, and the neural network–Gaussian process correspondence with its proof sketch,
   the ReLU network's compositional arccosine kernel, and what it did and did not change (lecture 13).
+- [Generative models](wiki/generative-models.md) — algorithms that generate data, as the inverse of representation
+  learning: the two definitions, networks that output distributions, latent variables as control knobs, the direct and
+  indirect approaches (samplers, densities, energies) with a table of the families, maximum likelihood from the KL
+  divergence, the filing cabinet and test likelihood, and generation turned into a sequence of supervised problems
+  (lecture 14).
+- [Energy-based models](wiki/energy-based-models.md) — unnormalized probability models: the Boltzmann form and the
+  partition function, why relative probabilities are often enough, why probabilities are still easier to interpret, and
+  training by contrastive divergence with its gradient, data pushing the energy down and model samples pushing it up
+  (lecture 14).
+- [Diffusion models](wiki/diffusion-models.md) — turn data into noise, then learn to reverse it: denoising as supervised
+  learning, sampling from Gaussian noise and its cost in steps, Gaussian diffusion's forward and reverse processes, a
+  stripped-down training algorithm, Homework 5's diffusion section, and the kinship with autoregressive models (lecture 14).
+- [Generative adversarial networks](wiki/generative-adversarial-networks.md) — a generator trained to fool a discriminator:
+  direct or indirect, the discriminator's and generator's objectives, the min-max game, the student and teacher, and two
+  inconsistencies printed on the slides (lecture 14).
 
 ## Raw materials
 
@@ -480,7 +513,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–13 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–14 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

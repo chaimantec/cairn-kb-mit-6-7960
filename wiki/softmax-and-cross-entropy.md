@@ -11,7 +11,8 @@ versus probabilities as optimization targets); [lecture 8](08-architectures-tran
 default formulation, colorization turned into classification, and the loss at chance); [lecture 10](10-architectures-memory.md), slides 44–46 and 49–50, ≈48:08–51:16 and ≈53:37 (the next-word classifier, the size of
 its vocabulary, and maximum likelihood as cross-entropy); [lecture 11](11-representation-learning-reconstruction-based.md), slides 9–10, ≈11:35–14:39 (the
 softmax as a map onto the simplex); [lecture 12](12-representation-learning-similarity-based.md), slides 28–39 and 53, ≈31:11–35:54 and ≈43:43 (the contrastive loss as
-a softmax cross-entropy over similarities).
+a softmax cross-entropy over similarities); [lecture 14](14-generative-models-basics.md), slide 7, ≈9:11–9:59, ≈36:31, ≈45:48 and ≈1:02:03–1:04:24 (classification as a
+distribution on the simplex, maximum likelihood, logits as energies, and next-word and next-pixel classifiers in generative models).
 
 ## From last layer to prediction
 
@@ -171,3 +172,15 @@ hypersphere keeps the logits bounded, which the lecture compares to regularizing
 12 also sets cross-entropy against contrastive objectives: "Contrastive learning provides more geometric and robustness feedback
 than cross-entropy loss" (slide 53), and for open-set problems a cross-entropy loss "based on a fixed number of categories" says
 "almost nothing" about new categories (≈1:13:28). See [contrastive learning](contrastive-learning.md).
+
+## Classifiers as generative building blocks (lecture 14)
+
+Lecture 14 opens its generative-modeling lectures by restating softmax regression in probabilistic terms: a classifier into $d$
+classes is a map $f_{\theta} : \mathbb{R}^{N \times M \times C} \to \Delta^{d-1}$ onto "the simplex, which is the space of all
+categorical distributions over $d$ categories" (slide 7, ≈9:11), so its output is already a distribution rather than a single label.
+Maximum-likelihood density modeling, derived there from the KL divergence, has "the same form as we saw with softmax regression"
+(≈36:31). The logits of a softmax classifier "can be considered the energy" of an [energy-based model](energy-based-models.md), and
+softmax is the step that exponentiates and normalizes them (≈45:48). And an [autoregressive](autoregressive-models.md) generative
+model is built from softmax classifiers: each next word, or each next pixel's quantized colour, is predicted as a categorical
+distribution and sampled, and the loss is the log probability of the true class (slides 38 and 40, ≈1:02:03–1:04:24). See
+[generative models](generative-models.md).

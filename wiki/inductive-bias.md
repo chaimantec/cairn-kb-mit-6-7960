@@ -14,7 +14,8 @@ on why generalization needs inductive bias at all: slides 19, 47–63, ≈21:37�
 built-in invariance and on the biases that standardization and one-hot labels remove: slides 9, 13 and 40,
 ≈16:24–19:29, ≈31:02–32:34 and ≈1:02:38–1:03:24; [lecture 12](12-representation-learning-similarity-based.md), on invariance
 learned from augmented pairs against invariance hard-coded into an architecture: slide 45, ≈52:23–53:56; and [lecture 13](13-representation-learning-theory.md), on
-the similarity judgement an untrained architecture already makes: slides 7, 22, 23 and 26, ≈7:55, ≈47:28–52:12 and ≈1:11:08–1:12:44.
+the similarity judgement an untrained architecture already makes: slides 7, 22, 23 and 26, ≈7:55, ≈47:28–52:12 and ≈1:11:08–1:12:44;
+and [lecture 14](14-generative-models-basics.md), on inductive biases in generative models, ≈41:57–43:29.
 
 ## Why an MLP is not enough
 
@@ -243,6 +244,15 @@ modelling decision: "Instead of choosing your neural architecture, the whole thi
 (≈14:09). The hope was that the correspondence would let architectures and weight regularization be designed by studying their
 kernels (slide 26), but "it seems to have just not really happened. Instead, we just do transformer" (≈1:11:57). See
 [Gaussian processes](gaussian-processes.md).
+
+## Inductive biases in generative models (lecture 14)
+
+A generative model can overfit like any other, by memorizing its training data (see
+[generalization and double descent](generalization-and-double-descent.md#overfitting-in-a-generative-model-lecture-14)). Asked whether
+inductive biases can steer it to a solution that generalizes — images "should not look like static" — the lecturer's answer in lecture
+14 is that "all the tricks that we have from other deep learning can apply here": a convolutional architecture's "baked-in spatial
+locality", positional codes in transformers with "baked-in kind of inductive bias towards spatial locality", and regularizers. "There's
+a lot to say, but you can do everything" (≈41:57–43:29).
 
 ## Where it goes next
 

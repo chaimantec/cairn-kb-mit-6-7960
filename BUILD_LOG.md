@@ -56,18 +56,25 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   the perspectives "in even the earlier lectures" (7, ≈5:36), to "the approximation theory lecture, which was maybe lecture two"
   (it was 3, ≈10:13) and to whether "Phillip talked about" overparameterization "in one of his lectures" (≈55:23); it names no
   later lecture, only a reading to be posted on Piazza.
+  Lecture 14's title slide reads "Lecture 14: Deep Generative Models I", matching the recording ("Generative Models: Basics"). Its
+  slide 2 lists "Lecture 14: fundamentals, a tour of popular models", "Lecture 15: generative modeling meets representation
+  learning" and "Lecture 16: conditional models, data prediction", all matching the recorded schedule; it prints no other lecture
+  number. Its recording points back to lectures 11–13 (≈0:45), to "that hacker's guide lecture" (9, ≈9:59), to the filing cabinet
+  "from the lecture on generalization" (6, ≈37:18), to the colorization examples (9 and 11, ≈1:02:49) and to RNNs (10, ≈1:07:34),
+  and ahead to variational autoencoders "next week" (15, ≈1:31, ≈59:43) and to conditional models and the applications of
+  generative models "in lecture 16" (≈1:31).
 
 ## End pages
 
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
   page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
-  page 70, a 792×612 page that prints "70", and of lecture 13's page 28, a 792×612 page that prints "28".
+  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", and of lecture 14's page 60, a 792×612 page that prints "60".
 
 ## Handwritten decks
 
@@ -147,6 +154,12 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   observations; the whole slide, the lecturer's own scatter plots included, is treated as excluded. Slide 3's pasted NanoGPT
   speedrun plot, from Keller Jordan's posts (handwritten credit "@kellerjordan0"), carries no notice. A vector scan for outlined
   small print finds only handwriting on this deck, as on lectures 3 and 7; the audit found no missed notice or credit.
+  Lecture 14's carries 7 in 60 pages, all typed and all in the text layer: slide 6's DiffDock and MRI-to-CT figures ("Above ©
+  Corse, et al. Below © Wolterink, et al.", the notice misspelling the citation's "Corso") and the flamingo images of the GAN
+  slides 54–59 ("© source unknown"); on slides 56–58 the notice sits at the lower left under the equation, with the photograph at
+  the top centre. Slide 5's DALL-E 2 screenshot and slide 42's WaveNet figure carry none. A vector scan for outlined small print
+  found nothing, and the audit found no missed notice. Slides 49 and 50 carry no notice but reuse a figure Homework 5 excludes
+  (next section).
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -213,6 +226,16 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   sweep was clean in both directions. Slide 3's 708×455 speedrun plot matches none of the excluded images in decks 1–13 by pixel
   hash or by coarse hash (including lecture 7's excluded plots from the same author), and no image rendered for lectures 1–12
   matches slide 4's or slide 22's photographs.
+  Lecture 14's sweep was clean in both directions across decks 1–14: no image drawn on its unnoticed pages matches an excluded
+  image, and no image rendered for lectures 1–13 matches slide 6's or the GAN slides' images. Slide 5's DALL-E 2 screenshot
+  (2842×1366) is drawn larger than its page, so the 90% coverage filter had dropped it; checked without that filter it matches
+  nothing. The sweep was then extended to the problem sets, whose excluded images had never been compared: slides 49 and 50's
+  chain (one raster, 2608×514) matched Homework 5's Figure 3 (784×155, page 4, and page 5 of the solutions) at 7 bits in 256, and a
+  mean grey difference of 6.2 over 11,301 dark pixels settles it as the same figure at another resolution: Ho, Jain and Abbeel's
+  diffusion diagram, "© Jonathan Ho, Ajay Jain, and Pieter Abbeel. All rights reserved." in the homework. On the slides the deck's
+  pixel-art birds cover its face photographs and white boxes its labels (slide 50 uncovers the labels), so a page render shows
+  little of it; both slides are withheld. No image rendered for lectures 1–13 matches the problem sets' excluded images (Homework
+  3's page 5 and Homework 5's figure).
 
 ## Transcript edits, by lecture
 
@@ -295,7 +318,14 @@ apart", probably "dissimilar"; and the "geometric deep learning lecture"). Also 
 nine `[Ed: …]` notes: lecture 3 for "maybe lecture two"; "covariate structure", probably "covariance", twice; "what Zach was
 saying", probably the question at 30:01; "sigma; x, x-prime" as $\Sigma(x, x')$; Phillip Isola; Zach as the `AUDIENCE` speaker
 at 59:17; a student's "as the weight goes to infinity", probably "width"; and, marked as outside the course material, that
-Xavier initialization is usually defined with variance 2/(fan-in + fan-out). Also done inline.
+Xavier initialization is usually defined with variance 2/(fan-in + fan-out). Also done inline. Lecture 14: 105 markers
+identical, all 76 digit strings identical, word ratios 1.00–1.17, and 1.00–1.01 once its `[Ed: …]` notes are removed (the five
+outliers, 9:11, 48:06, 51:12, 54:17 and 1:18:26, are the paragraphs carrying notes). Three restorations: "representation, learning"
+→ "representation learning" (0:45), "this data center" → "the Stata Center" (5:21, slide 5's prompt) and "energy ration" → "energy
+ratio" (48:06); and nine `[Ed: …]` notes: the simplex for two classes, lecture 6 for "the lecture on generalization", a student's
+"quantum difference", two spoken slips about where the energy is raised and lowered (51:12, 54:17), "x2 times x1" for "x2 given
+x1", lectures 9 and 11 for the colorization examples, a student's unclear "correspondence lower", and slide 54's printed typo.
+Also done inline.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -597,6 +627,29 @@ initialization" (≈1:12:44), and says "where L minus 1 is the depth" (≈1:09:2
 ("you can just look up what the formulae are", ≈44:19), and the wiki does not either. The last part of the lecture, on
 initialization (≈1:12:44–1:15:05), is at a board, on no page of the deck.
 
+**Lecture 14's figure audit**, cross-model: Sonnet read the typed deck in two halves, and Opus checked 52 pages (1, 2, 5, 6, 8–16,
+18, 19, 21–26, 28–44 and 46–59), split between three agents, from 150–600 dpi crops, the native rasters and the vector data. A
+session limit stopped two of them, but only after both had appended every page but slide 45, which was then checked against its
+1400px render. Every equation agreed but slide 16's covariance, a bold Σ. 32 pages were corrected, none for an object described
+that is not on the page. The corrections were counts (slide 19's eight sampled dots, not seven; slide 39's six filmstrip images, not
+eight; slide 1's six grid rows; slides 52 and 53's pixel counts), positions and arrowheads (slide 29's and 33's red arrows and
+wells; slide 18's trapezoid, which narrows the other way; slide 36's labels, which stand over rules, not braces; slide 49's dotted
+curves, which carry no arrowheads), the identity of slide 35's overprinted glyph, and the placement of the GAN slides' notices. The
+auditors also found what the pages hide: slide 16's tiles are the top-left nine of slide 18's sixteen, slides 43 and 44 keep a
+"Classifier" label and a "c" in the text layer under the drawings, and slides 49 and 50's chain is Ho, Jain and Abbeel's own raster
+with the deck's pixel art laid over its photographs, which led to the problem-set sweep above. The renders of slides 29 and 45 were
+then checked against the corrected text.
+
+**Lecture 14's printed slips and oddities**, transcribed as written: slide 5's "Created with DallE."; slide 6's notice "Corse"
+against the citation's "Corso"; slide 8's $p(x) \in \mathcal{X}$ and its script $\mathcal{R}$ codomains; slide 27's "generalization
+error" for the test log-likelihood; slide 31's first line, with no minus sign on the right, and its fourth, with a minus between
+$\frac{1}{Z(\theta)}$ and the integral where a product is meant (the lecturer: "this is a times negative 1", ≈58:11); slide 32's
+$E_{\theta(\mathbf{x})}$; slide 35's "taime", two animation steps printed at once; slide 37's bold subscripts; slide 51's extra
+closing parenthesis; slide 54's "g tries to identify the fakes", called a typo in the recording (≈1:18:26); and slide 59's
+"synthetic (0.9)" and "real (0.1)" against slide 55's "fake (0.1)" and "real (0.9)". In the recording the lecturer says "increase
+energy where the model places high energy" (≈51:12) and "It'll place high energy where the data lives" (≈54:17), meaning low energy
+and high probability, and "probability of x2 times x1" for "given x1" (≈1:01:17). Homework 5's header prints "Fall 2025".
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -613,7 +666,9 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   Lecture 12 split its 46 pages between two auditors from the start; a session limit stopped both, after 15 and 10 pages,
   and two more finished the other 21 from the reports on disk. Lecture 13's audit found errors on 16 of 25 pages of a
   handwritten deck, mostly counts and colours, two of them things described that are not on the page (slide 17's contours, slide
-  27's empty entries), with no formula wrong; its two auditors, on 13 and 12 pages, both finished. 
+  27's empty entries), with no formula wrong; its two auditors, on 13 and 12 pages, both finished. Lecture 14's audit found errors
+  on 32 of 52 pages, mostly counts, positions and arrowheads, with one formula correction (slide 16's bold Σ) and nothing described
+  that is not on the page; a session limit stopped two of its three auditors after they had reported every page but one. 
 
 ## Where each lecture's images appear
 
@@ -648,6 +703,8 @@ All 8 of lecture 12's images appear both in [`wiki/12-representation-learning-si
 and under their headings in [`raw/slides/12-representation-learning-similarity-based.md`](raw/slides/12-representation-learning-similarity-based.md).
 All 10 of lecture 13's images appear both in [`wiki/13-representation-learning-theory.md`](wiki/13-representation-learning-theory.md)
 and under their headings in [`raw/slides/13-representation-learning-theory.md`](raw/slides/13-representation-learning-theory.md).
+All 28 of lecture 14's images appear both in [`wiki/14-generative-models-basics.md`](wiki/14-generative-models-basics.md)
+and under their headings in [`raw/slides/14-generative-models-basics.md`](raw/slides/14-generative-models-basics.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -939,3 +996,27 @@ Not rendered, and why:
   reproduces).
 - **Text and equations the slide file reproduces exactly:** 2, 15, 16, 21, 23, 24 and 26.
 - **Title, dividers, references and end page:** 1, 12, 19, 27 (three titles beside book icons) and slide 28, the OCW end page.
+
+### What was rendered, and what was not — lecture 14
+
+Rendered (28): slides 2, 5, 10, 12, 13, 14, 15, 16, 18, 19, 22, 23, 24, 26, 29, 36, 38, 39, 40, 41, 42, 43, 45, 46, 47, 48, 52 and
+53 — the three lectures beside the data-and-embedding box, the DALL-E 2 images, the classifier, the generator with dice, the
+dice's questions, the knob, the procedural river and its code, Concept #1's map tiles, the direct and indirect approaches, the
+one-hump and two-hump densities, the maximum-likelihood update and derivation, the filing cabinet's delta functions, the
+contrastive-divergence panels, the word predictor, the next-word classifier, the pixel model, its loss, its training and sampling,
+WaveNet, noise to images, images to noise, denoising, the denoiser's training pairs, three dice rolls, and diffusion beside
+autoregression with Concept #3. All 28 wiki captions are hand-written: the twelve key figures were placed by hand, and the other
+sixteen re-captioned after the script placed them.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (7 slides): 6 and 54–59** — slide 6's DiffDock and MRI-to-CT figures and the GAN slides' flamingo
+  images. The GAN slides' equations are in the slide file and the wiki.
+- **Reuse of an excluded image (2 slides): 49 and 50** — Ho, Jain and Abbeel's diffusion diagram, excluded in Homework 5, under the
+  deck's pixel-art overlays (see the hash sweeps above). Their equations are in the slide file and the wiki.
+- **Build steps and repeats a rendered slide supersedes:** 11 (slide 12 adds the dice to it), 21 (slide 22 adds the curve), 33 (it
+  redraws slide 29's figure) and 44 (slide 45 repeats its diagram and adds the filmstrip).
+- **Text, equations and code the slide file reproduces exactly:** 4, 7, 8, 9 (the notation handout's excerpt), 17, 20, 25 (the
+  filing-cabinet code), 27, 28, 30, 31, 32, 34, 35, 37 and 51 (the training algorithm).
+- **Title, outline and end page:** 1 (its title image is DALL-E's, by its signature strip), 3 and slide 60, the OCW end page.
+

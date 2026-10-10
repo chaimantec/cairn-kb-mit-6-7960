@@ -10,7 +10,8 @@ or some component of contrastive learning and contrastive representations" (≈0
 17–69, ≈21:45–1:15:46; CLIP, an image–text contrastive model, in [lecture 2](02-how-to-train-a-neural-net.md), slide 69,
 and [lecture 11](11-representation-learning-reconstruction-based.md), slide 13. [Lecture 13](13-representation-learning-theory.md), the
 course's representation-learning theory lecture, recaps contrastive learning (slide 4, ≈4:49–5:36) and then asks what similarity
-an architecture expresses before any training; see [Gaussian processes](gaussian-processes.md).
+an architecture expresses before any training; see [Gaussian processes](gaussian-processes.md). [lecture 14](14-generative-models-basics.md) (slide 29, ≈52:44–53:32)
+names a distant relative, contrastive divergence.
 
 **Notation.** The encoder $f$ maps data onto the unit hypersphere, $f : \mathcal{X} \rightarrow \mathbb{S}^{d-1}$. An anchor
 $\mathbf{x}$ has a positive $\mathbf{x}^+$, drawn with it from the positive-pair distribution $p_{pos}$, and $N$
@@ -133,6 +134,13 @@ loss over groups of similar samples: what encoders classify perfectly, how that 
 the role of normalization and temperature, and supervised cross-entropy as a dual-encoder contrastive method. Its second
 section's question 8 (6 points) implements the standard loss with a temperature and asks which invariances three sets of
 augmentations would teach. See [lecture 12](12-representation-learning-similarity-based.md#the-problem-set).
+
+## A distant relative: contrastive divergence (lecture 14)
+
+Lecture 14 trains [energy-based models](energy-based-models.md) by **contrastive divergence**: lower the energy at the training data,
+raise it where the model's own samples fall, until the two cancel (slide 29). The lecturer calls it "another contrast, the contrast
+between where the data lives and where the model has placed high probability", and says it is "even connected to contrastive learning,
+but a little bit indirectly" (≈52:44–53:32); the lecture does not develop the connection.
 
 ## See also
 

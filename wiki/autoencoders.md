@@ -10,7 +10,7 @@ autoencoder, and with part of the input hidden it becomes a masked autoencoder. 
 [lecture 4](04-architectures-grids.md), slide 67, ≈1:00:25–1:02:00 (the convolutional encoder–decoder);
 [lecture 11](11-representation-learning-reconstruction-based.md), slides 36–49 and 59–62, ≈44:58–1:05:15 and
 ≈1:11:26–1:20:05. Variational autoencoders, which make the code's distribution Gaussian, are promised for "later"
-(≈47:20–48:06).
+(≈47:20–48:06); [lecture 14](14-generative-models-basics.md) places them in lecture 15 (slide 2, ≈1:31).
 
 ## Compress, then reconstruct
 
@@ -125,6 +125,14 @@ perfect reconstruction on a finite training set does and does not determine abou
 encoder by nearest neighbours and explain any clusters, since "The Autoencoder objective alone … doesn't enforce any
 grouping or smoothness of the representation space". Homework 5 has a section on variational autoencoders (14 points). See
 [sources](../sources.md).
+
+## Toward variational autoencoders (lecture 14)
+
+Lecture 14 introduces [generative models](generative-models.md) as the inverse of representation learning, and sends variational
+autoencoders to lecture 15, "a model that does both directions jointly" (≈1:31; slide 2's "Lecture 15: generative modeling meets
+representation learning"). Its view of a generator's random inputs as latent variables, "control knobs that specify all the attributes
+of the data" (≈23:03), is the role an autoencoder's code plays for its decoder. The lecturer also says that "a diffusion model is a type
+of variational autoencoder" (≈3:03–3:48); see [diffusion models](diffusion-models.md).
 
 ## See also
 

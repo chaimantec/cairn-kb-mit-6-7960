@@ -15,7 +15,7 @@ descent in detail, why the classical measures of complexity fail for deep nets, 
 inductive biases; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 3, 4 and 14–18, ≈1:34–7:01 and ≈33:20–41:03 (shortcuts
 that will not generalize, and making the training problem hard enough to generalize); [lecture 12](12-representation-learning-similarity-based.md), slides 6–9,
 ≈7:45–11:37 (the geometry of representations that generalize); and [lecture 13](13-representation-learning-theory.md), ≈52:12–56:09 (whether an
-infinitely wide network must overfit).
+infinitely wide network must overfit); [lecture 14](14-generative-models-basics.md), slides 25–27, ≈36:31–43:29 (overfitting in a generative model, and test likelihood).
 
 ## The puzzle
 
@@ -297,3 +297,13 @@ Sampling the weights with a very small standard deviation makes the distribution
 [lecture 6](06-generalization-theory.md)'s theme, networks can be very overparameterized and still represent "lots of nice, simple
 functions": "the fact that the network is very, very wide does not imply that you're going to overfit. It just implies that it's
 possible to overfit" (≈55:23–56:09). See [Gaussian processes](gaussian-processes.md).
+
+## Overfitting in a generative model (lecture 14)
+
+Lecture 14 asks whether the filing cabinet is a good generative model: store every training point, and sample by "picking a drawer
+at random" (slide 25). It achieves the highest training likelihood possible, a delta function on every training point, yet places
+zero probability on new samples from the same process — "exactly the same as overfitting in classical machine learning"
+(slide 26, ≈38:04–38:53). So the goal is "not to replicate the training data but to make *new* data that is *realistic*", measured
+by the likelihood of held-out test data (slide 27), and "you have to control capacity or regularize in order to avoid the memorization
+solution" (≈39:39). Early stopping on validation likelihood, regularizers and architectures with inductive biases all apply
+(≈41:57–43:29). See [generative models](generative-models.md).
