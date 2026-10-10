@@ -155,5 +155,11 @@ the rule that only a notice excludes, and it is the nearest case in this KB to t
 framework diagram and a projection-head bar chart with no credit printed, and **slide 51**'s batch-size chart is credited
 "(Figure from Chen et al. 2020)", also with no licence line. Every photograph in the deck is on an excluded slide.
 
+Lecture 13's deck is Jeremy Bernstein's handwritten notes, and nine of its ten rendered slides are entirely his handwriting and
+drawings. **Slide 3** pastes a plot titled "NanoGPT speedruns", from Keller Jordan's NanoGPT speedrun posts, credited on the slide
+only by the handwritten handle "@kellerjordan0" and carrying no OCW notice; it is rendered by the rule that only a notice
+excludes. Lecture 7's deck reproduces other plots from the same author's posts, and OCW excluded those, so this is the nearest
+case in this KB to that line after lecture 12's slide 43. The photographs in the deck are on its two excluded slides, 4 and 22.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

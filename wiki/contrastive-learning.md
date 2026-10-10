@@ -8,8 +8,9 @@ augmentations of the same image, and is "Ideas from metric learning and self-sup
 throughout this entire course because it turns out that many of our modern architectures are built on top of some form,
 or some component of contrastive learning and contrastive representations" (≈0:46). Covered so far: lecture 12, slides
 17–69, ≈21:45–1:15:46; CLIP, an image–text contrastive model, in [lecture 2](02-how-to-train-a-neural-net.md), slide 69,
-and [lecture 11](11-representation-learning-reconstruction-based.md), slide 13. The course's representation-learning theory
-lecture (13) is not yet in this knowledge base (see the [course map](course-map.md)).
+and [lecture 11](11-representation-learning-reconstruction-based.md), slide 13. [Lecture 13](13-representation-learning-theory.md), the
+course's representation-learning theory lecture, recaps contrastive learning (slide 4, ≈4:49–5:36) and then asks what similarity
+an architecture expresses before any training; see [Gaussian processes](gaussian-processes.md).
 
 **Notation.** The encoder $f$ maps data onto the unit hypersphere, $f : \mathcal{X} \rightarrow \mathbb{S}^{d-1}$. An anchor
 $\mathbf{x}$ has a positive $\mathbf{x}^+$, drawn with it from the positive-pair distribution $p_{pos}$, and $N$

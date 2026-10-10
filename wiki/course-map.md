@@ -38,7 +38,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 10 | Architectures: Memory | [yes](10-architectures-memory.md) |
 | 11 | Representation Learning: Reconstruction-Based | [yes](11-representation-learning-reconstruction-based.md) |
 | 12 | Representation Learning: Similarity-Based | [yes](12-representation-learning-similarity-based.md) |
-| 13 | Representation Learning: Theory | not yet |
+| 13 | Representation Learning: Theory | [yes](13-representation-learning-theory.md) |
 | 14 | Generative Models: Basics | not yet |
 | 15 | Generative Models: Representation Learning Meets Generative Modeling | not yet |
 | 16 | Generative Models: Conditional Models | not yet |
@@ -172,6 +172,15 @@ geometric deep learning, and lectures 4 and 5 build symmetries into architecture
 (lecture 13, ≈1:15:46), and back to "the geometric deep learning lecture" (≈52:23) without a number. Its contrastive-learning
 material is Homework 4's first section ([lecture 12](12-representation-learning-similarity-based.md#the-problem-set)).
 
+Lecture 13's title slide reads "6.7960 :: Lecture 13", matching the recording (its "6.7960" is handwritten over a typed "6.S898",
+hidden under a pink blob), and its deck is titled "Architectural Bias on Representations" rather than the schedule's
+"Representation Learning: Theory". Its slide 4 points to "(Lecture 12)" for similarity-based representation learning and slide 5
+to "(Lecture 7)" for the perspectives on neural computation, both matching the recorded schedule; slide 2 points to "(HW2)",
+Homework 2's question on steepest descent under the spectral norm. The recording points back to "last time" (lecture 12, ≈4:49),
+to the perspectives "in even the earlier lectures" (lecture 7, ≈5:36), to "the approximation theory lecture, which was maybe
+lecture two" (it was lecture 3, ≈10:13) and to whether "Phillip talked about" overparameterized networks "in one of his
+lectures" (≈55:23). It names no later lecture ([lecture 13](13-representation-learning-theory.md#pointers-to-other-lectures)).
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -220,7 +229,7 @@ self-attention layer's ([lecture 10](10-architectures-memory.md#the-problem-set)
 run its coloured-shapes autoencoder experiments "on your p set 3" (≈54:21); on OCW they are in **Homework 4**, whose second section,
 "Reconstruction and Similarities in Representation Learning" (12 points), has an autoencoder question (6 points) and a contrastive-learning
 question (6 points) on $64 \times 64$ images of coloured shapes ([lecture 11](11-representation-learning-reconstruction-based.md#the-problem-set)).
-Its first section, on similarity-based learning (13 points), belongs with lecture 12 ([lecture 12](12-representation-learning-similarity-based.md#the-problem-set)). Homework 5 has a section on variational autoencoders (14 points) and one on diffusion models (17 points).
+Its first section, on similarity-based learning (13 points), belongs with lecture 12 ([lecture 12](12-representation-learning-similarity-based.md#the-problem-set)). Lecture 13 opens with Homework 2's question 4, steepest descent under the spectral norm, and shows its answer ([lecture 13](13-representation-learning-theory.md#the-problem-set)); no problem set covers its Gaussian processes. Homework 5 has a section on variational autoencoders (14 points) and one on diffusion models (17 points).
 
 **Collaboration** (≈7:43–10:00). Discussing problems with peers, TAs and instructors is
 allowed, but every submission — writeup *and* code — must be your own, written separately. Do not

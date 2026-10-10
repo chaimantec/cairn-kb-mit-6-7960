@@ -12,8 +12,9 @@ on why generalization needs inductive bias at all: slides 19, 47–63, ≈21:37�
 ≈58:53–1:18:26; [lecture 8](08-architectures-transformers.md), on transformers: slides 4–5, 15 and 41–47, ≈3:02–6:57,
 ≈11:35–16:14, ≈51:59 and ≈1:00:29–1:05:51; [lecture 9](09-hackers-guide-to-deep-learning.md), on data augmentation as the alternative to
 built-in invariance and on the biases that standardization and one-hot labels remove: slides 9, 13 and 40,
-≈16:24–19:29, ≈31:02–32:34 and ≈1:02:38–1:03:24; and [lecture 12](12-representation-learning-similarity-based.md), on invariance
-learned from augmented pairs against invariance hard-coded into an architecture: slide 45, ≈52:23–53:56.
+≈16:24–19:29, ≈31:02–32:34 and ≈1:02:38–1:03:24; [lecture 12](12-representation-learning-similarity-based.md), on invariance
+learned from augmented pairs against invariance hard-coded into an architecture: slide 45, ≈52:23–53:56; and [lecture 13](13-representation-learning-theory.md), on
+the similarity judgement an untrained architecture already makes: slides 7, 22, 23 and 26, ≈7:55, ≈47:28–52:12 and ≈1:11:08–1:12:44.
 
 ## Why an MLP is not enough
 
@@ -223,6 +224,25 @@ then asks: "Learned versus hard-coded invariances (geometric DL lecture): when w
 define explicitly what it means to be, for example, invariant to pose within a scene or distance in these complex geometric
 spaces, particularly for nonrigid objects" (≈52:23–53:56). The price is that each augmentation is an assumption: random flips make
 left and right shoes indistinguishable (≈39:00–39:47).
+
+## The architecture's opinion about similarity (lecture 13)
+
+Lecture 13 makes the idea measurable for a network that has not been trained. Its thesis: "a neural architecture (even
+without training) already expresses an opinion about data similarity" (slide 7, ≈7:55). The tool is the neural
+network–Gaussian process correspondence. Sample a network's weights iid and take its width to infinity, and its outputs on any
+finite set of inputs become jointly Gaussian, with a covariance function $\Sigma(x, x')$ that "depends on the architecture and
+non-linearity" (slide 23). That covariance says how strongly the network's outputs on two inputs move together before any
+training, which is the architecture's built-in judgement of how similar the two inputs are: "the architecture somehow has an
+opinion built into the choice of architecture about what data points are similar to each other, and which data points are
+dissimilar to each other" (≈51:24–52:12). For a ReLU MLP it is the compositional arccosine kernel (slide 25). In the lecturer's
+experiment, 1,000 randomly initialized three-layer MLPs give strongly correlated outputs on a CIFAR-10 truck and a lightly
+noised copy, and less correlated ones on a heavily noised copy (slide 22, ≈47:28–49:01).
+
+The covariance function plays the role the kernel plays in [kernel methods](kernel-methods.md), where choosing it was the
+modelling decision: "Instead of choosing your neural architecture, the whole thing was like, you pick a kernel function"
+(≈14:09). The hope was that the correspondence would let architectures and weight regularization be designed by studying their
+kernels (slide 26), but "it seems to have just not really happened. Instead, we just do transformer" (≈1:11:57). See
+[Gaussian processes](gaussian-processes.md).
 
 ## Where it goes next
 

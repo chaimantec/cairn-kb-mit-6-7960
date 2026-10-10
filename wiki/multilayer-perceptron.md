@@ -15,7 +15,8 @@ training points, and its last layer as a weighted sum of features); [lecture 7](
 slide 22 and ≈53:51–56:11 (the neural, tensor and spectral perspectives); [lecture 8](08-architectures-transformers.md),
 slides 17–21 and 36, ≈16:59–22:24 and ≈55:49 (token nets as MLPs over vectors, and the token-wise MLP
 inside a transformer); [lecture 10](10-architectures-memory.md), slide 23, ≈14:44–15:30 (an RNN without its recurrence); [lecture 11](11-representation-learning-reconstruction-based.md),
-slides 10–12, ≈13:08–16:17 (a width-2 MLP's layers drawn as it trains). See also [activation functions](activation-functions.md),
+slides 10–12, ≈13:08–16:17 (a width-2 MLP's layers drawn as it trains); [lecture 13](13-representation-learning-theory.md), slides 20–25, ≈45:07–1:10:13
+(an infinitely wide MLP with random weights as a Gaussian process). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -252,3 +253,15 @@ the next linear layer skews, until they spread out on a line and the softmax put
 "Each of the layers now can be understood as a different representation of the data distribution and a better and better
 representation" for the task (≈14:39). Slide 12 trains it with SGD and with steepest descent in the spectral norm; see
 [steepest descent](steepest-descent.md) and [representation learning](representation-learning.md).
+
+## An infinitely wide MLP with random weights (lecture 13)
+
+[Lecture 13](13-representation-learning-theory.md) studies the MLP before any training. Sample its weight matrices
+$\mathbf{W}_ 1, \ldots, \mathbf{W}_ L$ at random and it computes a random function (slide 20); sample 1,000 times and scatter-plot
+the outputs on two inputs, and the cloud shows how the architecture relates them (slide 21). For a three-layer MLP of hidden width
+1000, the outputs on a CIFAR-10 truck and a slightly noised copy lie along a thin diagonal line, and on a heavily noised copy they
+spread into a wider ellipse (slide 22, ≈47:28–49:01). As the width goes to infinity, the outputs on any finite set of inputs become
+jointly Gaussian, so the random MLP is a [Gaussian process](gaussian-processes.md) whose covariance function depends on the depth
+and the non-linearity (slide 23). With non-linearity $\sqrt{2} \thinspace \operatorname{relu}$ and weight variance one over fan-in,
+that covariance is the compositional arccosine kernel, which applies one fixed function $L - 1$ times to the inputs' scaled dot product
+(slide 25, ≈1:07:55–1:10:13).

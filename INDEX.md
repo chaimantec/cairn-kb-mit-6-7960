@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–12 of 24 only.** This knowledge base currently holds the first twelve
+> **Coverage: lectures 1–13 of 24 only.** This knowledge base currently holds the first thirteen
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based) and the concept pages they support. For anything taught in lectures 13–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory) and the concept pages they support. For anything taught in lectures 14–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 12. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 13. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -173,6 +173,20 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   (augmentation, projection heads, batch size, false negatives, supervised contrastive learning); the iNaturalist 2021
   case study (a 30-point species gap against 7 on ImageNet; birds retrieved by being held in hands); and Homework 4's
   similarity-based section. 37 of its 70 slides are excluded from OCW's licence.
+- [Lecture 13 — Representation Learning: Theory](wiki/13-representation-learning-theory.md) — Jeremy Bernstein
+  (handwritten deck, titled "Architectural Bias on Representations"). The claim that an architecture, even untrained,
+  already expresses an opinion about which inputs are similar, made precise by the neural network–Gaussian process
+  (NN-GP) correspondence. An opening aside on Homework 2's steepest descent under the spectral norm,
+  $-\frac{\operatorname{Tr}(\boldsymbol{\Sigma})}{\lambda} \mathbf{U} \mathbf{V}^{\top}$, and the Muon optimizer's NanoGPT
+  speedrun; a network as a map through a sequence of vector spaces; two classical function spaces, kernel methods (a bump
+  on every data point, the reproducing kernel Hilbert space) and Gaussian processes (random functions consistent with the
+  data), and the correspondences between them and networks; Gaussian processes pictorially, as a random vector plotted as
+  a function, and formally; covariance functions as "nearby" (squared exponential, inner product); prediction by
+  conditioning (the lecture does not give the formulae); random weights as random functions, the lecturer's width-1000
+  MLP experiment on a CIFAR-10 truck, the correspondence, its central-limit-theorem proof sketch, and the ReLU network's
+  compositional arccosine kernel; questions on overfitting, why infinite width, why not use the kernel (cubic cost), the
+  Berry-Esseen theorem and the result's small practical impact; and a closing doubt about initializing at variance one
+  over fan-in. Its slides 4 and 22 are excluded from OCW's licence.
 
 ## Course pages
 
@@ -183,7 +197,8 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   policy; and which problem set goes with which lecture where a lecture says (lecture 5's
   graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
   Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation and lecture 10's RNN problem are Homework 3; lecture 11's coloured-shapes
-  autoencoder, which the lecturer calls "p set 3", is Homework 4, whose first section goes with lecture 12).
+  autoencoder, which the lecturer calls "p set 3", is Homework 4, whose first section goes with lecture 12; lecture 13
+  opens with Homework 2's spectral-norm question).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -205,7 +220,8 @@ passages it draws on.
   interpolates between training points where a memorizing "filing cabinet" cannot, and its last
   layer as regression on features (lecture 6); the neural, tensor and spectral perspectives on a
   network (lecture 7); token nets as MLPs over vectors, and the token-wise MLP inside a transformer
-  (lecture 8); an RNN without its recurrence (lecture 10); a width-2 MLP's layers drawn as it trains (lecture 11).
+  (lecture 8); an RNN without its recurrence (lecture 10); a width-2 MLP's layers drawn as it trains (lecture 11); an
+  infinitely wide MLP with random weights as a Gaussian process, and its compositional arccosine kernel (lecture 13).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
@@ -228,7 +244,8 @@ passages it draws on.
   sign gradient descent, any norm a step size $\Vert \mathbf{g} \Vert^{\dagger} / \lambda$ times a
   step direction (the dual norm); steepest descent for matrices and the spectral norm in problem set 2;
   no guarantee unless the model is an upper bound; and why another norm — the squeezed map,
-  preconditioning, where the linear term breaks down; SGD against spectral descent on a small MLP (lecture 11).
+  preconditioning, where the linear term breaks down; SGD against spectral descent on a small MLP (lecture 11);
+  the spectral-norm solution $-\frac{\operatorname{Tr}(\boldsymbol{\Sigma})}{\lambda} \mathbf{U} \mathbf{V}^{\top}$ and the Muon optimizer (lecture 13).
 - [Second-order methods](wiki/second-order-methods.md) — first- versus second-order (lecture 2); the
   Taylor expansion, linearization and non-linear part; Newton's method $-\mathbf{H}^{-1}\mathbf{g}$ and
   its problems (a $d \times d$ Hessian, heading for a maximum, cubic regularization); the Gauss-Newton
@@ -291,7 +308,8 @@ passages it draws on.
   that better architectures approximate important function classes more efficiently; graph neural
   networks as deliberately non-universal, universal within multiset functions, and bounded by the
   Weisfeiler-Leman test (lecture 5); approximation set beside generalization, and why parameter
-  count is not the capacity that matters (lecture 6).
+  count is not the capacity that matters (lecture 6); whether kernel methods, Gaussian processes and networks are
+  equally expressive (lecture 13).
 - [Lipschitz continuity](wiki/lipschitz-continuity.md) — $|g(x + \Delta x) - g(x)| \le L |\Delta x|$,
   the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
   (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
@@ -308,7 +326,8 @@ passages it draws on.
   $\Vert \Delta \mathbf{W}_ \ell \Vert_{\text{RMS-RMS}} \sim 1$ for updates) with why it works and
   what it does not guarantee, problem set 2's version for sign gradient descent, the $1/L$ residual
   multiplier and $(1 + x/L)^L \to e^x$ against the $1/\sqrt{L}$ of standard transformers, the
-  modular theory, and the references.
+  modular theory, and the references; lecture 13's doubt about initializing at variance one over fan-in (the
+  null-space argument, and maximal update parameterization).
 - [Generalization and double descent](wiki/generalization-and-double-descent.md) — why
   over-parameterized nets don't just memorize, the classical U-curve against double descent
   (Belkin et al., 2019), the interpolation threshold, capacity versus data, and the simplicity
@@ -320,7 +339,7 @@ passages it draws on.
   vacuous), and the candidate inductive biases; previews lecture 17. Lecture 9's practical side: a
   shortcut that will not generalize, training problems too easy to generalize from, and domain
   randomization. Lecture 12's geometry of representations that generalize: consistency, separation and robustness, and
-  CIFAR-10 representations under true and random labels.
+  CIFAR-10 representations under true and random labels. Lecture 13: whether an infinitely wide network must overfit.
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -332,7 +351,8 @@ passages it draws on.
   (Zeiler and Fergus), what makes a representation good, the trade-offs every representation makes, and
   compression against prediction (lecture 11); five properties of a good representation, similarity as the signal, the
   loss giving alignment and uniformity and the data giving invariance, and why "relevant" depends on the task (lecture 12);
-  previewing lectures 13 and 18–19.
+  a network as a map through vector spaces, and the similarity an untrained architecture builds in (lecture 13);
+  previewing lectures 18–19.
 - [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
   reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
   PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
@@ -362,7 +382,8 @@ passages it draws on.
   domain constraints as the lecturer's favoured explanation of why deep nets generalize (lecture 6);
   the transformer's few built-in biases, with locality left to the tokenizer and domain knowledge to the
   positional encoding (lecture 8); data augmentation as the architecture-agnostic alternative, and the
-  biases that standardization and one-hot labels remove (lecture 9).
+  biases that standardization and one-hot labels remove (lecture 9); learned against hard-coded invariance (lecture 12);
+  the architecture's opinion about similarity, read off the infinite-width covariance function (lecture 13).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
@@ -438,6 +459,15 @@ passages it draws on.
   (SimCLR) or from other views (CMC, video, CLIP), false negatives and supervised contrastive learning, alignment and
   uniformity, learned invariance, the SimCLR ingredients (augmentation, projection head, batch size, negatives), and
   the iNaturalist case study of where it falls short (lecture 12); Homework 4's similarity-based section.
+- [Kernel methods](wiki/kernel-methods.md) — fitting data with a bump function on every training point,
+  $f(x) = \sum_i \alpha_i \thinspace k(x, x_i)$, and the reproducing kernel Hilbert space; the kernel as the modelling
+  choice; the correspondences with Gaussian processes (the posterior mean as the minimum-norm kernel interpolator) and
+  with infinitely wide networks; why networks rather than kernel methods (lecture 13); not the same as a convolution
+  kernel or lecture 6's kernel matrix.
+- [Gaussian processes](wiki/gaussian-processes.md) — random functions whose values on any finite set of inputs are
+  jointly Gaussian: the picture, a random vector plotted as a function, the formal definition, covariance functions as
+  "nearby", prediction by conditioning, and the neural network–Gaussian process correspondence with its proof sketch,
+  the ReLU network's compositional arccosine kernel, and what it did and did not change (lecture 13).
 
 ## Raw materials
 
@@ -450,7 +480,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–12 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–13 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

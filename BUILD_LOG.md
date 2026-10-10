@@ -49,18 +49,25 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   which is not the title of any lecture in the schedule (lecture 9 is where data augmentation is set against geometric deep
   learning). Its recording points back to "the geometric deep learning lecture" (≈52:23) without a number and ahead only to
   "Thursday" (13).
+  Lecture 13's title slide reads "6.7960 :: Lecture 13", matching the recording; the "6.7960" is handwritten on an opaque pink
+  blob painted over a typed "6.S898", which only the text layer still shows. Its slide 4 points to "(Lecture 12)" for
+  similarity-based representation learning and slide 5 to "(Lecture 7)" for the perspectives on neural computation, both matching
+  the recorded schedule, and slide 2 to "(HW2)", Homework 2's question 4. Its recording points back to "last time" (12, ≈4:49), to
+  the perspectives "in even the earlier lectures" (7, ≈5:36), to "the approximation theory lecture, which was maybe lecture two"
+  (it was 3, ≈10:13) and to whether "Phillip talked about" overparameterization "in one of his lectures" (≈55:23); it names no
+  later lecture, only a reading to be posted on Piazza.
 
 ## End pages
 
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
-  page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", and of lecture 12's
-  page 70, a 792×612 page that prints "70".
+  page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
+  page 70, a 792×612 page that prints "70", and of lecture 13's page 28, a 792×612 page that prints "28".
 
 ## Handwritten decks
 
@@ -74,7 +81,11 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   title, dividers, references and slides 5 and 16–18), so every page covers about twice its area in
   raster and every page "has a figure". Its typed OCW notices are in the text layer and were found by
   grep; its handwriting OCR is noise ("Selond order"). Expect the same of lecture 23, Bernstein's other
-  lecture on the schedule.
+  lecture on the schedule. Lecture 13's deck is handwritten the same way and paints the same 512×512 background twice on every page
+  but the end page, plus a full-page 1168×876 grey image on slides 2–4. Its typed OCW notices (slides 4 and 22) are in the text
+  layer. It also hides things under ink painted in the background colour, which the text layer and the image list still contain
+  but the page does not show: the title slide's typed "6.S898" under a pink blob, slide 22's matplotlib axis labels
+  ($f(x_1)$, $f(x_2)$ on both plots) under dark strokes, and three of slide 27's six book icons under lilac ones.
 
 ## OCW exclusion notices, by lecture
 
@@ -130,6 +141,12 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   with such paths is either a notice page or one of the five slides whose small print is a "Courtesy of … Used under CC BY"
   or "CC BY-NC-SA" credit (7, 8, 22, 23, 35). Slides 25 and 33 carry both kinds of line: a CC credit for one figure and an
   "All rights reserved" notice for the "Other images".
+  Lecture 13's carries 2 in 28 pages, both typed and both in the text layer: slide 4's puppy and monkey photographs ("Dog ©
+  source unknown. Monkey © San Diego Zoo."), the same pair as lecture 12's title slide, and slide 22's CIFAR-10 truck photographs
+  ("Images © source unknown."), whose notice names no figure and sits at the bottom of the page under the slide's
+  observations; the whole slide, the lecturer's own scatter plots included, is treated as excluded. Slide 3's pasted NanoGPT
+  speedrun plot, from Keller Jordan's posts (handwritten credit "@kellerjordan0"), carries no notice. A vector scan for outlined
+  small print finds only handwriting on this deck, as on lectures 3 and 7; the audit found no missed notice or credit.
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -190,6 +207,12 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   coarse matches of lecture 3's slide 12 and lecture 5's slide 20 against a near-uniform 359×207 mask on slides 28–32, which
   differ by about 255 grey levels in 256. Slides 55–58 and 60–66 draw the same two images as slide 59, pixel for pixel, but
   each carries its own notice.
+  Lecture 13's sweep first matched every page of the deck, exactly, to lecture 7's excluded slides 7, 25 and 26: the two
+  handwritten decks paint the same 512×512 background image, so every excluded page of either deck "contains" it. With images
+  drawn on more than a third of a deck's pages, and rasters covering more than 90% of a page, left out of the comparison, the
+  sweep was clean in both directions. Slide 3's 708×455 speedrun plot matches none of the excluded images in decks 1–13 by pixel
+  hash or by coarse hash (including lecture 7's excluded plots from the same author), and no image rendered for lectures 1–12
+  matches slide 4's or slide 22's photographs.
 
 ## Transcript edits, by lecture
 
@@ -266,7 +289,13 @@ geometric deep learning lecture" beside slide 45; the low end is "Celeb A" → "
 "projection head improved" (56:15, slide 50), "Moco" → "MoCo" (58:41, slide 51) and "Celeb A" → "CelebA" (1:12:41, a spoken
 aside the deck does not print), plus two punctuation fixes and one question mark, and five `[Ed: …]` notes (naming Phillip
 Isola and the paper of slide 24; "zi and xj" against slide 12's $\mathbf{z}_ i$ and $\mathbf{z}_ j$; "push to similar samples
-apart", probably "dissimilar"; and the "geometric deep learning lecture"). Also done inline.
+apart", probably "dissimilar"; and the "geometric deep learning lecture"). Also done inline. Lecture 13: 96 markers identical, all
+55 digit strings identical, word ratios 1.00–1.35, and 1.00–1.00 once its `[Ed: …]` notes are removed (the three outliers, 49:48,
+1:06:24 and 1:12:44, are the paragraphs carrying notes). Its one restoration is "LLM.C" → "llm.c" (3:17, slide 3's legend), with
+nine `[Ed: …]` notes: lecture 3 for "maybe lecture two"; "covariate structure", probably "covariance", twice; "what Zach was
+saying", probably the question at 30:01; "sigma; x, x-prime" as $\Sigma(x, x')$; Phillip Isola; Zach as the `AUDIENCE` speaker
+at 59:17; a student's "as the weight goes to infinity", probably "width"; and, marked as outside the course material, that
+Xavier initialization is usually defined with variance 2/(fan-in + fan-out). Also done inline.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -546,6 +575,28 @@ uniformity and the infinite-negatives decomposition of the contrastive loss from
 (≈47:38–50:49). The wiki gives each beside the slide, and gives those definitions in the lecturer's words without
 reconstructing formulas.
 
+**Lecture 13's figure audit**, cross-model: Sonnet read the handwritten deck, and Opus checked 25 pages (1–11, 13–18 and 20–27),
+split between two agents from the start, from 100–600 dpi crops, the vector ink, the native rasters of slides 3, 4 and 22, and the
+captions; both finished. Every formula agreed symbol by symbol, and the flagged letters were settled: slide 2's subscript is a
+hand-drawn asterisk, the N of slides 18 and 25 a calligraphic $\mathcal{N}$, and the L of slides 20 and 25 a slanted capital L,
+not ℓ. Nine pages agreed and 16 were corrected. Two corrections were things described that are not on the page: slide 17's
+"nested contours" are sketched scatter clouds, and slide 27's "faint specks" are slivers of three icons painted over, not empty
+entries. The rest were counts, colours and positions: four random curves, not five or six, on slides 10 and 13; 17 cells and 12 and
+11 stems on slide 14; slide 9's formula in green with only $\alpha_i$ and $x_i$ pink, and no underline under "weights"; slide 3's
+baseline meeting the target line at about 42 minutes, not 45 (measured from the native raster); slide 4's dot positions, monkey,
+opaque ellipse and notice placement; and slide 22's input 2 (the same framing with mild noise), its painted-out plot labels and its
+notice placement. The renders of slides 3 and 17 were then checked against the corrected text.
+
+**Lecture 13's printed slips and oddities**, transcribed as written: slide 1's email "jbernstein@mit.edub", as on lecture 7's
+title slide, and its "6.7960" painted over a typed "6.S898"; slide 4's open "a" that reads "necrby"; slide 15's "radom vector";
+slide 21's $f_1, \ldots, f_{100}$ in its text against $f_{1000}$ in its matrix, and its inputs named $x$ and $x'$ in the text
+but $x_1$ and $x_2$ in the matrix; and slide 27's "Processes", whose second "s" is a bare stroke that can be read as an undotted
+"i". In the recording the lecturer calls lecture 3 "maybe lecture two" (≈10:13), calls variance-one-over-fan-in "Xavier
+initialization" (≈1:12:44), and says "where L minus 1 is the depth" (≈1:09:28) of the $L - 1$ applications of $h$, where slide
+25's $L$ counts the weight matrices. He does not write out the Gaussian process's conditional mean and standard deviation
+("you can just look up what the formulae are", ≈44:19), and the wiki does not either. The last part of the lecture, on
+initialization (≈1:12:44–1:15:05), is at a board, on no page of the deck.
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -560,7 +611,9 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   after 28 pages; it had appended each page to a report file, so a second agent did only the last
   two. Lecture 11's first auditor stopped after six of 43 pages the same way, and a second agent finished the other 37.
   Lecture 12 split its 46 pages between two auditors from the start; a session limit stopped both, after 15 and 10 pages,
-  and two more finished the other 21 from the reports on disk. 
+  and two more finished the other 21 from the reports on disk. Lecture 13's audit found errors on 16 of 25 pages of a
+  handwritten deck, mostly counts and colours, two of them things described that are not on the page (slide 17's contours, slide
+  27's empty entries), with no formula wrong; its two auditors, on 13 and 12 pages, both finished. 
 
 ## Where each lecture's images appear
 
@@ -593,6 +646,8 @@ All 25 of lecture 11's images appear both in [`wiki/11-representation-learning-r
 and under their headings in [`raw/slides/11-representation-learning-reconstruction-based.md`](raw/slides/11-representation-learning-reconstruction-based.md).
 All 8 of lecture 12's images appear both in [`wiki/12-representation-learning-similarity-based.md`](wiki/12-representation-learning-similarity-based.md)
 and under their headings in [`raw/slides/12-representation-learning-similarity-based.md`](raw/slides/12-representation-learning-similarity-based.md).
+All 10 of lecture 13's images appear both in [`wiki/13-representation-learning-theory.md`](wiki/13-representation-learning-theory.md)
+and under their headings in [`raw/slides/13-representation-learning-theory.md`](raw/slides/13-representation-learning-theory.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -866,3 +921,21 @@ Not rendered, and why:
   arrows and two words), 12, 13 (equations and the Xing et al. title block), 16, 18, 21 and 39.
 - **Title, roadmap, dividers, text slides and end page:** 2–5, 9, 15, 26, 27, 38, 40, 44–47, 69 and slide 70, the OCW end
   page.
+
+### What was rendered, and what was not — lecture 13
+
+Rendered (10): slides 3, 5, 6, 9, 10, 11, 13, 14, 17 and 20 — the spectral-norm update with its tricks and the NanoGPT speedrun
+plot, lecture 7's three perspectives recalled, the network as a map through vector spaces, the bump-function construction, random
+functions through the data, the triangle of correspondences, the Gaussian process picture, the random vector plotted as a function,
+the sketched scatter clouds of nearby and distant inputs, and the network with random weight matrices.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (2 slides): 4 and 22** — slide 4's puppy and monkey photographs and slide 22's CIFAR-10
+  photographs. Slide 22's scatter plots, the lecturer's own, go unshown with it; the slide file gives their axes, ranges and
+  spreads.
+- **Drawings a rendered slide repeats:** 7 (the network of slide 20, without its weight labels), 8 (the four data points of slides
+  9 and 10, without their fits), 18 (its plot is slide 13's last row) and 25 (slide 20's network beside formulas the slide file
+  reproduces).
+- **Text and equations the slide file reproduces exactly:** 2, 15, 16, 21, 23, 24 and 26.
+- **Title, dividers, references and end page:** 1, 12, 19, 27 (three titles beside book icons) and slide 28, the OCW end page.

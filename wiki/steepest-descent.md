@@ -7,7 +7,8 @@ descent, and every norm has a solution with the same two-part shape, a step size
 direction. The course develops it in [lecture 7](07-scaling-rules-for-optimization.md) as one of
 three classical methods that start from a Taylor expansion, and problem set 2 works out the details.
 Covered so far: lecture 7, slides 16–19, ≈33:37–50:45; [lecture 11](11-representation-learning-reconstruction-based.md), slide 12, ≈15:30–16:17 (SGD against steepest
-descent in the spectral norm on a small MLP).
+descent in the spectral norm on a small MLP); [lecture 13](13-representation-learning-theory.md), slides 2–3, ≈0:00–4:49 (the spectral-norm solution, and an
+optimizer built on it).
 
 **Notation** follows lecture 7. $\mathcal{L}(\mathbf{w})$ is the loss as a function of the weights
 $\mathbf{w}$ (the [course notation](notation.md)'s total cost $J$),
@@ -81,7 +82,7 @@ $\operatorname{trace}(\mathbf{G}^{\top} \Delta \mathbf{W})$ in place of
 $\mathbf{g}^{T} \Delta \mathbf{w}$ and a matrix norm as the penalty. Problem set 2 asks for steepest descent under the
 **spectral norm**, expressed through the singular value decomposition of the gradient matrix
 $\mathbf{G}$. Lecture 7 does not solve it; it argues for matrix norms on other grounds (see [scaling
-rules](scaling-rules.md)).
+rules](scaling-rules.md)). Lecture 13 shows the answer (below).
 
 ## Does the model hold?
 
@@ -133,3 +134,24 @@ separating the two classes better: "different optimization schemes actually do p
 first linear layer looks "almost like a rotation, which is a orthogonal transformation. And if your updates are orthogonalized, then
 maybe that somehow relates to this first layer finding this orthogonal transformation … it's a little complicated" (≈15:30–16:17).
 Slide 12 links the Colab code that made the figures.
+
+## The spectral-norm solution, and Muon (lecture 13)
+
+[Lecture 13](13-representation-learning-theory.md) opens with problem set 2's spectral-norm question. Measured in the spectral norm
+$\Vert \cdot \Vert_ \ast$, the problem is
+$\underset{\Delta \mathbf{W}}{\arg\min} \thinspace \operatorname{Tr}(\mathbf{G}^{\top} \Delta \mathbf{W}) + \frac{\lambda}{2} \Vert \Delta \mathbf{W} \Vert_ {\ast}^{2}$,
+and for a gradient with reduced singular value decomposition $\mathbf{G} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\top}$ the
+solution is
+
+$$\Delta \mathbf{W} = - \frac{\operatorname{Tr}(\boldsymbol{\Sigma})}{\lambda} \mathbf{U} \mathbf{V}^{\top}$$
+
+(slide 2, ≈0:46–1:39). The direction $\mathbf{U} \mathbf{V}^{\top}$ is the gradient with "all the singular values" set "to 1", a
+**semi-orthogonal** matrix, "because it's rectangular" (≈1:39). The step size is the sum of the singular values divided by
+$\lambda$, the same step-size-times-direction shape as every other norm.
+
+The lecturer then showed what a "speedrunner", Keller Jordan (@kellerjordan0), did with "a variant of this method": add momentum and
+low precision, and compute $\mathbf{U} \mathbf{V}^{\top}$ by an iteration instead of an SVD, which is too slow to run at every
+training step (slide 3, ≈1:39–3:17). The slide calls the result the "Muon optimizer", which "trains nanoGPT to 3.28 val loss on
+"Fineweb" dataset in < 15 minutes"; on its plot, Karpathy's llm.c baseline takes about 42 minutes to reach that loss. The lecturer
+discloses that he collaborates with Keller Jordan, "so you take everything with a grain of salt. But it seems to be actually much
+faster to use this method" (≈3:17–4:04).

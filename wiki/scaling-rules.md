@@ -6,7 +6,8 @@ retuned and a deeper one trains worse. [Lecture 7](07-scaling-rules-for-optimiza
 heuristic rule for width, built on the RMS-RMS operator norm, a more tentative one for depth, built on
 residual block multipliers, and the lecturer's research programme for a general theory. Problem set 2
 implements the width rule. Covered so far: lecture 7, slides 7 and 20–31, ≈7:45–13:55 and
-≈50:45–1:20:14.
+≈50:45–1:20:14; [lecture 13](13-representation-learning-theory.md), ≈1:12:44–1:15:05 (a doubt about initializing at variance
+one over fan-in).
 
 Not to be confused with **scaling laws** (see [scaling laws](scaling-laws.md)), which describe how a
 model's loss falls as it is given more parameters, data and compute.
@@ -136,6 +137,23 @@ The payoff would be an answer to steepest descent's question of which norm to us
 architecture that someone can come to you with, and how are you supposed to give them a norm so that they
 can do steepest descent? But what if there was an automatic way?" (≈1:19:28). See [steepest
 descent](steepest-descent.md).
+
+## Initializing at one over fan-in (lecture 13)
+
+[Lecture 13](13-representation-learning-theory.md)'s neural network–Gaussian process correspondence assumes weights sampled with
+variance one over the fan-in, "what we would call somehow the standard parameterization in PyTorch" (slide 25, ≈1:08:41), and the
+lecturer closes the lecture at the board on why that may not be the best choice (≈1:12:44–1:15:05; the deck has no page for it). He
+calls it "Xavier initialization"; outside the course material, Xavier, or Glorot, initialization is usually defined with variance
+$2 / (\text{fan-in} + \text{fan-out})$, and one over fan-in is usually credited to LeCun.
+
+The initialization is popular because "it's the initialization that is good at initialization": it preserves the magnitude of
+activations through random weights. But "if you have a matrix where the fan-in is much larger than the fan-out", it "has a huge null
+space, meaning that a lot of the inputs are going to get mapped to 0". Random inputs at initialization mostly fall in that null space,
+so preserving their magnitude means scaling up the part that does not. Once training is under way, "the inputs to the layer will kind
+of align with the non-null space. And then this principle is kind of bad because then things are much too large" (≈1:13:30–1:14:18).
+The lecturer relates this to "maximal update parameterization or MUP, which is something that if you're trying to train giant
+networks, people care about this a lot" (≈1:14:18). Lecture 7's width rule, which sizes weights by the RMS-RMS operator norm rather
+than by fan-in alone, is the course's other answer to how weights should scale with width.
 
 ## Further reading
 

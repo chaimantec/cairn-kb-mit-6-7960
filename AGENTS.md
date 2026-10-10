@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–12 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–13 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -55,9 +55,9 @@ general form and the lecture's details there; keep this file free of per-lecture
   page N. Each deck ends with an OCW end page, usually a smaller page, which is not lecture content.
   `slide_number_map.py` often reports that page as printing no number although it prints one; say so in the slide
   file rather than trusting the script.
-- **Handwritten decks.** Lectures 3 and 7 are Jeremy Bernstein's iPad notes (expect lecture 23, his other lecture,
+- **Handwritten decks.** Lectures 3, 7 and 13 are Jeremy Bernstein's iPad notes (expect lecture 23, his other lecture,
   to be the same). Their text layer is OCR noise: take nothing from it but typed OCW notices. The ink is vector
-  paths, so the raster test for figure pages misses it; and lecture 7 paints one background image on every page, so
+  paths, so the raster test for figure pages misses it; and lectures 7 and 13 paint one background image on every page, so
   the raster test flags every page there. Choose figure pages from the slide file.
 - **OCW excludes some figures from its licence**, with a notice on the slide: "© … All rights
   reserved. This content is excluded from our Creative Commons license." (sometimes without "All rights
@@ -137,7 +137,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–12 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–13 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -155,6 +155,7 @@ it.
 | 10 Architectures: Memory | 32 of 69 pages | rendered from `mit6_7960_f24_lec10.pdf` |
 | 11 Representation Learning: Reconstruction-Based | 25 of 65 pages | rendered from `mit6_7960_f24_lec11.pdf` |
 | 12 Representation Learning: Similarity-Based | 8 of 70 pages | rendered from `mit6_7960_f24_lec12.pdf` |
+| 13 Representation Learning: Theory | 10 of 28 pages | rendered from `mit6_7960_f24_lec13.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -191,7 +192,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–12:
+Notes for the next run, from lectures 1–13:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -209,8 +210,10 @@ Notes for the next run, from lectures 1–12:
   any coarse match by resizing both images to 256 × 256 and averaging the absolute grey difference over pixels darker
   than 200 in either: about 1 in 256 is the same figure, 50 or more is a different one. Use only images actually drawn
   on the page: `page.get_images()` lists everything a page's resources hold, including images drawn off the page or
-  not at all, while `page.get_image_info(xrefs=True)` gives where each is drawn. The excluded set the sweep uses must
-  be the slide file's, plus the withheld slides in the table above.
+  not at all, while `page.get_image_info(xrefs=True)` gives where each is drawn. Leave out page backgrounds: an image
+  drawn on more than a third of a deck's pages, or a raster covering more than 90% of a page. The handwritten decks share
+  one background image, so without that filter every page matches every excluded page of another handwritten deck,
+  exactly. The excluded set the sweep uses must be the slide file's, plus the withheld slides in the table above.
 - `embed_slide_images.py` anchors a wiki image at the slide's **first** citation, and a range such
   as "slides 15–20" places every slide in it at that spot. Write the wiki so that each slide's first
   citation is the passage it belongs in, and avoid ranges in overview paragraphs. It matches any
@@ -227,11 +230,13 @@ Notes for the next run, from lectures 1–12:
   out of the italic captions. It also copies the slide title into the slide file's alt text, so a
   title with math in it (lecture 4's slides 7, 8 and 10) leaves `$` in an alt text, which github.com
   then fails to parse; strip it.
-- **Handwritten decks** (lectures 3 and 7; likely 23): do not grep the text layer for anything but typed notices;
+- **Handwritten decks** (lectures 3, 7 and 13; likely 23): do not grep the text layer for anything but typed notices;
   read every page, and choose figure pages from the slide file. Script and letter ambiguities (ℓ against L,
   subscripts against superscripts) need the audit, and the lecturer usually reads each formula aloud, so check the
   formulas against the transcript too. Where one background image is painted on every page, drop any xref that
-  appears on every page before measuring raster coverage.
+  appears on every page before measuring raster coverage. Ink painted in the background colour can hide typed text,
+  plot labels and icons that the text layer and image list still contain; transcribe what the page shows and say what
+  is hidden.
 - **Audit with a different model from the transcriber.** A same-model audit catches misreadings
   caused by resolution but not ones the two runs share. Have Opus check the chart-, diagram-, table-, equation- and
   photo-heavy pages from 150–600 dpi crops, the embedded rasters at native resolution and the vector data, and tell it

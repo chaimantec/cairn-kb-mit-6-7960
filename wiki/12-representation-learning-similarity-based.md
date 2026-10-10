@@ -578,7 +578,7 @@ irrelevant information)", learned "supervised or self-supervised". What is irrel
 the self-supervised case and, in the supervised case, by "the things that are different about these two images of the
 same category ... the fact that the bird is being held in a hand". "It all comes down to the difference between
 supervised and self-supervised, the way that we decide what's a similar pair" (≈1:14:13–1:15:46). The next lecture is "on
-Thursday" (≈1:15:46), lecture 13, Representation Learning: Theory.
+Thursday" (≈1:15:46), [lecture 13](13-representation-learning-theory.md), Representation Learning: Theory.
 
 ## The problem set
 

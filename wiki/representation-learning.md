@@ -15,7 +15,8 @@ why representations are learned, what makes one good, and the trade-offs any one
 one without labels have their own pages: [autoencoders](autoencoders.md), [self-supervised learning](self-supervised-learning.md)
 and, for what a representation is used for, [transfer learning](transfer-learning.md). [lecture 12](12-representation-learning-similarity-based.md), slides 3–9, 40–46 and
 69, ≈1:33–11:37, ≈45:15–54:42 and ≈1:14:13–1:15:46, lists what a good representation should be and learns one from similarity;
-its methods are on [metric learning](metric-learning.md) and [contrastive learning](contrastive-learning.md).
+its methods are on [metric learning](metric-learning.md) and [contrastive learning](contrastive-learning.md). [lecture 13](13-representation-learning-theory.md),
+slides 4–7 and 20–26, ≈4:49–8:41 and ≈45:07–1:12:44, asks what similarity an untrained architecture already builds in.
 
 ## Compact, compositional representations
 
@@ -112,7 +113,9 @@ Lecture 6 characterizes a network's output representation by its **kernel**, the
 between the representations of every pair of inputs: "every row is a data point and the column is another
 data point" (slide 53, ≈1:06:45–1:08:18). A block-structured kernel means the network has clustered the
 data, "all the red points have grouped together into one block", which makes the classes easy to separate.
-The lecturer says these kernels will return "in the representation learning lectures" (lectures 11–13).
+The lecturer says these kernels will return "in the representation learning lectures" (lectures 11–13). Lecture 13 also
+studies networks with random weights through a similarity of outputs, the covariance function of the infinite-width limit (see
+below); its recording does not connect that to lecture 6's kernels.
 
 Deeper networks give blockier kernels, and the "common understanding" is that they "have greater capacity
 to organize the data" (slides 52–53). But deep *linear* networks show the same effect though depth adds
@@ -258,3 +261,21 @@ relevant invariances ('forget' irrelevant information)" (slide 69).
 What counts as relevant is set by the task. A contrastive representation trained on iNaturalist without labels groups a bird held
 in a hand with other birds held in hands rather than with its species, so "for contrastive learning to work well, you need to have a
 good similarity measure for your problem of interest" (slides 67–68, ≈1:07:16), the same lesson as lecture 11's trade-offs.
+
+## An architecture's built-in similarity (lecture 13)
+
+Lectures 11 and 12 learn a representation by training. [Lecture 13](13-representation-learning-theory.md) asks what similarity a
+network expresses before training. It recaps lecture 12's goal, an objective "that maps similar data to nearby embeddings" (slide 4,
+≈4:49), and sets aside lecture 7's neural, tensor and spectral perspectives for "a more abstract perspective": "a neural net is a map
+through a sequence of vector spaces", one per layer, and the aim is "a good representation of the data at the final layer", for
+example a linearly separable one (slides 5–6, ≈5:36–7:55). Its claim is that "a neural architecture (even without training)
+already expresses an opinion about data similarity" (slide 7).
+
+The opinion is read off the infinite-width limit. With iid random weights, a very wide network's outputs on any finite set of
+inputs are jointly Gaussian, and their covariance function $\Sigma(x, x')$, which "depends on the architecture and non-linearity",
+is large for inputs the network treats as similar and small for ones it treats as different (slide 23, ≈49:48–52:12). The lecture's
+experiment shows it on random three-layer MLPs: a CIFAR-10 truck and a slightly noised copy give tightly correlated outputs, a heavily
+noised copy much less so (slide 22). In a Gaussian process, "the covariance structure is some kind of measure of similarity between
+the inputs" (≈38:47), so the covariance function is to an untrained architecture what a learned metric is to a trained encoder. The
+lecturer is clear that this has had "very little impact on what people actually do in deep learning" (≈1:00:54). See
+[Gaussian processes](gaussian-processes.md) and [inductive bias](inductive-bias.md#the-architectures-opinion-about-similarity-lecture-13).

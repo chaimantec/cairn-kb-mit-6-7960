@@ -6,9 +6,10 @@ the full treatment: one universal approximation theorem proved in full, a depth-
 and the limits of both. Covered so far: [lecture 1](01-introduction.md),
 [lecture 3](03-approximation-theory.md), [lecture 4](04-architectures-grids.md)'s slides 3, 8 and
 9 (universality weighed against inductive bias, and the SIREN preview), and [lecture 5](05-architectures-graphs.md)'s
-slides 20 and 34–42 (what graph neural networks can approximate and distinguish); and [lecture 6](06-generalization-theory.md)'s
+slides 20 and 34–42 (what graph neural networks can approximate and distinguish); [lecture 6](06-generalization-theory.md)'s
 slides 3 and 33–34 (approximation set beside generalization, and why parameter count is not the measure of
-capacity that matters).
+capacity that matters); and [lecture 13](13-representation-learning-theory.md), ≈20:27–22:06 (whether kernel methods, Gaussian processes and networks
+are equally expressive).
 
 Approximation is only one piece of the puzzle. Lecture 3's slide 4 splits machine learning into
 three questions: **approximation** ("Does there exist a neural net in my model family that fits the
@@ -216,3 +217,11 @@ generalize badly, and the number of parameters is not even the right measure of 
 $h(x) = 10^{-100} f(x) + (1 - 10^{-100}) g(x)$, for a large network $f$ and a small one $g$, is fit almost
 exactly by $g$'s few parameters (slide 34, ≈44:51–45:36). See [generalization and double
 descent](generalization-and-double-descent.md).
+
+Lecture 13 sets networks beside two classical function spaces, [kernel methods](kernel-methods.md) and
+[Gaussian processes](gaussian-processes.md), and a student asked whether one is more expressive. The lecturer thinks "they may just
+be different in some sense", for instance in how smooth their functions are: kernel functions, built from bumps, "may still be
+reasonably smooth functions", while a Gaussian process, depending on its covariance, can produce "really horrendous functions"
+whose posterior mean is nonetheless smooth. "I don't know which one is more expressive. But it's an interesting thing to think
+about" (≈20:27–22:06). Lecture 13 also relates its kernel construction, a bump on every data point, to lecture 3's approximation
+theory (≈10:13).
