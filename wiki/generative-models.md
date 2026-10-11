@@ -8,8 +8,10 @@ low-dimensional embedding, and generative modeling goes "from simple low-dimensi
 ≈0:00–1:20:47 (fundamentals, density and energy models, autoregressive models, diffusion models and GANs);
 [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 3–5, 10–11 and 35–41, ≈0:47–3:55, ≈17:10–21:06 and ≈1:11:40–1:20:09 (generative models as
 distribution transformers, latent variable models and the marginal likelihood, what their latent spaces learn, and the families
-compared). Lecture 15's model, the [variational autoencoder](variational-autoencoders.md), has its own page. Lecture 16 covers
-conditional models and applications (lecture 14, slide 2; see the [course map](course-map.md)).
+compared); [lecture 16](16-generative-models-conditional-models.md), slides 3–6, 15, 50, 59 and 83, ≈1:31–4:34, ≈13:04, ≈39:45, ≈45:10–45:58, ≈57:45 and ≈1:04:47 (generative models
+for structured prediction, conditioning each family, and explicit inputs against latent variables). Lecture 15's model, the
+[variational autoencoder](variational-autoencoders.md), has its own page, and lecture 16's conditional models have
+[theirs](conditional-generative-models.md).
 
 ## Two definitions
 
@@ -144,9 +146,23 @@ The most cute and fun is GANs. The ones that are popular in language modeling is
 trade-offs" (≈1:19:23–1:20:09). The VAE row's ✗ for a density differs from slide 11, which lists a density among a VAE's outputs; the
 [lecture page](15-generative-models-representation-learning-meets-generative-modeling.md#comparing-the-families) notes it.
 
+## Conditional models and structured prediction (lecture 16)
+
+[Lecture 16](16-generative-models-conditional-models.md) turns the families to prediction: given an input $\mathbf{x}$, model the whole distribution of
+outputs $\mathbf{y}$. Problems whose output is a high-dimensional object with dependent dimensions are **structured prediction**
+(slide 4), and the lecturer finds generative models suited to almost all of them: "I'll frame all problems that are predicting
+high-dimensional structured data or information out of a network as being appropriate to be treated with generative modeling"
+(≈1:31). Its working definition of the term comes from what regression and per-pixel classification lack: "Generative models
+have two important properties for structured prediction: 1. They can model a multimodal distribution 2. They can model joint
+dependences between multidimensional predictions" (slide 6, ≈13:04). Each family is made conditional by a small change, the
+discriminator, the denoiser or the decoder seeing the input, and an autoregressive model is conditional already (≈1:04:47); a
+conditional model's latent variables then encode only what the input leaves out, so "you can control your data either via explicit
+inputs or latent variables" (slide 50, ≈45:10–45:58). Text-to-image systems combine GANs, VAEs and diffusion models (≈57:45). See
+[conditional generative models](conditional-generative-models.md).
+
 ## Uses
 
 Generative models make the text-to-image pictures of DALL-E 2 (lecture 14, slide 5), but also scientific data: DiffDock, a
 diffusion model that docks a ligand on a protein, and an image-to-image model that predicts the CT scan an MRI scan would
 have been (slide 6, ≈6:06–6:53). "Generative models are not just for entertainment" (≈6:53). Their applications are lecture
-16's subject (≈1:31).
+16's subject (≈1:31); see [conditional generative models](conditional-generative-models.md).

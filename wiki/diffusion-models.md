@@ -5,7 +5,8 @@ running the opposite, easy process on the training data — adding noise step by
 noise — and training a network by supervised learning to undo each step. "Diffusion models convert data to noise and then just
 learn to reverse the process" ([lecture 14](14-generative-models-basics.md), ≈1:09:54). Covered so far: lecture 14, slides
 43–53, ≈1:07:34–1:17:40, and Homework 5's "Diffusion Models" section; [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), ≈8:37, ≈1:17:06,
-≈1:18:37–1:20:09 and slide 41 (diffusion as a kind of VAE, its latent structure, and the comparison of families). See also
+≈1:18:37–1:20:09 and slide 41 (diffusion as a kind of VAE, its latent structure, and the comparison of families); [lecture 16](16-generative-models-conditional-models.md), slides 65–67
+and 70, ≈1:02:29–1:05:32 and ≈1:07:53 (conditioning on text, Stable Diffusion's U-Net). See also
 [generative models](generative-models.md).
 
 ## The observation: data to noise is easy
@@ -74,3 +75,18 @@ connection. It also counts diffusion models among the generative models whose in
 diffusion models, maybe the noise", or directions in the activation space of a layer (≈1:17:06), and warns that navigating "diffusion model
 activation space on some layer of the network" can hit seams where the output "suddenly … switches to a different category" (≈1:19:23). In
 the closing comparison (slide 41) marks diffusion models as having latent variables ("high-dimensional") and a generator ("slow") but no density, and the lecturer calls them "the most popular right now" (≈1:19:23).
+
+## Conditioning on text (lecture 16)
+
+"To make it conditional on text, all I have to do is let my denoiser observe the text" ([lecture 16](16-generative-models-conditional-models.md), slide 65, ≈1:03:14). It works
+"because the text will be informative toward what the true image I started with is": a noisy image might have a yellow, white or pink
+background, and "A robin on a yellow background" settles it, so the denoiser "will learn to use the text and learn to denoise in the
+direction guided by the text", to the degree the training data link text and image (slide 66, ≈1:03:14–1:04:00). "It's really easy to make
+a diffusion model into a conditional diffusion model. Just let the denoiser take text as input" (≈1:04:47). DALL-E 2, Stable Diffusion and
+Midjourney took this route after DALL-E 1's VAE (≈1:02:29).
+
+In the version of Stable Diffusion that slide 67 draws, every denoising step was a **U-Net**, "just like a ConvNet with these skip
+connections", into which the text came by modulating the network's activations rather than as tokens ("I think you modulated the batch
+normalization or something … So you could look up the details", ≈1:04:47–1:05:32); "now people … use what's called diffusion transformers,
+where this is a ViT". The Stable Diffusion line was built on VQGAN, with a diffusion or autoregressive model in its latent space (≈1:07:53).
+See [conditional generative models](conditional-generative-models.md).

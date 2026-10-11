@@ -25,7 +25,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 13 Representation Learning: Theory — video -eC0-5mXHQg (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 14 Generative Models: Basics — video hJlrAHqGOS8 (OCW human captions; light copy-edit, verbatim in original/)
 - [x] 15 Generative Models: Representation Learning Meets Generative Modeling — video 8zzfcYIELdo (OCW human captions; light copy-edit by Sonnet, checked in the parent; verbatim in original/)
-- [ ] 16 Generative Models: Conditional Models — video zaMcHuJwe1w
+- [x] 16 Generative Models: Conditional Models — video zaMcHuJwe1w (OCW human captions; light copy-edit inline, checked by script; verbatim in original/)
 - [ ] 17 Generalization: Out-of-Distribution (OOD) — video tjD9LIzIIek
 - [ ] 18 Transfer Learning: Models — video tNfuZ9Imt3M
 - [ ] 19 Transfer Learning: Data — video RUdQMHV-7KM
@@ -64,6 +64,8 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] 14 — Opus figure audit on 52 pages applied (32 corrected; split between three agents, two stopped by a session limit after every page but slide 45, which was checked against its render)
 - [x] 15 Generative Models: Representation Learning Meets Generative Modeling — mit6_7960_f24_lec15.pdf (42 pages; read by Sonnet in two halves; OCW notices on slides 1, 6 and 39)
 - [x] 15 — Opus figure audit on 39 pages applied (21 corrected; split between three agents, all finished)
+- [x] 16 Generative Models: Conditional Models — mit6_7960_f24_lec16.pdf (84 pages; read by Sonnet in two halves; 16 OCW notices: slides 3, 7, 8, 11, 70–79, 81, 82)
+- [x] 16 — Opus figure audit on 71 pages applied (19 corrected; split between four agents, all finished)
 
 ## Wiki
 - [x] wiki/01-introduction.md
@@ -81,6 +83,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] wiki/13-representation-learning-theory.md
 - [x] wiki/14-generative-models-basics.md
 - [x] wiki/15-generative-models-representation-learning-meets-generative-modeling.md
+- [x] wiki/16-generative-models-conditional-models.md
 - [x] Topic pages (cross-lecture concepts) for lecture 1
 - [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
 - [x] Topic pages for lecture 3: lipschitz-continuity, scaling-laws new; representational-power rewritten; MLP, activations, generalization, course-map extended
@@ -96,6 +99,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Topic pages for lecture 13: gaussian-processes, kernel-methods new; inductive-bias, representation-learning, steepest-descent, scaling-rules, multilayer-perceptron, generalization-and-double-descent, representational-power, contrastive-learning, course-map extended
 - [x] Topic pages for lecture 14: generative-models, energy-based-models, diffusion-models, generative-adversarial-networks new; autoregressive-models, softmax-and-cross-entropy, generalization-and-double-descent, representation-learning, contrastive-learning, autoencoders, inductive-bias, course-map extended
 - [x] Topic pages for lecture 15: variational-autoencoders new; autoencoders, generative-models, representation-learning, generative-adversarial-networks, diffusion-models, energy-based-models, autoregressive-models, course-map extended
+- [x] Topic pages for lecture 16: conditional-generative-models new; generative-models, generative-adversarial-networks, variational-autoencoders, diffusion-models, autoregressive-models, transformers, softmax-and-cross-entropy, inductive-bias, course-map extended
 - [x] INDEX.md table of contents
 
 ## Images
@@ -114,6 +118,7 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] raw/images/13-representation-learning-theory/ — 10 images (slides 3, 5, 6, 9, 10, 11, 13, 14, 17, 20); 2 OCW-excluded slides (4, 22) never rendered; hash sweep clean once page backgrounds are left out
 - [x] raw/images/14-generative-models-basics/ — 28 images; 7 OCW-excluded slides (6, 54–59) and slides 49–50 (Homework 5's excluded diffusion diagram, found by extending the hash sweep to the problem sets) never rendered
 - [x] raw/images/15-generative-models-representation-learning-meets-generative-modeling/ — 22 images; 3 OCW-excluded slides (1, 6, 39) never rendered; hash sweep clean in both directions, validated by rerunning it on lectures 11 and 14
+- [x] raw/images/16-generative-models-conditional-models/ — 29 images; 16 OCW-excluded slides, slide 12 (slide 11's excluded photograph) and slides 18–31 (slide 73's excluded pictures, which slide 73 repeats from slide 30) never rendered
 - [x] AGENTS.md — the Images conventions section
 
 ## Publish
@@ -159,3 +164,5 @@ Images are opted in: every figure-bearing slide, rendered per Step 1c.
 - [x] Lecture 14: verify_kb.py clean, review read; commit and push
 - [x] Lecture 15: INDEX, AGENTS (coverage, image-table row, two general lessons), BUILD_LOG, LICENSE, kb.json, course-map updated
 - [x] Lecture 15: verify_kb.py clean, review read; commit and push
+- [x] Lecture 16: INDEX, AGENTS (coverage, image-table and withheld rows, two general lessons), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 16: verify_kb.py clean, review read; commit and push

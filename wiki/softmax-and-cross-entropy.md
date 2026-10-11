@@ -12,7 +12,8 @@ default formulation, colorization turned into classification, and the loss at ch
 its vocabulary, and maximum likelihood as cross-entropy); [lecture 11](11-representation-learning-reconstruction-based.md), slides 9–10, ≈11:35–14:39 (the
 softmax as a map onto the simplex); [lecture 12](12-representation-learning-similarity-based.md), slides 28–39 and 53, ≈31:11–35:54 and ≈43:43 (the contrastive loss as
 a softmax cross-entropy over similarities); [lecture 14](14-generative-models-basics.md), slide 7, ≈9:11–9:59, ≈36:31, ≈45:48 and ≈1:02:03–1:04:24 (classification as a
-distribution on the simplex, maximum likelihood, logits as energies, and next-word and next-pixel classifiers in generative models).
+distribution on the simplex, maximum likelihood, logits as energies, and next-word and next-pixel classifiers in generative models); [lecture 16](16-generative-models-conditional-models.md), slides 5–6, ≈9:13–13:04 (why a categorical distribution captures two modes, and where per-pixel
+classification still fails).
 
 ## From last layer to prediction
 
@@ -184,3 +185,13 @@ softmax is the step that exponentiates and normalizes them (≈45:48). And an [a
 model is built from softmax classifiers: each next word, or each next pixel's quantized colour, is predicted as a categorical
 distribution and sampled, and the loss is the log probability of the true class (slides 38 and 40, ≈1:02:03–1:04:24). See
 [generative models](generative-models.md).
+
+## Two modes, and where classification stops (lecture 16)
+
+[Lecture 16](16-generative-models-conditional-models.md) gives the reason quantizing and classifying works so often. Predicting the colour of a grey shirt that is teal or pink
+with equal probability, regression outputs the mean, which "has zero density under the true data distribution", and a Gaussian is
+unimodal; but "the categorical distribution, which is just a set of numbers that sum to 1, can express bimodal distributions … You can
+represent any number of bumps", so it solves the problem "up to quantization error" (slide 5, ≈7:41–10:44). "And that's one reason why we
+often use softmax regression." It fails once the output is high-dimensional: classifying every pixel independently, near-even
+probabilities cross the threshold from pixel to pixel and the shirt comes out in both colours, "failing to capture the joint dependency"
+(slide 6, ≈10:44–12:17). That second failure is what generative models fix; see [conditional generative models](conditional-generative-models.md).

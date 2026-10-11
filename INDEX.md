@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–15 of 24 only.** This knowledge base currently holds the first fifteen
+> **Coverage: lectures 1–16 of 24 only.** This knowledge base currently holds the first sixteen
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling) and the concept pages they support. For anything taught in lectures 16–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models) and the concept pages they support. For anything taught in lectures 17–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 15. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 16. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -211,6 +211,20 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   reconstruction error plus a KL term that squashes the encodings toward the origin, the tension that stops collapse, sphere packing,
   and gaps; the training loop; disentanglement in a VAE trained on procedural river tiles and in BigGAN; seams and tendrils in latent
   space; a comparison of the generative-model families; and Homework 5's VAE section. Slides 1, 6 and 39 are excluded from OCW's licence.
+- [Lecture 16 — Generative Models: Conditional Models](wiki/16-generative-models-conditional-models.md) — Phillip Isola (deck titled
+  "Deep Generative Models III"). Generative models for prediction: structured prediction and its definition (a joint distribution
+  that does not factorize); why regression, a Gaussian and per-pixel classification fail on colourization (the mean has zero density,
+  one mode, flipping between modes) and the two properties generative models bring; "Real or fake?" colourized photographs; deep
+  learning in 2012 as a hypothesis space (Andrew Ng's chart) against an objective that can model structure; per-pixel objectives and a
+  blurry map-to-aerial output; conditional GANs (pix2pix): the generator and discriminator objectives, the discriminator as a learned
+  loss, the pair discriminator, the L1 term, labels to facades, the patch discriminator and its patch size, why structured objectives,
+  and hallucination; conditional VAEs: mode collapse, the moving square, a latent that encodes only what the input leaves out,
+  BicycleGAN; explicit inputs against latent variables; text-to-text with autoregressive models and prompting (GPT-3); image-to-text
+  with a captioning transformer and cross-attention, and ChatGPT on its own architecture; text-to-image: the general strategy for domain
+  translation, a text-to-image VAE (DALL-E 1), conditional diffusion (Stable Diffusion's U-Net), VQA, LLaVA, and VQGAN mixing GANs,
+  VAEs and autoregressive models; and unpaired translation: the GAN loss as an admissible set, CycleGAN and cycle consistency, why the
+  mapping found is simple, back translation in language, and grounding. Slides 3, 7, 8, 11, 70–79, 81 and 82 are excluded from OCW's
+  licence, and slides 12 and 18–31 reuse excluded images.
 
 ## Course pages
 
@@ -316,7 +330,8 @@ passages it draws on.
   $\ln 0.1 = -2.3$ (lecture 9); next-word classification over words, characters or byte pairs, and
   maximum likelihood as cross-entropy (lecture 10); the softmax as a map onto the simplex (lecture 11); the contrastive
   loss as a softmax cross-entropy over similarities with a temperature (lecture 12); classifiers as a distribution on the
-  simplex, logits as energies, and next-word and next-pixel classifiers inside generative models (lecture 14).
+  simplex, logits as energies, and next-word and next-pixel classifiers inside generative models (lecture 14); why a categorical
+  distribution captures two modes that regression averages, and where per-pixel classification still fails (lecture 16).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
@@ -413,7 +428,8 @@ passages it draws on.
   positional encoding (lecture 8); data augmentation as the architecture-agnostic alternative, and the
   biases that standardization and one-hot labels remove (lecture 9); learned against hard-coded invariance (lecture 12);
   the architecture's opinion about similarity, read off the infinite-width covariance function (lecture 13); the usual
-  inductive biases applied to generative models (lecture 14).
+  inductive biases applied to generative models (lecture 14); simple mappings as what makes unpaired translation find the intended
+  one, and a discriminator's architecture as a bias of the loss (lecture 16).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
@@ -457,7 +473,8 @@ passages it draws on.
   default recipe, and "attention is not all you need"; attention against recurrence and convolution, the cost
   table of "Attention Is All You Need", longer contexts (sparse, local plus global, retrieval) and whether
   benchmarks need them (lecture 10); masked autoencoders and BERT, masking tokens to learn without labels (lecture 11);
-  separate projections for similarity and for information, compared to a projection head (lecture 12).
+  separate projections for similarity and for information, compared to a projection head (lecture 12); cross-attention between image
+  and text tokens, captioning, LLaVA and diffusion transformers (lecture 16).
 - [Recurrent neural networks](wiki/recurrent-neural-networks.md) — lecture 10's RNNs and LSTMs: what a convolution
   over time forgets, the hidden state and the recurrence shared over time, the simplest RNN and its MLP
   relative, the cycle in the graph and backpropagation through time over a truncated window, summed gradients
@@ -469,7 +486,8 @@ passages it draws on.
   prompts make prediction easier; each factor as a classifier over words, characters or byte pairs; maximum
   likelihood and teacher forcing; GPT's causal masking (lecture 8); sampling and beam search (lecture 10); next-word
   prediction as self-supervised learning that masks only the future, set beside BERT (lecture 11); autoregressive models
-  as generative density models of words, pixels and audio, and their kinship with diffusion (lecture 14).
+  as generative density models of words, pixels and audio, and their kinship with diffusion (lecture 14); conditional by construction,
+  prompting, and captioning (lecture 16).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
@@ -505,11 +523,13 @@ passages it draws on.
   indirect approaches (samplers, densities, energies) with a table of the families, maximum likelihood from the KL
   divergence, the filing cabinet and test likelihood, and generation turned into a sequence of supervised problems
   (lecture 14); generative models as distribution transformers, latent variable models and the marginal likelihood, and
-  slide 41's comparison of the families by latents, density and generator (lecture 15).
+  slide 41's comparison of the families by latents, density and generator (lecture 15); generative models for structured prediction,
+  conditioning each family, and explicit inputs against latent variables (lecture 16).
 - [Variational autoencoders](wiki/variational-autoencoders.md) — an autoencoder whose encoder maps to a Gaussian, so that its
   decoder is a generative model: the infinite mixture of Gaussians, the reparameterization trick, the three tricks for the
   intractable likelihood (Monte Carlo, importance sampling, an encoder predicting the sampling distribution), the evidence lower
-  bound and its two terms, the training loop, disentanglement and seams, and how VAEs relate to the other families (lecture 15).
+  bound and its two terms, the training loop, disentanglement and seams, and how VAEs relate to the other families (lecture 15); the
+  conditional VAE, whose latent encodes only what the input leaves out, and DALL-E 1 (lecture 16).
 - [Energy-based models](wiki/energy-based-models.md) — unnormalized probability models: the Boltzmann form and the
   partition function, why relative probabilities are often enough, why probabilities are still easier to interpret, and
   training by contrastive divergence with its gradient, data pushing the energy down and model samples pushing it up
@@ -517,11 +537,17 @@ passages it draws on.
 - [Diffusion models](wiki/diffusion-models.md) — turn data into noise, then learn to reverse it: denoising as supervised
   learning, sampling from Gaussian noise and its cost in steps, Gaussian diffusion's forward and reverse processes, a
   stripped-down training algorithm, Homework 5's diffusion section, and the kinship with autoregressive models (lecture 14);
-  diffusion as a kind of VAE, structure in its noise and activations, and its row in the comparison of families (lecture 15).
+  diffusion as a kind of VAE, structure in its noise and activations, and its row in the comparison of families (lecture 15);
+  conditioning on text by letting the denoiser see it, and Stable Diffusion's U-Net (lecture 16).
 - [Generative adversarial networks](wiki/generative-adversarial-networks.md) — a generator trained to fool a discriminator:
   direct or indirect, the discriminator's and generator's objectives, the min-max game, the student and teacher, and two
   inconsistencies printed on the slides (lecture 14); BigGAN's latent directions without an encoder, and GANs in the comparison of
-  families (lecture 15).
+  families (lecture 15); conditional GANs (pix2pix), the discriminator as a learned loss that sees pairs, its probability-of-synthetic
+  convention, the L1 term, the patch discriminator, mode collapse, and CycleGAN's cycle consistency for unpaired data (lecture 16).
+- [Conditional generative models](wiki/conditional-generative-models.md) — predicting one high-dimensional thing from another:
+  structured prediction and why unstructured prediction blurs and averages, the two properties of generative models, the objective
+  rather than the hypothesis space, how each family is made conditional (a table), explicit inputs against latent variables, tokens
+  and cross-attention between modalities, hallucination, and unpaired translation with cycle consistency and grounding (lecture 16).
 
 ## Raw materials
 
@@ -534,7 +560,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–15 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–16 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

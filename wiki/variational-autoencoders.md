@@ -8,7 +8,8 @@ solves them both at the same time" ([lecture 15](15-generative-models-representa
 ≈0:00), and "mathematically, … a framework that encompasses almost everything that we've seen", though "in practice, they're not
 as popular these days as diffusion models" (≈9:22). Covered so far: lecture 15, slides 3–41, ≈0:00–1:20:09; the model is promised
 in [lecture 11](11-representation-learning-reconstruction-based.md) (≈47:20–48:06) and placed in lecture 15 by
-[lecture 14](14-generative-models-basics.md) (slide 2, ≈1:31).
+[lecture 14](14-generative-models-basics.md) (slide 2, ≈1:31); and its conditional form in [lecture 16](16-generative-models-conditional-models.md), slides 39–50 and
+63–64, ≈39:45–45:58 and ≈59:21–1:01:42.
 
 **Notation**, from the slides: a data point $\mathbf{x}$, a latent vector $\mathbf{z}$ with prior $p_{\mathbf{z}}$, the unit
 Gaussian; a decoder or generator $g_{\theta}$ with parameters $\theta$, outputting a mean $g^{\mu}_ {\theta}(\mathbf{z})$ and a
@@ -108,6 +109,22 @@ bound on it. The lecturer calls VAEs "the most complete, like full
 picture, that encompasses everything" (≈1:20:09), and diffusion models "can be cast as a certain kind of VAE" (≈8:37; also lecture 14,
 ≈3:03–3:48); see [diffusion models](diffusion-models.md). Homework 5's first section implements one on FashionMNIST
 ([lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md#the-problem-set)).
+
+## Conditional VAEs (lecture 16)
+
+[Lecture 16](16-generative-models-conditional-models.md) makes the VAE conditional to predict an output $\mathbf{y}$ from an input $\mathbf{x}$, because a GAN tends to
+collapse onto one mode and conditional VAEs are "a little better at maybe capturing all the modes of the posterior" (≈39:45–40:31).
+Start from a VAE on the target $\mathbf{y}$ alone, then "let my reconstruction network, my decoder, observe the data x" (≈42:03–42:50).
+The target still reaches the decoder only through the Gaussian bottleneck $\mathbf{z}$, which is "trying to remove information. And so
+rather than encoding the color in z, the color can be given by x" (≈42:50). So "z learns to encode the missing information necessary to
+predict y from x", in the lecture's example the direction a square moves (slide 45). At test time $\mathbf{z}$ is sampled from the unit
+Gaussian, and each sample gives one plausible output (slides 46–49, ≈43:37–44:24). "In unconditional VAEs, z has to encode everything
+about the data. In conditional VAEs, z only encodes information that's not given in the conditioning variable, x" (≈45:10).
+
+Conditioned on text, this is "roughly the way that the DALL-E 1 model works" (slides 63 and 64, ≈59:21–1:02:29): the prompt does not say
+which way the scarlet macaw faces, "so therefore, the latent variable has to learn to encode that the macaw is facing to the left". Of the
+four families, the VAE "was the only one that was a little bit tricky" to make conditional (≈1:04:47). VQGAN is "a VAE with a patch GAN
+discriminator" (≈1:07:53). See [conditional generative models](conditional-generative-models.md).
 
 ## See also
 

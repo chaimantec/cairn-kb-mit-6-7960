@@ -9,7 +9,7 @@ you should use today", while warning that "next year, there'll be a new architec
 ≈0:00). Covered so far: [lecture 8](08-architectures-transformers.md), slides 1–54, ≈0:00–1:13:49; masked autoencoders and BERT in
 [lecture 11](11-representation-learning-reconstruction-based.md) (slides 59–60, ≈1:11:26–1:15:20); with
 the graph-net view previewed in [lecture 5](05-architectures-graphs.md) (slide 24, ≈49:42, ≈56:38), and
-the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61); and attention set against recurrence and convolution, with the efforts to lengthen its context, in [lecture 10](10-architectures-memory.md) (slides 57–64, ≈58:19–1:10:02).
+the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61); and attention set against recurrence and convolution, with the efforts to lengthen its context, in [lecture 10](10-architectures-memory.md) (slides 57–64, ≈58:19–1:10:02); and cross-attention between image and text tokens in [lecture 16](16-generative-models-conditional-models.md) (slides 56 and 68–69, ≈51:27–56:59 and ≈1:06:19–1:07:07).
 
 **Notation.** A token $\mathbf{t}_ i \in \mathbb{R}^d$ is a vector of $d$ neurons, and $N$ tokens are
 stacked as the rows of $\mathbf{T} \in \mathbb{R}^{N \times d}$, with $\mathbf{T}_ {\text{in}}$ and
@@ -226,6 +226,18 @@ transformer, there's one set of projections where you're calculating similarity 
 set of projections that you use to actually pass information", which "seems to suggest that it might be valuable to have
 differences between the representations we actually use to keep information and the representations we use to calculate
 similarity or difference" (≈57:03). See [contrastive learning](contrastive-learning.md).
+
+## Cross-attention between modalities (lecture 16)
+
+[Lecture 16](16-generative-models-conditional-models.md) uses transformers as "a way of putting all data types onto the same equal footing. Just turn everything into
+tokens, and then just do token-to-token mappings" (≈51:27–52:15). Its captioning model (slide 56) runs a vision transformer over image
+patches and a GPT-style decoder with causal attention over the caption, and joins them by **cross-attention**: "this GPT language model is
+going to simply be prefixed with additional tokens that can submit keys and values that are queried by these tokens … So cross-attention is
+just attention, but going — taking keys from — and values from one set and queries from a different set" (≈53:47–54:38). Typically "you
+have a query matrix which applies to the text and another query matrix that applies to the visual data" (≈56:13). The standard way to
+combine streams "seems to be concatenation … and then just concatenate and do more cross-attention between them, and then repeat"
+(≈1:01:42). LLaVA (slide 69) and visual question answering (slide 68) condition a language model on an image this way, and diffusion
+models now use "diffusion transformers", a ViT as the denoiser (≈1:04:47). See [conditional generative models](conditional-generative-models.md).
 
 ## Where it goes next
 

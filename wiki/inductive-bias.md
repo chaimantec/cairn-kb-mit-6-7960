@@ -15,7 +15,9 @@ built-in invariance and on the biases that standardization and one-hot labels re
 ≈16:24–19:29, ≈31:02–32:34 and ≈1:02:38–1:03:24; [lecture 12](12-representation-learning-similarity-based.md), on invariance
 learned from augmented pairs against invariance hard-coded into an architecture: slide 45, ≈52:23–53:56; and [lecture 13](13-representation-learning-theory.md), on
 the similarity judgement an untrained architecture already makes: slides 7, 22, 23 and 26, ≈7:55, ≈47:28–52:12 and ≈1:11:08–1:12:44;
-and [lecture 14](14-generative-models-basics.md), on inductive biases in generative models, ≈41:57–43:29.
+and [lecture 14](14-generative-models-basics.md), on inductive biases in generative models, ≈41:57–43:29; and [lecture 16](16-generative-models-conditional-models.md), on why
+unpaired translation finds the intended mapping, and a discriminator's architecture as a bias of the loss: slides 33 and 81, ≈32:46–35:52
+and ≈1:17:53–1:19:23.
 
 ## Why an MLP is not enough
 
@@ -253,6 +255,18 @@ inductive biases can steer it to a solution that generalizes — images "should 
 14 is that "all the tricks that we have from other deep learning can apply here": a convolutional architecture's "baked-in spatial
 locality", positional codes in transformers with "baked-in kind of inductive bias towards spatial locality", and regularizers. "There's
 a lot to say, but you can do everything" (≈41:57–43:29).
+
+## Simple mappings, and a loss's architecture (lecture 16)
+
+[Lecture 16](16-generative-models-conditional-models.md) leans on inductive bias twice. Unpaired translation by cycle consistency has many solutions: "There must be many
+cycle-consistent mappings between any set of images x and any set of images y. And indeed, that's true." What picks one is the learner:
+"under the constraints of a particular neural net architecture in a particular optimizer, only some of the possible mappings from inputs
+to outputs are going to be found … neural networks do find simple mappings." Mapping one line segment to another, "a ReLU network trained
+with gradient descent with two hidden units can only find two mappings", the identity and the flip, while the "complicated wiggly mappings
+… are very hard … to be found by the architectures that we use and the optimizers that we use" (slide 81, Galanti, Wolf and Benaim,
+ICLR 2018; ≈1:17:53–1:19:23). And a conditional GAN's loss is a network, so its architecture is a bias on what the loss can see: a patch
+discriminator's patch size decides whether it can detect blur or higher-order structure at all (slide 33, ≈32:46–35:05). See
+[conditional generative models](conditional-generative-models.md).
 
 ## Where it goes next
 

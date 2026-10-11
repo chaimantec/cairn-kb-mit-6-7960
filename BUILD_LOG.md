@@ -69,18 +69,23 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   river) and GANs "covered … very briefly last lecture" (all 14; ≈2:19, ≈10:08, ≈18:01, ≈1:16:20), to the representation-learning
   lectures and their cartoons (11–13, ≈0:47, ≈3:06) and to the layer-by-layer diagrams (11, ≈3:06), and closes on "the last two
   lectures" (14 and 15, ≈1:19:23); it names no later lecture, only "the reading for today" and "the problem set".
+  Lecture 16's title slide reads "Lecture 16: Deep Generative Models III", matching the recording ("Generative Models: Conditional
+  Models"); the deck prints no other lecture number. Its recording points back to "last lecture", "a little bit math-heavy" (15,
+  ≈0:00), to "the hacker's guide lecture" (9, ≈9:13), to GANs shown "very briefly in one of the previous lectures" (14, ≈24:12), to
+  "the VAEs we saw last class" (15, ≈42:03) and to "the transformers lecture" (8, ≈52:15), and ahead to "another lecture on language
+  models" (21, ≈51:27) and to "some future lectures" on grounding, which it does not name (≈1:20:56).
 
 ## End pages
 
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
   page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
-  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", and of lecture 15's page 42, a 792×612 page that prints "42".
+  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", and of lecture 16's page 84, a 792×612 page that prints "84".
 
 ## Handwritten decks
 
@@ -171,6 +176,15 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   at the lower left under the latent circle, far from the grid, but the grid is the page's only picture), and slide 6's covers its
   five bird photographs (the top row's orange bird, drawn twice, and four at the lower right). A vector scan for outlined small
   print found nothing, and the audit found no missed notice or credit.
+  Lecture 16's carries 16 in 84 pages, all typed and all in the text layer: slide 3's four example pictures ("© Long et al., Glass,
+  Reed et al., AlphaFold, Jumper et al."), slide 7's drum photograph ("© painmakers"), slide 8's colourized photograph ("©
+  color_byangelina"), slide 11's photograph of flying birds ("© Fred Durand", where its credit line prints "Fredo Durand"), slide 70's
+  VQGAN figure ("© Esser, et al."), slide 71's 1968 cartoon ("Cartoon © Science and Technology"), the CycleGAN material of slides
+  72–79 ("© Zhu, et al."; slide 71 says the section "[Includes slides from Jun-Yan Zhu, Taesung Park]"), slide 81's plots ("© Galanti,
+  Wolf, Benaim") and slide 82's figure ("© Lample, et al."). Slides 10 and 34's Andrew Ng chart ("[Slide credit: Andrew Ng]"), slide
+  42's frames (Babaeizadeh et al.), slide 49's BicycleGAN facades and slide 69's LLaVA figure carry none. A vector scan for outlined
+  small print found nothing, and the audit found no missed notice or credit. Slides 12 and 18–31 carry no notice but reuse excluded
+  images (next section).
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -256,6 +270,17 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   entirely off the page (y 2662–3819 pt on a 1080-pt page), so slide 10 is rendered, as lecture 11's slides 31, 39 and 42 were. Its
   river image is a 4 × 4 grid clipped to 3 × 3, the image slides 35 and 36 also draw; slides 37 and 38 share another river grid; and
   slides 31, 32, 40 and 14's plots are the lecturer's Colab output. None carries a notice or a credit.
+  Lecture 16's sweep, lecture 15's script unchanged, against the slide files' excluded slides of decks 1–16, the withheld slides and the
+  problem sets' excluded pages, found two reuses inside the deck. Slide 12 draws slide 11's excluded photograph of flying birds (the
+  same image object), which is also, at another resolution, the photograph of lecture 4's excluded slides 12–24, 61 and 62 and lecture
+  8's excluded slides 4 and 6–8 (coarse hash 3 bits, grey difference 0.6); slide 12 is withheld. And slide 73, under its "© Zhu, et
+  al." notice, repeats slide 30 image for image: its only pictures are the label map and the red brick building of the conditional-GAN
+  build, which every slide from 18 to 31 draws; slides 18–31 are withheld. Two other exact matches were false. Slide 1's three matches
+  with lecture 15's excluded title slide are the course's title-banner graphics, while lecture 15's notice there covers its BigGAN grid;
+  and slide 33's match with lecture 9's excluded slide 61 is two uniform black fills of the same byte count drawn through different soft
+  masks (a 140 × 135 colour image and a 378 × 150 grey one). The remaining coarse matches had grey differences of 47.6 to 74.4, between
+  images of unrelated shape (a 22 × 288 strip against a 461 × 361 photograph). No image rendered for lectures 1–15 matches lecture 16's
+  47 excluded images.
 
 ## Transcript edits, by lecture
 
@@ -352,7 +377,12 @@ the three scripts and a word diff. Five restorations: "times z integrated over z
 → "backpropping" (1:07:50) and "Again, doesn't have that" → "GAN doesn't have that" (1:16:20); and two `[Ed: …]` notes, on the
 garbled parameter count of a mixture of Gaussians (12:27) and the spoken Gaussian exponent (33:39). No student is named. The
 lecturer's mix-up of variance and standard deviation (22:42–25:49) and his remark that slide 14's 1/M "should be inside the log"
-(31:18) are left as said; the header lists them.
+(31:18) are left as said; the header lists them. Lecture 16: 105 markers identical, all 44 numbers identical, and word ratios 0.99–1.01 once its `[Ed: …]` notes are removed (with
+them, 56:59 and 58:32 reach 1.11 and 1.15). Done inline, by a script of exact replacements, after reading the whole transcript for the
+wiki. Seven restorations: "imagine in" → "image in" (2:16), "Dall-E" → "DALL-E" (3:02, 1:02:29), "whereas, again," → "whereas a GAN will"
+(38:59), "across a tent" → "Cross-attend" (1:06:19), "LLaVa" → "LLaVA" and "threw" → "through" (1:07:07), "Cézanne on paintings" →
+"Cézanne paintings" (1:16:19) and "to solved" → "to solve" (1:20:56); and seven `[Ed: …]` notes: the five lectures referred to (9, 14, 15,
+21 and 8), slide 57's printed prompt (56:59) and slide 61's title against its direction (58:32). No student is named.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -698,6 +728,28 @@ footnote asterisk with no anchor. In the recording the lecturer calls slide 14's
 (≈31:18), but the slide already prints it inside; both are recorded. Slide 41 marks VAEs ✗ for a density while slide 11 lists a
 density among a VAE's outputs; the wiki notes the difference without resolving it.
 
+**Lecture 16's figure audit**, cross-model: Sonnet read the typed deck in two halves, and Opus checked 71 pages (1, 3–15, 18–33, 35–38,
+40–49, 54, 56–58 and 60–82), split between four agents, all of which finished, from 55–600 dpi crops, the native rasters and the vector
+data. No equation was wrong; slide 70's code grids and slide 81's two matrices agreed entry by entry. 19 pages were corrected, 37 given
+precisions only, and 15 were right as written. The corrections were counts (slide 11's ten birds, not "about 9"; slide 33's four stacked
+squares, not three; slide 56's four dotted lines; slide 65's nine images, not eight), positions and arrows (slide 10's crossing at a third,
+not a quarter; slide 21's orange arrow, which stops short of the label map; slide 26's rectangles, the same size, only lower; slide 36's
+curve heights; slide 68's arrow to the answer, which is not drawn; slide 70's discriminator, which straddles its panel), the colours of
+slides 12's and 68's birds, slide 66's two noisy inputs, which are one image, slide 82's panels, and slides 61–64 and 67's ℓ, which is
+bold. Two were wording: slide 57's screenshot prints "enalbling", which the transcriber had corrected without a flag, and slide 72's
+painting had been called "expressionist", a label neither the slide nor the lecturer uses; slide 54's printed underscores also needed
+escaping. Slide 42's raster holds three more rows of its source figure, clipped away. The renders of slides 36 and 65 were then checked
+against the corrected text.
+
+**Lecture 16's printed slips and oddities**, transcribed as written: slide 5's plots lettered a, b, d, c in reading order; slide 13's
+plain $y_i$ where its data are bold, and its title "Sat2Map" over a map-to-photo $\mathbf{x} \to \mathbf{y}$, the direction the lecture
+runs; slide 13's $f_{\theta}(\mathbf{x})_ i$, pasted over an earlier $f_{\theta}(x_i)$ that the text layer keeps; slide 57's "enalbling";
+slide 61's title "Text-to-image" over an image-to-text diagram, which the lecturer also calls "text-to-image" (≈58:32); slide 67's
+"Ouput"; and slide 74's capital $G$ and $D$ under a diagram labelled $g_{\theta}$ and $d_{\phi}$. The deck writes the discriminator as the
+probability of "synthetic" (slide 20), the reverse of lecture 14's slides 55–58 and the same as lecture 14's slide 59; the GAN page
+states both. Slide 81's right-hand matrix may be a slip in its source figure (Galanti, Wolf and Benaim), on the outside assumption that
+the maps are affine; the slide states no form, so it is transcribed as printed and the entry says so.
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -718,7 +770,9 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   on 32 of 52 pages, mostly counts, positions and arrowheads, with one formula correction (slide 16's bold Σ) and nothing described
   that is not on the page; a session limit stopped two of its three auditors after they had reported every page but one. Lecture 15's audit found errors on 21 of 39 pages, mostly counts and positions, with no formula wrong and two things
   described that are not on the page (a lake, and circle rims that are an outline showing through); all three of its auditors
-  finished. 
+  finished. Lecture 16's audit found errors on 19 of 71 pages, mostly counts and
+  positions, with no formula wrong, one description of two images as different when they are one (slide 66), and two pieces of wording
+  that were not the slide's (an unflagged correction of a printed typo, and an art-style label); all four of its auditors finished. 
 
 ## Where each lecture's images appear
 
@@ -757,6 +811,8 @@ All 28 of lecture 14's images appear both in [`wiki/14-generative-models-basics.
 and under their headings in [`raw/slides/14-generative-models-basics.md`](raw/slides/14-generative-models-basics.md).
 All 22 of lecture 15's images appear both in [`wiki/15-generative-models-representation-learning-meets-generative-modeling.md`](wiki/15-generative-models-representation-learning-meets-generative-modeling.md)
 and under their headings in [`raw/slides/15-generative-models-representation-learning-meets-generative-modeling.md`](raw/slides/15-generative-models-representation-learning-meets-generative-modeling.md).
+All 29 of lecture 16's images appear both in [`wiki/16-generative-models-conditional-models.md`](wiki/16-generative-models-conditional-models.md)
+and under their headings in [`raw/slides/16-generative-models-conditional-models.md`](raw/slides/16-generative-models-conditional-models.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -1093,3 +1149,24 @@ Not rendered, and why:
   copies of slides 22's and 27's), 33, 34 and 41.
 - **End page:** slide 42, the OCW end page.
 
+### What was rendered, and what was not — lecture 16
+
+Rendered (29): slides 5, 6, 10, 13, 14, 32, 33, 36, 38, 40, 41, 42, 43, 45, 46, 49, 56, 57, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69 and 80
+— the shirt's colour distributions, the per-pixel predictions, Andrew Ng's chart, the Sat2Map learner, the blurry map-to-aerial output,
+labels to facades, the patch discriminator, the structured-objectives cartoon, the conditional GAN's aerial output, multiple possible
+outputs and the generator with a latent, the moving-square frames, the conditional VAE in training, its caption and its sampling,
+BicycleGAN's facades, the captioning transformer, ChatGPT's reading of it, the domain-translation diagram and its two directions, the
+text-to-image VAE in training and sampling, the text-to-image diffusion slides, VQA, LLaVA and cycle consistency. All 29 wiki images
+were placed by hand with hand-written captions; the script then placed all 29 in the slide file. Slide 69 is a screenshot of the LLaVA
+paper's figure with no notice, rendered by the rule that only a notice excludes.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (16 slides): 3, 7, 8, 11, 70–79, 81 and 82.**
+- **Reuse of an excluded image (15 slides): 12** (slide 11's photograph) **and 18–31** (the pictures of slide 73, which repeats slide 30
+  under a notice). The conditional-GAN build is therefore described in the slide file and the wiki in prose only.
+- **Build steps and repeats a rendered slide supersedes:** 34 (it repeats slide 10), 35 (slide 36 adds the third curve), 37 (slide 14's
+  two images under a new heading), 44 (slide 45 repeats its target and adds the caption), 47 and 48 (slide 46 with other samples).
+- **Text, equations, screenshots of text and section slides the slide file reproduces exactly:** 2, 4, 9 and 15 (the learner, a diagram
+  of text boxes), 16, 17, 39, 50, 51, 52, 53, 54 (GPT-3's review), 55, 58 (ChatGPT's answer), 59 and 83.
+- **Title and end page:** slide 1 (the title, with an edges2cats drawing) and slide 84, the OCW end page.

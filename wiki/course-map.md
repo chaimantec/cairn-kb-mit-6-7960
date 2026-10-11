@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md) and [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md) and [lecture 16](16-generative-models-conditional-models.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -41,7 +41,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 13 | Representation Learning: Theory | [yes](13-representation-learning-theory.md) |
 | 14 | Generative Models: Basics | [yes](14-generative-models-basics.md) |
 | 15 | Generative Models: Representation Learning Meets Generative Modeling | [yes](15-generative-models-representation-learning-meets-generative-modeling.md) |
-| 16 | Generative Models: Conditional Models | not yet |
+| 16 | Generative Models: Conditional Models | [yes](16-generative-models-conditional-models.md) |
 | 17 | Generalization: Out-of-Distribution (OOD) | not yet |
 | 18 | Transfer Learning: Models | not yet |
 | 19 | Transfer Learning: Data | not yet |
@@ -196,6 +196,13 @@ procedural river) and to GANs, "covered … very briefly last lecture" (lecture 
 lectures and their cartoons (11–13, ≈0:47, ≈3:06) and to "those diagrams I showed before" of data remapped layer by layer (lecture 11, ≈3:06). It
 closes on "the models that we've seen in the last two lectures" (14 and 15, ≈1:19:23) and names no later lecture
 ([lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md#pointers-to-other-lectures)).
+
+Lecture 16's deck is titled "Lecture 16: Deep Generative Models III", matching the recording ("Generative Models: Conditional Models"),
+and prints no other lecture number. The recording points back to "last lecture", which "was a little bit math-heavy" (lecture 15, ≈0:00),
+to "the hacker's guide lecture" (lecture 9, ≈9:13), to GANs shown "very briefly in one of the previous lectures" (lecture 14, ≈24:12), to
+"the VAEs we saw last class" (lecture 15, ≈42:03) and to "the transformers lecture" (lecture 8, ≈52:15); and ahead to "another lecture on
+language models" (lecture 21, ≈51:27) and to "some future lectures" on grounding, which it does not name (≈1:20:56)
+([lecture 16](16-generative-models-conditional-models.md#pointers-to-other-lectures)).
 
 ## Coursework and policies
 

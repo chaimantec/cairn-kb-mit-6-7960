@@ -10,7 +10,8 @@ works" ([lecture 8](08-architectures-transformers.md), ≈1:06:38). Covered so f
 model, teacher forcing, sampling and beam search); [lecture 11](11-representation-learning-reconstruction-based.md), ≈1:10:38 and ≈1:13:47–1:15:20
 (next-word prediction as self-supervised learning, set beside BERT's masking); [lecture 14](14-generative-models-basics.md), slides 35–42 and
 52–53, ≈59:43–1:07:34 and ≈1:15:21–1:16:52 (autoregressive models as generative density models, of words, pixels and audio, and their kinship with
-diffusion models); [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slide 41, ≈1:20:09 (the families compared). Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
+diffusion models); [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slide 41, ≈1:20:09 (the families compared); [lecture 16](16-generative-models-conditional-models.md), slides 52–56 and 70, ≈45:58–53:47 and ≈1:07:53 (conditional by
+construction, prompting, captioning, and a prior over VQGAN's codes). Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
 
 ## Predict, append, repeat
 
@@ -132,3 +133,14 @@ The lecturer: "an autoregressive model is a small variation on a diffusion model
 [Lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md)'s comparison of generative-model families (slide 41) marks autoregressive models as having no latent variables,
 a density, and a generator that is slow ("✓ (slow)"); the lecturer calls them "the ones that are popular in language modeling"
 (≈1:20:09). See [generative models](generative-models.md#the-families-compared-lecture-15).
+
+## Conditional by construction (lecture 16)
+
+"Autoregressive models are already, by construction, conditional generative models", since every factor is a conditional; "you don't
+have to modify them or do something new to turn them into conditional models" ([lecture 16](16-generative-models-conditional-models.md), ≈45:58–46:43). A language model is trained
+by next-word prediction and used for a conditional problem by putting the input in the prefix: a review followed by "The sentiment in
+this review is" predicts the sentiment (slides 52 and 53), as GPT-3 does (slide 54). The model has no explicit latent variables but is
+still stochastic, "because every next word I predict will be sampled from a categorical distribution" (≈47:33), and "this is often called
+prompting language models". That they are "most powerful for conditional prediction" became evident "in the GPT-3 era" (≈48:20–49:08). A
+captioning model is the same decoder prefixed with image tokens (slide 56), and VQGAN's text-to-image pipeline can put an autoregressive
+transformer over its latent codes (slide 70, ≈1:07:53). See [conditional generative models](conditional-generative-models.md).

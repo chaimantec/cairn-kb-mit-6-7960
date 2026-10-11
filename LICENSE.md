@@ -180,5 +180,20 @@ figure. The deck's third-party images are all on its excluded slides: the bird p
 al., 2018) of slides 1 and 39, all under "© Torralba, Isola, and Freeman". Slide 10's resources also hold slide 6's photographs, drawn
 entirely off the page, so its render shows none of them.
 
+Lecture 16's deck names Phillip Isola as speaker, and many of its 29 rendered slides are his own diagrams: the T-shirt colour plots
+(slides 5 and 6), the cartoon chart (36), the conditional-VAE diagrams (43, 45, 46), the captioning transformer (56), the
+domain-translation and text-to-image diagrams (60–64), the pixel-art robins of the diffusion slides (65–67), VQA (68) and cycle
+consistency (80). Several rendered slides reproduce material from elsewhere with no OCW notice, and are rendered by the rule that only a
+notice excludes. **Slide 10** is Andrew Ng's "Why deep learning" chart ("[Slide credit: Andrew Ng]"). **Slides 13, 14 and 38** carry
+map and aerial tiles, which the lecturer says come from Google Maps (≈20:08), with pix2pix's outputs (Isola et al. 2017, the lecturer's
+own paper). **Slides 32 and 33** show pix2pix's facades, the labels' data credited "Data from [Tylecek, 2013]". **Slide 42** reproduces
+frames from Babaeizadeh et al. (ICLR 2018), with predictions labelled "Finn et al. (2016)", and slides 43, 45 and 46 reuse its frames.
+**Slide 49** shows BicycleGAN's facades ("[BiCycleGAN, Zhu et al., NeurIPS 2017]"), and slides 40 and 41 draw its label map. **Slide 57**
+is a ChatGPT conversation ("Created with ChatGPT."). **Slide 69** is a screenshot of LLaVA's architecture figure ("Visual Instruction
+Tuning", Liu, Li et al. 2023). The deck's other third-party figures are on its excluded slides, 3 (Long et al., Glass, Reed et al.,
+AlphaFold), 7 (painmakers), 8 (color_byangelina), 11 (Fredo Durand's photograph), 70 (Esser et al.), 71 (the 1968 Licklider and Taylor
+cartoon), 72–79 (Zhu et al.), 81 (Galanti, Wolf and Benaim) and 82 (Lample et al.), and on slides 12 and 18–31, which are withheld
+because they reuse slide 11's and slide 73's excluded images.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

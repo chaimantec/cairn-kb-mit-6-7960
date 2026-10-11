@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–15 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–16 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -77,6 +77,8 @@ general form and the lecture's details there; keep this file free of per-lecture
   | 6 | 62 | lecture 4's excluded heron photograph (slides 43, 53–55, 66–68, 70, 71) |
   | 11 | 13 | lecture 1's excluded slide 73 (the CLIP figure, at another resolution) |
   | 14 | 49, 50 | Homework 5's excluded Figure 3, Ho, Jain and Abbeel's diffusion diagram, under the deck's pixel-art overlays |
+  | 16 | 12 | slide 11's excluded photograph (also lecture 4's excluded slides 12–24) |
+  | 16 | 18–31 | the label map and building photographs of slide 73, which repeats slide 30 image for image under a notice |
 
   A shared image is not always a shared figure, so check size, placement and which image a notice sits beside
   before withholding. Rendered after such a check: lecture 5's slides 12, 15, 21 and 29 (the shared object is a
@@ -139,7 +141,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–15 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–16 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -160,6 +162,7 @@ it.
 | 13 Representation Learning: Theory | 10 of 28 pages | rendered from `mit6_7960_f24_lec13.pdf` |
 | 14 Generative Models: Basics | 28 of 60 pages | rendered from `mit6_7960_f24_lec14.pdf` |
 | 15 Generative Models: Representation Learning Meets Generative Modeling | 22 of 42 pages | rendered from `mit6_7960_f24_lec15.pdf` |
+| 16 Generative Models: Conditional Models | 29 of 84 pages | rendered from `mit6_7960_f24_lec16.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -196,7 +199,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–15:
+Notes for the next run, from lectures 1–16:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -210,6 +213,8 @@ Notes for the next run, from lectures 1–15:
 - **Check every candidate image for reuse of an excluded one**, in its own deck and across all decks and problem sets
   so far, and every image already rendered against the new deck's excluded ones. xrefs are local to one PDF, so compare by a hash of the
   pixels (`hashlib.md5(fitz.Pixmap(doc, xref).samples)`), and also by a coarse 16×16 perceptual hash, mirrored too.
+  An exact match between images of different sizes is no evidence: a uniform fill drawn through a soft mask hashes like every other
+  uniform fill of the same byte count (lecture 16's slide 33 against lecture 9's slide 61), so skip images whose samples hold one value.
   Skip coarse hashes with fewer than 8 or more than 248 bits set (near-uniform masks match each other), and settle
   any coarse match by resizing both images to 256 × 256 and averaging the absolute grey difference over pixels darker
   than 200 in either: about 1 in 256 is the same figure, 50 or more is a different one. Use only images actually drawn
@@ -253,7 +258,8 @@ Notes for the next run, from lectures 1–15:
   or relation described that is not on the page; almost never a formula. Split a long audit between agents and have
   each append its report page by page: session limits stopped auditors in lectures 6, 11 and 12, and the reports on disk
   let fresh agents finish only the remaining pages. Ask the auditor to flag names the slide and the recording never use
-  (a transcriber named a bird's species from outside knowledge in lecture 15). Then look at two rendered images against
+  (a transcriber named a bird's species from outside knowledge in lecture 15, and an art style in lecture 16) and typos in
+  screenshots corrected without a flag (lecture 16's "enalbling"). Then look at two rendered images against
   the corrected text.
 - **Typed decks with LaTeXiT equations** (lecture 8): the text layer holds each equation as base64 junk, so
   it is good for titles, labels, citations, notices and code but never for an equation.
@@ -267,6 +273,8 @@ Notes for the next run, from lectures 1–15:
 - The transcriber tends to write a quoted label that starts with math (`"$N$ tokens"`), which github.com
   will not render: inline math must not open straight after a quote mark. `check_math.mjs` warns; drop the
   quotes.
+- A `$$` block written on a line touching prose renders as inline math on github.com, and the offline `check_math.mjs`
+  run does not flag it; only `--github` (which `verify_kb.py` runs) does. Put a blank line either side of every block.
 - **PyMuPDF on a downloaded deck**: `python3 -I` hides the user site-packages where PyMuPDF is
   installed, and this machine's Python 3.9 has no `-P`. Keep scripts in the session scratchpad and run them
   from there with the PDF path as an argument.
