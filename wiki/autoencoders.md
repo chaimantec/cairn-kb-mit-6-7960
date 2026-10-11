@@ -9,8 +9,10 @@ an integer bottleneck it is k-means, with deep nets on both sides of that bottle
 autoencoder, and with part of the input hidden it becomes a masked autoencoder. Covered so far:
 [lecture 4](04-architectures-grids.md), slide 67, ≈1:00:25–1:02:00 (the convolutional encoder–decoder);
 [lecture 11](11-representation-learning-reconstruction-based.md), slides 36–49 and 59–62, ≈44:58–1:05:15 and
-≈1:11:26–1:20:05. Variational autoencoders, which make the code's distribution Gaussian, are promised for "later"
-(≈47:20–48:06); [lecture 14](14-generative-models-basics.md) places them in lecture 15 (slide 2, ≈1:31).
+≈1:11:26–1:20:05; [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 6, 7, 28–30,
+≈3:55–8:37 and ≈56:16–1:11:40 (the variational autoencoder as an autoencoder with a Gaussian bottleneck). Variational autoencoders
+are promised in lecture 11 for "later" (≈47:20–48:06) and placed in lecture 15 by [lecture 14](14-generative-models-basics.md)
+(slide 2, ≈1:31); they have their own page, [variational autoencoders](variational-autoencoders.md).
 
 ## Compress, then reconstruct
 
@@ -123,7 +125,8 @@ future", then "if compression is all you need, then autoencoders are all you nee
 Homework 4's question on autoencoders (6 points) trains one on $64 \times 64$ images of coloured shapes, asks what a
 perfect reconstruction on a finite training set does and does not determine about the code, and has you visualize the
 encoder by nearest neighbours and explain any clusters, since "The Autoencoder objective alone … doesn't enforce any
-grouping or smoothness of the representation space". Homework 5 has a section on variational autoencoders (14 points). See
+grouping or smoothness of the representation space". Homework 5's first section, on variational autoencoders (14 points), goes with
+[lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md#the-problem-set). See
 [sources](../sources.md).
 
 ## Toward variational autoencoders (lecture 14)
@@ -134,10 +137,37 @@ representation learning"). Its view of a generator's random inputs as latent var
 of the data" (≈23:03), is the role an autoencoder's code plays for its decoder. The lecturer also says that "a diffusion model is a type
 of variational autoencoder" (≈3:03–3:48); see [diffusion models](diffusion-models.md).
 
+## The variational autoencoder (lecture 15)
+
+An autoencoder's decoder maps codes to data, which is what a generator does, so lecture 15 asks whether it can be used as one: sample a
+code, decode it, get a new photograph (slide 6, ≈4:43). Not as it stands, because nobody knows what distribution the codes follow:
+"there's no guarantee that set of embeddings is going to form a simpler shape or easier to sample from distribution than the original
+data itself … It might be some weird distribution full of holes", and a code the encoder never produced is one the decoder cannot be
+trusted to decode (≈5:30–6:18). Slide 7 draws it: $f$ maps the data to a lumpy shape, and $g$ maps that shape back.
+
+The fix is the **variational autoencoder**: "an autoencoder with one change, which is that rather than the encoder mapping to a
+complicated shape, it will map to a simple shape. It will map to a Gaussian" (≈7:04–7:49). Derived properly, as maximum likelihood for an
+infinite mixture of Gaussians, its objective has two terms (slide 28; see [variational autoencoders](variational-autoencoders.md)). The
+first is a reconstruction error: with the decoder's variance fixed, "it would be exactly the autoencoder objective of minimizing the mean
+squared error between my reconstructions and my input observation … vanilla autoencoders don't really model the variance of the Gaussian,
+they just kind of implicitly set it to be constant" (≈58:35–1:00:08). The second, a KL divergence to the unit Gaussian, "is saying …
+squash the means toward the origin" (≈1:01:43), and between the two the encoder adds noise to each code before decoding it. That changes
+what does the work. An autoencoder can learn the identity unless the bottleneck forces compression, so "in a normal autoencoder, I need to
+make sure the dimensionality of the latent space is low … In a variational autoencoder, it helps to have a low-dimensional latent space,
+but it's less critical because there's this other term" (≈1:02:29–1:03:14).
+
+Slides 29 and 30 set the two side by side. An autoencoder "encodes and decodes the data" through a "low-dimensional bottleneck"; a
+variational autoencoder does the same through a "Gaussian bottleneck (can sample; disentangled)". Asked whether the full machinery is
+needed, the lecturer says "you can just take an autoencoder, add a little noise to the latent space and do nothing else, and it might be
+fine", or add the KL penalty as well, "but your mileage will vary"; the vanilla version's idea is to "smooth out the latent space and make
+it dense by penalizing the encodings from being far from the origin, and smooth it out by adding some noise so that it has finite
+information capacity" (≈1:08:36–1:10:08).
+
 ## See also
 
 - [Representation learning](representation-learning.md) — what a representation is, and how to tell a good one.
 - [Self-supervised learning](self-supervised-learning.md) — learning by prediction rather than compression.
+- [Variational autoencoders](variational-autoencoders.md) — the autoencoder with a Gaussian bottleneck, as a generative model.
 - [Contrastive learning](contrastive-learning.md) — learning from similarity rather than reconstruction (lecture 12).
 - [Skip connections](skip-connections.md) — what a bottleneck loses, and why a skip around it defeats an autoencoder.
 - [Lecture 11](11-representation-learning-reconstruction-based.md) — the lecture these sections come from.

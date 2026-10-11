@@ -171,5 +171,14 @@ that only a notice excludes. The deck's other third-party figures are on its exc
 MRI-to-CT model, Wolterink et al.) and 54–59 (the GAN slides' flamingo images), and on slides 49 and 50, which are withheld because
 their chain is Ho, Jain and Abbeel's diffusion diagram, which OCW excludes where Homework 5 prints it.
 
+Lecture 15's deck names Phillip Isola as speaker, and every one of its 22 rendered slides is his own material: the blob, circle and
+trapezoid diagrams of the encoder, generator and mixture components, the Colab plots of an infinite mixture of Gaussians and of a
+two-dimensional VAE in training (slides 14, 31, 32 and 40, by the transcript the lecturer's own Colab), and the river map tiles drawn
+by the procedural program he wrote for lecture 14 and the samples of a VAE trained on them (slides 10, 36 and 38). Slide 3's figure is
+the one lectures 11 and 14 use for the two directions through a network. No rendered slide carries a credit or reproduces a published
+figure. The deck's third-party images are all on its excluded slides: the bird photographs of slide 6 and the BigGAN images (Brock et
+al., 2018) of slides 1 and 39, all under "© Torralba, Isola, and Freeman". Slide 10's resources also hold slide 6's photographs, drawn
+entirely off the page, so its render shows none of them.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

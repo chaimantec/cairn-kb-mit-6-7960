@@ -63,6 +63,12 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   "from the lecture on generalization" (6, ≈37:18), to the colorization examples (9 and 11, ≈1:02:49) and to RNNs (10, ≈1:07:34),
   and ahead to variational autoencoders "next week" (15, ≈1:31, ≈59:43) and to conditional models and the applications of
   generative models "in lecture 16" (≈1:31).
+  Lecture 15's title slide reads "Lecture 15: Deep Generative Models II", matching the recording ("Generative Models:
+  Representation Learning Meets Generative Modeling"); the deck prints no other lecture number. Its recording points back to "the
+  noise that we talked about last class", fitting a Gaussian "last Thursday", "the example I gave last class" (the procedural
+  river) and GANs "covered … very briefly last lecture" (all 14; ≈2:19, ≈10:08, ≈18:01, ≈1:16:20), to the representation-learning
+  lectures and their cartoons (11–13, ≈0:47, ≈3:06) and to the layer-by-layer diagrams (11, ≈3:06), and closes on "the last two
+  lectures" (14 and 15, ≈1:19:23); it names no later lecture, only "the reading for today" and "the problem set".
 
 ## End pages
 
@@ -74,7 +80,7 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
   page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
-  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", and of lecture 14's page 60, a 792×612 page that prints "60".
+  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", and of lecture 15's page 42, a 792×612 page that prints "42".
 
 ## Handwritten decks
 
@@ -160,6 +166,11 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   the top centre. Slide 5's DALL-E 2 screenshot and slide 42's WaveNet figure carry none. A vector scan for outlined small print
   found nothing, and the audit found no missed notice. Slides 49 and 50 carry no notice but reuse a figure Homework 5 excludes
   (next section).
+  Lecture 15's carries 3 in 42 pages, all "© Torralba, Isola, and Freeman. All rights reserved. …", typed and in the text layer:
+  slide 1's and slide 39's cover the same embedded image, a 5 × 5 grid of BigGAN images of a small bird (on slide 39 the notice sits
+  at the lower left under the latent circle, far from the grid, but the grid is the page's only picture), and slide 6's covers its
+  five bird photographs (the top row's orange bird, drawn twice, and four at the lower right). A vector scan for outlined small
+  print found nothing, and the audit found no missed notice or credit.
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -236,6 +247,15 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   pixel-art birds cover its face photographs and white boxes its labels (slide 50 uncovers the labels), so a page render shows
   little of it; both slides are withheld. No image rendered for lectures 1–13 matches the problem sets' excluded images (Homework
   3's page 5 and Homework 5's figure).
+  Lecture 15's sweep, against the slide files' excluded slides of decks 1–15, the withheld slides and the problem sets' excluded
+  pages, was clean in both directions: none of the 15 images drawn on its unnoticed pages matches any of 452 excluded images, and
+  none of the 1,930 images drawn on pages rendered for lectures 1–14 matches its 10 excluded ones, by pixel hash or coarse hash. The
+  sweep was rewritten for this lecture, so it was first rerun on lectures 14 and 11: it found Homework 5's chain on lecture 14's
+  slides 49 and 50 (4 bits, grey difference 5.5) and lecture 1's CLIP figure on lecture 11's slide 13 (0 bits, 0.4), as before. Slide
+  10's resources hold copies of slide 6's excluded photographs (the orange bird and the four lower birds), but every one is drawn
+  entirely off the page (y 2662–3819 pt on a 1080-pt page), so slide 10 is rendered, as lecture 11's slides 31, 39 and 42 were. Its
+  river image is a 4 × 4 grid clipped to 3 × 3, the image slides 35 and 36 also draw; slides 37 and 38 share another river grid; and
+  slides 31, 32, 40 and 14's plots are the lecturer's Colab output. None carries a notice or a credit.
 
 ## Transcript edits, by lecture
 
@@ -325,7 +345,14 @@ outliers, 9:11, 48:06, 51:12, 54:17 and 1:18:26, are the paragraphs carrying not
 ratio" (48:06); and nine `[Ed: …]` notes: the simplex for two classes, lecture 6 for "the lecture on generalization", a student's
 "quantum difference", two spoken slips about where the energy is raised and lowered (51:12, 54:17), "x2 times x1" for "x2 given
 x1", lectures 9 and 11 for the colorization examples, a student's unclear "correspondence lower", and slide 54's printed typo.
-Also done inline.
+Also done inline. Lecture 15: 104 markers identical, every number identical, and word ratios 1.00–1.01 once its `[Ed: …]` notes are
+removed. The edit was delegated to Sonnet, with the finished slide file as the authority on terms, and checked in the parent by
+the three scripts and a word diff. Five restorations: "times z integrated over z" → "times pz" (27:22, slide 10's prior), "n of x"
+→ "N of x" (33:39, the normal density), "log of e" → "log of E" (51:31, the expectation in Jensen's inequality), "backdropping"
+→ "backpropping" (1:07:50) and "Again, doesn't have that" → "GAN doesn't have that" (1:16:20); and two `[Ed: …]` notes, on the
+garbled parameter count of a mixture of Gaussians (12:27) and the spoken Gaussian exponent (33:39). No student is named. The
+lecturer's mix-up of variance and standard deviation (22:42–25:49) and his remark that slide 14's 1/M "should be inside the log"
+(31:18) are left as said; the header lists them.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -650,6 +677,27 @@ closing parenthesis; slide 54's "g tries to identify the fakes", called a typo i
 energy where the model places high energy" (≈51:12) and "It'll place high energy where the data lives" (≈54:17), meaning low energy
 and high probability, and "probability of x2 times x1" for "given x1" (≈1:01:17). Homework 5's header prints "Fall 2025".
 
+**Lecture 15's figure audit**, cross-model: Sonnet read the typed deck in two halves, and Opus checked 39 pages (1, 3–32 and 34–41),
+split between three agents, all of which finished, from 110–600 dpi crops, the native rasters and the vector data. Most of this
+deck's equations are typeset text rather than LaTeXiT images, which let the auditors cross-check them against the text layer; every
+one agreed, and slide 41's table agreed cell by cell, its ✓ and ✗ read from their glyph fonts. 21 pages were corrected and three given
+small precisions. The corrections were counts (slide 28's 15 circles, not "about 14"; slide 31's 27 dots in 8 rows; slide 32's full
+4 × 4 grid and 27 data points; slide 40's 26 square markers), positions and arrowheads (slides 5 and 23's lines without heads; slide 6's
+⇓ under the Decoder, not at the line's centre; slide 19's arrow ending at the circle's centre dot; slide 22's brace, which ties the
+formula to the disc; slide 27's trapezoid, which widens the other way; slide 28's $x$ and $\mu_z$), the placement of slides 6's and
+39's notices, slide 38's background colours, slide 32's being four images rather than one, and two things described that are not on
+the page: a lake behind slide 6's pelican, and grey dashed rims on slides 8 and 9's circles, which are the black target outline
+showing through them. The transcriber had also named the bird of slides 1 and 39 by species, which neither the slide nor the
+lecturer does; the name was removed. The renders of slides 16 and 40 were then checked against the corrected text.
+
+**Lecture 15's printed slips and oddities**, transcribed as written: slide 11's reparameterization line, with a plain $x$ and
+$g^{\sigma}_ {\theta}$ where the equation above has a bold $\mathbf{x}$ and the covariance $g^{\Sigma}_ {\theta}$ (the standard deviation is
+meant, as the lecturer confirms, ≈25:49); slide 13's sum index $i = 1$ over terms indexed by $j$; slide 25's last line, with
+$\theta^{\ast}, \psi^{\ast}$ on the left and $\phi$ for $\psi$ on the right (Homework 5 calls the encoder's parameters $\phi$); and slide 41's
+footnote asterisk with no anchor. In the recording the lecturer calls slide 14's $\frac{1}{M}$ a typo that "should be inside the log"
+(≈31:18), but the slide already prints it inside; both are recorded. Slide 41 marks VAEs ✗ for a density while slide 11 lists a
+density among a VAE's outputs; the wiki notes the difference without resolving it.
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -668,7 +716,9 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   handwritten deck, mostly counts and colours, two of them things described that are not on the page (slide 17's contours, slide
   27's empty entries), with no formula wrong; its two auditors, on 13 and 12 pages, both finished. Lecture 14's audit found errors
   on 32 of 52 pages, mostly counts, positions and arrowheads, with one formula correction (slide 16's bold Σ) and nothing described
-  that is not on the page; a session limit stopped two of its three auditors after they had reported every page but one. 
+  that is not on the page; a session limit stopped two of its three auditors after they had reported every page but one. Lecture 15's audit found errors on 21 of 39 pages, mostly counts and positions, with no formula wrong and two things
+  described that are not on the page (a lake, and circle rims that are an outline showing through); all three of its auditors
+  finished. 
 
 ## Where each lecture's images appear
 
@@ -705,6 +755,8 @@ All 10 of lecture 13's images appear both in [`wiki/13-representation-learning-t
 and under their headings in [`raw/slides/13-representation-learning-theory.md`](raw/slides/13-representation-learning-theory.md).
 All 28 of lecture 14's images appear both in [`wiki/14-generative-models-basics.md`](wiki/14-generative-models-basics.md)
 and under their headings in [`raw/slides/14-generative-models-basics.md`](raw/slides/14-generative-models-basics.md).
+All 22 of lecture 15's images appear both in [`wiki/15-generative-models-representation-learning-meets-generative-modeling.md`](wiki/15-generative-models-representation-learning-meets-generative-modeling.md)
+and under their headings in [`raw/slides/15-generative-models-representation-learning-meets-generative-modeling.md`](raw/slides/15-generative-models-representation-learning-meets-generative-modeling.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -1019,4 +1071,25 @@ Not rendered, and why:
 - **Text, equations and code the slide file reproduces exactly:** 4, 7, 8, 9 (the notation handout's excerpt), 17, 20, 25 (the
   filing-cabinet code), 27, 28, 30, 31, 32, 34, 35, 37 and 51 (the training algorithm).
 - **Title, outline and end page:** 1 (its title image is DALL-E's, by its signature strip), 3 and slide 60, the OCW end page.
+
+### What was rendered, and what was not — lecture 15
+
+Rendered (22): slides 3, 4, 5, 7, 8, 9, 10, 11, 14, 16, 19, 22, 26, 27, 28, 29, 30, 31, 32, 36, 38 and 40 — the data-and-embedding
+box, the prior transformed into the target, the encoder and the generator, an autoencoder's lumpy code space, the mixture of
+Gaussians, the infinite mixture, the latent variable model with its river tiles, the VAE as a learner, the Monte Carlo objective with
+its Colab frame, random sampling with its zero terms, random against importance sampling, the encoder's Gaussian, the two halves of
+one importance sample, "Looks like an autoencoder!", autoencoder and VAE, the two training frames, training and sampling on river
+tiles, the two latent directions, and the coloured map. All 22 wiki captions are hand-written: eight were placed by hand, after the
+equation each slide's first citation introduces (the script would have put them between a colon and its equation), and the other
+fourteen re-captioned after the script placed them.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (3 slides): 1, 6 and 39** — the BigGAN images of slides 1 and 39 and slide 6's bird photographs.
+- **Build steps and repeats a rendered slide supersedes:** 15 (slide 16 shades its useful sample and writes the sum), 18 (slide 19
+  repeats its figure and equation beside random sampling), 20 and 21 (slide 22 completes the encoder's picture), 35 (it repeats
+  slide 10's generator) and 37 (slide 38 adds the second direction).
+- **Text, equations and the table the slide file reproduces exactly:** 2, 12, 13, 17, 23, 24 and 25 (whose small diagrams are
+  copies of slides 22's and 27's), 33, 34 and 41.
+- **End page:** slide 42, the OCW end page.
 

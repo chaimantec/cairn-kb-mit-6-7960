@@ -5,7 +5,7 @@ point to any real number, with low energy meaning likely data. It is an "unnorma
 28): unlike a density, an energy need not integrate to anything, which frees the network from having to output a normalized
 distribution. It is one of the indirect ways to represent a data-generating process in the course's taxonomy of
 [generative models](generative-models.md). Covered so far: [lecture 14](14-generative-models-basics.md), slides 28–33,
-≈44:16–58:11.
+≈44:16–58:11; [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slide 41 (the families compared).
 
 ## From energy to probability
 
@@ -61,3 +61,9 @@ cancel out, and the model has fit the data" (≈58:11). The [lecture page](14-ge
 gives every step of the derivation and notes two lines of slide 31 that are printed loosely. Like any maximum-likelihood
 model, an energy-based model trained to convergence overfits, to a delta function on each training point, without early
 stopping or regularization (≈52:44).
+
+## Among the other families (lecture 15)
+
+[Lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md)'s comparison of generative-model families (slide 41) marks energy-based models as having no latent variables
+and no generator, and a density or energy only in the form of an energy ("✓ (energy only)"); see
+[generative models](generative-models.md#the-families-compared-lecture-15).

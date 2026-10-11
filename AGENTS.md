@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–14 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–15 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -139,7 +139,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–14 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–15 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -159,6 +159,7 @@ it.
 | 12 Representation Learning: Similarity-Based | 8 of 70 pages | rendered from `mit6_7960_f24_lec12.pdf` |
 | 13 Representation Learning: Theory | 10 of 28 pages | rendered from `mit6_7960_f24_lec13.pdf` |
 | 14 Generative Models: Basics | 28 of 60 pages | rendered from `mit6_7960_f24_lec14.pdf` |
+| 15 Generative Models: Representation Learning Meets Generative Modeling | 22 of 42 pages | rendered from `mit6_7960_f24_lec15.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -195,7 +196,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–14:
+Notes for the next run, from lectures 1–15:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -218,7 +219,9 @@ Notes for the next run, from lectures 1–14:
   one background image, so without that filter every page matches every excluded page of another handwritten deck,
   exactly. But a raster drawn on one page only is not a background however much of it it covers (lecture 14's DALL-E
   screenshot is drawn larger than its page), so sweep those too. The excluded set the sweep uses must be the slide
-  file's, plus the withheld slides in the table above, plus the images on every problem-set page with a notice.
+  file's, plus the withheld slides in the table above, plus the images on every problem-set page with a notice. Before
+  trusting a clean result, rerun the sweep on lectures whose reuse is known (lecture 11's CLIP figure, lecture 14's
+  diffusion chain); a sweep that does not find them is broken.
 - `embed_slide_images.py` anchors a wiki image at the slide's **first** citation, and a range such
   as "slides 15–20" places every slide in it at that spot. Write the wiki so that each slide's first
   citation is the passage it belongs in, and avoid ranges in overview paragraphs. It matches any
@@ -249,7 +252,9 @@ Notes for the next run, from lectures 1–14:
   third to a half of the pages checked: mostly counts, positions, colours and arrow directions; now and then an object
   or relation described that is not on the page; almost never a formula. Split a long audit between agents and have
   each append its report page by page: session limits stopped auditors in lectures 6, 11 and 12, and the reports on disk
-  let fresh agents finish only the remaining pages. Then look at two rendered images against the corrected text.
+  let fresh agents finish only the remaining pages. Ask the auditor to flag names the slide and the recording never use
+  (a transcriber named a bird's species from outside knowledge in lecture 15). Then look at two rendered images against
+  the corrected text.
 - **Typed decks with LaTeXiT equations** (lecture 8): the text layer holds each equation as base64 junk, so
   it is good for titles, labels, citations, notices and code but never for an equation.
 - **Stray marks in an equation** (lecture 12's "ˆ ˜ ˙ ˇ" for ⊤, τ, ∼, Σ) can be real glyphs of an embedded subset font

@@ -18,6 +18,9 @@ and, for what a representation is used for, [transfer learning](transfer-learnin
 its methods are on [metric learning](metric-learning.md) and [contrastive learning](contrastive-learning.md). [lecture 13](13-representation-learning-theory.md),
 slides 4–7 and 20–26, ≈4:49–8:41 and ≈45:07–1:12:44, asks what similarity an untrained architecture already builds in.
 [lecture 14](14-generative-models-basics.md), slide 2, ≈0:45 and ≈2:18, turns the direction round, into generative modeling.
+[lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 3, 5, 35–40, ≈0:47–3:55 and
+≈1:11:40–1:19:23, learns both directions at once in a variational autoencoder, and asks what its latent space learns: disentangled
+factors of variation, and seams.
 
 ## Compact, compositional representations
 
@@ -290,3 +293,28 @@ lecture covers models that do both at once. The lecturer: "my favorite topic is 
 topic is generative modeling. And I think they're really the same topic" (≈2:18). The latent variables a generator takes as input
 play the part of the embedding: "control knobs that specify all the attributes of the data" (≈23:03). See
 [generative models](generative-models.md).
+
+## Both directions at once, and disentanglement (lecture 15)
+
+Lecture 15 repeats the picture once more: representation learning is "mapping data to abstract representations (analysis)" and
+generative modeling "mapping abstract representations to data (synthesis)" (slide 3). They are inverses only loosely, "because the
+direction from data to embeddings is many to one, and the direction from embeddings to data might be one to many … it's more like a
+stochastic inverse" (≈0:47–1:33). The **encoder** $f$ runs one way and the **generator** or decoder $g$ the other (slide 5, ≈3:55), and the
+lecture's model, the [variational autoencoder](variational-autoencoders.md), learns both at once.
+
+Is a VAE's encoder a good representation? On the procedural river tiles of lecture 14, moving along one axis of the learned latent space
+bends the river and moving along another changes the grass colour (slides 37 and 38, ≈1:13:15). The grass colour is one of the random
+variables the program was written with, and "the VAE actually recovers that"; the river's curvature is not, since the program drew the
+river from a sequence of coin flips, yet the VAE found "this abstracted, intuitive physics" (≈1:14:00–1:14:47). This is
+**disentanglement**: "different dimensions of latent space that control different independent factors of variation … if I vary the river
+or curvature dimension, it does not affect the color, and if I vary the color, it does not affect the river curvature … but those two
+factors don't necessarily map on to actually the causal mechanisms underlying how this world was defined. They might be more abstracted
+from it" (≈1:15:34). A GAN, with no encoder, shows the same structure in BigGAN's latent directions for a bird's orientation and the
+background colour (slide 39, ≈1:16:20–1:17:06), and so do a diffusion model's noise and the activations of a layer (≈1:17:06). The
+lecturer's reason: "generative modeling forces you to explain the world. Explaining the world is done well by actually capturing independent
+components and things that we have physical names for, like background color, but sometimes things are more abstracted" (≈1:17:52).
+
+Such maps are smooth but not seamless. Squeezing a complicated shape onto a Gaussian leaves a **seam** where the map has to cut, so that
+"if you're navigating through VAE latent space or diffusion model activation space on some layer of the network, you'll come across these
+weird jumps where it's smooth moves, nice variation, and then suddenly it switches to a different category", and **tendrils** of
+probability where it cannot cut (slide 40, ≈1:18:37–1:19:23).

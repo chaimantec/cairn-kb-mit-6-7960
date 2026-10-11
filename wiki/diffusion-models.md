@@ -4,7 +4,9 @@ A **diffusion model** generates data by starting from random noise and removing 
 running the opposite, easy process on the training data — adding noise step by step until each data point is pure Gaussian
 noise — and training a network by supervised learning to undo each step. "Diffusion models convert data to noise and then just
 learn to reverse the process" ([lecture 14](14-generative-models-basics.md), ≈1:09:54). Covered so far: lecture 14, slides
-43–53, ≈1:07:34–1:17:40, and Homework 5's "Diffusion Models" section. See also [generative models](generative-models.md).
+43–53, ≈1:07:34–1:17:40, and Homework 5's "Diffusion Models" section; [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), ≈8:37, ≈1:17:06,
+≈1:18:37–1:20:09 and slide 41 (diffusion as a kind of VAE, its latent structure, and the comparison of families). See also
+[generative models](generative-models.md).
 
 ## The observation: data to noise is easy
 
@@ -63,3 +65,12 @@ sequence, reversed, supervises the model (slides 52–53). The lecturer goes fur
 variation on a diffusion model", and "a diffusion model is a type of variational autoencoder" (≈3:03–3:48), the subject of
 lecture 15. Diffusion also appears among lecture 14's examples, in DiffDock's "reverse diffusion over translations, rotations
 and torsions" for docking a ligand on a protein (slide 6).
+
+## Diffusion models and VAEs (lecture 15)
+
+[Lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md) repeats the claim in its own words: "many of the models we've seen, like diffusion models, can be cast as a certain kind
+of VAE or autoencoders or a degenerate VAE" (≈8:37); see [variational autoencoders](variational-autoencoders.md). It does not derive the
+connection. It also counts diffusion models among the generative models whose internal variables learn structured representations, "like in
+diffusion models, maybe the noise", or directions in the activation space of a layer (≈1:17:06), and warns that navigating "diffusion model
+activation space on some layer of the network" can hit seams where the output "suddenly … switches to a different category" (≈1:19:23). In
+the closing comparison (slide 41) marks diffusion models as having latent variables ("high-dimensional") and a generator ("slow") but no density, and the lecturer calls them "the most popular right now" (≈1:19:23).

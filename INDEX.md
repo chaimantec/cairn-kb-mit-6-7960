@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–14 of 24 only.** This knowledge base currently holds the first fourteen
+> **Coverage: lectures 1–15 of 24 only.** This knowledge base currently holds the first fifteen
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics) and the concept pages they support. For anything taught in lectures 15–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling) and the concept pages they support. For anything taught in lectures 16–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 14. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 15. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -200,6 +200,17 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   generative modeling into a sequence of supervised learning problems); GANs, their objectives and the min-max game; and
   Homework 5's diffusion section. Slides 6 and 54–59 are excluded from OCW's licence, and slides 49–50 reuse an excluded
   figure.
+- [Lecture 15 — Generative Models: Representation Learning Meets Generative Modeling](wiki/15-generative-models-representation-learning-meets-generative-modeling.md) — Phillip Isola
+  (deck titled "Deep Generative Models II"). One model in depth, the variational autoencoder (VAE), as both a generative model and a
+  representation learner. Generative models as distribution transformers, from a simple prior to the data; why an autoencoder's
+  decoder cannot simply be sampled; a VAE as an autoencoder whose encoder maps to a Gaussian; mixtures of Gaussians, the infinite
+  mixture parameterized by a network, latent variable models and the marginal likelihood; the learner with its density and sampler,
+  and the reparameterization trick (sigma is the standard deviation); the intractable integral and the three tricks: Monte Carlo
+  sampling (and why it fails in high dimensions), importance sampling, and an encoder that predicts the sampling distribution; the
+  encoder's KL objective, Jensen's inequality and the evidence lower bound (ELBO) shared by encoder and decoder; the ELBO as
+  reconstruction error plus a KL term that squashes the encodings toward the origin, the tension that stops collapse, sphere packing,
+  and gaps; the training loop; disentanglement in a VAE trained on procedural river tiles and in BigGAN; seams and tendrils in latent
+  space; a comparison of the generative-model families; and Homework 5's VAE section. Slides 1, 6 and 39 are excluded from OCW's licence.
 
 ## Course pages
 
@@ -211,7 +222,8 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   graph-network questions and lecture 7's steepest-descent and hyperparameter-transfer questions are
   Homework 2's, which went out at lecture 6; lecture 8's transformer and GPT implementation and lecture 10's RNN problem are Homework 3; lecture 11's coloured-shapes
   autoencoder, which the lecturer calls "p set 3", is Homework 4, whose first section goes with lecture 12; lecture 13
-  opens with Homework 2's spectral-norm question; Homework 5's diffusion section goes with lecture 14).
+  opens with Homework 2's spectral-norm question; Homework 5's diffusion section goes with lecture 14 and its VAE section with
+  lecture 15).
 - [Course notation](wiki/notation.md) — the course's Math Notation handout: bold for
   vectors/matrices/tensors, $L$ versus $J$, $\mathbf{z}$ (pre-activation) versus $\mathbf{h}$
   (post-activation), channels-first tensors, probability notation, and the matrix-calculus
@@ -367,13 +379,15 @@ passages it draws on.
   compression against prediction (lecture 11); five properties of a good representation, similarity as the signal, the
   loss giving alignment and uniformity and the data giving invariance, and why "relevant" depends on the task (lecture 12);
   a network as a map through vector spaces, and the similarity an untrained architecture builds in (lecture 13);
-  generative modeling as its inverse (lecture 14); previewing lectures 18–19.
+  generative modeling as its inverse (lecture 14); both directions learned at once, disentanglement, and seams in latent space
+  (lecture 15); previewing lectures 18–19.
 - [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
   reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
   PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
   autoencoder with an integer bottleneck, vector-quantized autoencoders (VQVAE, VQGAN), masked autoencoders, and
   why masked prediction beats reconstruction (lecture 11); the convolutional encoder–decoder (lecture 4);
-  Homework 4's autoencoder question; variational autoencoders, sent to lecture 15 (lecture 14).
+  Homework 4's autoencoder question; variational autoencoders, sent to lecture 15 (lecture 14); why an autoencoder's decoder
+  cannot be sampled, the VAE's Gaussian bottleneck, its loss as reconstruction plus squashing, and autoencoder against VAE (lecture 15).
 - [Self-supervised learning](wiki/self-supervised-learning.md) — learning by predicting part of the raw data from
   another part: learning without labels, compression against prediction, the pretext-task trick, colorization and
   the object units it finds ("words are not arbitrary"), imputation (spatial, temporal, channel), masked autoencoders,
@@ -490,17 +504,24 @@ passages it draws on.
   learning: the two definitions, networks that output distributions, latent variables as control knobs, the direct and
   indirect approaches (samplers, densities, energies) with a table of the families, maximum likelihood from the KL
   divergence, the filing cabinet and test likelihood, and generation turned into a sequence of supervised problems
-  (lecture 14).
+  (lecture 14); generative models as distribution transformers, latent variable models and the marginal likelihood, and
+  slide 41's comparison of the families by latents, density and generator (lecture 15).
+- [Variational autoencoders](wiki/variational-autoencoders.md) — an autoencoder whose encoder maps to a Gaussian, so that its
+  decoder is a generative model: the infinite mixture of Gaussians, the reparameterization trick, the three tricks for the
+  intractable likelihood (Monte Carlo, importance sampling, an encoder predicting the sampling distribution), the evidence lower
+  bound and its two terms, the training loop, disentanglement and seams, and how VAEs relate to the other families (lecture 15).
 - [Energy-based models](wiki/energy-based-models.md) — unnormalized probability models: the Boltzmann form and the
   partition function, why relative probabilities are often enough, why probabilities are still easier to interpret, and
   training by contrastive divergence with its gradient, data pushing the energy down and model samples pushing it up
   (lecture 14).
 - [Diffusion models](wiki/diffusion-models.md) — turn data into noise, then learn to reverse it: denoising as supervised
   learning, sampling from Gaussian noise and its cost in steps, Gaussian diffusion's forward and reverse processes, a
-  stripped-down training algorithm, Homework 5's diffusion section, and the kinship with autoregressive models (lecture 14).
+  stripped-down training algorithm, Homework 5's diffusion section, and the kinship with autoregressive models (lecture 14);
+  diffusion as a kind of VAE, structure in its noise and activations, and its row in the comparison of families (lecture 15).
 - [Generative adversarial networks](wiki/generative-adversarial-networks.md) — a generator trained to fool a discriminator:
   direct or indirect, the discriminator's and generator's objectives, the min-max game, the student and teacher, and two
-  inconsistencies printed on the slides (lecture 14).
+  inconsistencies printed on the slides (lecture 14); BigGAN's latent directions without an encoder, and GANs in the comparison of
+  families (lecture 15).
 
 ## Raw materials
 
@@ -513,7 +534,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–14 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–15 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

@@ -10,7 +10,7 @@ works" ([lecture 8](08-architectures-transformers.md), ≈1:06:38). Covered so f
 model, teacher forcing, sampling and beam search); [lecture 11](11-representation-learning-reconstruction-based.md), ≈1:10:38 and ≈1:13:47–1:15:20
 (next-word prediction as self-supervised learning, set beside BERT's masking); [lecture 14](14-generative-models-basics.md), slides 35–42 and
 52–53, ≈59:43–1:07:34 and ≈1:15:21–1:16:52 (autoregressive models as generative density models, of words, pixels and audio, and their kinship with
-diffusion models). Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
+diffusion models); [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slide 41, ≈1:20:09 (the families compared). Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
 
 ## Predict, append, repeat
 
@@ -127,3 +127,8 @@ erases a data point one element at a time until nothing is left, just as a [diff
 it is a simple Gaussian; each model learns to reverse its sequence one simple step at a time (slides 52–53, ≈1:15:21–1:16:52).
 The lecturer: "an autoregressive model is a small variation on a diffusion model" (≈3:48).
 
+## Among the other families (lecture 15)
+
+[Lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md)'s comparison of generative-model families (slide 41) marks autoregressive models as having no latent variables,
+a density, and a generator that is slow ("✓ (slow)"); the lecturer calls them "the ones that are popular in language modeling"
+(≈1:20:09). See [generative models](generative-models.md#the-families-compared-lecture-15).

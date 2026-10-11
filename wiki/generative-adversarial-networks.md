@@ -4,7 +4,9 @@ A **generative adversarial network** (GAN; Goodfellow et al., 2014) trains a gen
 **generator** $g_{\theta}$ maps a vector of random numbers $\mathbf{z}$ to a synthetic data point $g_{\theta}(\mathbf{z})$;
 the **discriminator** $d_{\phi}$, with its own parameters $\phi$, is a classifier that tries to tell real data from the
 generator's output. The generator is trained to fool it. Covered so far: [lecture 14](14-generative-models-basics.md), slides
-54–59, ≈1:17:40–1:20:47, the last three minutes of the lecture. See also [generative models](generative-models.md).
+54–59, ≈1:17:40–1:20:47, the last three minutes of the lecture; [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 39 and 41,
+≈1:16:20–1:17:06 and ≈1:19:23–1:20:09 (BigGAN's latent directions, and GANs among the other families). See also
+[generative models](generative-models.md).
 
 ## Direct or indirect?
 
@@ -41,6 +43,16 @@ reached "when g reproduces data distribution" (slide 58).
 is the student. The teacher is saying, hey, you need to make a realistic painting, and you didn't get it quite right. The
 shadows are wrong. So g will update its parameters to make realistic shadows. And then d will say, oh, that looks
 indistinguishable from what I consider realistic art" (lecture 14, ≈1:20:01–1:20:47).
+
+## Latent directions without an encoder (lecture 15)
+
+[Lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md) returns to GANs when it asks what generative models' latent spaces learn. "GANs didn't have any encoder that maps
+from data to latents", unlike a [variational autoencoder](variational-autoencoders.md), "but nonetheless, the latent variables, if you sample
+random latent variables or sample along a grid of latent variables, they do show that they actually model structure in a similar way to the
+VAE" (≈1:16:20). Its example is BigGAN [Brock et al. 2018], with "one direction in latent space that controls the orientation of the bird and
+one direction that controls the background color" (slide 39, ≈1:16:20–1:17:06); slide 39's images are excluded from OCW's licence, so the
+knowledge base describes them only in the slide file. See [representation learning](representation-learning.md#both-directions-at-once-and-disentanglement-lecture-15).
+In the lecture's closing comparison GANs are "the most cute and fun" of the families (≈1:20:09), and slide 41 marks GANs as having latent variables and a generator but no density or energy.
 
 ## Two things printed on the slides
 
