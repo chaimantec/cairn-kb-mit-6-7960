@@ -11,7 +11,9 @@ or some component of contrastive learning and contrastive representations" (≈0
 and [lecture 11](11-representation-learning-reconstruction-based.md), slide 13. [Lecture 13](13-representation-learning-theory.md), the
 course's representation-learning theory lecture, recaps contrastive learning (slide 4, ≈4:49–5:36) and then asks what similarity
 an architecture expresses before any training; see [Gaussian processes](gaussian-processes.md). [lecture 14](14-generative-models-basics.md) (slide 29, ≈52:44–53:32)
-names a distant relative, contrastive divergence.
+names a distant relative, contrastive divergence. [Lecture 18](18-transfer-learning-models.md) (slides 12–13, 36–37 and 60–63,
+≈16:19–17:04, ≈49:35–53:29 and ≈1:15:20–1:18:27) pretrains by contrastive learning for transfer, distills representations
+contrastively, and prompts CLIP.
 
 **Notation.** The encoder $f$ maps data onto the unit hypersphere, $f : \mathcal{X} \rightarrow \mathbb{S}^{d-1}$. An anchor
 $\mathbf{x}$ has a positive $\mathbf{x}^+$, drawn with it from the positive-pair distribution $p_{pos}$, and $N$
@@ -141,6 +143,18 @@ Lecture 14 trains [energy-based models](energy-based-models.md) by **contrastive
 raise it where the model's own samples fall, until the two cancel (slide 29). The lecturer calls it "another contrast, the contrast
 between where the data lives and where the model has placed high probability", and says it is "even connected to contrastive learning,
 but a little bit indirectly" (≈52:44–53:32); the lecture does not develop the connection.
+
+## For transfer, distillation and CLIP (lecture 18)
+
+Lecture 18 returns to contrastive learning three times. Self-supervised contrastive pretraining is its example of pretraining for
+transfer: it needs no labels, so it can use "a lot, a lot, a lot of data", and the learned representation is then tested on, or
+finetuned to, a new recognition task (slides 12 and 13, ≈16:19–17:04). **Contrastive representation distillation** (slides 36 and
+37, Tian, Krishnan and Isola, 2020) treats a teacher network's and a student network's embeddings of the same input as two views to be
+pulled together, so that "the student will output embeddings that are the same as the teacher's"; see [knowledge
+distillation](knowledge-distillation.md). And **CLIP** (slide 60, Radford et al., 2021), a contrastive model of images and text, is
+adapted either by a linear probe on its image embeddings or by "just asking", comparing an image's embedding with the embeddings of
+prompts such as "A photo of a {object}." (slides 61–63). Its embeddings behave "almost a bit like a bag of words": good at single
+concepts, bad at composition and negation (≈1:17:40–1:18:27). See [foundation models and prompting](foundation-models-and-prompting.md).
 
 ## See also
 

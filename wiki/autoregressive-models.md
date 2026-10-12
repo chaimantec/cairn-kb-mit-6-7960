@@ -11,7 +11,8 @@ model, teacher forcing, sampling and beam search); [lecture 11](11-representatio
 (next-word prediction as self-supervised learning, set beside BERT's masking); [lecture 14](14-generative-models-basics.md), slides 35–42 and
 52–53, ≈59:43–1:07:34 and ≈1:15:21–1:16:52 (autoregressive models as generative density models, of words, pixels and audio, and their kinship with
 diffusion models); [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slide 41, ≈1:20:09 (the families compared); [lecture 16](16-generative-models-conditional-models.md), slides 52–56 and 70, ≈45:58–53:47 and ≈1:07:53 (conditional by
-construction, prompting, captioning, and a prior over VQGAN's codes). Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
+construction, prompting, captioning, and a prior over VQGAN's codes). [Lecture 18](18-transfer-learning-models.md), slides 48–54, ≈1:09:52–1:12:14, adapts GPT-3 by prompting and in-context learning.
+Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
 
 ## Predict, append, repeat
 
@@ -144,3 +145,12 @@ still stochastic, "because every next word I predict will be sampled from a cate
 prompting language models". That they are "most powerful for conditional prediction" became evident "in the GPT-3 era" (≈48:20–49:08). A
 captioning model is the same decoder prefixed with image tokens (slide 56), and VQGAN's text-to-image pipeline can put an autoregressive
 transformer over its latent codes (slide 70, ≈1:07:53). See [conditional generative models](conditional-generative-models.md).
+
+## Prompting and in-context learning (lecture 18)
+
+Lecture 18 treats GPT-3 (Brown et al., 2020) as a foundation model whose learner is generative pretraining, "trained autoregressively to
+predict the next character" ("Colorless green ideas sleep ____" → "furiously", slide 48), and whose adaptor is prompt engineering
+("[Review] + 'The sentiment in this review is ____'" → "positive", slide 49). **In-context learning** (slide 52) adds an inner loop to the
+outer loop of "Learning via SGD during unsupervised pre-training": each prompt's examples, of sums, unscrambled words or translations, set
+the task the model continues (≈1:11:28). Whether that is learning or "pattern matching", "essentially just a kernel machine" over the
+training data, "depending on who you talk to" (≈1:10:41). See [foundation models and prompting](foundation-models-and-prompting.md).

@@ -9,7 +9,8 @@ supervised learning to self-supervised learning" (≈1:09:53). Covered so far: l
 ≈43:23–45:43 and ≈1:05:15–1:20:51; colorization as a project in [lecture 9](09-hackers-guide-to-deep-learning.md),
 slides 29–39; next-word prediction in [lecture 8](08-architectures-transformers.md) and
 [lecture 10](10-architectures-memory.md); and self-supervision by similarity rather than prediction, contrastive learning, in
-[lecture 12](12-representation-learning-similarity-based.md), slides 27–37, 47–51 and 54–68, ≈30:25–43:43 and ≈53:56–1:10:21.
+[lecture 12](12-representation-learning-similarity-based.md), slides 27–37, 47–51 and 54–68, ≈30:25–43:43 and ≈53:56–1:10:21; and [lecture 18](18-transfer-learning-models.md), slides 12–13
+and 48, ≈16:19–17:04 and ≈1:09:52 (self-supervised pretraining for transfer, and GPT-3's generative pretraining).
 
 ## Learning without labels
 
@@ -119,6 +120,14 @@ without requiring labels because ... handcrafted, human-generated labels are ver
 supervised pre-training (for some tasks)" (slide 30). Its limit is the same as a pretext task's: the representation learns what
 the pairs encode. On iNaturalist, SimCLR and MoCo trail a supervised model by about 30 points at the species level, where on
 ImageNet the gap is about 7 (slide 64). See [contrastive learning](contrastive-learning.md).
+
+## Pretraining for transfer (lecture 18)
+
+Lecture 18 gives self-supervision's main advantage for transfer: because it "doesn't require labels for data", it makes pretraining
+possible on "a lot, a lot, a lot of data", since "the amount of data that exists without any specific label is much larger than any …
+labeled or clean data set" (slides 12 and 13, ≈16:19–17:04). Its foundation models are pretrained the same way: GPT-3 by predicting
+the next characters (slide 48) and CLIP contrastively (slide 60). See [transfer learning](transfer-learning.md) and [foundation models
+and prompting](foundation-models-and-prompting.md).
 
 ## See also
 

@@ -69,7 +69,8 @@ licence: **slide 11** is a screenshot of Gabriel Goh's Distill article "Why Mome
 visualizations from Olah et al.'s Distill article ("Courtesy of Olah, et al. Used under CC BY.").
 **Slide 68** collects DeepDream images whose credit line reads "Images created using a network
 trained on places by MIT Computer Science and AI Laboratory", from the Google blog post it links;
-OCW did not flag it. **Slide 70** includes a small generated image as the CLIP+GAN output.
+OCW did not flag it. Slide 70 (CLIP+GAN) was rendered until lecture 18's deck excluded its "Text Encoder" and "Image
+Encoder" graphics ("© Radford, et al.", lecture 18's slide 63); it is no longer rendered.
 
 Lecture 3's deck is Jeremy Bernstein's handwritten notes, and three of its rendered slides paste in
 figures from elsewhere, each credited by hand on the slide and none flagged by OCW. **Slide 6** is a
@@ -145,11 +146,12 @@ mapping figures print no credit, and slide 12 links the Colab notebook that made
 is the one lecture 1's deck credits to Torralba, Isola and Freeman, and it is not rendered. **Slides 42–43**'s coloured
 shapes and **slides 46–47**'s scatter plots are uncredited. Every photograph in the deck is on an excluded slide.
 
-Lecture 12's deck names Sara Beery as speaker. Its eight rendered slides all carry material from published papers, five of
+Lecture 12's deck names Sara Beery as speaker. Its seven rendered slides all carry material from published papers, four of
 them under an open-licence credit. **Slide 8** prints "Courtesy of Chuang, et al. Used under CC BY." (Chuang et al., Measuring
 generalization with optimal transport, 2021). **Slides 22 and 23** print "Courtesy of Song, et al. Used under CC BY-NC-SA."
-(the lifted-structure embedding of CUB-200-2011 birds). **Slide 35** prints "Courtesy of Tian, et al. Used under CC BY-NC-SA."
-(CMC). **Slide 43**'s two scatter plots are credited "figures: Wang & Isola, 2020" with no licence line and no notice, while
+(the lifted-structure embedding of CUB-200-2011 birds). Slide 35, which prints "Courtesy of Tian, et al. Used under CC BY-NC-SA."
+(CMC), was rendered until lecture 18's deck excluded the classroom photograph and depth map it shows ("© Couprie, et al.",
+lecture 18's slide 33); it is no longer rendered. **Slide 43**'s two scatter plots are credited "figures: Wang & Isola, 2020" with no licence line and no notice, while
 slides 31 and 41, also from Wang and Isola, are excluded ("© Wang and Isola" and "© source unknown"); slide 43 is rendered by
 the rule that only a notice excludes, and it is the nearest case in this KB to that line. **Slides 49 and 50** show the SimCLR
 framework diagram and a projection-head bar chart with no credit printed, and **slide 51**'s batch-size chart is credited
@@ -207,6 +209,21 @@ Mądry and Ludwig Schmidt), 11 (Papernot et al.), 12–15 (Brown et al.), 16–1
 Roli), 26 (Hongzhou Lin), 27 and 36 (Aleksander Madry), 28, 29 and 33 (sources unknown), 30 and 34 (Geirhos et al.), 32 (AI Weirdness),
 35 (Liu et al.), 37 (Tsipras et al.), 42–44 (Koh et al.; Beery et al.), 46 (Weinstein et al.), 55 (Mac Aodha et al.), 57 (He et al.)
 and 59 (Vendrow et al.); none of them is rendered.
+
+Lecture 18's deck names Sara Beery as speaker. Of its 26 rendered slides, the deck's own diagrams carry no credit line (slides 8, 10, 30,
+31, 35, 46 and 73), and slides 21 and 26 show crops of sonar images with no credit printed (the lecturer describes the sonar project as
+her own research, ≈33:16). **Slide 3** is Andrew Ng's chart ("[Slide credit: Andrew Ng]"). Slides credited under an open licence:
+**slides 27 and 28** ("Courtesy of Kay, et al. Used under CC BY.", Align and Distill), **slide 38** ("Courtesy of Frantar, et al. Used under
+CC BY.", Optimal Brain Compression), **slide 39** ("Courtesy of Kuznedelev, et al. Used under CC BY."), **slide 43** ("Courtesy of Luccioni
+et al. Used under CC BY-NC-SA."), **slide 59** ("Courtesy of Wei, et al. Used under CC BY.", chain-of-thought prompting), **slides 66–68**
+("Courtesy of Bahng, et al. Used under CC BY.", visual prompting), **slide 70** ("Courtesy of Bar et al. Used under CC BY.") and **slide
+75** ("Courtesy of Ramesh et al. Used under CC BY.", DALL-E 2). **Slide 40** shows Nicolas Poussin's *Blind Orion Searching for the Rising
+Sun* (1658), "in the public domain". Four rendered slides reproduce material with a citation or none and no OCW notice, and are rendered by
+the rule that only a notice excludes: **slide 37**, the heat maps of Tian, Krishnan and Isola (2020); **slide 41**, OpenAI's "AI and
+compute" chart; **slide 42**, Ahmed and Thompson's (2022) chart; and **slide 45**, a chart of performance on 58 tasks with no source
+printed. The deck's other third-party figures are on its 21 excluded slides: 4 and 5 (AAAS), 6, 12–17 and 53 (sources unknown), 19 (He
+et al.), 20 (Ganin et al.), 33 (Couprie et al.), 34 (Aytar et al.), 52 (Brown et al.), 57 (Li and Liang; IEEE), 60–63 (Radford et al.)
+and 69 (Jia et al.); none of them is rendered, and nor is slide 74, which reuses slide 63's excluded encoder graphics.
 
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

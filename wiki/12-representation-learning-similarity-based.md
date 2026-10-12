@@ -358,10 +358,6 @@ labels print garbled and are decoded in the slide file): "You have the text
 description of an image and the image itself. You try to push those together, and you try to push them far away from an
 image that doesn't match that text description" (≈42:52).
 
-![Slide 35: two encoders map an anchor view and a positive view of the same scene to nearby points on a sphere, and a negative from another scene elsewhere](../raw/images/12-representation-learning-similarity-based/slide-35.jpg)
-
-*Slide 35 — Contrastive learning across views: two encoders for two channels of the same scene, with a negative from another scene. [Deck](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec12.pdf)*
-
 "A lot of modern work actually really is just people coming up with creative ways to supervise models without requiring
 labels because ... handcrafted, human-generated labels are very expensive" (≈42:52).
 

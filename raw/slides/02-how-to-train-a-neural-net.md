@@ -14,7 +14,7 @@ Text and figures of all 81 slides of
 transcribed from the deck (speaker: Sara Beery). Cite these as "slide N" — the printed
 number equals the PDF page number for slides 1–80; slide 81 is OCW's appended end page. Diagrams, plots and photographs are described in prose since the KB is read as text.
 
-**Images.** 45 slides carry a whole-slide render under their heading: 7, 10–22, 24–27, 30, 34, 36–38, 41–44, 46, 48–55, 60, 63, 66–68, 70, 72, 73 and 75. Not rendered: the seven slides with an OCW "All rights reserved" notice (4, 57, 58, 59, 64, 65, 69); build steps superseded by a rendered slide (8, 29, 39, 40, 47, 61, 62); text, agenda, equation-only and divider slides (1–3, 5, 6, 9, 23, 28, 31–33, 35, 45, 71, 74, 76–81); and slide 56, whose two-box diagram is fully described below and whose other content is third-party logos and an uncredited code screenshot. Use an image path only if it appears in this file.
+**Images.** 44 slides carry a whole-slide render under their heading: 7, 10–22, 24–27, 30, 34, 36–38, 41–44, 46, 48–55, 60, 63, 66–68, 72, 73 and 75. Not rendered: the seven slides with an OCW "All rights reserved" notice (4, 57, 58, 59, 64, 65, 69); slide 70, whose "Text Encoder" and "Image Encoder" graphics are the images lecture 18's slide 63 draws under a "© Radford, et al." notice (it was rendered until lecture 18 was added); build steps superseded by a rendered slide (8, 29, 39, 40, 47, 61, 62); text, agenda, equation-only and divider slides (1–3, 5, 6, 9, 23, 28, 31–33, 35, 45, 71, 74, 76–81); and slide 56, whose two-box diagram is fully described below and whose other content is third-party logos and an uncredited code screenshot. Use an image path only if it appears in this file.
 
 Companion pages: [wiki page for this lecture](../../wiki/02-how-to-train-a-neural-net.md) ·
 [transcript](../transcripts/02-how-to-train-a-neural-net.md)
@@ -983,8 +983,6 @@ Bottom-left credit: "© Radford, et al. All rights reserved. This content is exc
 *OCW notice: © Radford, et al. All rights reserved — excluded from the CC license.*
 
 ## Slide 70 — CLIP+GAN
-
-![Slide 70 — CLIP+GAN](../images/02-how-to-train-a-neural-net/slide-70.jpg)
 
 Title: "CLIP+GAN". Diagram:
 

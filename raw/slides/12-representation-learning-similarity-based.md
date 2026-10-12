@@ -13,7 +13,7 @@ Text and figures of all 70 pages of
 [`mit6_7960_f24_lec12.pdf`](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec12.pdf),
 transcribed from the deck (speaker: Sara Beery; the title slide reads "Lecture 12: Similarity-based Representation Learning", and slide 2's roadmap is headed "Roadmap: similarity-based representation learning", with no lecture number). Cite these as "slide N" — the printed number equals the PDF page number for slides 1–69; page 70 is OCW's appended end page and prints 70. Diagrams, plots, screenshots and photographs are described in prose since the KB is read as text. Several figures were rendered with missing glyphs (a transpose sign, a temperature, a set-membership sign, a script loss letter, and the labels of slides 24 and 37); where that happens the slide's text says so and gives the reading, if any, that the printed layout supports.
 
-**Images.** 8 slides carry a whole-slide render under their heading: 8, 22, 23, 35, 43, 49, 50 and 51. Not rendered: the 37 slides with an OCW exclusion notice (1, 11, 14, 17, 19, 20, 24, 25, 28–34, 36, 37, 41, 42, 48 and 52–68; all but two of those notices are drawn as glyph outlines, so the PDF's text layer shows only slides 14's and 59's); slide 7, a build step that slide 8 completes; text, equation and screenshot slides this file reproduces (6, 10, 12, 13, 16, 18, 21 and 39); and the roadmap, text slides, summary and end page (2–5, 9, 15, 26, 27, 38, 40, 44–47, 69 and 70). See `AGENTS.md`.
+**Images.** 7 slides carry a whole-slide render under their heading: 8, 22, 23, 43, 49, 50 and 51. Not rendered: the 37 slides with an OCW exclusion notice (1, 11, 14, 17, 19, 20, 24, 25, 28–34, 36, 37, 41, 42, 48 and 52–68; all but two of those notices are drawn as glyph outlines, so the PDF's text layer shows only slides 14's and 59's); slide 35, whose classroom photograph and depth map are the strip lecture 18's slide 33 draws under a "© Couprie, et al." notice, although this slide credits the figure "Courtesy of Tian, et al. Used under CC BY-NC-SA." (it was rendered until lecture 18 was added); slide 7, a build step that slide 8 completes; text, equation and screenshot slides this file reproduces (6, 10, 12, 13, 16, 18, 21 and 39); and the roadmap, text slides, summary and end page (2–5, 9, 15, 26, 27, 38, 40, 44–47, 69 and 70). See `AGENTS.md`.
 
 Companion pages: [wiki page for this lecture](../../wiki/12-representation-learning-similarity-based.md) · [transcript](../transcripts/12-representation-learning-similarity-based.md)
 
@@ -499,8 +499,6 @@ The notice sits at the lower left: "Images © source unknown. All rights reserve
 *OCW notice: Images © source unknown. All rights reserved. This content is excluded from our Creative Commons license. For more information, see https://ocw.mit.edu/help/faq-fair-use/ (sits at the lower left, beside the dog and monkey photographs).*
 
 ## Slide 35 — Variations
-
-![Slide 35 — Variations](../images/12-representation-learning-similarity-based/slide-35.jpg)
 
 Title: "Variations". A diagram on the left and text on the right.
 

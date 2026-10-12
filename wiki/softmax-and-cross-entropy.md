@@ -13,7 +13,8 @@ its vocabulary, and maximum likelihood as cross-entropy); [lecture 11](11-repres
 softmax as a map onto the simplex); [lecture 12](12-representation-learning-similarity-based.md), slides 28–39 and 53, ≈31:11–35:54 and ≈43:43 (the contrastive loss as
 a softmax cross-entropy over similarities); [lecture 14](14-generative-models-basics.md), slide 7, ≈9:11–9:59, ≈36:31, ≈45:48 and ≈1:02:03–1:04:24 (classification as a
 distribution on the simplex, maximum likelihood, logits as energies, and next-word and next-pixel classifiers in generative models); [lecture 16](16-generative-models-conditional-models.md), slides 5–6, ≈9:13–13:04 (why a categorical distribution captures two modes, and where per-pixel
-classification still fails).
+classification still fails); [lecture 18](18-transfer-learning-models.md), slides 30–32, ≈41:06–46:29 (cross-entropy against a
+teacher's soft targets, which is knowledge distillation).
 
 ## From last layer to prediction
 
@@ -126,8 +127,8 @@ cross-entropy loss, then use Adam and a transformer.
 The lecture's worked case is image colorization, a task that looks like regression (predict a colour for
 every pixel) and is turned into classification (slides 29–39, from Zhang, Isola and Efros, ECCV 2016).
 The continuous plane of colour values is quantized into $K$ cells, so that each pixel's target becomes a
-one-hot vector over $K$ colour classes, $\mathbf{y} \in \mathbb{R}^{H 	imes W 	imes K}$ in place of
-$\mathbf{y} \in \mathbb{R}^{H 	imes W 	imes 2}$ (slide 34). "Rather than cat, dog, elephant, it will be
+one-hot vector over $K$ colour classes, $\mathbf{y} \in \mathbb{R}^{H \times W \times K}$ in place of
+$\mathbf{y} \in \mathbb{R}^{H \times W \times 2}$ (slide 34). "Rather than cat, dog, elephant, it will be
 the blue class, the yellow class" (≈1:00:18). A ConvNet slid over the image then classifies every pixel.
 See [lecture 9](09-hackers-guide-to-deep-learning.md#transform-your-problem-into-a-solved-problem).
 
@@ -195,3 +196,16 @@ represent any number of bumps", so it solves the problem "up to quantization err
 often use softmax regression." It fails once the output is high-dimensional: classifying every pixel independently, near-even
 probabilities cross the threshold from pixel to pixel and the shirt comes out in both colours, "failing to capture the joint dependency"
 (slide 6, ≈10:44–12:17). That second failure is what generative models fix; see [conditional generative models](conditional-generative-models.md).
+
+## Cross-entropy against a teacher (lecture 18)
+
+Lecture 18 recalls the classifier's loss (slide 30), with the one-hot label $\mathbf{y}$ and the prediction $\hat{\mathbf{y}}$
+labelled "Teacher" and "Student":
+
+$$L(\hat{\mathbf{y}}, \mathbf{y}) = - \sum_i \mathbf{y}_ i \log \hat{\mathbf{y}}_ i$$
+
+**Knowledge distillation** keeps the loss and replaces the label with a pretrained teacher's output $\mathbf{y}^T$, so that the
+student's output $\mathbf{y}^S$ is trained toward the teacher's whole distribution,
+$L(\mathbf{y}^S, \mathbf{y}^T) = - \sum_i \mathbf{y}^T_ i \log \mathbf{y}^S_ i$ (slide 31). The teacher's **soft target** says not just "this is a dog" but "this is a dog that
+looks a bit like a cat and very different from a bear" (slide 32), information about similarity the one-hot label cannot carry. See
+[knowledge distillation](knowledge-distillation.md).

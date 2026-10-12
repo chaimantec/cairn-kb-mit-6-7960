@@ -6,7 +6,9 @@ model robust to such perturbations by training it on the worst perturbation of e
 small-scale half of out-of-distribution generalization: robustness "on the level of individual data points", before
 shifts of whole distributions (lecture 17, slide 8, ≈13:13). What they reveal about models is as important as how to
 defend against them: models rely on features that predict the label without meaning what a human would take them to mean.
-Covered so far: [lecture 17](17-generalization-out-of-distribution.md), slides 9–38, ≈13:13–43:34.
+Covered so far: [lecture 17](17-generalization-out-of-distribution.md), slides 9–38, ≈13:13–43:34; [lecture
+18](18-transfer-learning-models.md), slides 20 and 65–67, ≈30:57–31:44 and ≈1:18:27–1:21:30 (an adversary over features in domain
+adaptation, and beneficial noise in visual prompting).
 
 **Notation.** An input is $\mathbf{x} \in \mathbb{R}^{d}$ and its label $y$; $f_{\theta}$ is a network with parameters
 $\theta$, and $P_{\theta}(y \vert \mathbf{x})$ the probability it assigns to $y$ through a softmax. A perturbation is
@@ -79,6 +81,17 @@ Adversarial training "teaches invariance to non-robust features" (slide 36). Its
 object rather than noise, the adversarial examples that fool them start to look like the target class, and they transfer
 better to other datasets (slides 37–38, Tsipras et al. 2019 and Salman et al. 2020; ≈41:16–42:48). The lecturer calls it
 "another very targeted form of maybe regularization or a different type of domain adaptation" (≈42:48).
+
+## Turned around (lecture 18)
+
+Lecture 18 uses the same optimization in two other directions. In **domain adversarial training** (slide 20) the adversary is a
+classifier that predicts which domain an input came from, and a gradient reversal layer trains the shared features to make it fail,
+"as bad as possible at predicting the domain", so that the two domains' representations align (≈31:44; see [domain
+adaptation](domain-adaptation.md)). And **visual prompting** (slides 65–67) optimizes a perturbation of the input to *help* a frozen
+model: "It's kind of similar to adversarial noise. We learned about learning adversarial noise, but this is now like learning
+beneficial noise" (≈1:18:27). A learned border added to every image, or even one pink pixel at the same place in every satellite
+image, raises accuracy across a dataset, which the lecturer reads as one more sign of "how fragile and complex the statistical
+representations are" (≈1:21:30). See [foundation models and prompting](foundation-models-and-prompting.md).
 
 ## See also
 

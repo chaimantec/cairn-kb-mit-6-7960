@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md) and [lecture 17](17-generalization-out-of-distribution.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md) and [lecture 18](18-transfer-learning-models.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -43,7 +43,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 15 | Generative Models: Representation Learning Meets Generative Modeling | [yes](15-generative-models-representation-learning-meets-generative-modeling.md) |
 | 16 | Generative Models: Conditional Models | [yes](16-generative-models-conditional-models.md) |
 | 17 | Generalization: Out-of-Distribution (OOD) | [yes](17-generalization-out-of-distribution.md) |
-| 18 | Transfer Learning: Models | not yet |
+| 18 | Transfer Learning: Models | [yes](18-transfer-learning-models.md) |
 | 19 | Transfer Learning: Data | not yet |
 | 20 | Scaling Laws | not yet |
 | 21 | Language Models | not yet |
@@ -210,6 +210,16 @@ Lecture 17's deck is titled "Lecture 17: Out-of-distribution generalization", ma
 generation "the last couple of days" (lectures 14–16, ≈0:50) and to hard example mining learned "a while ago" (lecture 12's hard
 negative mining, ≈25:45), and ahead to meta learning and domain adaptation "next lecture" (lecture 18, ≈30:27, ≈56:55)
 ([lecture 17](17-generalization-out-of-distribution.md#pointers-to-other-lectures)).
+
+Lecture 18's deck is titled "Lecture 18: Transfer Learning I", matching lecture 1's banner ("Lecture 18: Models") and the recording
+("Transfer Learning: Models"); it is Sara Beery's, and prints no other lecture number. Its outline lists three kinds of knowledge to
+transfer, and the recording leaves the third, about the inputs, to "next Tuesday" (lecture 19, ≈1:31), as it does meta-learning
+(≈1:11:28). It also points ahead to "a lecture from Phil around some of these scaling laws" next Thursday (lecture 20, ≈2:19), and back
+to distribution shifts "last week" (lecture 17, ≈0:00), to similarity-based representation learning and rotation invariance (lecture
+12, ≈16:19, ≈49:35), to catastrophic forgetting "when we were talking about sequences" (probably lecture 10, which discusses forgetting
+in RNNs, ≈25:31), to adversarial noise (lecture 17, ≈1:18:27) and to plugging pretrained models together, "I think we showed this early
+on" (probably lecture 2's CLIP+GAN, ≈1:23:48)
+([lecture 18](18-transfer-learning-models.md#pointers-to-other-lectures)).
 
 ## Coursework and policies
 

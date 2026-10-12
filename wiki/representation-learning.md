@@ -20,7 +20,8 @@ slides 4–7 and 20–26, ≈4:49–8:41 and ≈45:07–1:12:44, asks what simil
 [lecture 14](14-generative-models-basics.md), slide 2, ≈0:45 and ≈2:18, turns the direction round, into generative modeling.
 [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 3, 5, 35–40, ≈0:47–3:55 and
 ≈1:11:40–1:19:23, learns both directions at once in a variational autoencoder, and asks what its latent space learns: disentangled
-factors of variation, and seams.
+factors of variation, and seams. [Lecture 18](18-transfer-learning-models.md), slides 11 and 36–37, ≈13:57–15:30 and
+≈49:35–53:29, transfers the learned encoder by finetuning and distills a representation from one network into another.
 
 ## Compact, compositional representations
 
@@ -156,7 +157,7 @@ after word2vec, for any modality (slide 4, ≈3:08). Another, a student points o
 same thing" (≈3:55–4:40).
 
 Slide 22 makes it precise, restricting attention mainly to vector embeddings. "A representation of a data domain
-$\mathcal{X}$ is a function $f : \mathcal{X} 	o \mathbb{R}^d$ that assigns a feature vector to each input in that domain. This
+$\mathcal{X}$ is a function $f : \mathcal{X} \to \mathbb{R}^d$ that assigns a feature vector to each input in that domain. This
 function is called an **encoder**." And "A representation of a datapoint $\mathbf{x}$ is a vector
 $\mathbf{z} \in \mathbb{R}^d$ with $\mathbf{z} = f(\mathbf{x})$." For a neural network, $f$ is parameterized by its weights and
 biases, so "the representation, by this definition, is its weights and biases"; "When we say the learned representation, we
@@ -318,3 +319,12 @@ Such maps are smooth but not seamless. Squeezing a complicated shape onto a Gaus
 "if you're navigating through VAE latent space or diffusion model activation space on some layer of the network, you'll come across these
 weird jumps where it's smooth moves, nice variation, and then suddenly it switches to a different category", and **tendrils** of
 probability where it cannot cut (slide 40, ≈1:18:37–1:19:23).
+
+## Transferring and distilling a representation (lecture 18)
+
+"The 'learned representation' is the *encoder* (its weights and biases) so that's what we transfer" (lecture 18, slide 11). After
+finetuning, "a lot of the structure in the models … actually stays the same, particularly in those early layers", which suggests some of
+what is learned "is just universal in some sense … for, let's say, images or audio" (≈15:30). A representation can also be passed from a
+big network to a small one: **contrastive representation distillation** trains a student's embeddings to match a teacher's, treating the
+two networks as two views of the same input (slides 36 and 37, ≈49:35–53:29). See [transfer learning](transfer-learning.md) and
+[knowledge distillation](knowledge-distillation.md).

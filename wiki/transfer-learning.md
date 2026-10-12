@@ -3,15 +3,16 @@
 Transfer learning reuses what a network learned on one task to learn another faster, from less data. Lecture 11
 gives it as the answer to "why learn representations?": "Maybe the simplest is to do more learning, right? So we learn
 to learn … the main use of trained representations is to accelerate future learning"
-([lecture 11](11-representation-learning-reconstruction-based.md), ≈27:54–28:41). The course has two lectures on it
-later, **18 (models)** and **19 (data)**, which this knowledge base does not yet cover (see the
+([lecture 11](11-representation-learning-reconstruction-based.md), ≈27:54–28:41). The course has two lectures on it,
+**18 (models)**, covered below, and **19 (data)**, which this knowledge base does not yet cover (see the
 [course map](course-map.md)). Covered so far: [lecture 1](01-introduction.md), slides 76–77, ≈57:19–58:53 (reusing
 weights); [lecture 2](02-how-to-train-a-neural-net.md), ≈56:42 and ≈1:10:48–1:12:21 (pretrained parameters inside a
 larger network); [lecture 9](09-hackers-guide-to-deep-learning.md), slides 27–28, ≈56:26–58:43 (start from a pretrained
 model); lecture 11, slides 23–29, ≈27:54–39:32; [lecture 12](12-representation-learning-similarity-based.md), slides 3, 30 and 60–68, ≈2:20–3:05 and ≈1:03:23–1:10:21
 (transfer as a reason to learn representations, self-supervised against supervised pretraining, and linear probes on
 iNaturalist); [lecture 17](17-generalization-out-of-distribution.md), slides 38 and 57, ≈42:48 and ≈56:06–56:55 (adversarially trained models transfer better, and domain
-adaptation previewed).
+adaptation previewed); [lecture 18](18-transfer-learning-models.md), slides 2–39 and 46–68, ≈0:00–56:35 and ≈1:09:04–1:23:48
+(the three kinds of knowledge to transfer, finetuning in practice, domain adaptation, distillation, and adapting foundation models).
 
 ## A good representation makes the next task easier
 
@@ -108,12 +109,48 @@ Lecture 17 reports that adversarially trained ImageNet models transfer better to
 38, Salman et al. 2020, "Do adversarially robust ImageNet models transfer better?"; ≈42:48), and it previews **domain
 adaptation**, which learns from a labelled source domain and an unlabelled or sparsely labelled target domain "how to
 align their representations during training so that you can enforce generalization or adaptation to a new target domain"
-(slide 57, ≈56:06–56:55). Domain adaptation is promised for lecture 18 (slide 58). The lecture's closing answer separates
+(slide 57, ≈56:06–56:55). Domain adaptation is promised for lecture 18 (slide 58), which teaches it; see [domain adaptation](domain-adaptation.md). The lecture's closing answer separates
 being robust to any shift from adapting to a known one, for which fine-tuning and domain adaptation are "much more
 efficient" (≈1:02:25–1:03:59). See [out-of-distribution generalization](out-of-distribution-generalization.md).
+
+## What can be transferred (lecture 18)
+
+Lecture 18 opens the course's two lectures on transfer learning by asking what exactly is transferred. A model maps inputs to
+outputs, and the lecture sorts the answers into "1. Knowledge about the mapping", "2. Knowledge about the outputs" and "3.
+Knowledge about the inputs" (slide 8); it covers the first two and leaves the inputs to lecture 19 (≈1:31). Its thesis is lecture
+11's: "One view: the **point** of deep learning is to enable problem solving with little data" (slide 7). Humans learn from few
+examples because they bring prior knowledge, and the simplest way to give a network prior knowledge is to "'pretrain' them on prior
+tasks", which the lecturer calls sending "your neural network to school" (≈7:48). Few examples are also ambiguous: one Segway does not
+say whether the concept is Segways, two-wheelers or wheeled things (≈4:41–5:28).
+
+**Knowledge about the mapping** is transferred by finetuning. Slides 10 and 11 repeat lecture 11's music example and recipe: "The
+'learned representation' is the *encoder* (its weights and biases) so that's what we transfer". The final layer is usually replaced,
+being "pretty specific to the pretraining task" (≈13:57), and after finetuning the early layers of image or audio models often barely
+change, "which does seem to argue that some of that is just universal in some sense" (≈15:30). When the new task's inputs or outputs
+have other dimensions, $\mathcal{X}' \neq \mathcal{X}$ and $\mathcal{Y}' \neq \mathcal{Y}$, new blocks are added as "glue" that map
+them to the intermediate representations the pretrained middle expects (slides 14–17, ≈17:04–19:23): an extra encoding for an RGB-D
+camera's depth channel, PCA down to three channels for hyperspectral satellite data, or a new output layer for an extra class
+(≈20:11–21:42). New blocks can even be initialized by copying, such as a new depth channel starting from the blue channel's weights
+(≈23:59). Finetuned too long on too little data, a model forgets; slide 18's remedies are to freeze most of the network, use a small
+learning rate, stop early, or keep training on the original data, all of which "assume that you have a good, representative
+validation set" (≈25:31–27:50). **Domain adaptation** transfers the mapping while aligning a source domain's representations with an
+unlabelled target's (slides 19–28; see [domain adaptation](domain-adaptation.md)).
+
+**Knowledge about the outputs** is transferred by **distillation**: a student trained to match a teacher's whole distribution of
+predictions, which carries information about similarity that a one-hot label lacks (slides 29–39; see [knowledge
+distillation](knowledge-distillation.md)).
+
+Finally, **foundation models** push transfer to its limit: models general enough to be adapted with little or no data, by a linear
+probe, by finetuning, or by changing only the input (slides 40–75; see [foundation models and
+prompting](foundation-models-and-prompting.md)). Slide 68 sets the three side by side: "Adaptation can occur on inputs, mapping, or
+outputs", by prompting, finetuning or a linear probe.
 
 ## See also
 
 - [Representation learning](representation-learning.md) — what is being transferred.
 - [Self-supervised learning](self-supervised-learning.md) — pretraining without labels.
 - [Lecture 11](11-representation-learning-reconstruction-based.md) — linear adaptation, fine-tuning and the three phases.
+- [Lecture 18](18-transfer-learning-models.md) — the lecture on transfer learning from the model side.
+- [Domain adaptation](domain-adaptation.md) — transferring the mapping to an unlabelled target domain.
+- [Knowledge distillation](knowledge-distillation.md) — transferring knowledge about the outputs.
+- [Foundation models and prompting](foundation-models-and-prompting.md) — adapting a fixed model with little or no data.

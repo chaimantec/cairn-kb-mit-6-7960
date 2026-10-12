@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–17 of 24 only.** This knowledge base currently holds the first seventeen
+> **Coverage: lectures 1–18 of 24 only.** This knowledge base currently holds the first eighteen
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD)) and the concept pages they support. For anything taught in lectures 18–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models) and the concept pages they support. For anything taught in lectures 19–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 17. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 18. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -239,6 +239,22 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   to do: distributionally robust optimization (its objective, distances between distributions, the generalization guarantee, class
   imbalance and fairness), a spatiotemporal prior, domain adaptation, diagnosing failures, and representative training data. Slides
   2, 6, 10–18, 20, 21, 26–30, 32–37, 42–44, 46, 55, 57 and 59 are excluded from OCW's licence.
+- [Lecture 18 — Transfer Learning: Models](wiki/18-transfer-learning-models.md) — Sara Beery (deck titled "Lecture 18: Transfer
+  Learning I"). The first of two lectures on transfer learning: why deep learning does not saturate with data (Andrew Ng's chart);
+  few-shot learning and the ambiguity of one example (the "dax", the Segway); prior knowledge and pretraining as sending a network to
+  school; the three kinds of knowledge to transfer (the mapping, the outputs, the inputs, the last left to lecture 19); finetuning:
+  pretrain, adapt and test on music, the recipe ($\mathbf{W}$, $\mathbf{b}$ to $\mathbf{W}'$, $\mathbf{b}'$), contrastive pretraining,
+  glue layers when inputs or outputs do not match (RGB-D, hyperspectral PCA, an extra class), and four ways to avoid forgetting; a
+  soapbox on bold numbers in tables; domain adaptation: aligning source and target, DANN's gradient reversal layer, unsupervised domain
+  adaptation on sonar video of fish, the student–teacher recipe (threshold, student, EMA teacher, source supervision, distillation and
+  alignment) and Align and Distill (ALDI), and choosing a model without target labels; knowledge distillation: cross-entropy against a
+  teacher, soft targets and Hinton's 3% table, closed models, cross-modal distillation and SoundNet, distilling an ensemble,
+  contrastive representation distillation, compression against distillation, and specialists; foundation models: Newton's giants,
+  compute and parameter growth, their climate and water cost, the cost of training, performance on 58 tasks, and learner and adaptor;
+  prompting: GPT-3, in-context learning, brittle prompts, soft prompts, chain-of-thought, CLIP's linear probe and zero-shot "just ask",
+  composition and negation; visual prompting, one pink pixel, adaptation on inputs, mapping or outputs, visual prompt tuning and
+  inpainting; and plugging foundation models together (VQGAN with CLIP, CLIP+GAN, DALL-E 2). Slides 4–6, 12–17, 19, 20, 33, 34, 52, 53,
+  57, 60–63 and 69 are excluded from OCW's licence.
 
 ## Course pages
 
@@ -346,7 +362,8 @@ passages it draws on.
   maximum likelihood as cross-entropy (lecture 10); the softmax as a map onto the simplex (lecture 11); the contrastive
   loss as a softmax cross-entropy over similarities with a temperature (lecture 12); classifiers as a distribution on the
   simplex, logits as energies, and next-word and next-pixel classifiers inside generative models (lecture 14); why a categorical
-  distribution captures two modes that regression averages, and where per-pixel classification still fails (lecture 16).
+  distribution captures two modes that regression averages, and where per-pixel classification still fails (lecture 16); cross-entropy
+  against a teacher's soft targets, knowledge distillation (lecture 18).
 - [Tensors and batching](wiki/tensors-and-batching.md) — why losses are computed in parallel,
   each layer as a features-by-examples representation, the network as batched matrix products,
   why GPUs mattered, and the course's tensor index conventions; batches in stochastic gradient
@@ -374,7 +391,8 @@ passages it draws on.
   (2020)'s power laws in compute, data and parameters, their finding that width versus depth
   barely matters at fixed parameter count, and Chinchilla as an example of confounders. Previews
   lecture 20. Lecture 9's practical version: scale data, model and compute, scale as a proxy for
-  coverage, and scaling as "necessary but not sufficient". Not the same as lecture 7's scaling *rules*
+  coverage, and scaling as "necessary but not sufficient". Lecture 18: deep learning does not saturate with data,
+  compute and parameter growth, and performance on 58 tasks against model size. Not the same as lecture 7's scaling *rules*
   (below).
 - [Scaling rules](wiki/scaling-rules.md) — lecture 7's answer to "the optimal learning rate drifts"
   and "deeper performs worse": hyperparameter transfer, the Goldilocks update and "in which norm?",
@@ -401,11 +419,12 @@ passages it draws on.
 - [Adversarial examples](wiki/adversarial-examples.md) — inputs perturbed imperceptibly to flip a prediction: the examples (pig to
   airliner, sticker, turtle, speech), creating one by optimizing the input within an infinity-norm ball with projected gradient
   ascent, adversarial training as a min-max and its limits, useless, robust and non-robust features, and what robust models learn and
-  how well they transfer (lecture 17).
+  how well they transfer (lecture 17); domain adversarial training, and visual prompting as beneficial noise (lecture 18).
 - [Out-of-distribution generalization](wiki/out-of-distribution-generalization.md) — when test data is not drawn from the training
   distribution: why deployment never meets the IID assumption, evaluation that leaks, shortcuts and where they come from, visual and
   subpopulation shift, the WILDS benchmark, and the remedies: distributionally robust optimization and class imbalance, priors for
-  subpopulation shift, domain adaptation, diagnosing failures, and representative training data (lecture 17).
+  subpopulation shift, domain adaptation, diagnosing failures, and representative training data (lecture 17); domain adaptation
+  taught (lecture 18).
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -419,7 +438,7 @@ passages it draws on.
   loss giving alignment and uniformity and the data giving invariance, and why "relevant" depends on the task (lecture 12);
   a network as a map through vector spaces, and the similarity an untrained architecture builds in (lecture 13);
   generative modeling as its inverse (lecture 14); both directions learned at once, disentanglement, and seams in latent space
-  (lecture 15); previewing lectures 18–19.
+  (lecture 15); transferring the learned encoder, and distilling a representation into a smaller network (lecture 18).
 - [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
   reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
   PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
@@ -431,14 +450,31 @@ passages it draws on.
   another part: learning without labels, compression against prediction, the pretext-task trick, colorization and
   the object units it finds ("words are not arbitrary"), imputation (spatial, temporal, channel), masked autoencoders,
   BERT and next-word prediction, three hypotheses for why prediction beats reconstruction, and LeCun's cake
-  (lecture 11); colorization as classification (lecture 9); self-supervision by similarity, contrastive learning (lecture 12).
+  (lecture 11); colorization as classification (lecture 9); self-supervision by similarity, contrastive learning (lecture 12);
+  self-supervised pretraining for transfer, and GPT-3's and CLIP's pretraining (lecture 18).
 - [Transfer learning](wiki/transfer-learning.md) — reusing a learned representation: "a good representation is one
   that makes a subsequent learning task easier", deep nets as not blank slates, linear adaptation (linear probes) and
   fine-tuning, pretrain–adapt–test, learning from little data by pretraining on massive data, how big the ratio is,
   transfer across domains, and the open theory (lecture 11); reusing lower layers (lecture 1), pretrained parameters
   in a larger network (lecture 2), and starting from a pretrained model (lecture 9); linear probes of self-supervised
   representations on iNaturalist, and how the benchmark decides what transfers (lecture 12); adversarially trained models
-  transfer better, and domain adaptation previewed (lecture 17). Lectures 18–19 are not yet covered.
+  transfer better, and domain adaptation previewed (lecture 17); the three kinds of knowledge to transfer, the finetuning recipe,
+  glue layers for mismatched inputs and outputs, avoiding forgetting, and adaptation on inputs, mapping or outputs (lecture 18).
+  Lecture 19 is not yet covered.
+- [Domain adaptation](wiki/domain-adaptation.md) — adapting from a labelled source domain to an unlabelled target by aligning their
+  representations: domain adversarial training (DANN) and the gradient reversal layer, $-\lambda \partial L_d / \partial \theta_f$;
+  unsupervised domain adaptation built from pseudo-labels, a student, an EMA teacher, source supervision, distillation and alignment;
+  Align and Distill (ALDI) and the methods it unifies; the problem of choosing a model without target labels, and where it makes sense
+  (lecture 18); robustness to any shift against adapting to a known one (lecture 17).
+- [Knowledge distillation](wiki/knowledge-distillation.md) — training a student to match a teacher's outputs: the cross-entropy
+  $-\sum_i \mathbf{y}^T_ i \log \mathbf{y}^S_ i$, soft targets as information about similarity, Hinton, Vinyals and Dean's 3% table,
+  closed models, cross-modal distillation and SoundNet, distilling an ensemble, contrastive representation distillation, distillation
+  inside domain adaptation, and distillation against pruning and quantization (lecture 18).
+- [Foundation models and prompting](wiki/foundation-models-and-prompting.md) — models general enough to adapt with little or no data:
+  what makes a foundation, learner and adaptor, their cost in compute, money, energy and water, and the scale argument; prompting a
+  language model (GPT-3, in-context learning, brittle templates, soft prompts, chain-of-thought); CLIP's linear probe and zero-shot
+  "just ask", and its trouble with composition and negation; visual prompting and adversarial reprogramming; and plugging models
+  together (CLIP+GAN, DALL-E 2) (lecture 18).
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
@@ -512,7 +548,7 @@ passages it draws on.
   likelihood and teacher forcing; GPT's causal masking (lecture 8); sampling and beam search (lecture 10); next-word
   prediction as self-supervised learning that masks only the future, set beside BERT (lecture 11); autoregressive models
   as generative density models of words, pixels and audio, and their kinship with diffusion (lecture 14); conditional by construction,
-  prompting, and captioning (lecture 16).
+  prompting, and captioning (lecture 16); GPT-3's generative pretraining, prompting and in-context learning (lecture 18).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
@@ -533,7 +569,8 @@ passages it draws on.
   (SimCLR) or from other views (CMC, video, CLIP), false negatives and supervised contrastive learning, alignment and
   uniformity, learned invariance, the SimCLR ingredients (augmentation, projection head, batch size, negatives), and
   the iNaturalist case study of where it falls short (lecture 12); Homework 4's similarity-based section; contrastive
-  divergence, a distant relative (lecture 14).
+  divergence, a distant relative (lecture 14); contrastive pretraining for transfer, contrastive representation distillation, and
+  CLIP prompted (lecture 18).
 - [Kernel methods](wiki/kernel-methods.md) — fitting data with a bump function on every training point,
   $f(x) = \sum_i \alpha_i \thinspace k(x, x_i)$, and the reproducing kernel Hilbert space; the kernel as the modelling
   choice; the correspondences with Gaussian processes (the posterior mean as the minimum-norm kernel interpolator) and
@@ -585,7 +622,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–17 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–18 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

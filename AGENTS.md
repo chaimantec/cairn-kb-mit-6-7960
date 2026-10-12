@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–17 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–18 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -68,17 +68,22 @@ general form and the lecture's details there; keep this file free of per-lecture
   use the text layer and a vector scan only to cross-check (see Rebuilding).
 - **An excluded image can reappear without its notice**, in the same deck, another deck or a problem set, and such a
   slide is not rendered either. A deck can also paste its own pictures over a third-party raster, so that the page shows
-  little of it; the raster is still the third party's figure. Slides withheld this way so far:
+  little of it; the raster is still the third party's figure. A notice binds even where an earlier deck credits the same
+  picture under CC (lecture 12's slide 35), and a slide already rendered is withdrawn when a later deck excludes one of
+  its images. Slides withheld this way so far:
 
   | Lecture | Slide | Reuses |
   | --- | --- | --- |
   | 1 | 51 | lecture 6's excluded slide 30 (Belkin et al.'s double-descent figure; withdrawn when lecture 6 was added) |
+  | 2 | 70 | lecture 18's excluded slide 63 (the CLIP "Text Encoder" and "Image Encoder" graphics; withdrawn when lecture 18 was added) |
   | 4 | 50–52 | slide 25's clown fish crop |
   | 6 | 62 | lecture 4's excluded heron photograph (slides 43, 53–55, 66–68, 70, 71) |
   | 11 | 13 | lecture 1's excluded slide 73 (the CLIP figure, at another resolution) |
+  | 12 | 35 | lecture 18's excluded slide 33 (the classroom photograph and depth map, credited CC BY-NC-SA here; withdrawn when lecture 18 was added) |
   | 14 | 49, 50 | Homework 5's excluded Figure 3, Ho, Jain and Abbeel's diffusion diagram, under the deck's pixel-art overlays |
   | 16 | 12 | slide 11's excluded photograph (also lecture 4's excluded slides 12–24) |
   | 16 | 18–31 | the label map and building photographs of slide 73, which repeats slide 30 image for image under a notice |
+  | 18 | 74 | slide 63's excluded encoder graphics (the slide is lecture 2's slide 70 again) |
 
   A shared image is not always a shared figure, so check size, placement and which image a notice sits beside
   before withholding. Rendered after such a check: lecture 5's slides 12, 15, 21 and 29 (the shared object is a
@@ -141,14 +146,14 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–17 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–18 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
 | Lecture | Files | Where they came from |
 | --- | --- | --- |
 | 1 Introduction to Deep Learning | 20 of 81 pages | rendered from `mit6_7960_f24_lec1.pdf` |
-| 2 How to Train a Neural Net | 45 of 81 pages | rendered from `mit6_7960_f24_lec2.pdf` |
+| 2 How to Train a Neural Net | 44 of 81 pages | rendered from `mit6_7960_f24_lec2.pdf` |
 | 3 Approximation Theory | 18 of 43 pages | rendered from `mit6_7960_f24_lec3.pdf` |
 | 4 Architectures: Grids | 31 of 84 pages | rendered from `mit6_7960_f24_lec4.pdf` |
 | 5 Architectures: Graphs | 19 of 47 pages | rendered from `mit6_7960_f24_lec5.pdf` |
@@ -158,12 +163,13 @@ it.
 | 9 Hacker's Guide to Deep Learning | 11 of 72 pages | rendered from `mit6_7960_f24_lec9.pdf` |
 | 10 Architectures: Memory | 32 of 69 pages | rendered from `mit6_7960_f24_lec10.pdf` |
 | 11 Representation Learning: Reconstruction-Based | 25 of 65 pages | rendered from `mit6_7960_f24_lec11.pdf` |
-| 12 Representation Learning: Similarity-Based | 8 of 70 pages | rendered from `mit6_7960_f24_lec12.pdf` |
+| 12 Representation Learning: Similarity-Based | 7 of 70 pages | rendered from `mit6_7960_f24_lec12.pdf` |
 | 13 Representation Learning: Theory | 10 of 28 pages | rendered from `mit6_7960_f24_lec13.pdf` |
 | 14 Generative Models: Basics | 28 of 60 pages | rendered from `mit6_7960_f24_lec14.pdf` |
 | 15 Generative Models: Representation Learning Meets Generative Modeling | 22 of 42 pages | rendered from `mit6_7960_f24_lec15.pdf` |
 | 16 Generative Models: Conditional Models | 29 of 84 pages | rendered from `mit6_7960_f24_lec16.pdf` |
 | 17 Generalization: Out-of-Distribution (OOD) | 11 of 63 pages | rendered from `mit6_7960_f24_lec17.pdf` |
+| 18 Transfer Learning: Models | 26 of 77 pages | rendered from `mit6_7960_f24_lec18.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -200,7 +206,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–17:
+Notes for the next run, from lectures 1–18:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -218,7 +224,9 @@ Notes for the next run, from lectures 1–17:
   uniform fill of the same byte count (lecture 16's slide 33 against lecture 9's slide 61), so skip images whose samples hold one value.
   Skip coarse hashes with fewer than 8 or more than 248 bits set (near-uniform masks match each other), and settle
   any coarse match by resizing both images to 256 × 256 and averaging the absolute grey difference over pixels darker
-  than 200 in either: about 1 in 256 is the same figure, 50 or more is a different one. Use only images actually drawn
+  than 200 in either: about 1 in 256 is the same figure, 50 or more is a different one. In between, and for sparse line art
+  or text, the number does not decide: lecture 18 found one figure at 9.2 under another colour profile, and unrelated
+  white-background drawings at 3.9. Look at both images before withholding or clearing. Use only images actually drawn
   on the page: `page.get_images()` lists everything a page's resources hold, including images drawn off the page or
   not at all, while `page.get_image_info(xrefs=True)` gives where each is drawn. Leave out page backgrounds: an image
   drawn on more than a third of a deck's pages, or a raster covering more than 90% of a page. The handwritten decks share

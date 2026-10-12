@@ -808,10 +808,6 @@ together. You can take the components trained in one way and use them in another
 idea is you can optimize modules with respect to all the other modules, and the world's your
 oyster" (≈1:06:52).
 
-![Slide 70: CLIP+GAN — a text prompt through CLIP's text encoder to e1, a latent z through an image generator and CLIP's image encoder to e2, with z marked "Optimize this" and the product of e1 and e2 marked "To maximize this"](../raw/images/02-how-to-train-a-neural-net/slide-70.jpg)
-
-*Slide 70 — text-to-image by optimizing only the generator's input; every network weight stays fixed.*
-
 ## Worked example: one iteration of backpropagation
 
 The last section of the deck is an exercise with its solution: "run one iteration of back

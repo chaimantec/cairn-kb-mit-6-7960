@@ -7,7 +7,8 @@ that assumption: "This is never true in the real world" (slide 4, ≈6:14). It c
 training distribution "one of the biggest open challenges for modern machine learning models" (≈0:00), on which "I can
 talk about progress, but we don't have solutions" (≈14:00). Lecture 1 assigned the topic its own lecture beside
 generalization theory (see [generalization and double descent](generalization-and-double-descent.md)). Covered so far:
-[lecture 17](17-generalization-out-of-distribution.md), slides 1–8 and 26–62, ≈0:00–14:00 and ≈30:27–1:03:59.
+[lecture 17](17-generalization-out-of-distribution.md), slides 1–8 and 26–62, ≈0:00–14:00 and ≈30:27–1:03:59; [lecture 18](18-transfer-learning-models.md), slides 19–28,
+≈29:24–40:20, teaches domain adaptation, one of lecture 17's remedies.
 
 **Notation.** An input is $\mathbf{x}$ and its label $y$; $f_{\theta}$ is a network with parameters $\theta$ and
 $\text{Loss}$ its training loss. The training set $\lbrace (\mathbf{x}^{(i)}, y^{(i)}) \rbrace_{i=1}^{n}$ defines an
@@ -79,7 +80,8 @@ $P(y \mid I, \mathbf{x}) \propto P(y \mid I) \thinspace P(y \mid \mathbf{x})$, w
 longitude, latitude and day (slide 55, Mac Aodha et al. 2019; ≈55:21–56:06).
 
 **Domain adaptation** aligns the representations of a labelled source domain and an unlabelled target domain during training
-(slide 57, ≈56:06–56:55); it is lecture 18's subject (see [transfer learning](transfer-learning.md)).
+(slide 57, ≈56:06–56:55); lecture 18 teaches it, from domain adversarial training to the unsupervised student–teacher recipe
+(see [domain adaptation](domain-adaptation.md)).
 
 **Diagnose failures**: break the evaluation down by category and condition, or generate counterfactual images, as in the
 classifier that calls an empty plate a "tray" (slide 59, ≈56:55–58:27).

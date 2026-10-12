@@ -5,7 +5,9 @@ uses them for a narrower question: whether it matters how parameters are split b
 depth. The course gives scaling laws a lecture of their own, **lecture 20, Scaling Laws**, which
 this knowledge base does not yet cover (see the [course map](course-map.md)). Covered so far:
 [lecture 3](03-approximation-theory.md), slides 37–39; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 25 and 44,
-≈49:29–52:35 and ≈1:05:43–1:08:04, where scale is practical advice.
+≈49:29–52:35 and ≈1:05:43–1:08:04, where scale is practical advice; and [lecture 18](18-transfer-learning-models.md), slides 3
+and 41–45, ≈1:31–3:08 and ≈58:54–1:09:04 (deep learning does not saturate with data, and the growth, cost and payoff of foundation
+models).
 
 ## Why lecture 3 brings them up
 
@@ -101,3 +103,15 @@ kind of a proxy for, actually, coverage" (≈51:04–51:49).
 Lecture 7, "Scaling Rules for Optimization", is about a different question: how to initialize and update a
 network so that the best learning rate does not change as it is made wider, and so that it still trains
 as it is made deeper. See [scaling rules](scaling-rules.md).
+
+## Scale and its cost (lecture 18)
+
+Lecture 18 opens with Andrew Ng's chart (slide 3): older learning algorithms plateau as data grows, deep learning does not, and one
+analysis suggests current models have "far more capacity than data" (≈2:19–3:08). It previews lecture 20 ("a lecture from Phil around
+some of these scaling laws, these relationships that people are starting to learn about the scale of the number of parameters, the
+amount of available data", ≈2:19). Its section on foundation models shows the growth: training compute up "300,000x" from AlexNet to
+AlphaGo Zero, a 3.4-month doubling (slide 41), and parameter counts rising in industry while academia's stay flat (slide 42). Slide 45
+gives the payoff: on 58 tasks, the small models in its lower-left box, up to about $2 \times 10^{10}$ parameters, are "Not working at all", and only the largest PaLM models are
+"Working as well as an average human". The lecture weighs it against the cost in money, energy and water (slides 43 and 44) and ends
+the argument with "let's do research into efficiency to get these back down" (≈1:09:04). See [foundation models and
+prompting](foundation-models-and-prompting.md).
