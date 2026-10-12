@@ -15,7 +15,7 @@ descent in detail, why the classical measures of complexity fail for deep nets, 
 inductive biases; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 3, 4 and 14–18, ≈1:34–7:01 and ≈33:20–41:03 (shortcuts
 that will not generalize, and making the training problem hard enough to generalize); [lecture 12](12-representation-learning-similarity-based.md), slides 6–9,
 ≈7:45–11:37 (the geometry of representations that generalize); and [lecture 13](13-representation-learning-theory.md), ≈52:12–56:09 (whether an
-infinitely wide network must overfit); [lecture 14](14-generative-models-basics.md), slides 25–27, ≈36:31–43:29 (overfitting in a generative model, and test likelihood).
+infinitely wide network must overfit); [lecture 14](14-generative-models-basics.md), slides 25–27, ≈36:31–43:29 (overfitting in a generative model, and test likelihood); and [lecture 17](17-generalization-out-of-distribution.md), Out-of-Distribution Generalization itself, slides 1–62, ≈0:00–1:03:59, which drops the assumption that test data comes from the training distribution (see [out-of-distribution generalization](out-of-distribution-generalization.md)).
 
 ## The puzzle
 
@@ -307,3 +307,14 @@ zero probability on new samples from the same process — "exactly the same as o
 by the likelihood of held-out test data (slide 27), and "you have to control capacity or regularize in order to avoid the memorization
 solution" (≈39:39). Early stopping on validation likelihood, regularizers and architectures with inductive biases all apply
 (≈41:57–43:29). See [generative models](generative-models.md).
+
+## Beyond the training distribution (lecture 17)
+
+Everything above concerns generalization to new samples of the distribution the model was trained on. Lecture 17 drops
+that assumption: "Training distribution equals test distribution. This is never true in the real world" (slide 4, ≈6:14).
+It traces failures out of distribution to **shortcuts**, "features correlated with label in the training data, but not under
+realistic distribution shifts" (slide 30), which models use because they are trained on likelihood, and it notes that even
+a test set drawn from the training data can mislead if it shares the training data's spatial, temporal or contextual
+correlations (≈12:26–13:13). Its remedies, from adversarial training to distributionally robust optimization, are on the
+[adversarial examples](adversarial-examples.md) and [out-of-distribution generalization](out-of-distribution-generalization.md)
+pages; the one it rates highest is "training data that is representative of your test domain" (slide 61).

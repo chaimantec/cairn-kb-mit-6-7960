@@ -74,18 +74,23 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   ≈0:00), to "the hacker's guide lecture" (9, ≈9:13), to GANs shown "very briefly in one of the previous lectures" (14, ≈24:12), to
   "the VAEs we saw last class" (15, ≈42:03) and to "the transformers lecture" (8, ≈52:15), and ahead to "another lecture on language
   models" (21, ≈51:27) and to "some future lectures" on grounding, which it does not name (≈1:20:56).
+  Lecture 17's title slide reads "Lecture 17: Out-of-distribution generalization", matching lecture 1's banner and the recording
+  ("Generalization: Out-of-Distribution (OOD)"); Sara Beery is the speaker. The deck's only pointer is "Domain adaptation (next
+  lecture!)" on slides 58, 60 and 61 (lecture 18, Transfer Learning: Models). Its recording points back to image generation "the last
+  couple of days" (14–16, ≈0:50) and to hard example mining learned "a while ago" (lecture 12's hard negative mining, ≈25:45), and
+  ahead to meta learning and domain adaptation "next lecture" (18, ≈30:27, ≈56:55).
 
 ## End pages
 
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16, page 63 in lecture 17), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
   page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
-  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", and of lecture 16's page 84, a 792×612 page that prints "84".
+  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", of lecture 16's page 84, a 792×612 page that prints "84", and of lecture 17's page 63, a 792×612 page that prints "63".
 
 ## Handwritten decks
 
@@ -185,6 +190,19 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   42's frames (Babaeizadeh et al.), slide 49's BicycleGAN facades and slide 69's LLaVA figure carry none. A vector scan for outlined
   small print found nothing, and the audit found no missed notice or credit. Slides 12 and 18–31 carry no notice but reuse excluded
   images (next section).
+  Lecture 17's carries 31 in 63 pages, all typed and all in the text layer, and the slide file's set matches the text layer's exactly:
+  slide 2's pictures ("Robotic hand © OpenAI. Images © source unknown", beside a placeholder "Image removed to copyright
+  restrictions."), slide 6's posts ("© @hardmaru on X, @DimaKrotov on X, CNN.com"), slides 10 and 21's pig picture ("© Aleksander Mądry
+  and Ludwig Schmidt"; slide 21 draws it three times, twice clipped to one pig), slide 11's traffic signs (Papernot et al.), slides
+  12–15's sticker video (Brown et al.), slides 16–17's turtle (Athalye et al.), slide 18's speech diagram (Nicholas Carlini, David
+  Wagner), slide 20's timeline (Battista Biggio, Fabio Roli), slide 26's digits (Hongzhou Lin), slides 27 and 36's feature strip ("©
+  Aleksander Madry", without the accent), slides 28, 29 and 33 ("© sources unknown"), slides 30 and 34 (Geirhos et al.), slide 32 (AI
+  Weirdness), slide 35 (Liu et al.), slide 37 ("©Tsipras et."), slides 42–43 (Koh et al.), slide 44 (Beery et al, Koh et al.), slide
+  46 (Weinstein et al.), slide 55 (Mac Aodha et al.; it covers the equation, which is an image, as well as the diagram), slide 57 (He
+  et al.) and slide 59 (Vendrow et al.). Slides 1 and 41 carry "Courtesy of … Used under CC BY" credits (Mannion et al.; Sara Beery).
+  Slide 7's paper page (Amodei et al., "Concrete Problems in AI Safety"), slide 38's charts (Salman et al. 2020) and slide 53's
+  figure (Hashimoto et al. 2018) carry a credit or none, and no notice. A vector scan for outlined small print found nothing, and the
+  audit found no missed notice.
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -281,6 +299,14 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   masks (a 140 × 135 colour image and a 378 × 150 grey one). The remaining coarse matches had grey differences of 47.6 to 74.4, between
   images of unrelated shape (a 22 × 288 strip against a 461 × 361 photograph). No image rendered for lectures 1–15 matches lecture 16's
   47 excluded images.
+  Lecture 17's sweep, lecture 16's script with lecture 16's withheld slides added, against the slide files' excluded slides of decks
+  1–17, the withheld slides and the problem sets' excluded pages, was clean in both directions. None of the 54 images drawn on its
+  unnoticed pages matches any of 618 excluded images: the one exact match is slide 1's 600 × 120 title-banner graphic against lecture
+  15's excluded slide 1, the course's banner again (lecture 15's notice covers its BigGAN grid, and slide 1 is not rendered anyway),
+  and the one coarse match (slide 41 against lecture 9's slide 28) has a grey difference of 110. None of the 2,016 images drawn on
+  pages rendered for lectures 1–16 matches lecture 17's 84 excluded images; its coarse matches have grey differences of 56.5 to 199. The
+  sweep was first rerun on lectures 14 and 11: it found Homework 5's chain on lecture 14's slide 50 (4 bits, grey difference 5.5) and
+  lecture 1's CLIP figure on lecture 11's slide 13 (0 bits, 0.4), as before.
 
 ## Transcript edits, by lecture
 
@@ -382,7 +408,16 @@ them, 56:59 and 58:32 reach 1.11 and 1.15). Done inline, by a script of exact re
 wiki. Seven restorations: "imagine in" → "image in" (2:16), "Dall-E" → "DALL-E" (3:02, 1:02:29), "whereas, again," → "whereas a GAN will"
 (38:59), "across a tent" → "Cross-attend" (1:06:19), "LLaVa" → "LLaVA" and "threw" → "through" (1:07:07), "Cézanne on paintings" →
 "Cézanne paintings" (1:16:19) and "to solved" → "to solve" (1:20:56); and seven `[Ed: …]` notes: the five lectures referred to (9, 14, 15,
-21 and 8), slide 57's printed prompt (56:59) and slide 61's title against its direction (58:32). No student is named.
+21 and 8), slide 57's printed prompt (56:59) and slide 61's title against its direction (58:32). No student is named. Lecture 17: 83
+markers identical, all 27 numbers identical, and word ratios 1.00–1.01 once its `[Ed: …]` notes are removed (with them, 7:03, 7:48, 11:38,
+56:06 and 56:55 reach 1.11–1.30). Done inline, by a script of exact replacements, after reading the whole transcript for the wiki. Four
+restorations: "strips" → "shifts" (13:13, slide 8's "Distribution Shifts"), "adversarial trend models" → "adversarially trained models"
+(42:48, slide 38), "Wilds" → "WILDS" (44:20, slide 42's logo) and "GELU Or" → "GELU or" (1:00:47); and ten `[Ed: …]` notes: the lectures
+referred to (14–16, 12 and 18 twice), "lie on" as probably a dataset's name, possibly LAION (outside the course material), "this data
+center" (lecture 14's captions hear "the Stata Center" so, but no slide names the building), "data poisoning" for what is usually called
+data leakage (outside the course material), slide 55's credit for an [INAUDIBLE] name, "a naturalist" as probably iNaturalist, and
+"striving" as probably "stratifying". No student is named. Restorations were held to names the deck prints; LAION, the Stata Center and
+iNaturalist are printed nowhere, so they stay as notes.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -750,6 +785,29 @@ probability of "synthetic" (slide 20), the reverse of lecture 14's slides 55–5
 states both. Slide 81's right-hand matrix may be a slip in its source figure (Galanti, Wolf and Benaim), on the outside assumption that
 the maps are affine; the slide states no form, so it is transcribed as printed and the entry says so.
 
+**Lecture 17's figure audit**, cross-model: Sonnet read the typed deck in two halves, and Opus checked 49 pages (1, 2, 4–7, 10–18,
+20–30, 32–38, 40–47, 49–53, 55, 57, 59), every page with a figure, chart, diagram or equation, split between four agents, all of which
+finished. No equation was wrong. 23 pages were corrected, 25 given precisions only, and slide 18 was right as written. Slide 38's twelve
+bar charts were re-measured: the transcription had given the printed ticks as axis ranges, so values outside them looked impossible,
+and its Cars values were wrong by up to 6 points; the slide file now carries the measured table. Slide 35's curves were re-read (its
+legend has seven entries, not eight, and the scratchpad curve does not fall slowest), as were slide 45's bars and slide 47's brightest
+cells. Counts were wrong on slides 27 (nine tiles, not ten), 57 (sixteen shapes per domain, not 13 and 14) and 40 (three boats);
+positions on slides 21, 30 and 51; both arrows on slide 53 point down, not up; slide 26's "unmarked" cells carry their white pixel at
+the corner itself; slide 33's top-right numbers are negative. Three things were described that are not on the page: slide 2's hand
+holding the cube (it floats beyond the fingertips), slide 20's bracket joining two lines, and water behind slide 28's angler. Printed
+slips were missed or misquoted on slides 2, 20, 34, 50 and 51. The renders of slides 38 and 40 were then checked against the corrected
+text.
+
+**Lecture 17's printed slips and oddities**, transcribed as written: slide 2's "Image removed to copyright restrictions." (no "due");
+slide 20's "evalution"; slide 30's "lables"; slide 34's "generaliszation" in its left heading and its citation "Jacobson 2019" (outside
+the course material, the name is usually spelled Jacobsen); slide 40's stray "Fr" (slide 5's text layer holds another, which the page
+does not show); and on slides 50 and 51 the empirical distribution written both $\mathbb{P}_ n$ and $\hat{\mathbb{P}}_ n$, with the
+circle diagram's $d$, $\leq$ and $\varepsilon$ against the objective's $D$, $\lt$ and $\epsilon$; the wiki states that they are the
+same objects. Slide 27's and 36's notices print "Madry" where slides 10 and 21 print "Mądry", and slide 37's reads "©Tsipras et.".
+Slides 32, 33 and 46 hide part of a pasted figure under the deck's own shapes (slide 32's hidden captions name the captioning systems;
+slide 46's hide a sixth aerial image and six site labels); the entries describe what the page shows. Slides 7 and 42 are full-page
+rasters under an OCR text layer that misreads them ("Barkan" for "Borkan").
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -773,6 +831,8 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   finished. Lecture 16's audit found errors on 19 of 71 pages, mostly counts and
   positions, with no formula wrong, one description of two images as different when they are one (slide 66), and two pieces of wording
   that were not the slide's (an unflagged correction of a printed typo, and an art-style label); all four of its auditors finished. 
+  Lecture 17's audit found errors on 23 of 49 pages, mostly counts, positions and chart values, with no formula wrong and three things
+  described that are not on the page (a hand holding a cube, a bracket, water); all four of its auditors finished.
 
 ## Where each lecture's images appear
 
@@ -813,6 +873,8 @@ All 22 of lecture 15's images appear both in [`wiki/15-generative-models-represe
 and under their headings in [`raw/slides/15-generative-models-representation-learning-meets-generative-modeling.md`](raw/slides/15-generative-models-representation-learning-meets-generative-modeling.md).
 All 29 of lecture 16's images appear both in [`wiki/16-generative-models-conditional-models.md`](wiki/16-generative-models-conditional-models.md)
 and under their headings in [`raw/slides/16-generative-models-conditional-models.md`](raw/slides/16-generative-models-conditional-models.md).
+All 11 of lecture 17's images appear both in [`wiki/17-generalization-out-of-distribution.md`](wiki/17-generalization-out-of-distribution.md)
+and under their headings in [`raw/slides/17-generalization-out-of-distribution.md`](raw/slides/17-generalization-out-of-distribution.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -1170,3 +1232,22 @@ Not rendered, and why:
 - **Text, equations, screenshots of text and section slides the slide file reproduces exactly:** 2, 4, 9 and 15 (the learner, a diagram
   of text boxes), 16, 17, 39, 50, 51, 52, 53, 54 (GPT-3's review), 55, 58 (ChatGPT's answer), 59 and 83.
 - **Title and end page:** slide 1 (the title, with an edges2cats drawing) and slide 84, the OCW end page.
+
+### What was rendered, and what was not — lecture 17
+
+Rendered (11): slides 4, 5, 22, 38, 40, 41, 45, 47, 49, 51 and 53: the standard setting and the shifted one, projected gradient ascent,
+Salman et al.'s transfer charts, the two settings side by side, biodiversity against species records, the per-location class
+distributions, the cross-city heat maps, perturbing points against perturbing the distribution, the DRO ball, and Hashimoto et al.'s
+DRO distribution. All 11 wiki images were placed by hand with hand-written captions; the script then placed all 11 in the slide file.
+Slides 38 and 53 reproduce third-party figures with a credit and no notice, and are rendered by the rule that only a notice excludes.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (31 slides): 2, 6, 10–18, 20, 21, 26–30, 32–37, 42–44, 46, 55, 57 and 59.** The adversarial examples,
+  the shortcut examples, WILDS and the remedies' figures therefore exist here as prose only.
+- **Reuse of an excluded image:** none.
+- **A repeat a rendered slide supersedes:** 50 (its equations are in the slide file, and slide 51 redraws its circle diagram with the true
+  distribution added).
+- **Text, equations, screenshots of text and section slides the slide file reproduces exactly:** 3, 7 (the first page of "Concrete
+  Problems in AI Safety"), 8, 9, 19, 23, 24, 25, 31, 39, 48, 52, 54, 56, 58, 60, 61 and 62.
+- **Title and end page:** slide 1 (the title, with the two maps slide 41 shows) and slide 63, the OCW end page.

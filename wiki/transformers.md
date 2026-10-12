@@ -9,7 +9,7 @@ you should use today", while warning that "next year, there'll be a new architec
 ≈0:00). Covered so far: [lecture 8](08-architectures-transformers.md), slides 1–54, ≈0:00–1:13:49; masked autoencoders and BERT in
 [lecture 11](11-representation-learning-reconstruction-based.md) (slides 59–60, ≈1:11:26–1:15:20); with
 the graph-net view previewed in [lecture 5](05-architectures-graphs.md) (slide 24, ≈49:42, ≈56:38), and
-the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61); and attention set against recurrence and convolution, with the efforts to lengthen its context, in [lecture 10](10-architectures-memory.md) (slides 57–64, ≈58:19–1:10:02); and cross-attention between image and text tokens in [lecture 16](16-generative-models-conditional-models.md) (slides 56 and 68–69, ≈51:27–56:59 and ≈1:06:19–1:07:07).
+the transformer as part of the default recipe in [lecture 9](09-hackers-guide-to-deep-learning.md) (slides 41, 42 and 61); and attention set against recurrence and convolution, with the efforts to lengthen its context, in [lecture 10](10-architectures-memory.md) (slides 57–64, ≈58:19–1:10:02); and cross-attention between image and text tokens in [lecture 16](16-generative-models-conditional-models.md) (slides 56 and 68–69, ≈51:27–56:59 and ≈1:06:19–1:07:07); and transformers that fail beyond their training sequence lengths in [lecture 17](17-generalization-out-of-distribution.md) (slide 35, ≈40:29).
 
 **Notation.** A token $\mathbf{t}_ i \in \mathbb{R}^d$ is a vector of $d$ neurons, and $N$ tokens are
 stacked as the rows of $\mathbf{T} \in \mathbb{R}^{N \times d}$, with $\mathbf{T}_ {\text{in}}$ and
@@ -238,6 +238,15 @@ have a query matrix which applies to the text and another query matrix that appl
 combine streams "seems to be concatenation … and then just concatenate and do more cross-attention between them, and then repeat"
 (≈1:01:42). LLaVA (slide 69) and visual question answering (slide 68) condition a language model on an image this way, and diffusion
 models now use "diffusion transformers", a ViT as the denoiser (≈1:04:47). See [conditional generative models](conditional-generative-models.md).
+
+## Shortcuts to automata (lecture 17)
+
+Lecture 17's examples of shortcut learning include transformers: trained on algorithmic reasoning tasks, "they pretty
+explicitly couldn't generalize out of the distribution of the number of the sequence lengths that they were trained on"
+(≈40:29). Slide 35 shows the first page of Liu et al., "Transformers Learn Shortcuts to Automata", whose shallow
+transformers simulate automata with $o(T)$ layers on inputs of length $T$, and its accuracy plots against sequence length,
+under the slide's verdict: "parallel solutions generalize within-distribution, but not out-of-distribution". See
+[out-of-distribution generalization](out-of-distribution-generalization.md).
 
 ## Where it goes next
 

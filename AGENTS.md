@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–16 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–17 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -141,7 +141,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–16 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–17 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -163,6 +163,7 @@ it.
 | 14 Generative Models: Basics | 28 of 60 pages | rendered from `mit6_7960_f24_lec14.pdf` |
 | 15 Generative Models: Representation Learning Meets Generative Modeling | 22 of 42 pages | rendered from `mit6_7960_f24_lec15.pdf` |
 | 16 Generative Models: Conditional Models | 29 of 84 pages | rendered from `mit6_7960_f24_lec16.pdf` |
+| 17 Generalization: Out-of-Distribution (OOD) | 11 of 63 pages | rendered from `mit6_7960_f24_lec17.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -199,7 +200,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–16:
+Notes for the next run, from lectures 1–17:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.

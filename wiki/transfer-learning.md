@@ -10,7 +10,8 @@ weights); [lecture 2](02-how-to-train-a-neural-net.md), ≈56:42 and ≈1:10:48�
 larger network); [lecture 9](09-hackers-guide-to-deep-learning.md), slides 27–28, ≈56:26–58:43 (start from a pretrained
 model); lecture 11, slides 23–29, ≈27:54–39:32; [lecture 12](12-representation-learning-similarity-based.md), slides 3, 30 and 60–68, ≈2:20–3:05 and ≈1:03:23–1:10:21
 (transfer as a reason to learn representations, self-supervised against supervised pretraining, and linear probes on
-iNaturalist).
+iNaturalist); [lecture 17](17-generalization-out-of-distribution.md), slides 38 and 57, ≈42:48 and ≈56:06–56:55 (adversarially trained models transfer better, and domain
+adaptation previewed).
 
 ## A good representation makes the next task easier
 
@@ -100,6 +101,16 @@ pretrained weights inside the [differentiable programming](differentiable-progra
 looks hand-specified "might have just actually previously been programmed by backprop", and deciding what to adapt "is just a
 matter of defining … where you want to freeze your gradients" (≈1:10:48–1:12:21). Lecture 11: "If you're ever going to play with
 deep nets, you'll download a pre-trained system, and you'll fine-tune it" (≈33:22).
+
+## Robust models transfer better; domain adaptation (lecture 17)
+
+Lecture 17 reports that adversarially trained ImageNet models transfer better to other datasets than standard ones (slide
+38, Salman et al. 2020, "Do adversarially robust ImageNet models transfer better?"; ≈42:48), and it previews **domain
+adaptation**, which learns from a labelled source domain and an unlabelled or sparsely labelled target domain "how to
+align their representations during training so that you can enforce generalization or adaptation to a new target domain"
+(slide 57, ≈56:06–56:55). Domain adaptation is promised for lecture 18 (slide 58). The lecture's closing answer separates
+being robust to any shift from adapting to a known one, for which fine-tuning and domain adaptation are "much more
+efficient" (≈1:02:25–1:03:59). See [out-of-distribution generalization](out-of-distribution-generalization.md).
 
 ## See also
 

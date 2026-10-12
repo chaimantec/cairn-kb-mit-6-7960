@@ -8,8 +8,8 @@ learner, and the course presents them as the practitioner's alternative to build
 architecture. Covered so far: [lecture 9](09-hackers-guide-to-deep-learning.md), slides 13–18,
 ≈30:17–41:03, with mentions in [lecture 2](02-how-to-train-a-neural-net.md) and
 [lecture 6](06-generalization-theory.md); and augmentation as the source of positive pairs in contrastive learning, in
-[lecture 12](12-representation-learning-similarity-based.md), slides 33–34, 45–48 and 67–68, ≈36:40–41:21, ≈52:23–55:29 and ≈1:07:16–1:08:02. Out-of-distribution generalization and transfer learning from
-the data side are lectures 17 and 19, not yet in this knowledge base (see the [course map](course-map.md)).
+[lecture 12](12-representation-learning-similarity-based.md), slides 33–34, 45–48 and 67–68, ≈36:40–41:21, ≈52:23–55:29 and ≈1:07:16–1:08:02; and adversarial training as "adaptive data augmentation" in [lecture 17](17-generalization-out-of-distribution.md), slide 24, ≈24:59–25:45. Transfer learning from
+the data side is lecture 19, not yet in this knowledge base (see the [course map](course-map.md)).
 
 **Notation.** A training pair is $(\mathbf{x}, y)$, an input and its label. $p_{\text{source}}$ is the
 distribution the training data comes from and $p_{\text{target}}$ the one the model is used on.
@@ -87,6 +87,17 @@ invariances. SimCLR needs heavy augmentation, "doing really, really weird things
 alone its accuracy falls by roughly 27 points (slide 48). And augmentations can teach the wrong similarity: on iNaturalist they
 grouped birds by being "held in human hands" rather than by species (slides 67–68, ≈1:08:02).
 
+## Adversarial training as adaptive augmentation (lecture 17)
+
+Fixed augmentations apply transformations chosen in advance. **Adversarial training** chooses the transformation during
+training, for each example, as the small perturbation that hurts the current model most, and trains on that:
+$\min_{\theta} \frac{1}{n} \sum_{i} \max_{\delta \in \Delta} \text{Loss}(f_{\theta}(\mathbf{x}^{(i)} + \delta), y^{(i)})$, where
+$\Delta$ is the set of allowed perturbations. Lecture 17 labels it "adaptive data augmentation" (slide 24, ≈24:59–25:45)
+and likens it to hard example mining. Like any augmentation, it buys robustness only to the variation it covers: trained
+on small pixel noise, it "would probably not work very well" against a printed adversarial sticker (≈27:16–28:03). The
+lecture's last word on distribution shift is a data remedy too: training data representative of the test domain "works
+better than any algorithm" (slide 61). See [adversarial examples](adversarial-examples.md).
+
 ## Elsewhere in the course
 
 Lecture 2 gives data augmentation as an example of a pre-processing step, which, unlike an operation
@@ -99,6 +110,7 @@ Zhang et al. compares models trained with and without data augmentation and weig
 - [Lecture 9 — Hacker's Guide to Deep Learning](09-hackers-guide-to-deep-learning.md), where this
   material comes from, including the wider advice to change the data rather than the learner.
 - [Inductive bias](inductive-bias.md) — invariance built into the architecture instead.
+- [Adversarial examples](adversarial-examples.md) — adversarial training, augmentation chosen adaptively (lecture 17).
 - [Contrastive learning](contrastive-learning.md) — augmentations as the positive pairs of self-supervised learning (lecture 12).
 - [Generalization and double descent](generalization-and-double-descent.md) — why a problem that is too
   easy generalizes badly.

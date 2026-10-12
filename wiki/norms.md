@@ -9,7 +9,7 @@ whether the norm of a network's parameters measures its complexity. [Lecture
 a step decides the optimization algorithm, and a matrix norm decides how to scale a network. Its
 rule of thumb: "Whenever anyone talks about too big or too small, you should always ask in which
 norm?" (≈51:32). Covered so far: lecture 3, slide 9, ≈12:20–13:57; lecture 6, slides 33 and 61; lecture 7,
-slides 16–19 and 21–25, ≈35:15–1:04:46; lecture 9, slide 10, ≈21:02–22:34; lecture 10, ≈31:06–31:53 (whether the spectral norm can stop an RNN's gradients vanishing).
+slides 16–19 and 21–25, ≈35:15–1:04:46; lecture 9, slide 10, ≈21:02–22:34; lecture 10, ≈31:06–31:53 (whether the spectral norm can stop an RNN's gradients vanishing); lecture 17, slides 21 and 37, ≈21:06–21:54 and ≈42:02 (the $\ell_ \infty$ ball of an adversarial perturbation).
 
 **Notation.** $\mathbf{v}$ is a vector in $\mathbb{R}^d$ with entries $v_i$; $\mathbf{M}$ is a matrix.
 A subscript names the norm.
@@ -126,3 +126,12 @@ gradients. Normalizing the weights could keep them near 1, but the recurrence ra
 could take a spectral norm over that exponential, but you're still going to take the exponential first. So that might help
 you with the exploding gradients problem, but it's not going to change the fact that the small things are going to go to 0"
 (≈31:06–31:53). See [recurrent neural networks](recurrent-neural-networks.md).
+
+## The infinity norm bounds an adversarial perturbation (lecture 17)
+
+In [lecture 17](17-generalization-out-of-distribution.md) an adversarial perturbation $\delta$ of an input is restricted to
+the set $\Delta = \lbrace \delta \in \mathbb{R}^{d} \mid \lVert \delta \rVert_{\infty} \lt \epsilon \rbrace$ (slide 21).
+The infinity norm is the largest absolute entry, so "instead of just looking at the aggregate difference between the image
+and the new one … the largest change for any given pixel has to be less than a certain amount", which "does tend to
+actually result in things that are unperceptible to humans" (≈21:06–21:54). Slide 37 compares models adversarially trained
+under $\ell_ \infty$ and $\ell_ 2$ constraints. See [adversarial examples](adversarial-examples.md).

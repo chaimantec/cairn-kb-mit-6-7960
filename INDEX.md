@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–16 of 24 only.** This knowledge base currently holds the first sixteen
+> **Coverage: lectures 1–17 of 24 only.** This knowledge base currently holds the first seventeen
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models) and the concept pages they support. For anything taught in lectures 17–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD)) and the concept pages they support. For anything taught in lectures 18–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 16. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 17. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -225,6 +225,20 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   VAEs and autoregressive models; and unpaired translation: the GAN loss as an admissible set, CycleGAN and cycle consistency, why the
   mapping found is simple, back translation in language, and grounding. Slides 3, 7, 8, 11, 70–79, 81 and 82 are excluded from OCW's
   licence, and slides 12 and 18–31 reuse excluded images.
+- [Lecture 17 — Generalization: Out-of-Distribution (OOD)](wiki/17-generalization-out-of-distribution.md) — Sara Beery (deck titled
+  "Out-of-distribution generalization"). Why models fail on data unlike their training data: whether ML systems are ready for the real
+  world (deployed models as high-precision human verification, medical decision-support tools); the IID assumption against the real
+  world (perturbed data, a different label distribution, other shifts) and the robot-vacuum example; robustness to distributional
+  change as an AI-safety problem, and evaluation that is artificially IID; adversarial examples (the pig and the airliner, traffic
+  signs, an adversarial sticker, a 3D-printed turtle, speech) and their history; creating one by optimizing the input within an
+  infinity-norm ball, solved by projected gradient ascent; adversarial training as a min-max ("adaptive data augmentation"), its SGD
+  loop, cost and limits; useless, robust and non-robust features; where correlations come from (bow ties, ImageNet's fish, how
+  datasets are made) and shortcuts (stars and moons, raccoons at night, X-rays and rulers, transformers and sequence length); what
+  adversarial training changes (input gradients, transfer); distribution shift: biodiversity against species records, the WILDS
+  benchmark and its in- to out-of-distribution drops, camera traps, subpopulation shift and cross-city tree classification; and what
+  to do: distributionally robust optimization (its objective, distances between distributions, the generalization guarantee, class
+  imbalance and fairness), a spatiotemporal prior, domain adaptation, diagnosing failures, and representative training data. Slides
+  2, 6, 10–18, 20, 21, 26–30, 32–37, 42–44, 46, 55, 57 and 59 are excluded from OCW's licence.
 
 ## Course pages
 
@@ -276,7 +290,8 @@ passages it draws on.
   initialization near zero and flat minima (lecture 6); gradient descent derived as steepest descent
   in the Euclidean norm, sign gradient descent, and full-batch optimization (lecture 7); practical
   advice — one data point before many, learning rate and batch size, epochs, Adam against SGD, and
-  exponential moving averages (lecture 9).
+  exponential moving averages (lecture 9); projected gradient ascent on an input perturbation, and adversarial training
+  (lecture 17).
 - [Steepest descent](wiki/steepest-descent.md) — lecture 7's first-order method: replace the
   non-linear part of the Taylor expansion with $\frac{\lambda}{2} \Vert \Delta \mathbf{w} \Vert^2$
   and minimize; the Euclidean norm gives gradient descent ($-\mathbf{g}/\lambda$), the infinity norm
@@ -295,8 +310,8 @@ passages it draws on.
   induced operator norms, the spectral norm and the RMS-RMS operator norm
   ($\sqrt{d_{\text{in}}/d_{\text{out}}}$ times the spectral norm); parameter norm as a complexity
   measure (lecture 6); composing norms across modules (lecture 7); the RMS norm as a normalization layer
-  (lecture 9); the spectral norm against an RNN's vanishing gradients (lecture 10). Spans lectures 3, 6, 7, 9
-  and 10.
+  (lecture 9); the spectral norm against an RNN's vanishing gradients (lecture 10); the infinity-norm ball that bounds an
+  adversarial perturbation (lecture 17). Spans lectures 3, 6, 7, 9, 10 and 17.
 - [Backpropagation](wiki/backpropagation.md) — computation graphs, the shape rules and chain
   rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
   and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
@@ -381,7 +396,16 @@ passages it draws on.
   shortcut that will not generalize, training problems too easy to generalize from, and domain
   randomization. Lecture 12's geometry of representations that generalize: consistency, separation and robustness, and
   CIFAR-10 representations under true and random labels. Lecture 13: whether an infinitely wide network must overfit.
-  Lecture 14: the filing cabinet as an overfit generative model, and test likelihood.
+  Lecture 14: the filing cabinet as an overfit generative model, and test likelihood. Lecture 17: generalization beyond the
+  training distribution.
+- [Adversarial examples](wiki/adversarial-examples.md) — inputs perturbed imperceptibly to flip a prediction: the examples (pig to
+  airliner, sticker, turtle, speech), creating one by optimizing the input within an infinity-norm ball with projected gradient
+  ascent, adversarial training as a min-max and its limits, useless, robust and non-robust features, and what robust models learn and
+  how well they transfer (lecture 17).
+- [Out-of-distribution generalization](wiki/out-of-distribution-generalization.md) — when test data is not drawn from the training
+  distribution: why deployment never meets the IID assumption, evaluation that leaks, shortcuts and where they come from, visual and
+  subpopulation shift, the WILDS benchmark, and the remedies: distributionally robust optimization and class imbalance, priors for
+  subpopulation shift, domain adaptation, diagnosing failures, and representative training data (lecture 17).
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -413,8 +437,8 @@ passages it draws on.
   fine-tuning, pretrain–adapt–test, learning from little data by pretraining on massive data, how big the ratio is,
   transfer across domains, and the open theory (lecture 11); reusing lower layers (lecture 1), pretrained parameters
   in a larger network (lecture 2), and starting from a pretrained model (lecture 9); linear probes of self-supervised
-  representations on iNaturalist, and how the benchmark decides what transfers (lecture 12). Lectures 18–19 are not yet
-  covered.
+  representations on iNaturalist, and how the benchmark decides what transfers (lecture 12); adversarially trained models
+  transfer better, and domain adaptation previewed (lecture 17). Lectures 18–19 are not yet covered.
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
@@ -474,7 +498,8 @@ passages it draws on.
   table of "Attention Is All You Need", longer contexts (sparse, local plus global, retrieval) and whether
   benchmarks need them (lecture 10); masked autoencoders and BERT, masking tokens to learn without labels (lecture 11);
   separate projections for similarity and for information, compared to a projection head (lecture 12); cross-attention between image
-  and text tokens, captioning, LLaVA and diffusion transformers (lecture 16).
+  and text tokens, captioning, LLaVA and diffusion transformers (lecture 16); transformers that fail beyond the sequence lengths
+  they were trained on (lecture 17).
 - [Recurrent neural networks](wiki/recurrent-neural-networks.md) — lecture 10's RNNs and LSTMs: what a convolution
   over time forgets, the hidden state and the recurrence shared over time, the simplest RNN and its MLP
   relative, the cycle in the graph and backpropagation through time over a truncated window, summed gradients
@@ -498,7 +523,7 @@ passages it draws on.
   against invariant architectures (geometric deep learning), making the training problem harder on
   purpose, domain randomization and the domain gap, and OpenAI's robot hand (lecture 9); augmentations as the positive
   pairs of contrastive learning, the invariances they teach (and the left and right shoes), and SimCLR's need for heavy
-  augmentation (lecture 12).
+  augmentation (lecture 12); adversarial training as adaptive data augmentation (lecture 17).
 - [Metric learning](wiki/metric-learning.md) — learning a distance from similar and dissimilar pairs: relative
   judgements, the linear map as a Mahalanobis distance, Xing et al.'s constrained problem, deep metric learning and
   normalized representations, the triplet loss, triplet networks and the lifted structured loss, what a learned bird
@@ -560,7 +585,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–16 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–17 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

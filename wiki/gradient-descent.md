@@ -10,7 +10,8 @@ slide 61 and ≈35:34–40:10, on what the optimizer adds to generalization;
 [lecture 7](07-scaling-rules-for-optimization.md), slides 4–7 and 16–18, ≈3:06–13:55 and
 ≈33:37–39:53, which derives gradient descent as steepest descent in the Euclidean norm; [lecture 9](09-hackers-guide-to-deep-learning.md),
 slides 48–55, ≈1:10:21–1:13:23, practical advice on learning rate, batch size, optimizers and moving
-averages. For the
+averages; [lecture 17](17-generalization-out-of-distribution.md), slides 22 and 25, ≈21:54–22:41 and ≈29:41–30:27, gradient ascent on an input
+perturbation, and adversarial training. For the
 symbols see [notation](notation.md).
 
 ## Learning as optimization
@@ -194,3 +195,16 @@ $$\theta_{\texttt{EMA}}^{t} \leftarrow \beta \thinspace \theta_{\texttt{EMA}}^{t
 averages (e.g., average gradients over batch)": the batch averages gradients across examples, the EMA
 across iterations. Applied to gradients, "it is known as momentum", which connects it to the momentum
 above; the slide suggests trying it on weights, data, activations and targets too.
+
+## Gradient ascent on the input (lecture 17)
+
+[Lecture 17](17-generalization-out-of-distribution.md) turns the algorithm around to build adversarial examples: hold the
+weights fixed and "flip SGD on its head", updating a perturbation $\delta$ of the input to raise the probability of a wrong
+class $y_{\text{target}}$ (≈21:54):
+
+$$\delta^{(t+1)} = \delta^{(t)} + \eta \cdot \nabla_{\delta} P_{\theta}(y_{\text{target}} \vert \mathbf{x} + \delta)$$
+
+then project the result back into the allowed set $\Delta$ and repeat (slide 22). This is **projected gradient ascent**.
+Adversarial training then nests it inside ordinary stochastic gradient descent: for each sampled point, compute the
+perturbation by projected gradient ascent and take the weight step on the perturbed input (slide 25, ≈29:41–30:27). See
+[adversarial examples](adversarial-examples.md).

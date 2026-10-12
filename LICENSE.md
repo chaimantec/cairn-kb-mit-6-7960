@@ -195,5 +195,18 @@ AlphaFold), 7 (painmakers), 8 (color_byangelina), 11 (Fredo Durand's photograph)
 cartoon), 72–79 (Zhu et al.), 81 (Galanti, Wolf and Benaim) and 82 (Lample et al.), and on slides 12 and 18–31, which are withheld
 because they reuse slide 11's and slide 73's excluded images.
 
+Lecture 17's deck names Sara Beery as speaker. Of its 11 rendered slides, the distribution diagrams (slides 4, 5 and 40, built from
+icons, with street photographs under "Training" and "Inference" on slides 4 and 5 that carry no credit), the projected-gradient sketch
+(22), the DRO sketches (49 and 51) and the class-distribution charts of slides 45 and 47 carry no credit line. **Slide 41**'s two maps are
+credited on the slide "Left: Courtesy of Mannion et al. Used under CC BY. Right: Courtesy of Sara Beery. Used under CC BY." Two rendered
+slides reproduce material from papers with a credit and no OCW notice, and are rendered by the rule that only a notice excludes:
+**slide 38**, the transfer-accuracy charts of Salman et al. (2020), "Do adversarially robust ImageNet models transfer better?", and
+**slide 53**, a figure from Hashimoto et al. (2018), "Fairness without demographics in repeated loss minimization". The deck's other
+third-party figures are on its 31 excluded slides: 2 (OpenAI and others), 6 (@hardmaru, @DimaKrotov, CNN.com), 10 and 21 (Aleksander
+Mądry and Ludwig Schmidt), 11 (Papernot et al.), 12–15 (Brown et al.), 16–17 (Athalye et al.), 18 (Carlini and Wagner), 20 (Biggio and
+Roli), 26 (Hongzhou Lin), 27 and 36 (Aleksander Madry), 28, 29 and 33 (sources unknown), 30 and 34 (Geirhos et al.), 32 (AI Weirdness),
+35 (Liu et al.), 37 (Tsipras et al.), 42–44 (Koh et al.; Beery et al.), 46 (Weinstein et al.), 55 (Mac Aodha et al.), 57 (He et al.)
+and 59 (Vendrow et al.); none of them is rendered.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.
