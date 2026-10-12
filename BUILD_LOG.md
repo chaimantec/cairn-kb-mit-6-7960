@@ -2,7 +2,7 @@
 
 The per-lecture record of how this knowledge base was built and checked: what each deck's lecture pointers say, which
 slides carry OCW licence notices, how each transcript was edited, what each figure audit found, each deck's printed slips,
-and which slides were rendered as images and why the others were not; its last section holds the finished build checklists moved out of
+and which slides were rendered as images and why the others were not; its last sections hold the finished build checklists moved out of
 `TODO.md`. It is a build record, **not needed to answer
 questions**: every fact a learner needs is on the wiki page, slide file or transcript it concerns. The rules every build
 follows are in [`AGENTS.md`](AGENTS.md); attribution of the rendered images is in [`LICENSE.md`](LICENSE.md). Read this file
@@ -1525,3 +1525,29 @@ The finished lines of `TODO.md` for lectures 1–17, moved here verbatim on 2026
 - [x] Lecture 16: verify_kb.py clean, review read; commit and push
 - [x] Lecture 17: INDEX, AGENTS (coverage, image-table row), BUILD_LOG, LICENSE, kb.json, course-map updated
 - [x] Lecture 17: verify_kb.py clean, review read; commit and push
+
+## Build checklist, lecture 18
+
+The finished lines of `TODO.md` for lecture 18, moved here verbatim on 2026-10-13 once the run was committed and pushed.
+
+### Transcripts
+- [x] 18 Transfer Learning: Models — video tNfuZ9Imt3M (OCW human captions; light copy-edit inline, checked by script; verbatim in original/)
+
+### Slides
+- [x] 18 — mit6_7960_f24_lec18.pdf (77 pages, 1:1, page 77 the OCW end page prints 77; read by Sonnet in two halves)
+- [x] 18 — OCW notices from the slide file, cross-checked with the text layer (21 pages) and a vector scan (no outlined small print)
+- [x] 18 — Opus figure audit on 62 pages applied (19 corrected; split between four agents, all finished)
+
+### Wiki
+- [x] wiki/18-transfer-learning-models.md
+- [x] Topic pages for lecture 18: knowledge-distillation, domain-adaptation, foundation-models-and-prompting new; transfer-learning, contrastive-learning, softmax-and-cross-entropy, out-of-distribution-generalization, adversarial-examples, scaling-laws, self-supervised-learning, representation-learning, autoregressive-models, course-map extended
+
+### Images
+- [x] raw/images/18-transfer-learning-models/ — 26 images; 21 OCW-excluded slides and slide 74 (reuses slide 63's excluded encoder graphics) never rendered; hash sweep both directions, validated on lectures 11 and 14
+- [x] Withdrawn by lecture 18's sweep: lecture 2's slide 70 (same encoder graphics) and lecture 12's slide 35 (lecture 18's excluded classroom strip); images deleted, embeds removed, counts updated
+
+### Publish
+- [x] Lecture 18: INDEX, AGENTS (coverage, image-table row, withheld rows, sweep lesson), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Repaired three pre-existing formulas whose `\to` and `\times` an earlier run's script had turned into tabs (representation-learning, softmax-and-cross-entropy)
+- [x] Lecture 18: check_math and verify_kb.py clean, review read; commit and push
+- [x] Move this run's finished lines to BUILD_LOG.md
