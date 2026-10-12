@@ -2,7 +2,8 @@
 
 The per-lecture record of how this knowledge base was built and checked: what each deck's lecture pointers say, which
 slides carry OCW licence notices, how each transcript was edited, what each figure audit found, each deck's printed slips,
-and which slides were rendered as images and why the others were not. It is a build record, **not needed to answer
+and which slides were rendered as images and why the others were not; its last section holds the finished build checklists moved out of
+`TODO.md`. It is a build record, **not needed to answer
 questions**: every fact a learner needs is on the wiki page, slide file or transcript it concerns. The rules every build
 follows are in [`AGENTS.md`](AGENTS.md); attribution of the rendered images is in [`LICENSE.md`](LICENSE.md). Read this file
 when building or revisiting a lecture, for precedent.
@@ -1251,3 +1252,171 @@ Not rendered, and why:
 - **Text, equations, screenshots of text and section slides the slide file reproduces exactly:** 3, 7 (the first page of "Concrete
   Problems in AI Safety"), 8, 9, 19, 23, 24, 25, 31, 39, 48, 52, 54, 56, 58, 60, 61 and 62.
 - **Title and end page:** slide 1 (the title, with the two maps slide 41 shows) and slide 63, the OCW end page.
+
+## Build checklist, lectures 1–17
+
+The finished lines of `TODO.md` for lectures 1–17, moved here verbatim on 2026-10-12 so that `TODO.md` holds open work only.
+
+### Transcripts
+
+- [x] 01 Introduction to Deep Learning — video 6FkRvTtUc-o (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 02 How to Train a Neural Net — video vidCX_dMCu0 (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 03 Approximation Theory — video ySaoWrv3T_Q (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 04 Architectures: Grids — video bxVkZ4M-hIE (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 05 Architectures: Graphs — video 0niIwb37nF0 (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 06 Generalization Theory — video EiO8BBa-xdc (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 07 Scaling Rules for Optimization — video VcGPE4s_oNw (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 08 Architectures: Transformers — video Q1HOKrNeh2M (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 09 Hacker's Guide to Deep Learning — video DC2Hw9DiLCg (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 10 Architectures: Memory — video IiHknRHA-Gk (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 11 Representation Learning: Reconstruction-Based — video QxOzQRtd440 (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 12 Representation Learning: Similarity-Based — video yUh1fEGGdl4 (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 13 Representation Learning: Theory — video -eC0-5mXHQg (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 14 Generative Models: Basics — video hJlrAHqGOS8 (OCW human captions; light copy-edit, verbatim in original/)
+- [x] 15 Generative Models: Representation Learning Meets Generative Modeling — video 8zzfcYIELdo (OCW human captions; light copy-edit by Sonnet, checked in the parent; verbatim in original/)
+- [x] 16 Generative Models: Conditional Models — video zaMcHuJwe1w (OCW human captions; light copy-edit inline, checked by script; verbatim in original/)
+- [x] 17 Generalization: Out-of-Distribution (OOD) — video tjD9LIzIIek (OCW human captions; light copy-edit inline, checked by script; verbatim in original/)
+
+### Crawl
+
+- [x] Fetch course site index: https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/
+- [x] Download linked PDFs and slides (23 decks, 5 psets, hw5 solution, notation handout; 206MB, gitignored)
+- [x] Write sources.md
+
+### Slides (raw/slides/)
+
+- [x] 01 Introduction to Deep Learning — mit6_7960_f24_lec1.pdf (81 pages; figure audit 6 pages)
+- [x] 02 How to Train a Neural Net — mit6_7960_f24_lec2.pdf (81 pages; figure audit 8 pages)
+- [x] 03 Approximation Theory — mit6_7960_f24_lec3.pdf (43 pages, handwritten; read by Sonnet, audited by Opus on 19 pages)
+- [x] 04 Architectures: Grids — mit6_7960_f24_lec4.pdf (84 pages; read by Sonnet, audited by Opus on 24 pages)
+- [x] 05 Architectures: Graphs — mit6_7960_f24_lec5.pdf (47 pages; read by Sonnet, audited by Opus on 27 pages)
+- [x] 06 Generalization Theory — mit6_7960_f24_lec6.pdf (66 pages; read by Sonnet, audited by Opus on 30 pages)
+- [x] 07 Scaling Rules for Optimization — mit6_7960_f24_lec7.pdf (32 pages, handwritten; read by Sonnet, audited by Opus on 24 pages)
+- [x] 08 Architectures: Transformers — mit6_7960_f24_lec8.pdf (55 pages; read by Sonnet)
+- [x] 08 — Opus figure audit on 33 pages applied (19 corrected)
+- [x] 09 Hacker's Guide to Deep Learning — mit6_7960_f24_lec9.pdf (72 pages; read by Sonnet)
+- [x] 09 — Opus figure audit on 34 pages applied (13 corrected)
+- [x] 10 Architectures: Memory — mit6_7960_f24_lec10.pdf (69 pages; read by Sonnet)
+- [x] 10 — Opus figure audit on 44 pages applied (10 corrected)
+- [x] 11 Representation Learning: Reconstruction-Based — mit6_7960_f24_lec11.pdf (65 pages; read by Sonnet)
+- [x] 11 — Opus figure audit on 43 pages applied (13 corrected; first auditor stopped by a session limit after 6 pages, a second did the other 37)
+- [x] 12 Representation Learning: Similarity-Based — mit6_7960_f24_lec12.pdf (70 pages; read by Sonnet; 37 OCW notices, 35 of them drawn as glyph outlines the text layer cannot see)
+- [x] 12 — Opus figure audit on 46 pages applied (26 corrected; both first auditors stopped by a session limit after 15 and 10 pages, two more did the other 21)
+- [x] 13 Representation Learning: Theory — mit6_7960_f24_lec13.pdf (28 pages, handwritten; read by Sonnet; OCW notices on slides 4 and 22)
+- [x] 13 — Opus figure audit on 25 pages applied (16 corrected; split between two agents, both finished)
+- [x] 14 Generative Models: Basics — mit6_7960_f24_lec14.pdf (60 pages; read by Sonnet in two halves; OCW notices on slides 6 and 54–59)
+- [x] 14 — Opus figure audit on 52 pages applied (32 corrected; split between three agents, two stopped by a session limit after every page but slide 45, which was checked against its render)
+- [x] 15 Generative Models: Representation Learning Meets Generative Modeling — mit6_7960_f24_lec15.pdf (42 pages; read by Sonnet in two halves; OCW notices on slides 1, 6 and 39)
+- [x] 15 — Opus figure audit on 39 pages applied (21 corrected; split between three agents, all finished)
+- [x] 16 Generative Models: Conditional Models — mit6_7960_f24_lec16.pdf (84 pages; read by Sonnet in two halves; 16 OCW notices: slides 3, 7, 8, 11, 70–79, 81, 82)
+- [x] 16 — Opus figure audit on 71 pages applied (19 corrected; split between four agents, all finished)
+- [x] 17 Generalization: Out-of-Distribution (OOD) — mit6_7960_f24_lec17.pdf (63 pages; read by Sonnet in two halves; 31 OCW notices, all typed)
+- [x] 17 — Opus figure audit on 49 pages applied (23 corrected; split between four agents, all finished)
+
+### Wiki
+
+- [x] wiki/01-introduction.md
+- [x] wiki/02-how-to-train-a-neural-net.md
+- [x] wiki/03-approximation-theory.md
+- [x] wiki/04-architectures-grids.md
+- [x] wiki/05-architectures-graphs.md
+- [x] wiki/06-generalization-theory.md
+- [x] wiki/07-scaling-rules-for-optimization.md
+- [x] wiki/08-architectures-transformers.md
+- [x] wiki/09-hackers-guide-to-deep-learning.md
+- [x] wiki/10-architectures-memory.md
+- [x] wiki/11-representation-learning-reconstruction-based.md
+- [x] wiki/12-representation-learning-similarity-based.md
+- [x] wiki/13-representation-learning-theory.md
+- [x] wiki/14-generative-models-basics.md
+- [x] wiki/15-generative-models-representation-learning-meets-generative-modeling.md
+- [x] wiki/16-generative-models-conditional-models.md
+- [x] wiki/17-generalization-out-of-distribution.md
+- [x] Topic pages (cross-lecture concepts) for lecture 1
+- [x] Topic pages for lecture 2: backpropagation, loss-landscapes, differentiable-programming new; seven pages extended
+- [x] Topic pages for lecture 3: lipschitz-continuity, scaling-laws new; representational-power rewritten; MLP, activations, generalization, course-map extended
+- [x] Topic pages for lecture 4: convolution, inductive-bias, skip-connections, neural-fields-and-positional-encoding new; MLP, activations, generalization, representation-learning, tensors-and-batching, differentiable-programming, representational-power, course-map extended
+- [x] Topic pages for lecture 5: graph-neural-networks new; inductive-bias, convolution, representational-power, neural-fields-and-positional-encoding, multilayer-perceptron, backpropagation, course-map extended
+- [x] Topic pages for lecture 6: generalization-and-double-descent and inductive-bias extended in depth; gradient-descent, loss-landscapes, representation-learning, multilayer-perceptron, convolution, graph-neural-networks, neural-fields-and-positional-encoding, representational-power, course-map extended
+- [x] Topic pages for lecture 7: steepest-descent, second-order-methods, norms, scaling-rules new; gradient-descent, loss-landscapes, skip-connections, lipschitz-continuity, backpropagation, multilayer-perceptron, differentiable-programming, scaling-laws, course-map extended
+- [x] Topic pages for lecture 8: transformers new; graph-neural-networks, convolution, neural-fields-and-positional-encoding, inductive-bias, skip-connections, multilayer-perceptron, softmax-and-cross-entropy, tensors-and-batching, representation-learning, course-map extended
+- [x] Topic pages for lecture 9: normalization-layers, data-augmentation new; softmax-and-cross-entropy, tensors-and-batching, gradient-descent, inductive-bias, scaling-laws, generalization-and-double-descent, norms, convolution, transformers, course-map extended
+- [x] Topic pages for lecture 10: recurrent-neural-networks, autoregressive-models new; transformers, convolution, backpropagation, loss-landscapes, skip-connections, softmax-and-cross-entropy, activation-functions, norms, multilayer-perceptron, graph-neural-networks, inductive-bias, course-map extended
+- [x] Topic pages for lecture 11: autoencoders, self-supervised-learning, transfer-learning new; representation-learning, normalization-layers, activation-functions, softmax-and-cross-entropy, multilayer-perceptron, steepest-descent, transformers, autoregressive-models, skip-connections, convolution, course-map extended
+- [x] Topic pages for lecture 12: metric-learning, contrastive-learning new; representation-learning, self-supervised-learning, data-augmentation, transfer-learning, softmax-and-cross-entropy, generalization-and-double-descent, inductive-bias, transformers, normalization-layers, autoencoders, course-map extended
+- [x] Topic pages for lecture 13: gaussian-processes, kernel-methods new; inductive-bias, representation-learning, steepest-descent, scaling-rules, multilayer-perceptron, generalization-and-double-descent, representational-power, contrastive-learning, course-map extended
+- [x] Topic pages for lecture 14: generative-models, energy-based-models, diffusion-models, generative-adversarial-networks new; autoregressive-models, softmax-and-cross-entropy, generalization-and-double-descent, representation-learning, contrastive-learning, autoencoders, inductive-bias, course-map extended
+- [x] Topic pages for lecture 15: variational-autoencoders new; autoencoders, generative-models, representation-learning, generative-adversarial-networks, diffusion-models, energy-based-models, autoregressive-models, course-map extended
+- [x] Topic pages for lecture 16: conditional-generative-models new; generative-models, generative-adversarial-networks, variational-autoencoders, diffusion-models, autoregressive-models, transformers, softmax-and-cross-entropy, inductive-bias, course-map extended
+- [x] Topic pages for lecture 17: adversarial-examples, out-of-distribution-generalization new; generalization-and-double-descent, data-augmentation, transfer-learning, norms, transformers, gradient-descent, course-map extended
+- [x] INDEX.md table of contents
+
+### Images
+
+- [x] raw/images/01-introduction/ — 20 images; OCW-excluded slides never rendered; slide 51 withdrawn at lecture 6 (same image as lecture 6's excluded slide 30)
+- [x] raw/images/02-how-to-train-a-neural-net/ — 45 images; OCW-excluded slides never rendered
+- [x] raw/images/03-approximation-theory/ — 18 images; the deck has no OCW exclusion notices
+- [x] raw/images/04-architectures-grids/ — 31 images; 35 OCW-excluded slides and slides 50–52 (reused excluded photo) never rendered
+- [x] raw/images/05-architectures-graphs/ — 19 images; 14 OCW-excluded slides never rendered
+- [x] raw/images/06-generalization-theory/ — 28 images; 8 OCW-excluded slides and slide 62 (reuses lecture 4's excluded bird photo) never rendered
+- [x] raw/images/07-scaling-rules-for-optimization/ — 9 images; 3 OCW-excluded slides (7, 25, 26) never rendered
+- [x] raw/images/08-architectures-transformers/ — 34 images; 7 OCW-excluded slides (4, 6, 7, 8, 31, 45, 53) never rendered; no reuse of excluded images found by pixel hash across decks 1–8
+- [x] raw/images/09-hackers-guide-to-deep-learning/ — 11 images; 21 OCW-excluded slides never rendered; slide 57 reuses slide 4's output pictures but not its excluded X-ray, so it is rendered
+- [x] raw/images/10-architectures-memory/ — 32 images; 20 OCW-excluded slides never rendered; no reuse of excluded images found by pixel hash across decks 1–10
+- [x] raw/images/11-representation-learning-reconstruction-based/ — 25 images; 22 OCW-excluded slides and slide 13 (lecture 1's excluded slide 73 figure) never rendered
+- [x] raw/images/12-representation-learning-similarity-based/ — 8 images (slides 8, 22, 23, 35, 43, 49, 50, 51); 37 OCW-excluded slides never rendered (35 of their notices are glyph outlines the text layer misses); no reuse of excluded images found by pixel hash across decks 1–12 in either direction
+- [x] raw/images/13-representation-learning-theory/ — 10 images (slides 3, 5, 6, 9, 10, 11, 13, 14, 17, 20); 2 OCW-excluded slides (4, 22) never rendered; hash sweep clean once page backgrounds are left out
+- [x] raw/images/14-generative-models-basics/ — 28 images; 7 OCW-excluded slides (6, 54–59) and slides 49–50 (Homework 5's excluded diffusion diagram, found by extending the hash sweep to the problem sets) never rendered
+- [x] raw/images/15-generative-models-representation-learning-meets-generative-modeling/ — 22 images; 3 OCW-excluded slides (1, 6, 39) never rendered; hash sweep clean in both directions, validated by rerunning it on lectures 11 and 14
+- [x] raw/images/16-generative-models-conditional-models/ — 29 images; 16 OCW-excluded slides, slide 12 (slide 11's excluded photograph) and slides 18–31 (slide 73's excluded pictures, which slide 73 repeats from slide 30) never rendered
+- [x] raw/images/17-generalization-out-of-distribution/ — 11 images; 31 OCW-excluded slides never rendered; hash sweep clean in both directions, validated by rerunning it on lectures 11 and 14
+- [x] AGENTS.md — the Images conventions section
+
+### Publish
+
+- [x] LICENSE.md — OCW CC BY-NC-SA 4.0 attribution
+- [x] kb.json — coverage, materials.method, provenance caveats
+- [x] SEE_ALSO.md, if a sibling KB is genuinely relevant
+- [x] verify_kb.py clean, and its review section read
+- [x] Commit and push
+- [x] PATCH kbUrl onto the catalog entry (https://github.com/chaimantec/cairn-kb-mit-6-7960)
+- [x] Lecture 2: INDEX, AGENTS, kb.json updated
+- [x] Lecture 2: verify_kb.py clean, review read; commit and push
+- [x] Lecture 3: apply the Opus figure audit
+- [x] Lecture 3: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 3: verify_kb.py clean, review read; commit and push
+- [x] Lecture 4: apply the Opus figure audit
+- [x] Lecture 4: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 4: verify_kb.py clean, review read; commit and push
+- [x] Lecture 5: apply the Opus figure audit
+- [x] Lecture 5: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 5: verify_kb.py clean, review read; commit and push
+- [x] Lecture 6: apply the Opus figure audit
+- [x] Lecture 6: INDEX, AGENTS, kb.json updated
+- [x] Lecture 6: verify_kb.py clean, review read; commit and push
+- [x] Lecture 7: apply the Opus figure audit
+- [x] Lecture 7: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 7: verify_kb.py clean, review read; commit and push
+- [x] Lecture 8: apply the Opus figure audit
+- [x] Lecture 8: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 8: verify_kb.py clean, review read; commit and push
+- [x] Lecture 9: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 9: verify_kb.py clean, review read; commit and push
+- [x] Lecture 10: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 10: verify_kb.py clean, review read; commit and push
+- [x] Lecture 11: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 11: verify_kb.py clean, review read; commit and push
+- [x] Lecture 12: INDEX, AGENTS, kb.json, SEE_ALSO updated
+- [x] Lecture 12: verify_kb.py clean, review read; commit and push
+- [x] AGENTS.md cut to the rules every build follows (101 KB to about 27 KB); the per-lecture record moved verbatim to BUILD_LOG.md, image attribution to LICENSE.md, the chat's image rules into INDEX.md
+- [x] Lecture 13: INDEX, AGENTS (image-table row), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 13: verify_kb.py clean, review read; commit and push
+- [x] From lecture 13 on: per-lecture details go to BUILD_LOG.md and attribution to LICENSE.md; AGENTS.md gets only new general lessons and the image-table row
+- [x] Lecture 14: INDEX, AGENTS (coverage, image-table and withheld rows, problem-set sweep lesson), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 14: verify_kb.py clean, review read; commit and push
+- [x] Lecture 15: INDEX, AGENTS (coverage, image-table row, two general lessons), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 15: verify_kb.py clean, review read; commit and push
+- [x] Lecture 16: INDEX, AGENTS (coverage, image-table and withheld rows, two general lessons), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 16: verify_kb.py clean, review read; commit and push
+- [x] Lecture 17: INDEX, AGENTS (coverage, image-table row), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 17: verify_kb.py clean, review read; commit and push
