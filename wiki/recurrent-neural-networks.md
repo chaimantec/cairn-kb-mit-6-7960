@@ -132,5 +132,6 @@ use transformers instead" (slides 47–53, ≈55:56–56:45). Their training and
 
 Homework 3's "RNNs versus transformers" problem derives the hidden states of a linear RNN after $T$ steps, asks what happens
 to the first input's contribution as $T$ grows, and compares the cost of a forward pass with a self-attention layer's (see
-[lecture 10](10-architectures-memory.md#the-problem-set)). Language models return in lecture 21; see the
-[course map](course-map.md).
+[lecture 10](10-architectures-memory.md#the-problem-set)). [Lecture 19](19-transfer-learning-data.md) treats an RNN's state as a learner: given a sequence $x_0, y_0, x_1, y_1, \ldots$, "RNN state +
+params is f, apply that f to x3", so "the hidden state of that RNN … is a model that arguably learns to learn" (slide 50, ≈1:13:12–1:13:58;
+see [meta-learning](meta-learning.md)). Language models return in lecture 21; see the [course map](course-map.md).

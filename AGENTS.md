@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–18 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–19 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -84,12 +84,17 @@ general form and the lecture's details there; keep this file free of per-lecture
   | 16 | 12 | slide 11's excluded photograph (also lecture 4's excluded slides 12–24) |
   | 16 | 18–31 | the label map and building photographs of slide 73, which repeats slide 30 image for image under a notice |
   | 18 | 74 | slide 63's excluded encoder graphics (the slide is lecture 2's slide 70 again) |
+  | 19 | 23 | slide 42's excluded volcano grid |
+  | 19 | 29–31 | slide 28's cat photograph (29, 30), and the generator's reconstruction and edits of it (31) |
+  | 19 | 36 | lecture 18's excluded tiger photographs (slides 12 and 13 there), credited CC BY here |
 
   A shared image is not always a shared figure, so check size, placement and which image a notice sits beside
   before withholding. Rendered after such a check: lecture 5's slides 12, 15, 21 and 29 (the shared object is a
   33×31 px node glyph), lecture 9's slide 57 (it repeats slide 4's lower row, not the X-ray the notice covers), and
   lecture 11's slides 31, 39 and 42 (the shared images are listed in the page's resources but drawn off the page or not
-  at all). The method is under Rebuilding.
+  at all). The method is under Rebuilding. Placement is not the only evidence of what a notice covers: when its "©" names the
+  authors of the paper another picture on the slide comes from, treat that picture as covered too, and its reuses as withheld
+  (lecture 19's slide 28, whose "© Lang et al." sits by a row of portraits but names the source of the cat beside them).
 
 ## Conventions
 
@@ -138,7 +143,9 @@ deliberate change to a number (lecture 11's "4DA" → "Fourier") is listed in th
 Each deck is transcribed from page images — a vision model read every page — at Sonnet, and
 checked by script (`slide_number_map.py --verify`) for one heading per page in order. Where a
 pale-yellow "Lecture N" banner hides slide content, the hidden prose was recovered from the PDF
-text layer and the slide says so. Equations and tables are never taken from the text layer.
+text layer and the slide says so. Overlays pasted over a figure can hide content its embedded image still holds (lecture 19's
+slide 45 covers three lines of MAML's algorithm); the audit can read it from the raster at native resolution, and the slide
+file gives it as hidden, never as what the page shows. Equations and tables are never taken from the text layer.
 
 Every deck is then audited against the PDF: from lecture 3 on by Opus, a different model from the transcriber, on its
 chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. Each slide file's front matter carries a
@@ -146,7 +153,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–18 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–19 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -170,6 +177,7 @@ it.
 | 16 Generative Models: Conditional Models | 29 of 84 pages | rendered from `mit6_7960_f24_lec16.pdf` |
 | 17 Generalization: Out-of-Distribution (OOD) | 11 of 63 pages | rendered from `mit6_7960_f24_lec17.pdf` |
 | 18 Transfer Learning: Models | 26 of 77 pages | rendered from `mit6_7960_f24_lec18.pdf` |
+| 19 Transfer Learning: Data | 15 of 52 pages | rendered from `mit6_7960_f24_lec19.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -206,7 +214,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–18:
+Notes for the next run, from lectures 1–19:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -246,7 +254,8 @@ Notes for the next run, from lectures 1–18:
   number of a list: "slides 36 and 39" did not count as citing slide 39 in lecture 5, which had to be
   hand-placed.
 - Hand-placed wiki images (to write a better caption) must copy the path from disk: five of lecture 4's
-  first hand-placed links guessed `.png` for files that are `.jpg`. The script skips images a page
+  first hand-placed links guessed `.png` for files that are `.jpg`, and three of lecture 19's, written before rendering, guessed
+  wrong too. Write image links only after rendering. The script skips images a page
   already links, so hand-place the key figures first and let it place the rest. Its default caption is
   the slide title, which reads badly for parenthetical or question titles; rewrite those, and keep math
   out of the italic captions. It also copies the slide title into the slide file's alt text, so a

@@ -9,7 +9,8 @@ low-dimensional embedding, and generative modeling goes "from simple low-dimensi
 [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 3–5, 10–11 and 35–41, ≈0:47–3:55, ≈17:10–21:06 and ≈1:11:40–1:20:09 (generative models as
 distribution transformers, latent variable models and the marginal likelihood, what their latent spaces learn, and the families
 compared); [lecture 16](16-generative-models-conditional-models.md), slides 3–6, 15, 50, 59 and 83, ≈1:31–4:34, ≈13:04, ≈39:45, ≈45:10–45:58, ≈57:45 and ≈1:04:47 (generative models
-for structured prediction, conditioning each family, and explicit inputs against latent variables). Lecture 15's model, the
+for structured prediction, conditioning each family, and explicit inputs against latent variables); [lecture 19](19-transfer-learning-data.md), slides
+4–42, ≈1:33–1:06:58 (a trained generator used as data, "data++"; see [generative models as data](generative-models-as-data.md)). Lecture 15's model, the
 [variational autoencoder](variational-autoencoders.md), has its own page, and lecture 16's conditional models have
 [theirs](conditional-generative-models.md).
 
@@ -166,3 +167,7 @@ Generative models make the text-to-image pictures of DALL-E 2 (lecture 14, slide
 diffusion model that docks a ligand on a protein, and an image-to-image model that predicts the CT scan an MRI scan would
 have been (slide 6, ≈6:06–6:53). "Generative models are not just for entertainment" (≈6:53). Their applications are lecture
 16's subject (≈1:31); see [conditional generative models](conditional-generative-models.md).
+
+Lecture 19 puts generative models to work for transfer learning. A good generator, with its latent space and an inverse map into it,
+is "data++": "a really cool form of data compression" (≈3:57) that can be interpolated, manipulated, labelled and used to explain a
+classifier or to train a representation (slides 4–42). See [generative models as data](generative-models-as-data.md).

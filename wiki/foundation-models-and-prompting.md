@@ -6,8 +6,8 @@ or learning, what to put in front of it. Lecture 18 presents the pair as the new
 of "'Deep Learning' with *No* Data" in which you "just ask", and adds that "of course, this isn't really machine *learning*
 anymore" (slide 47). Covered so far: [lecture 18](18-transfer-learning-models.md), slides 40–75, ≈55:48–1:24:36; prompting a
 language model as conditioning, in [lecture 16](16-generative-models-conditional-models.md), ≈47:33; and optimizing a GAN's input
-through CLIP, in [lecture 2](02-how-to-train-a-neural-net.md), slide 70, ≈1:06:05–1:06:52. Language models are lecture 21's
-subject, which this knowledge base does not yet cover (see the [course map](course-map.md)).
+through CLIP, in [lecture 2](02-how-to-train-a-neural-net.md), slide 70, ≈1:06:05–1:06:52. [Lecture 19](19-transfer-learning-data.md) (slide 50, ≈1:12:25–1:14:43) calls in-context learning a form of meta-learning.
+Language models are lecture 21's subject, which this knowledge base does not yet cover (see the [course map](course-map.md)).
 
 **Notation** (lecture 18's slides). In CLIP, an image encoder produces image embeddings $I_1, \ldots, I_N$ and a text encoder text
 embeddings $T_1, \ldots, T_N$; $I_i \cdot T_j$ is the dot product of an image's embedding with a text's. In the banana and CLIP+GAN
@@ -112,6 +112,14 @@ embedded by CLIP's image encoder as $e_2$, maximizes $e_1 \cdot e_2$ with the em
 (≈1:23:48–1:24:36). DALL-E 2 (slide 75, Ramesh et al. 2022) is built from the same parts: a CLIP objective between text and image
 embeddings, and "this prior that helps them do decoding slightly more efficiently" (≈1:24:36). See [conditional generative
 models](conditional-generative-models.md).
+
+## In-context learning as meta-learning (lecture 19)
+
+Lecture 19 returns to in-context learning from the side of meta-learning. Learning maps a sequence $x_0, y_0, x_1, y_1, \ldots$ to a
+function from $x$ to $y$; a recurrent network or an autoregressive model reading such a sequence does this in its state ("RNN state +
+params is f, apply that f to x3", slide 50), like the English-to-Spanish prompt of lecture 18 (≈1:12:25–1:13:12). "This really is, I
+think, what GPT and a lot of these modern autoregressive models are doing. It's kind of a version of meta-learning at large scale"
+(≈1:13:58). See [meta-learning](meta-learning.md).
 
 ## See also
 

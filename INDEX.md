@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–18 of 24 only.** This knowledge base currently holds the first eighteen
+> **Coverage: lectures 1–19 of 24 only.** This knowledge base currently holds the first nineteen
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models) and the concept pages they support. For anything taught in lectures 19–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data) and the concept pages they support. For anything taught in lectures 20–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 18. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 19. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -255,6 +255,19 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   composition and negation; visual prompting, one pink pixel, adaptation on inputs, mapping or outputs, visual prompt tuning and
   inpainting; and plugging foundation models together (VQGAN with CLIP, CLIP+GAN, DALL-E 2). Slides 4–6, 12–17, 19, 20, 33, 34, 52, 53,
   57, 60–63 and 69 are excluded from OCW's licence.
+- [Lecture 19 — Transfer Learning: Data](wiki/19-transfer-learning-data.md) — Sara Beery (deck titled "Lecture 19: Transfer
+  Learning II"; her last lecture of the course). Knowledge about the inputs: a generative model as "data++", a dataset you can operate
+  on ($\mathbb{X} = \lbrace x, z, G, G^{-1} \rbrace$ with interpolation, manipulation, composition and optimization) and a compression of
+  its data (the Stable Diffusion quotation); latent variables as controls, BigGAN's bird directions, and whether directions are
+  independent; counterfactuals and ensembling with deep generative views; finding directions (zoom, brighten, darken, word2vec's tense,
+  winter to spring) and the erupting volcano as data bias; where to interpolate: data space against latent space, the VAE's seams, and
+  StyleGAN's $\mathcal{W}$ and StyleSpace; labelling generated data (DatasetGAN, "1 labeled GAN image is worth ~100 labeled regular
+  images!", SAM); explaining a classifier (StylEx's cat and dog, perceived age, retinal fundus, Dataset Interfaces); representation
+  learning from generated data: whether a generator can hold more than its data, latent views for contrastive learning, class
+  boundaries, diversity against fidelity, and the ImageNet1000 results (43.9%, 35.7%, 42.6%); what generators will not do, and model
+  collapse; then meta-learning: three levels, MAML and its double loop (with the update formulas the slide covers), backpropagating
+  through backward, TIML for crop mapping, and in-context learning as meta-learning by sequence modeling. Slides 7–9, 12–17, 19, 20,
+  24–28, 33, 34, 42 and 49 are excluded from OCW's licence, and slides 23, 29–31 and 36 reuse excluded images.
 
 ## Course pages
 
@@ -336,7 +349,7 @@ passages it draws on.
   graph neural networks trained by backpropagating through unrolled message passing (lecture 5); why
   backpropagation never forms the network's output Jacobian $\partial f / \partial \mathbf{w}$, and
   forward mode (lecture 7); backpropagation through time, with summed gradients for shared recurrent
-  weights (lecture 10).
+  weights (lecture 10); backpropagating through backward, for meta-learning (lecture 19).
 - [Loss landscapes](wiki/loss-landscapes.md) — differentiable versus "has a PyTorch gradient"
   versus easy to optimize; the six toy cases (convex, discontinuous, vanishing, zero and exploding
   gradient, local minima) and what gradient descent does on each; random seeds; evolution
@@ -424,7 +437,7 @@ passages it draws on.
   distribution: why deployment never meets the IID assumption, evaluation that leaks, shortcuts and where they come from, visual and
   subpopulation shift, the WILDS benchmark, and the remedies: distributionally robust optimization and class imbalance, priors for
   subpopulation shift, domain adaptation, diagnosing failures, and representative training data (lecture 17); domain adaptation
-  taught (lecture 18).
+  taught (lecture 18); generators exposing biases in training data (lecture 19).
 - [Representation learning](wiki/representation-learning.md) — compact, compositional
   representations (the letter-T example), the early-to-late feature hierarchy in brains and
   networks, reuse/transfer of lower layers, what an embedding is, and visualizing what a unit
@@ -438,7 +451,8 @@ passages it draws on.
   loss giving alignment and uniformity and the data giving invariance, and why "relevant" depends on the task (lecture 12);
   a network as a map through vector spaces, and the similarity an untrained architecture builds in (lecture 13);
   generative modeling as its inverse (lecture 14); both directions learned at once, disentanglement, and seams in latent space
-  (lecture 15); transferring the learned encoder, and distilling a representation into a smaller network (lecture 18).
+  (lecture 15); transferring the learned encoder, and distilling a representation into a smaller network (lecture 18); learning a
+  representation from a generator's samples (lecture 19).
 - [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
   reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
   PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
@@ -460,7 +474,7 @@ passages it draws on.
   representations on iNaturalist, and how the benchmark decides what transfers (lecture 12); adversarially trained models
   transfer better, and domain adaptation previewed (lecture 17); the three kinds of knowledge to transfer, the finetuning recipe,
   glue layers for mismatched inputs and outputs, avoiding forgetting, and adaptation on inputs, mapping or outputs (lecture 18).
-  Lecture 19 is not yet covered.
+  Knowledge about the inputs through generative models as data++, and meta-learning (lecture 19).
 - [Domain adaptation](wiki/domain-adaptation.md) — adapting from a labelled source domain to an unlabelled target by aligning their
   representations: domain adversarial training (DANN) and the gradient reversal layer, $-\lambda \partial L_d / \partial \theta_f$;
   unsupervised domain adaptation built from pseudo-labels, a student, an EMA teacher, source supervision, distillation and alignment;
@@ -474,7 +488,10 @@ passages it draws on.
   what makes a foundation, learner and adaptor, their cost in compute, money, energy and water, and the scale argument; prompting a
   language model (GPT-3, in-context learning, brittle templates, soft prompts, chain-of-thought); CLIP's linear probe and zero-shot
   "just ask", and its trouble with composition and negation; visual prompting and adversarial reprogramming; and plugging models
-  together (CLIP+GAN, DALL-E 2) (lecture 18).
+  together (CLIP+GAN, DALL-E 2) (lecture 18); in-context learning as meta-learning (lecture 19).
+- [Meta-learning](wiki/meta-learning.md) — learning to learn: the three levels (inference, learning, meta-learning), MAML's learned
+  initialization and its double loop with the inner and outer updates, backpropagating through backward and its cost, whether it pays
+  (TIML for crop mapping), and meta-learning by sequence modeling, with in-context learning as meta-learning at scale (lecture 19).
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
@@ -489,7 +506,8 @@ passages it draws on.
   biases that standardization and one-hot labels remove (lecture 9); learned against hard-coded invariance (lecture 12);
   the architecture's opinion about similarity, read off the infinite-width covariance function (lecture 13); the usual
   inductive biases applied to generative models (lecture 14); simple mappings as what makes unpaired translation find the intended
-  one, and a discriminator's architecture as a bias of the loss (lecture 16).
+  one, and a discriminator's architecture as a bias of the loss (lecture 16); architecture as knowledge a generator adds beyond its
+  data (lecture 19).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
@@ -541,14 +559,15 @@ passages it draws on.
   relative, the cycle in the graph and backpropagation through time over a truncated window, summed gradients
   for shared weights, why powers of $\mathbf{W}$ make gradients vanish or explode (and why the spectral norm
   does not help), the LSTM's cell state and gates in a table, its identity default, and RNNs against
-  convolution and attention; Homework 3's RNN problem.
+  convolution and attention; Homework 3's RNN problem; an RNN's state as a learner, in meta-learning (lecture 19).
 - [Autoregressive models](wiki/autoregressive-models.md) — predict, append, repeat (lectures 8 and 10); the
   factorization of a sequence's probability into next-element conditionals, and lecture 9's point that longer
   prompts make prediction easier; each factor as a classifier over words, characters or byte pairs; maximum
   likelihood and teacher forcing; GPT's causal masking (lecture 8); sampling and beam search (lecture 10); next-word
   prediction as self-supervised learning that masks only the future, set beside BERT (lecture 11); autoregressive models
   as generative density models of words, pixels and audio, and their kinship with diffusion (lecture 14); conditional by construction,
-  prompting, and captioning (lecture 16); GPT-3's generative pretraining, prompting and in-context learning (lecture 18).
+  prompting, and captioning (lecture 16); GPT-3's generative pretraining, prompting and in-context learning (lecture 18); in-context
+  learning as meta-learning (lecture 19).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
@@ -559,7 +578,8 @@ passages it draws on.
   against invariant architectures (geometric deep learning), making the training problem harder on
   purpose, domain randomization and the domain gap, and OpenAI's robot hand (lecture 9); augmentations as the positive
   pairs of contrastive learning, the invariances they teach (and the left and right shoes), and SimCLR's need for heavy
-  augmentation (lecture 12); adversarial training as adaptive data augmentation (lecture 17).
+  augmentation (lecture 12); adversarial training as adaptive data augmentation (lecture 17); augmentation as generation, test-time
+  augmentation through a generator, and latent views (lecture 19).
 - [Metric learning](wiki/metric-learning.md) — learning a distance from similar and dissimilar pairs: relative
   judgements, the linear map as a Mahalanobis distance, Xing et al.'s constrained problem, deep metric learning and
   normalized representations, the triplet loss, triplet networks and the lifted structured loss, what a learned bird
@@ -570,7 +590,7 @@ passages it draws on.
   uniformity, learned invariance, the SimCLR ingredients (augmentation, projection head, batch size, negatives), and
   the iNaturalist case study of where it falls short (lecture 12); Homework 4's similarity-based section; contrastive
   divergence, a distant relative (lecture 14); contrastive pretraining for transfer, contrastive representation distillation, and
-  CLIP prompted (lecture 18).
+  CLIP prompted (lecture 18); positive pairs made in a generator's latent space (lecture 19).
 - [Kernel methods](wiki/kernel-methods.md) — fitting data with a bump function on every training point,
   $f(x) = \sum_i \alpha_i \thinspace k(x, x_i)$, and the reproducing kernel Hilbert space; the kernel as the modelling
   choice; the correspondences with Gaussian processes (the posterior mean as the minimum-norm kernel interpolator) and
@@ -586,12 +606,13 @@ passages it draws on.
   divergence, the filing cabinet and test likelihood, and generation turned into a sequence of supervised problems
   (lecture 14); generative models as distribution transformers, latent variable models and the marginal likelihood, and
   slide 41's comparison of the families by latents, density and generator (lecture 15); generative models for structured prediction,
-  conditioning each family, and explicit inputs against latent variables (lecture 16).
+  conditioning each family, and explicit inputs against latent variables (lecture 16); a trained generator as data++ (lecture 19).
 - [Variational autoencoders](wiki/variational-autoencoders.md) — an autoencoder whose encoder maps to a Gaussian, so that its
   decoder is a generative model: the infinite mixture of Gaussians, the reparameterization trick, the three tricks for the
   intractable likelihood (Monte Carlo, importance sampling, an encoder predicting the sampling distribution), the evidence lower
   bound and its two terms, the training loop, disentanglement and seams, and how VAEs relate to the other families (lecture 15); the
-  conditional VAE, whose latent encodes only what the input leaves out, and DALL-E 1 (lecture 16).
+  conditional VAE, whose latent encodes only what the input leaves out, and DALL-E 1 (lecture 16); the seams again, as the reason to
+  interpolate in an intermediate space (lecture 19).
 - [Energy-based models](wiki/energy-based-models.md) — unnormalized probability models: the Boltzmann form and the
   partition function, why relative probabilities are often enough, why probabilities are still easier to interpret, and
   training by contrastive divergence with its gradient, data pushing the energy down and model samples pushing it up
@@ -605,7 +626,13 @@ passages it draws on.
   direct or indirect, the discriminator's and generator's objectives, the min-max game, the student and teacher, and two
   inconsistencies printed on the slides (lecture 14); BigGAN's latent directions without an encoder, and GANs in the comparison of
   families (lecture 15); conditional GANs (pix2pix), the discriminator as a learned loss that sees pairs, its probability-of-synthetic
-  convention, the L1 term, the patch discriminator, mode collapse, and CycleGAN's cycle consistency for unpaired data (lecture 16).
+  convention, the L1 term, the patch discriminator, mode collapse, and CycleGAN's cycle consistency for unpaired data (lecture 16);
+  StyleGAN's mapping network and $\mathcal{W}$ space, BigGAN's interpolation, StyleSpace, DatasetGAN and StylEx (lecture 19).
+- [Generative models as data](wiki/generative-models-as-data.md) — a trained generator as "data++": the data++ object and its operators,
+  compression, directions in latent space and how to find them, the bias they expose, where to interpolate (seams, StyleGAN's
+  $\mathcal{W}$), counterfactuals and ensembles, labelling generated data (DatasetGAN), explaining a classifier (StylEx, Dataset
+  Interfaces), and generated data for contrastive learning with its caveats: class boundaries, diversity against fidelity, generator
+  priors, rare categories and model collapse (lectures 15, 17 and 19).
 - [Conditional generative models](wiki/conditional-generative-models.md) — predicting one high-dimensional thing from another:
   structured prediction and why unstructured prediction blurs and averages, the two properties of generative models, the objective
   rather than the hypothesis space, how each family is made conditional (a table), explicit inputs against latent variables, tokens
@@ -622,7 +649,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–18 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–19 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

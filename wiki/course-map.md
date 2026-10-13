@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md) and [lecture 18](18-transfer-learning-models.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md) and [lecture 19](19-transfer-learning-data.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -44,7 +44,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 16 | Generative Models: Conditional Models | [yes](16-generative-models-conditional-models.md) |
 | 17 | Generalization: Out-of-Distribution (OOD) | [yes](17-generalization-out-of-distribution.md) |
 | 18 | Transfer Learning: Models | [yes](18-transfer-learning-models.md) |
-| 19 | Transfer Learning: Data | not yet |
+| 19 | Transfer Learning: Data | [yes](19-transfer-learning-data.md) |
 | 20 | Scaling Laws | not yet |
 | 21 | Language Models | not yet |
 | 23 | Metrized Deep Learning | not yet |
@@ -220,6 +220,14 @@ to distribution shifts "last week" (lecture 17, ≈0:00), to similarity-based re
 in RNNs, ≈25:31), to adversarial noise (lecture 17, ≈1:18:27) and to plugging pretrained models together, "I think we showed this early
 on" (probably lecture 2's CLIP+GAN, ≈1:23:48)
 ([lecture 18](18-transfer-learning-models.md#pointers-to-other-lectures)).
+
+Lecture 19's deck is titled "Lecture 19: Transfer Learning II", matching lecture 1's banner ("Lectures 18, 19: Models, Data") and the
+recording ("Transfer Learning: Data"); it is Sara Beery's last lecture of the course (≈0:46), and prints no other lecture number. The
+recording points back to the generative-model lectures "with Phil" (14–16, ≈2:21), to "the lecture from VAEs" (15, ≈20:20), to Dataset
+Interfaces, "I showed this work actually before" (17, ≈36:41), to learning a prior "when we were talking about distribution shift" (17,
+≈1:12:25), to the forward and backward pass unfolded (probably 2, ≈1:09:21) and to in-context translation in "autoregressive modeling for
+large language models" (probably 18, ≈1:13:12); it names no later lecture
+([lecture 19](19-transfer-learning-data.md#pointers-to-other-lectures)).
 
 ## Coursework and policies
 

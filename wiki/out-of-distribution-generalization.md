@@ -8,7 +8,8 @@ training distribution "one of the biggest open challenges for modern machine lea
 talk about progress, but we don't have solutions" (≈14:00). Lecture 1 assigned the topic its own lecture beside
 generalization theory (see [generalization and double descent](generalization-and-double-descent.md)). Covered so far:
 [lecture 17](17-generalization-out-of-distribution.md), slides 1–8 and 26–62, ≈0:00–14:00 and ≈30:27–1:03:59; [lecture 18](18-transfer-learning-models.md), slides 19–28,
-≈29:24–40:20, teaches domain adaptation, one of lecture 17's remedies.
+≈29:24–40:20, teaches domain adaptation, one of lecture 17's remedies; [lecture 19](19-transfer-learning-data.md), slides 13–14 and 34, ≈14:50–16:23,
+≈36:41–37:28 and ≈1:02:16–1:03:03, uses generators to expose biases in training data.
 
 **Notation.** An input is $\mathbf{x}$ and its label $y$; $f_{\theta}$ is a network with parameters $\theta$ and
 $\text{Loss}$ its training loss. The training set $\lbrace (\mathbf{x}^{(i)}, y^{(i)}) \rbrace_{i=1}^{n}$ defines an
@@ -92,6 +93,14 @@ really need something to work well, you have to invest in the right kind of trai
 The lecture ends on the distinction between being robust to any shift one can imagine and adapting to a known one. The
 second, with a target dataset in hand, can be done far more efficiently by fine-tuning, domain adaptation or human feedback
 (≈1:02:25–1:03:59).
+
+## Generators expose bias (lecture 19)
+
+Lecture 19 finds the training data's biases in a generator's latent space. A direction that darkens a picture of a volcano also makes it
+erupt, "because clearly, people are not taking pictures of volcanoes in the dark that aren't erupting" (slides 13–14, ≈14:50–16:23), and
+directions that move a perceived-age classifier include skin tone and eyebrows, which raise questions of fairness (≈32:50–34:22). Dataset
+Interfaces, lecture 17's example, returns as a way to probe biases "without needing to explicitly look through all the data"
+(slide 34, ≈1:02:16–1:03:03). See [generative models as data](generative-models-as-data.md).
 
 ## See also
 

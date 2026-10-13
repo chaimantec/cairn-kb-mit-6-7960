@@ -21,7 +21,8 @@ slides 4–7 and 20–26, ≈4:49–8:41 and ≈45:07–1:12:44, asks what simil
 [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 3, 5, 35–40, ≈0:47–3:55 and
 ≈1:11:40–1:19:23, learns both directions at once in a variational autoencoder, and asks what its latent space learns: disentangled
 factors of variation, and seams. [Lecture 18](18-transfer-learning-models.md), slides 11 and 36–37, ≈13:57–15:30 and
-≈49:35–53:29, transfers the learned encoder by finetuning and distills a representation from one network into another.
+≈49:35–53:29, transfers the learned encoder by finetuning and distills a representation from one network into another. [Lecture
+19](19-transfer-learning-data.md), slides 35–41, ≈37:28–57:37, learns a representation from a generator's samples.
 
 ## Compact, compositional representations
 
@@ -328,3 +329,11 @@ what is learned "is just universal in some sense … for, let's say, images or a
 big network to a small one: **contrastive representation distillation** trains a student's embeddings to match a teacher's, treating the
 two networks as two views of the same input (slides 36 and 37, ≈49:35–53:29). See [transfer learning](transfer-learning.md) and
 [knowledge distillation](knowledge-distillation.md).
+
+## Representations from generated data (lecture 19)
+
+Lecture 19 asks whether a representation can be learned from a generator rather than from the data it was trained on, and whether that
+could ever be better: "there's this kind of broader meta argument going on in the community of whether it is possible to get more
+information out of a generator trained on data than the underlying data itself" (≈39:45). With contrastive views made in latent space,
+generated data came within about a point of real data on ImageNet1000 linear transfer, 42.6% against 43.9% (slide 40); "what do we really
+want from representations?" (≈55:16). See [generative models as data](generative-models-as-data.md).

@@ -8,8 +8,8 @@ learner, and the course presents them as the practitioner's alternative to build
 architecture. Covered so far: [lecture 9](09-hackers-guide-to-deep-learning.md), slides 13–18,
 ≈30:17–41:03, with mentions in [lecture 2](02-how-to-train-a-neural-net.md) and
 [lecture 6](06-generalization-theory.md); and augmentation as the source of positive pairs in contrastive learning, in
-[lecture 12](12-representation-learning-similarity-based.md), slides 33–34, 45–48 and 67–68, ≈36:40–41:21, ≈52:23–55:29 and ≈1:07:16–1:08:02; and adversarial training as "adaptive data augmentation" in [lecture 17](17-generalization-out-of-distribution.md), slide 24, ≈24:59–25:45. Transfer learning from
-the data side is lecture 19, not yet in this knowledge base (see the [course map](course-map.md)).
+[lecture 12](12-representation-learning-similarity-based.md), slides 33–34, 45–48 and 67–68, ≈36:40–41:21, ≈52:23–55:29 and ≈1:07:16–1:08:02; and adversarial training as "adaptive data augmentation" in [lecture 17](17-generalization-out-of-distribution.md), slide 24, ≈24:59–25:45. [Lecture 19](19-transfer-learning-data.md) (slides 12 and 35–41, ≈11:45–12:30 and ≈40:30–47:23) treats augmentation as a kind
+of generation, and uses a generator for test-time augmentation and for contrastive views.
 
 **Notation.** A training pair is $(\mathbf{x}, y)$, an input and its label. $p_{\text{source}}$ is the
 distribution the training data comes from and $p_{\text{target}}$ the one the model is used on.
@@ -104,6 +104,17 @@ Lecture 2 gives data augmentation as an example of a pre-processing step, which,
 inside the network, need not be differentiable (see [differentiable programming](differentiable-programming.md)). Lecture 6's table from
 Zhang et al. compares models trained with and without data augmentation and weight decay (see
 [generalization and double descent](generalization-and-double-descent.md)).
+
+## Augmentation as generation (lecture 19)
+
+Lecture 19 asks how a hand-designed augmentation differs from a learned generator. "You could argue that random flipping is an image
+generation algorithm", one that guarantees "fidelity to the class that you care about", and copy-paste augmentation, putting
+foreground objects on new backgrounds, is "even getting maybe closer to something like a learned generative model" (≈41:15–42:01).
+Going the rest of the way, Ensembling with Deep Generative Views classifies an image together with variations a GAN generates around
+it, "almost like test time augmentation within the generator itself" (slide 12, ≈11:45–12:30), and latent views replace crops and
+colour jitter as contrastive learning's positive pairs (slides 35–41; see [contrastive learning](contrastive-learning.md)). Each
+assumes that a small move keeps the class, which may hold for "cat" but not for a cat's breed (≈13:17). See [generative models as
+data](generative-models-as-data.md).
 
 ## See also
 

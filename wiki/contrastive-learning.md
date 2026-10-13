@@ -13,7 +13,8 @@ course's representation-learning theory lecture, recaps contrastive learning (sl
 an architecture expresses before any training; see [Gaussian processes](gaussian-processes.md). [lecture 14](14-generative-models-basics.md) (slide 29, ≈52:44–53:32)
 names a distant relative, contrastive divergence. [Lecture 18](18-transfer-learning-models.md) (slides 12–13, 36–37 and 60–63,
 ≈16:19–17:04, ≈49:35–53:29 and ≈1:15:20–1:18:27) pretrains by contrastive learning for transfer, distills representations
-contrastively, and prompts CLIP.
+contrastively, and prompts CLIP. [Lecture 19](19-transfer-learning-data.md) (slides 35–41, ≈37:28–57:37) makes positive pairs by
+moving in a generator's latent space.
 
 **Notation.** The encoder $f$ maps data onto the unit hypersphere, $f : \mathcal{X} \rightarrow \mathbb{S}^{d-1}$. An anchor
 $\mathbf{x}$ has a positive $\mathbf{x}^+$, drawn with it from the positive-pair distribution $p_{pos}$, and $N$
@@ -155,6 +156,17 @@ distillation](knowledge-distillation.md). And **CLIP** (slide 60, Radford et al.
 adapted either by a linear probe on its image embeddings or by "just asking", comparing an image's embedding with the embeddings of
 prompts such as "A photo of a {object}." (slides 61–63). Its embeddings behave "almost a bit like a bag of words": good at single
 concepts, bad at composition and negation (≈1:17:40–1:18:27). See [foundation models and prompting](foundation-models-and-prompting.md).
+
+## Positive pairs from a generator (lecture 19)
+
+Lecture 19 replaces hand-designed augmentations with a generator: "Create positive pairs by transformations in latent space, rather
+than in data space" (slide 37). Jahanian, Puig, Tian and Isola (ICLR 2022) take "Latent views", images generated from latent points
+near a real image's, as "different views of the same thing", alongside SimCLR's crops and colour distortions (slides 38–39, ≈46:36).
+Trained on generated data only, ImageNet1000 linear transfer reached 35.7% top-1 with data-space transformations alone and 42.6% with
+latent ones added, against 43.9% for real data (slide 40, ≈56:02–56:48). A latent move can cross a class boundary, but if that is rare
+"it's almost like the noise will come out. It's almost a mechanism for regularization", like the false negatives of ordinary
+contrastive batches (≈44:18–45:51). And views that are nearly identical teach less: "it's probably more useful to know that two things
+that are more different from each other are, in fact, the same" (≈47:23). See [generative models as data](generative-models-as-data.md).
 
 ## See also
 

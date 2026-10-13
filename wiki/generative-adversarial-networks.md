@@ -6,7 +6,8 @@ the **discriminator** $d_{\phi}$, with its own parameters $\phi$, is a classifie
 generator's output. The generator is trained to fool it. Covered so far: [lecture 14](14-generative-models-basics.md), slides
 54–59, ≈1:17:40–1:20:47, the last three minutes of the lecture; [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 39 and 41,
 ≈1:16:20–1:17:06 and ≈1:19:23–1:20:09 (BigGAN's latent directions, and GANs among the other families); [lecture 16](16-generative-models-conditional-models.md), slides
-16–38 and 71–81, ≈22:37–39:45 and ≈1:11:44–1:19:23 (conditional GANs, the patch discriminator, and CycleGAN). See also
+16–38 and 71–81, ≈22:37–39:45 and ≈1:11:44–1:19:23 (conditional GANs, the patch discriminator, and CycleGAN); [lecture 19](19-transfer-learning-data.md), slides 6–31, ≈7:48–32:50
+(BigGAN and StyleGAN latent spaces as controls, labels and explanations). See also
 [generative models](generative-models.md).
 
 ## Direct or indirect?
@@ -86,6 +87,19 @@ discriminator" (≈1:14:02). Drop it, and the loss "checks if output is part of 
 adds a second generator and discriminator for the way back and a **cycle-consistency loss**: going from $X$ to $Y$ and back, "I should
 arrive where I started" (slides 78–80, ≈1:16:19–1:17:07). "Here's a really cool thing about GANs and why they're still a neat model,
 even though they're less flashy these days" (≈1:14:02). See [conditional generative models](conditional-generative-models.md).
+
+## Latent spaces as data (lecture 19)
+
+Lecture 19 uses GANs' latent spaces for transfer learning. Walking in a straight line in a GAN's latent space "kind of works, but it
+can be really cherry picking" (≈16:23–17:11). StyleGAN (Karras, Laine and Aila, 2018) puts a "Mapping network $f$" of eight fully
+connected layers between the input latent $z \in \mathcal{Z}$ and an intermediate latent $w \in \mathcal{W}$, which steers each layer of
+the "Synthesis network $g$" through AdaIN (slide 15), and found the intermediate space better to walk in: the input space is "almost
+like you've taken something and tried to crumple it into a ball", with seams where nearby latent points map far apart, while
+$\mathcal{W}$ is "a little bit less distorted" (slides 18–19, ≈21:07–22:40). StyleSpace finds cleanly disentangled directions there,
+such as a car's hood style, headlights and body colour (slide 20). BigGAN's interpolation from a bird to a fly stays on the image
+manifold but passes through "this half bird, half fly thing" (slide 17, ≈19:34). DatasetGAN labels a StyleGAN's images from a few
+annotations (slides 24–26), and StylEx explains a classifier through StyleSpace directions (slides 28–31). See [generative models as
+data](generative-models-as-data.md).
 
 ## Two things printed on the slides
 

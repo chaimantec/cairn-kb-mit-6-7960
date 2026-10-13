@@ -89,18 +89,26 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   recording discusses forgetting in RNNs but never says "catastrophic forgetting", ≈25:31), to adversarial noise (17, ≈1:18:27) and to
   plugging pretrained models together, "I think we showed this early on" (≈1:23:48): lecture 2's slide 70, CLIP+GAN, is the same slide
   as this deck's slide 74.
+  Lecture 19's title slide reads "Lecture 19: Transfer Learning II", matching lecture 1's banner ("Lectures 18, 19: Models, Data") and
+  the recording ("Transfer Learning: Data"); Sara Beery is the speaker, it is her last lecture of the course (≈0:46), and the deck prints
+  no other lecture number. Slide 3 is lecture 18's banner with "3. Knowledge about the inputs" in bold. Its recording points back to the
+  generative-model lectures "with Phil" (14–16, ≈2:21), to "the lecture from VAEs" (15, ≈20:20; slide 18 is lecture 15's slide 40 again),
+  to Dataset Interfaces, "I showed this work actually before" (17's slide 59, ≈36:41; this deck's slide 34), to learning a prior "when we
+  were talking about distribution shift" (17's slide 55, ≈1:12:25), to the forward and backward pass unfolded (probably 2, whose slides 50
+  and 51 draw slide 47's network, ≈1:09:21) and to in-context translation in "autoregressive modeling for large language models"
+  (probably 18's slide 54, ≈1:13:12). It names no later lecture.
 
 ## End pages
 
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16, page 63 in lecture 17, page 77 in lecture 18), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16, page 63 in lecture 17, page 77 in lecture 18, page 52 in lecture 19), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
   page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
-  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", of lecture 16's page 84, a 792×612 page that prints "84", and of lecture 17's page 63, a 792×612 page that prints "63", and of lecture 18's page 77, a 792×612 page that prints "77".
+  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", of lecture 16's page 84, a 792×612 page that prints "84", and of lecture 17's page 63, a 792×612 page that prints "63", and of lecture 18's page 77, a 792×612 page that prints "77", and of lecture 19's page 52, a 792×612 page that prints "52".
 
 ## Handwritten decks
 
@@ -225,6 +233,16 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   outlined small print found nothing, and the audit found no missed notice. Slide 63's notice begins inside the bounding box of its
   "Image Encoder" graphic, whose raster crop shows the notice's first characters at its edge. Slide 74 carries no notice but reuses
   slide 63's encoder graphics (next section).
+  Lecture 19's carries 20 in 52 pages, all typed and in the text layer, and the slide file's set matches the text layer's exactly:
+  slides 7–9, 16 and 17 ("© Brock et al.", BigGAN's birds and interpolations), 12 ("© Chai et al."), 13, 14, 33 and 42 ("© source
+  unknown"), 15 and 19 ("© Karras et al.", StyleGAN), 20 ("© Wu et al.", StyleSpace), 24–26 ("© Zhang  et al.", DatasetGAN, with two
+  spaces as printed), 27 ("© Tritrong  et al."), 28 ("© Lang et al."), 34 ("© Vendrow et al.") and 49 ("© AAAI"). Slide 27's X-ray figure
+  carries "Courtesy of Li et al. Used under CC BY.", slides 35–39 "Courtesy of Jahanian et al. Under under CC BY.", and slides 6, 10 and
+  11 a credit for a StyleGAN2 cat photo "Made available under the Nvidia Source Code License-NC". OCW removed slide 32's picture ("Image of
+  people removed due to copyright restrictions."). Slides 18 (lecture 15's own plot), 40 (Jahanian et al.'s diagram) and 45 (MAML's
+  algorithm and figure, cited) carry a citation or none, and no notice. A vector scan for outlined small print found nothing, and the
+  audit found no missed notice. Slide 28's notice sits under its row of portraits, but names the authors of the paper whose cat is on the
+  same slide (next section).
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -343,6 +361,20 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   different figure) and against three soft-masked uniform fills in lectures 6, 8 and 9 (grey 8.6–8.7); lecture 16's 284 × 284 purple
   square against slide 63's Image Encoder (53.9); and slide 1's title banner against lecture 15's excluded slide 1, the course banner
   again. The other coarse matches had grey differences of 74.7 to 217.3.
+  Lecture 19's sweep, lecture 18's script with lecture 2's slide 70, lecture 12's slide 35 and lecture 18's slide 74 added to the withheld
+  list, was first rerun on lectures 11 and 14 and found the CLIP figure (0 bits, grey 0.4) and Homework 5's chain (4 bits, 5.5) as before.
+  It found three reuses, all exact. **Slide 23** draws slide 42's 1482 × 1482 volcano grid, which slide 42 draws under "© source unknown";
+  withheld. **Slides 29 and 30** draw slide 28's 256 × 256 cat photograph. Slide 28's "© Lang et al." sits under the row of portraits, at
+  the right, not beside the cat at the lower left; but Lang et al. are the authors of the StylEx paper the cat comes from, so the notice
+  was read as covering it, and both slides are withheld. **Slide 31** draws four other 256 × 256 rasters, stacked: the generator's
+  reconstruction of that photograph and three edits of it (open mouth, darker eyes, lowered ears; grey differences of about 34 against the
+  photograph, so no hash match). They are the same paper's versions of the same photograph, and slide 31 is withheld with 29 and 30; this
+  is a judgment call, and the slide can be rendered if the cat is judged uncovered. **Slide 36** draws two 256 × 256 tiger photographs
+  byte for byte the same as lecture 18's excluded slides 12 and 13 ("Tigers © source unknown"); this deck credits them "Courtesy of
+  Jahanian et al. Under under CC BY.", but the notice binds, and slide 36 is withheld. Cleared: the earlier-rendered direction matched
+  lecture 9's slide 57 against slide 34's plate photographs coarsely (grey 49.9 and 72.6; side by side, a dark plot of four markers
+  against an empty plate and a plate of food), and lecture 8's slides 14, 15, 28 and 29 against a slide 28 portrait (grey 65.0–71.6); and
+  slide 1's footer banner matched lecture 15's excluded slide 1 again. No earlier image was withdrawn.
 
 ## Transcript edits, by lecture
 
@@ -466,6 +498,16 @@ slips or doubtful words: "CIFAR10" where slide 37 prints CIFAR100 (52:42), the 1
 (1:01:16, BigScience outside the course material), "portability" for potability (1:03:35), Google for the Three Mile Island restart
 (1:04:24, Microsoft's deal outside the course material) and "primary numbers" where slide 51 prints prime numbers (1:10:41). No student is
 named. The lecturer's spending, water and Amazon/eBay figures appear on no slide and are kept unchecked, as the header says.
+Lecture 19: 97 markers identical, all 15 numbers identical, and word ratios 1.00–1.01 once its `[Ed: …]` notes are removed (with them,
+six paragraphs reach 1.12–1.22). Done inline, by a script of exact replacements, after reading the whole transcript for the wiki and the
+slide file. Three restorations: "topK" → "top-K" (31:15, slide 31), "the tech space" → "the text space" (1:06:13, from the sentence's list
+of modalities and the question it answers) and a comma moved in "Given some initialization, we update it with SGD" (1:08:34, slide 44).
+Sixteen `[Ed: …]` notes: the lectures referred to ("Phil" as Phillip Isola twice, 15, 17 twice, probably 2, probably 18), slide 4's
+attribution of the Stable Diffusion quotation, "Mathcad X" (slide 5's double-struck X), "walking to walk" where slide 13 prints "walked",
+"the fairness of the equity", a missing word at 48:08, the garbled passage at 1:00:44 (slide 42 gives the wording), "driven data", and the
+first names "Chelsea Finn" and "Gabi Tseng" against slides 44–46's and 49's citations. No student is named. SAM and DINOv2, British
+shorthairs, American robins, the oriole, toucan and star-shaped baseball, the ECCV paper on "instance augmented generation", "Bigfoot with
+a crow texture" and model collapse appear on no slide and are kept unchecked, as the header says.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -883,6 +925,30 @@ invisible letters sit in the text layer of slides 8, 9, 29 ("z") and 10, 31, 33,
 42's holds three more panels, both cropped off the page; slide 65 clips slide 66's raster to its first panel. The entries describe only
 what the pages show.
 
+**Lecture 19's figure audit**, cross-model: Sonnet read the typed deck in two halves, and Opus checked 44 pages (3–31, 33–40, 42, 43,
+45–49), every page with a figure, chart, diagram or equation, split between four agents, all of which finished. No equation was wrong:
+slide 5's five formulas, slide 35's and 40's sets and transformations, and slide 43's nested datasets were checked character by character,
+slide 33's sixteen numbers one by one, and slide 26's chart within half a point at every marker. 19 pages were corrected, 20 given
+precisions only, and 5 were right as written. Counts and positions: slides 4 and 6's network has 16 arrows, two short of fully connected;
+slide 5's two citations sit by the Manipulation row, not one by each of two rows; slides 8 and 9's arrow points at the photographs, not
+the heading; slide 13's "Zoomed out" and "Zoomed in" label the arrows' tails and heads; slide 17's number sits over the fourth photograph;
+slide 18 has exactly 26 and 16 dots, and its tick labels were misread; slide 23's dotted lines are curves from other dots; slide 24's
+face row has five faces; slide 36 has one green dot, not two; slide 40's panels are not boxed; slide 45's gradient arrows have one head
+each; slide 49's Random Forest has five points, not eight. Pictures misdescribed: slide 18 is four rasters under a visible OCR layer, not
+one picture; slide 19's panel (c) is a notched shape; slide 20's codes are white on black; slide 23's volcano grid changes differently
+along rows and columns; slide 35 has no second point; slide 38's lower latent tile is the original photograph again; slide 39's fourth
+variant looks like the original. Names from outside the page: slide 14's church, mosque and fox. The audit also read the three MAML lines
+slide 45's overlays hide, from the embedded image, and found slide 49's legend cropped from another panel. The renders of slides 40 and
+48 were then checked against the corrected text.
+
+**Lecture 19's printed slips and oddities**, transcribed as written: slide 5's "et al. ," with a space before the comma; slide 24's
+"StyleGan" and "see  also"; "Zhang  et al." with two spaces in the notices of slides 24–26, and "Tritrong  et al." in slide 27's; "Under
+under CC BY" in the credit of slides 35–39; slide 43's "Datastets"; and slide 44's "such just". Hidden content: white "z" letters on slide
+3 and "c" letters on slides 36 and 40 in the text layer; earlier builds of the cat stacked under slides 30 and 31's visible one; charts and
+image grids drawn off slide 34; clipped copies of slides 47 and 48's diagrams; slide 45's overlays over lines 5, 6 and 8 of the pasted
+algorithm (given in the entry as hidden); and slide 18's whited-out captions and tick labels under a visible OCR text layer. The entries
+describe what the pages show.
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -910,6 +976,8 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   described that are not on the page (a hand holding a cube, a bracket, water); all four of its auditors finished.
   Lecture 18's audit found errors on 19 of 62 pages, mostly counts, chart readings and directions, with no formula wrong, three names
   taken from outside the page and one typo introduced into a URL; all four of its auditors finished.
+  Lecture 19's audit found errors on 19 of 44 pages, mostly counts and positions, with no formula wrong, seven pictures misdescribed (one
+  of them a second point that is not on the page) and three names taken from outside the page; all four of its auditors finished.
 
 ## Where each lecture's images appear
 
@@ -954,6 +1022,8 @@ All 11 of lecture 17's images appear both in [`wiki/17-generalization-out-of-dis
 and under their headings in [`raw/slides/17-generalization-out-of-distribution.md`](raw/slides/17-generalization-out-of-distribution.md).
 All 26 of lecture 18's images appear both in [`wiki/18-transfer-learning-models.md`](wiki/18-transfer-learning-models.md)
 and under their headings in [`raw/slides/18-transfer-learning-models.md`](raw/slides/18-transfer-learning-models.md).
+All 15 of lecture 19's images appear both in [`wiki/19-transfer-learning-data.md`](wiki/19-transfer-learning-data.md)
+and under their headings in [`raw/slides/19-transfer-learning-data.md`](raw/slides/19-transfer-learning-data.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -1357,6 +1427,29 @@ Not rendered, and why:
   37 without its heat maps) and 65 (slide 66's first panel).
 - **Text, tables and screenshots of text the slide file reproduces exactly:** 2, 7, 11, 18, 32, 44, 47–51, 54, 56, 58, 71 and 76.
 - **Section slides, title and end page:** 55, 64 and 72; slide 1; slide 77, the OCW end page.
+
+### What was rendered, and what was not — lecture 19
+
+Rendered (15): slides 3, 4, 6, 10, 18, 22, 35, 37, 38, 39, 40, 43, 45, 47 and 48: the inputs-to-outputs banner, data to data++, the
+generative model with its latent controls, Data2Data++, the VAE's coloured latent map, labels in latent space, the multiview paper's
+dataset against generator, a positive pair made in latent space, SimCLR views against latent views (two slides), the contrastive results
+(43.9%, 35.7%, 42.6%), the three levels of meta-learning, MAML's algorithm and figure, and the forward and backward pass with its meta
+backward (two slides). Thirteen wiki images were placed by hand with hand-written captions (3, 4, 6, 10, 18, 22, 35, 37, 39, 40, 43, 45,
+48), three of them first with guessed extensions, fixed from disk; the script placed the other two (38, anchored at first in the notation
+paragraph by the range "slides 35–40" and moved by hand, and 47), and both captions were rewritten; the script placed all 15 in the slide
+file. Slides 6 and 10 show the StyleGAN2 cat under its Nvidia Source Code License-NC credit; slides 40 and 45 reproduce third-party
+figures with a citation and no notice, and are rendered by the rule that only a notice excludes.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (20 slides): 7–9, 12–17, 19, 20, 24–28, 33, 34, 42 and 49.** BigGAN's birds, the latent directions, the
+  StyleGAN and StyleSpace figures, DatasetGAN, StylEx, the retinal images, Dataset Interfaces, the volcano grid and TIML therefore exist
+  here as prose only.
+- **Reuse of an excluded image (5 slides):** 23 (slide 42's volcano grid), 29 and 30 (slide 28's cat photograph), 31 (the generator's
+  versions of it) and 36 (lecture 18's excluded tigers). See the sweep above for the reasoning on 29–31.
+- **Build steps a rendered slide supersedes:** 11 (the z-to-x picture of slide 6, after slide 10) and 21 (slide 22 without its labels).
+- **Text, equations and code the slide file reproduces exactly:** 2, 5, 32 (OCW's placeholder), 41, 44, 46, 50 and 51.
+- **Title and end page:** slide 1; slide 52, the OCW end page.
 
 ## Build checklist, lectures 1–17
 

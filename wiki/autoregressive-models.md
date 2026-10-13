@@ -11,7 +11,8 @@ model, teacher forcing, sampling and beam search); [lecture 11](11-representatio
 (next-word prediction as self-supervised learning, set beside BERT's masking); [lecture 14](14-generative-models-basics.md), slides 35–42 and
 52–53, ≈59:43–1:07:34 and ≈1:15:21–1:16:52 (autoregressive models as generative density models, of words, pixels and audio, and their kinship with
 diffusion models); [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slide 41, ≈1:20:09 (the families compared); [lecture 16](16-generative-models-conditional-models.md), slides 52–56 and 70, ≈45:58–53:47 and ≈1:07:53 (conditional by
-construction, prompting, captioning, and a prior over VQGAN's codes). [Lecture 18](18-transfer-learning-models.md), slides 48–54, ≈1:09:52–1:12:14, adapts GPT-3 by prompting and in-context learning.
+construction, prompting, captioning, and a prior over VQGAN's codes). [Lecture 18](18-transfer-learning-models.md), slides 48–54, ≈1:09:52–1:12:14, adapts GPT-3 by prompting and in-context learning, and
+[lecture 19](19-transfer-learning-data.md), slide 50, ≈1:13:12–1:14:43, calls in-context learning meta-learning.
 Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
 
 ## Predict, append, repeat
@@ -154,3 +155,7 @@ predict the next character" ("Colorless green ideas sleep ____" → "furiously",
 outer loop of "Learning via SGD during unsupervised pre-training": each prompt's examples, of sums, unscrambled words or translations, set
 the task the model continues (≈1:11:28). Whether that is learning or "pattern matching", "essentially just a kernel machine" over the
 training data, "depending on who you talk to" (≈1:10:41). See [foundation models and prompting](foundation-models-and-prompting.md).
+
+Lecture 19 calls this meta-learning. A sequence $x_0, y_0, x_1, y_1, \ldots$ defines a task, and a model that predicts what comes next
+learns the task from the sequence: "this really is, I think, what GPT and a lot of these modern autoregressive models are doing. It's kind
+of a version of meta-learning at large scale" (slide 50, ≈1:13:58). See [meta-learning](meta-learning.md).

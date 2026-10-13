@@ -17,7 +17,8 @@ learned from augmented pairs against invariance hard-coded into an architecture:
 the similarity judgement an untrained architecture already makes: slides 7, 22, 23 and 26, ≈7:55, ≈47:28–52:12 and ≈1:11:08–1:12:44;
 and [lecture 14](14-generative-models-basics.md), on inductive biases in generative models, ≈41:57–43:29; and [lecture 16](16-generative-models-conditional-models.md), on why
 unpaired translation finds the intended mapping, and a discriminator's architecture as a bias of the loss: slides 33 and 81, ≈32:46–35:52
-and ≈1:17:53–1:19:23.
+and ≈1:17:53–1:19:23; and [lecture 19](19-transfer-learning-data.md), on architecture as knowledge a generator adds beyond its data,
+≈24:16 and ≈40:30–41:15.
 
 ## Why an MLP is not enough
 
@@ -267,6 +268,14 @@ with gradient descent with two hidden units can only find two mappings", the ide
 ICLR 2018; ≈1:17:53–1:19:23). And a conditional GAN's loss is a network, so its architecture is a bias on what the loss can see: a patch
 discriminator's patch size decides whether it can detect blur or higher-order structure at all (slide 33, ≈32:46–35:05). See
 [conditional generative models](conditional-generative-models.md).
+
+## Knowledge beyond the data (lecture 19)
+
+Lecture 19 uses inductive bias in two ways. Labelling a generator's samples relies on "the normal inductive bias … in machine learning
+that assigns similar labels to nearby points" (≈24:16). And it answers the information-theoretic objection to learning from generated
+data, "how could you possibly create something from nothing?", with inductive bias: "our architecture design, and the design of the
+training systems builds in knowledge", as convolutional networks say "we expect there to be local structure in images" (≈40:30–41:15).
+See [generative models as data](generative-models-as-data.md).
 
 ## Where it goes next
 

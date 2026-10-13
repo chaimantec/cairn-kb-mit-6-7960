@@ -4,15 +4,16 @@ Transfer learning reuses what a network learned on one task to learn another fas
 gives it as the answer to "why learn representations?": "Maybe the simplest is to do more learning, right? So we learn
 to learn … the main use of trained representations is to accelerate future learning"
 ([lecture 11](11-representation-learning-reconstruction-based.md), ≈27:54–28:41). The course has two lectures on it,
-**18 (models)**, covered below, and **19 (data)**, which this knowledge base does not yet cover (see the
-[course map](course-map.md)). Covered so far: [lecture 1](01-introduction.md), slides 76–77, ≈57:19–58:53 (reusing
+**18 (models)** and **19 (data)**, both covered below (see the [course map](course-map.md)). Covered so far: [lecture 1](01-introduction.md), slides 76–77, ≈57:19–58:53 (reusing
 weights); [lecture 2](02-how-to-train-a-neural-net.md), ≈56:42 and ≈1:10:48–1:12:21 (pretrained parameters inside a
 larger network); [lecture 9](09-hackers-guide-to-deep-learning.md), slides 27–28, ≈56:26–58:43 (start from a pretrained
 model); lecture 11, slides 23–29, ≈27:54–39:32; [lecture 12](12-representation-learning-similarity-based.md), slides 3, 30 and 60–68, ≈2:20–3:05 and ≈1:03:23–1:10:21
 (transfer as a reason to learn representations, self-supervised against supervised pretraining, and linear probes on
 iNaturalist); [lecture 17](17-generalization-out-of-distribution.md), slides 38 and 57, ≈42:48 and ≈56:06–56:55 (adversarially trained models transfer better, and domain
 adaptation previewed); [lecture 18](18-transfer-learning-models.md), slides 2–39 and 46–68, ≈0:00–56:35 and ≈1:09:04–1:23:48
-(the three kinds of knowledge to transfer, finetuning in practice, domain adaptation, distillation, and adapting foundation models).
+(the three kinds of knowledge to transfer, finetuning in practice, domain adaptation, distillation, and adapting foundation models);
+[lecture 19](19-transfer-learning-data.md), slides 2–51, ≈0:00–1:14:43 (knowledge about the inputs, through generative models as
+"data++", and meta-learning).
 
 ## A good representation makes the next task easier
 
@@ -145,6 +146,18 @@ probe, by finetuning, or by changing only the input (slides 40–75; see [founda
 prompting](foundation-models-and-prompting.md)). Slide 68 sets the three side by side: "Adaptation can occur on inputs, mapping, or
 outputs", by prompting, finetuning or a linear probe.
 
+## Knowledge about the inputs, and learning to transfer (lecture 19)
+
+Lecture 19 takes up the third kind: "if you know something about the distribution of inputs you're going to expect, maybe there's a
+way to actually use that to direct or accelerate your learning" (≈1:33). Its tool is a generative model trained on the data, which
+with its latent space and inverse map becomes **data++**, "a new mechanism to access data, going beyond the capabilities of the
+initial training data set" (≈3:08): its latent directions answer counterfactual questions, its samples can be labelled from a few
+examples (DatasetGAN: "1 labeled GAN image is worth ~100 labeled regular images!", slide 26), it can explain a classifier, and it can
+supply contrastive learning's positive pairs (slides 4–42; see [generative models as data](generative-models-as-data.md)). The
+lecture then asks whether a model can be trained to be good at transfer itself: **meta-learning**, by MAML, which learns an
+initialization that a few SGD steps adapt well, or by sequence modelling, where a model's state learns in context (slides 43–50; see
+[meta-learning](meta-learning.md)).
+
 ## See also
 
 - [Representation learning](representation-learning.md) — what is being transferred.
@@ -154,3 +167,6 @@ outputs", by prompting, finetuning or a linear probe.
 - [Domain adaptation](domain-adaptation.md) — transferring the mapping to an unlabelled target domain.
 - [Knowledge distillation](knowledge-distillation.md) — transferring knowledge about the outputs.
 - [Foundation models and prompting](foundation-models-and-prompting.md) — adapting a fixed model with little or no data.
+- [Lecture 19](19-transfer-learning-data.md) — the lecture on transfer learning from the data side.
+- [Generative models as data](generative-models-as-data.md) — transferring knowledge about the inputs.
+- [Meta-learning](meta-learning.md) — learning to transfer quickly.

@@ -8,7 +8,7 @@ linear layer, a ReLU, a whole MLP and any directed acyclic graph. Covered so far
 [lecture 1](01-introduction.md) in passing; [lecture 2](02-how-to-train-a-neural-net.md), slides
 26–55 and the worked example on slides 72–80, ≈27:16–57:27; [lecture 5](05-architectures-graphs.md)
 in passing, for graph neural networks (≈53:31–54:20); [lecture 7](07-scaling-rules-for-optimization.md),
-on what backpropagation never computes (≈28:59–32:49); [lecture 10](10-architectures-memory.md), slides 25–28, ≈18:36–27:10, on backpropagation through time. For the symbols, see
+on what backpropagation never computes (≈28:59–32:49); [lecture 10](10-architectures-memory.md), slides 25–28, ≈18:36–27:10, on backpropagation through time; [lecture 19](19-transfer-learning-data.md), slides 46–48, ≈1:09:21–1:10:55, on backpropagating through backward. For the symbols, see
 [notation](notation.md).
 
 ## The setting: a computation graph
@@ -201,3 +201,12 @@ number" (≈32:04–32:49). Forward-mode automatic differentiation would produce
 expensive". The lecturer recommends implementing backprop yourself once: because packages are so
 automated, "you can actually have a whole career without ever implementing backprop or thinking about what
 gradients look like". See [second-order methods](second-order-methods.md).
+
+## Backpropagating through backward (lecture 19)
+
+Meta-learning by MAML updates an initialization through the SGD steps taken from it, so it needs gradients of a backward pass. Lecture
+19 writes one SGD step as `forward(x, backward(forward(x, θ)) + θ)`, and two by nesting it again (slide 46). Using the small network of
+lecture 2 (linear, ReLU, linear, $L_2$ loss), it observes that a forward pass followed by a backward pass "was essentially one big forward
+pass", so "you can backprop through backward!" (slides 47–48, ≈1:09:21–1:10:09); slide 48 runs a "meta backward" through the forward and
+backward chains laid end to end. "So it's possible. It's just expensive", because the unrolled loops form "a very, very deep network"
+(≈1:10:55). See [meta-learning](meta-learning.md).

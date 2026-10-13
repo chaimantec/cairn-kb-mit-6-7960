@@ -9,7 +9,7 @@ solves them both at the same time" ([lecture 15](15-generative-models-representa
 as popular these days as diffusion models" (≈9:22). Covered so far: lecture 15, slides 3–41, ≈0:00–1:20:09; the model is promised
 in [lecture 11](11-representation-learning-reconstruction-based.md) (≈47:20–48:06) and placed in lecture 15 by
 [lecture 14](14-generative-models-basics.md) (slide 2, ≈1:31); and its conditional form in [lecture 16](16-generative-models-conditional-models.md), slides 39–50 and
-63–64, ≈39:45–45:58 and ≈59:21–1:01:42.
+63–64, ≈39:45–45:58 and ≈59:21–1:01:42; and its seams again in [lecture 19](19-transfer-learning-data.md), slide 18, ≈20:20–21:55.
 
 **Notation**, from the slides: a data point $\mathbf{x}$, a latent vector $\mathbf{z}$ with prior $p_{\mathbf{z}}$, the unit
 Gaussian; a decoder or generator $g_{\theta}$ with parameters $\theta$, outputting a mean $g^{\mu}_ {\theta}(\mathbf{z})$ and a
@@ -125,6 +125,14 @@ Conditioned on text, this is "roughly the way that the DALL-E 1 model works" (sl
 which way the scarlet macaw faces, "so therefore, the latent variable has to learn to encode that the macaw is facing to the left". Of the
 four families, the VAE "was the only one that was a little bit tricky" to make conditional (≈1:04:47). VQGAN is "a VAE with a patch GAN
 discriminator" (≈1:07:53). See [conditional generative models](conditional-generative-models.md).
+
+## Seams, again (lecture 19)
+
+Lecture 19 brings back lecture 15's coloured two-dimensional example to explain where to interpolate in a generator (slide 18, "the
+lecture from VAEs", ≈20:20). Training maps the data onto the latent space as if "you've taken something and tried to crumple it into a
+ball", leaving "danger zones" and seams where "things that are nearby in latent space could potentially be quite far away from each
+other in data space" (≈21:07–21:55); this is why StyleGAN interpolates in an intermediate, less distorted space. See [generative models
+as data](generative-models-as-data.md).
 
 ## See also
 
