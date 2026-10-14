@@ -425,8 +425,21 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   have caught it; counting the failures did. With every image converted to RGB before the coarse hash, the validation runs found the CLIP
   figure (0 bits, grey 1.8; 0.4 before, a different conversion path) and Homework 5's chain (4 bits, 5.5), plus the course banner of
   lectures 11 and 14 against lecture 15's excluded slide 1 (exact), cleared before. Lecture 21's 141 candidate images against 836 excluded
-  images, and the 2,197 images of earlier rendered slides against lecture 21's 63 excluded ones, gave no exact and no coarse match. No
-  earlier image was withdrawn.
+  images, and the 2,197 images of earlier rendered slides against lecture 21's 63 excluded ones, gave no exact and no coarse match. That
+  check withdrew nothing, but the re-sweep below did.
+  **The fixed sweep, rerun over lectures 1–20**, with a second fix (it had reported each matching image once, at the first page drawing
+  it, so a reused image drawn on several pages showed on one), found five rendered slides that reuse excluded images, all rendered before
+  the deck that excludes them was compared in that direction. **Lecture 4's slides 74 and 75** draw lecture 10's excluded video-frame
+  strip (1920 × 246) and space–time cube (934 × 858), byte for byte (lecture 10's slides 9 and 14, "© source unknown"); lecture 10's
+  sweep compared only its own images against the excluded set. **Lecture 8's slide 15** draws, five times, the 560 × 420 audio waveform of
+  lecture 10's slide 9, byte for byte; that slide's notice is a bare "© source unknown" beside neither picture, and lecture 10's slide
+  file takes it to cover the video frames "and, possibly, the waveform". Withdrawing slide 15 treats it as covering both, a judgment
+  call; the slide can be rendered again if the waveform is judged uncovered. **Lecture 1's slides 45 and 70** draw lecture 4's excluded
+  heron photograph (800 × 533, slide 43 there, "© Fredo Durand"; grey 0.6), most of it off the page, with its top 18% and 11% showing
+  at the bottom edge, the next animation frame's picture; the slide file and LICENSE.md had described it as an uncredited bird. All five
+  were withdrawn. Cleared after looking: lecture 5's slide 9 and lecture 18's slide 28 against lecture 5's slide 3 (grey 17.7 and 13.2),
+  Keynote drop shadows; lecture 5's slide 12 against lecture 6's slide 62 (exact), a 308 × 220 image on a slide that prints no notice and
+  is withheld only for its heron beak; lecture 9's slide 57 against slide 4, cleared before; and the course banners.
 
 ## Transcript edits, by lecture
 
@@ -1113,7 +1126,7 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
 
 ## Where each lecture's images appear
 
-All 20 of lecture 1's images appear both in
+All 18 of lecture 1's images appear both in
 [`wiki/01-introduction.md`](wiki/01-introduction.md), in the passage that cites each slide, and
 under the matching `## Slide N` heading of
 [`raw/slides/01-introduction.md`](raw/slides/01-introduction.md). To list them:
@@ -1123,7 +1136,7 @@ near-duplicates of their neighbours 12 and 55, are only under their headings in
 [`raw/slides/02-how-to-train-a-neural-net.md`](raw/slides/02-how-to-train-a-neural-net.md). All
 18 of lecture 3's images appear both in
 [`wiki/03-approximation-theory.md`](wiki/03-approximation-theory.md) and under their headings in
-[`raw/slides/03-approximation-theory.md`](raw/slides/03-approximation-theory.md). All 31 of
+[`raw/slides/03-approximation-theory.md`](raw/slides/03-approximation-theory.md). All 29 of
 lecture 4's images appear both in [`wiki/04-architectures-grids.md`](wiki/04-architectures-grids.md)
 and under their headings in [`raw/slides/04-architectures-grids.md`](raw/slides/04-architectures-grids.md).
 All 19 of lecture 5's images appear both in [`wiki/05-architectures-graphs.md`](wiki/05-architectures-graphs.md)
@@ -1132,7 +1145,7 @@ All 28 of lecture 6's images appear both in [`wiki/06-generalization-theory.md`]
 and under their headings in [`raw/slides/06-generalization-theory.md`](raw/slides/06-generalization-theory.md).
 All 9 of lecture 7's images appear both in [`wiki/07-scaling-rules-for-optimization.md`](wiki/07-scaling-rules-for-optimization.md)
 and under their headings in [`raw/slides/07-scaling-rules-for-optimization.md`](raw/slides/07-scaling-rules-for-optimization.md).
-All 34 of lecture 8's images appear both in [`wiki/08-architectures-transformers.md`](wiki/08-architectures-transformers.md)
+All 33 of lecture 8's images appear both in [`wiki/08-architectures-transformers.md`](wiki/08-architectures-transformers.md)
 and under their headings in [`raw/slides/08-architectures-transformers.md`](raw/slides/08-architectures-transformers.md).
 All 11 of lecture 9's images appear both in [`wiki/09-hackers-guide-to-deep-learning.md`](wiki/09-hackers-guide-to-deep-learning.md)
 and under their headings in [`raw/slides/09-hackers-guide-to-deep-learning.md`](raw/slides/09-hackers-guide-to-deep-learning.md).
@@ -1166,8 +1179,8 @@ The concept pages embed none; they cite slides, and the lecture pages carry the 
 
 ### What was rendered, and what was not — lecture 1
 
-Rendered (20): slides 14, 21, 22, 23, 28, 33, 34, 35, 36, 38, 40, 41, 42, 43, 45, 55, 57, 58, 59,
-70 — the XOR plot, the enthusiasm curves, the loss surface, the linear-layer and perceptron
+Rendered (20, of which the lecture 21 run withdrew 45 and 70; see the sweeps above): slides 14, 21, 22, 23, 28, 33, 34, 35, 36, 38,
+40, 41, 42, 43, 45, 55, 57, 58, 59, 70 — the XOR plot, the enthusiasm curves, the loss surface, the linear-layer and perceptron
 diagrams, the three activation plots, stacked layers, the two-layer classification network, the
 classifier and loss diagrams, cross-entropy, and the start of the batched build.
 
@@ -1235,7 +1248,8 @@ Not rendered, and why:
 
 ### What was rendered, and what was not — lecture 4
 
-Rendered (31): slides 3, 5–8, 10, 26–32, 34, 37, 39–42, 44, 48, 49, 56–60, 73–75 and 77 — the MLP
+Rendered (31, of which the lecture 21 run withdrew 74 and 75; see the sweeps above): slides 3, 5–8, 10, 26–32, 34, 37, 39–42, 44,
+48, 49, 56–60, 73–75 and 77 — the MLP
 pros-and-cons diagram, the hypothesis-space pictures, the ReLU-net, exact-model and sine-net fits,
 the fully connected, locally connected, convolutional and weight-sharing layers, the dense and banded
 matrices and the Toeplitz matrix, stacked convolutions, multichannel inputs and outputs, the general
@@ -1330,7 +1344,8 @@ Not rendered, and why:
 
 ### What was rendered, and what was not — lecture 8
 
-Rendered (34): slides 5, 11–17, 19, 21–24, 26, 28–30, 33–36, 38, 41–44, 46–52 and 54 — the CNN
+Rendered (34, of which the lecture 21 run withdrew 15; see the sweeps above): slides 5, 11–17, 19, 21–24, 26, 28–30, 33–36, 38,
+41–44, 46–52 and 54 — the CNN
 receptive-field diagram, arrays and sets of neurons and tokens, tokenizing images, text and audio, the token
 notation, linear combinations of neurons and tokens, the token-wise nonlinearity, the neural net, token net
 and GNN, the unrolled GNN, the fully connected graph, the fc and attention layers, the animal-counting and

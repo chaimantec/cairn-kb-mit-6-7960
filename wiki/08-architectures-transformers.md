@@ -190,10 +190,6 @@ as an image is. "Once you have done that, then everything else is domain agnosti
 part where you have to actually consider your input domain", apart from the loss function and other
 formulation choices (≈16:14).
 
-![Slide 15 — Tokenizing the input data](../raw/images/08-architectures-transformers/slide-15.jpg)
-
-*Slide 15 — Tokenizing the input data. [Deck](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec8.pdf)*
-
 ### Notation
 
 Slide 16 fixes the notation. Each token $\mathbf{t}_ i$ is a column vector; transposing the tokens and

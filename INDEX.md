@@ -26,7 +26,8 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   deep learning is today; a review of the assumed background (gradient descent, the linear layer
   and perceptron, tanh/sigmoid/ReLU, stacking layers, softmax and cross-entropy, batching); and a
   preview of the course. Includes the student Q&A on choosing activations, capacity, data size,
-  and width versus depth.
+  and width versus depth. Slides 45, 51 and 70 reuse images that later lectures exclude from OCW's licence, and are described in
+  prose only.
 - [Lecture 2 — How to Train a Neural Net](wiki/02-how-to-train-a-neural-net.md) — Sara Beery.
   Gradient descent reviewed (black-box, first- and second-order; the update rule), stochastic
   gradient descent and batch noise, momentum; six toy loss landscapes (convex, discontinuous,
@@ -58,7 +59,7 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   learned versus hand-crafted filters; AlexNet, VGG16 and ResNet18 feature maps; `im2col`; the
   architecture zoo (encoder–decoder, U-net, ResNet's residual connection); convolution in time and
   3D convolution over video; positional encoding; and neural fields (SIREN, NeRF). 35 of its slides
-  are excluded from OCW's licence and described in prose only.
+  are excluded from OCW's licence and described in prose only, and slides 50–52, 74 and 75 reuse excluded images.
 - [Lecture 5 — Architectures: Graphs](wiki/05-architectures-graphs.md) — Phillip Isola. Graph
   neural networks: learning tasks on graphs (node classification, link prediction, molecules,
   polypharmacy, Google Maps, physics simulation, combinatorial optimization); node and graph
@@ -113,7 +114,7 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   pseudocode; permutation equivariance and positional encodings (Fourier codes, ScaleMAE, spherical
   harmonics, Laplacian eigenvectors); autoregressive models, GPT and causal masking; "Attention Is All
   You Need" read against the lecture; cross-attention for image captioning; and Homework 3. 7 of its
-  slides are excluded from OCW's licence.
+  slides are excluded from OCW's licence, and slide 15 reuses an excluded image.
 - [Lecture 9 — Hacker's Guide to Deep Learning](wiki/09-hackers-guide-to-deep-learning.md) — Phillip
   Isola, an opinionated practical lecture. Hacking over theory; look at the data ("become friends with
   every pixel"): the chest X-ray classifier that read an "R" marker, looking at outputs as well as the loss,

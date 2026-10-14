@@ -296,10 +296,6 @@ published PDF the four heat-map panels ($h_1$, $h_2$, $z_3$, $y$) are a clipped 
 — only part of the $h_1$ panel is drawn — so the lecturer's description is the record of the
 result.
 
-![Slide 45: the two-input, two-hidden-unit network and its equations, above four heat-map panels titled h1, h2, z3 and y, of which only part of h1 is drawn in the published PDF.](../raw/images/01-introduction/slide-45.jpg)
-
-*Slide 45 — the network for the non-linear classification example. The heat maps are an animation frame clipped in OCW's PDF, so only the diagram and equations are reliable here.*
-
 ## Coming later: approximation, architectures, generalization (slides 46–52)
 
 **Why we can approximate** (slides 46–47, ≈40:25–42:42; **Lecture 3**). One layer gives a linear
@@ -400,10 +396,6 @@ chameleon — flowing through six layers with parameters $\theta_1, \ldots, \the
 all under the same $\arg\min$ objective as slide 27.
 
 ## Background: batching and tensors (slides 67–70)
-
-![Slide 70: the two-input network and its equations, the heading "Tensor processing with batch size = 3:", and the input matrix X with columns x1 and x2 and N_batch rows; the rest of the build is cut off in the published PDF.](../raw/images/01-introduction/slide-70.jpg)
-
-*Slide 70 — the start of the batched build; the remaining matrices are cut off in OCW's PDF.*
 
 (≈53:30–55:02.) The per-example losses are summed anyway, so they can be computed **in
 parallel**: stack a batch of examples and push them through the same layers together (slide

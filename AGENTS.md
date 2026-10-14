@@ -77,10 +77,13 @@ general form and the lecture's details there; keep this file free of per-lecture
 
   | Lecture | Slide | Reuses |
   | --- | --- | --- |
+  | 1 | 45, 70 | lecture 4's excluded heron photograph (slide 43 there), cut off at the bottom edge of both pages (withdrawn in the lecture 21 run) |
   | 1 | 51 | lecture 6's excluded slide 30 (Belkin et al.'s double-descent figure; withdrawn when lecture 6 was added) |
   | 2 | 70 | lecture 18's excluded slide 63 (the CLIP "Text Encoder" and "Image Encoder" graphics; withdrawn when lecture 18 was added) |
   | 4 | 50–52 | slide 25's clown fish crop |
+  | 4 | 74, 75 | lecture 10's excluded slides 9 and 14 (the video frames and the space–time cube; withdrawn in the lecture 21 run) |
   | 6 | 62 | lecture 4's excluded heron photograph (slides 43, 53–55, 66–68, 70, 71) |
+  | 8 | 15 | lecture 10's excluded slide 9 (the audio waveform; withdrawn in the lecture 21 run) |
   | 11 | 13 | lecture 1's excluded slide 73 (the CLIP figure, at another resolution) |
   | 12 | 35 | lecture 18's excluded slide 33 (the classroom photograph and depth map, credited CC BY-NC-SA here; withdrawn when lecture 18 was added) |
   | 14 | 49, 50 | Homework 5's excluded Figure 3, Ho, Jain and Abbeel's diffusion diagram, under the deck's pixel-art overlays |
@@ -163,14 +166,14 @@ it.
 
 | Lecture | Files | Where they came from |
 | --- | --- | --- |
-| 1 Introduction to Deep Learning | 20 of 81 pages | rendered from `mit6_7960_f24_lec1.pdf` |
+| 1 Introduction to Deep Learning | 18 of 81 pages | rendered from `mit6_7960_f24_lec1.pdf` |
 | 2 How to Train a Neural Net | 44 of 81 pages | rendered from `mit6_7960_f24_lec2.pdf` |
 | 3 Approximation Theory | 18 of 43 pages | rendered from `mit6_7960_f24_lec3.pdf` |
-| 4 Architectures: Grids | 31 of 84 pages | rendered from `mit6_7960_f24_lec4.pdf` |
+| 4 Architectures: Grids | 29 of 84 pages | rendered from `mit6_7960_f24_lec4.pdf` |
 | 5 Architectures: Graphs | 19 of 47 pages | rendered from `mit6_7960_f24_lec5.pdf` |
 | 6 Generalization Theory | 28 of 66 pages | rendered from `mit6_7960_f24_lec6.pdf` |
 | 7 Scaling Rules for Optimization | 9 of 32 pages | rendered from `mit6_7960_f24_lec7.pdf` |
-| 8 Architectures: Transformers | 34 of 55 pages | rendered from `mit6_7960_f24_lec8.pdf` |
+| 8 Architectures: Transformers | 33 of 55 pages | rendered from `mit6_7960_f24_lec8.pdf` |
 | 9 Hacker's Guide to Deep Learning | 11 of 72 pages | rendered from `mit6_7960_f24_lec9.pdf` |
 | 10 Architectures: Memory | 32 of 69 pages | rendered from `mit6_7960_f24_lec10.pdf` |
 | 11 Representation Learning: Reconstruction-Based | 25 of 65 pages | rendered from `mit6_7960_f24_lec11.pdf` |
@@ -239,6 +242,9 @@ Notes for the next run, from lectures 1–21:
   pixels (`hashlib.md5(fitz.Pixmap(doc, xref).samples)`), and also by a coarse 16×16 perceptual hash, mirrored too.
   Convert indexed (palette), CMYK and ICC images to RGB before the coarse hash, and count the images that fail to hash: lecture 21's
   first sweep silently skipped 347 indexed-colour rasters across all decks and still found the known reuses, so only the count showed it.
+  Report every candidate page an image is drawn on, not each image once, and rerun the whole sweep over every lecture already built
+  whenever the sweep or the excluded set changes: lecture 21's full re-sweep found five rendered slides (lecture 1's 45 and 70, lecture
+  4's 74 and 75, lecture 8's 15) reusing lecture 4's and lecture 10's excluded images, all rendered before their decks were compared.
   An exact match between images of different sizes is no evidence: a uniform fill drawn through a soft mask hashes like every other
   uniform fill of the same byte count (lecture 16's slide 33 against lecture 9's slide 61), so skip images whose samples hold one value.
   Skip coarse hashes with fewer than 8 or more than 248 bits set (near-uniform masks match each other), and settle

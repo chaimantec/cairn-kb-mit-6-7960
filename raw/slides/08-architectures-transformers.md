@@ -13,7 +13,7 @@ Text and figures of all 55 pages of
 [`mit6_7960_f24_lec8.pdf`](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec8.pdf),
 transcribed from the deck (speaker: Phillip Isola; the deck's title is "Lecture 8: Transformers" and the recorded title is "Architectures: Transformers"). Cite these as "slide N" — the printed number equals the PDF page number for slides 1–54; page 55 is OCW's appended end page. Diagrams, plots and photographs are described in prose since the KB is read as text.
 
-**Images.** 34 slides carry a whole-slide render under their heading: 5, 11–17, 19, 21–24, 26, 28–30, 33–36, 38, 41–44, 46–52 and 54. Not rendered: the 7 slides with an OCW "All rights reserved" notice (4, 6, 7, 8, 31, 45, 53); build steps superseded by a rendered slide (20 by 21, 27 by 28, 32 by 33); text, equations and code this file reproduces exactly (9, 18, 37, 39); and the title, outline, divider and end pages (1, 2, 3, 10, 25, 40, 55). Use an image path only if it appears in this file.
+**Images.** 33 slides carry a whole-slide render under their heading: 5, 11–14, 16, 17, 19, 21–24, 26, 28–30, 33–36, 38, 41–44, 46–52 and 54. Not rendered: the 7 slides with an OCW "All rights reserved" notice (4, 6, 7, 8, 31, 45, 53); slide 15, which prints no notice but reuses lecture 10's excluded audio waveform (withdrawn in the lecture 21 run); build steps superseded by a rendered slide (20 by 21, 27 by 28, 32 by 33); text, equations and code this file reproduces exactly (9, 18, 37, 39); and the title, outline, divider and end pages (1, 2, 3, 10, 25, 40, 55). Use an image path only if it appears in this file.
 
 Companion pages: [wiki page for this lecture](../../wiki/08-architectures-transformers.md) ·
 [transcript](../transcripts/08-architectures-transformers.md)
@@ -184,7 +184,7 @@ Right, two bullets:
 
 ## Slide 15 — Tokenizing the input data
 
-![Slide 15 — Tokenizing the input data](../images/08-architectures-transformers/slide-15.jpg)
+*Not rendered. This slide prints no OCW notice, but its audio waveform is the same image as lecture 10's slide 9, which OCW marks "© source unknown. All rights reserved" (the notice does not say whether it covers the waveform as well as the video frames; this knowledge base treats it as covering both). It is treated as excluded; the render was withdrawn in the lecture 21 run.*
 
 Text: "You can tokenize anything." and "General strategy: chop the input up into chunks, project each chunk to a vector."
 

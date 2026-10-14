@@ -744,16 +744,8 @@ A video is a stack of RGB frames over time, "a four dimensional input": channels
 and time (slide 74, ≈1:09:04–1:09:53). Slide 74 stacks the frames of a street scene into a cube
 with axes $n$, $m$ and $t$.
 
-![Slide 74: eight consecutive frames of people walking past a stone building, and below them the same video stacked into a cube with spatial axes n and m and time axis t, whose top and side faces show the motion as streaks](../raw/images/04-architectures-grids/slide-74.jpg)
-
-*Slide 74 — a video as a space–time volume, the grid a 3D convolution runs over.*
-
 A **3D convolution** slides a small cube-shaped filter through that volume, convolving "over space
 and time" (slide 75, ≈1:09:53). 3D convolutions are often used for action recognition in video.
-
-![Slide 75: the faded video cube with a small wireframe cube marking a 3D filter window at one corner, and an arrow to an output volume with the matching output cell](../raw/images/04-architectures-grids/slide-75.jpg)
-
-*Slide 75 — a 3D convolution slides a cube-shaped filter through space and time.*
 
 Asked at the end whether one could stack a video's frames as extra input channels instead of using
 a 3D convolution, the lecturer answered that "if you add channels for all of the different frames in

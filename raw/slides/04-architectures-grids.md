@@ -14,7 +14,7 @@ Text and figures of all 84 slides of
 transcribed from the deck (speaker: Sara Beery). Cite these as "slide N" — the printed
 number equals the PDF page number for slides 1–83; slide 84 is OCW's appended end page. Diagrams, plots and photographs are described in prose since the KB is read as text.
 
-**Images.** 31 slides carry a whole-slide render under their heading: 3, 5–8, 10, 26–32, 34, 37, 39–42, 44, 48, 49, 56–60, 73–75 and 77. Not rendered: the 35 slides with an OCW "All rights reserved" notice (9, 12–25, 35, 43, 47, 53–55, 61–63, 66–72, 78–81); slides 50–52, which print no notice but reuse slide 25's excluded clown fish photograph; slide 36, a text slide whose two thumbnails repeat slide 25's filtered clown fish and slide 29's diagram; build steps superseded by a rendered slide (4, 33, 45); and the title, agenda, divider, text and end pages (1, 2, 11, 38, 46, 64, 65, 76, 82–84). Use an image path only if it appears in this file.
+**Images.** 29 slides carry a whole-slide render under their heading: 3, 5–8, 10, 26–32, 34, 37, 39–42, 44, 48, 49, 56–60, 73 and 77. Not rendered: the 35 slides with an OCW "All rights reserved" notice (9, 12–25, 35, 43, 47, 53–55, 61–63, 66–72, 78–81); slides 50–52, which print no notice but reuse slide 25's excluded clown fish photograph; slides 74 and 75, which print no notice but reuse lecture 10's excluded video frames and space–time cube (withdrawn in the lecture 21 run); slide 36, a text slide whose two thumbnails repeat slide 25's filtered clown fish and slide 29's diagram; build steps superseded by a rendered slide (4, 33, 45); and the title, agenda, divider, text and end pages (1, 2, 11, 38, 46, 64, 65, 76, 82–84). Use an image path only if it appears in this file.
 
 Companion pages: [wiki page for this lecture](../../wiki/04-architectures-grids.md) ·
 [transcript](../transcripts/04-architectures-grids.md)
@@ -707,13 +707,13 @@ Title "Convolutions in time". Two rows of seventeen circles each, drawn with gre
 
 ## Slide 74 — (video as a space-time volume)
 
-![Slide 74 — (video as a space-time volume)](../images/04-architectures-grids/slide-74.jpg)
+*Not rendered. This slide prints no OCW notice, but its video frames and space–time cube are the same images as lecture 10's slides 9 and 14, which OCW marks "© source unknown. All rights reserved". It is treated as excluded; the render was withdrawn in the lecture 21 run.*
 
 At the top, a strip of eight consecutive video frames of a sunlit stone building entrance with steps and people walking across the foreground in the late-day light; in the fourth frame a man's head and shirt fill the left half. Below, a cube drawn in perspective, made from the same video: the front face is one video frame (the building, steps and a man in a white shirt at right), the right face shows the $t$ direction as horizontal streaks of the people's motion, and the top face shows streaks of the building's edges. Axes: $m$ (vertical, up), $n$ (horizontal, along the bottom) and $t$ (depth, running into the page along the right edge). No credit or OCW notice is printed on this slide.
 
 ## Slide 75 — (3D convolution on the video volume)
 
-![Slide 75 — (3D convolution on the video volume)](../images/04-architectures-grids/slide-75.jpg)
+*Not rendered. This slide prints no OCW notice, but its faded space–time cube is the same image as lecture 10's slide 14, which OCW marks "© source unknown. All rights reserved". It is treated as excluded; the render was withdrawn in the lecture 21 run.*
 
 A faded version of the cube of slide 74 with its axes $m$, $n$ and $t$. A bold black wireframe cube (dotted at its hidden edges) is drawn over the top-left-front corner as a small 3D filter window. An arrow points right to a pale-blue wireframe cube (the output volume) with a small dark-blue cube at its top-left-front corner marking the corresponding output position. No credit or OCW notice is printed on this slide.
 

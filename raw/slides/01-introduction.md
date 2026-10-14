@@ -4,7 +4,7 @@ lecture: 1
 slides: 81
 source_pdf: https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec1.pdf
 note: Printed slide numbers 1–80 (bottom centre) equal the PDF page numbers exactly. Page 81 is OCW's appended end page, not part of the lecture deck.
-figure_audit: Six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72) were checked against the PDF by an independent reader at full-page resolution with bar lengths measured in pixels — all six agreed, and three small corrections (21, 28, 72) were applied. The renders of 23, 45 and 70 were also checked against their descriptions and agreed.
+figure_audit: Six chart- and figure-heavy pages (21, 28, 51, 61, 63, 72) were checked against the PDF by an independent reader at full-page resolution with bar lengths measured in pixels — all six agreed, and three small corrections (21, 28, 72) were applied. The renders of 23, 45 and 70 were also checked against their descriptions and agreed; those of 45 and 70 were withdrawn in the lecture 21 run, because both pages show the top of lecture 4's excluded heron photograph at their bottom edge.
 ---
 
 # Lecture 1 — Introduction to Deep Learning: slide-by-slide
@@ -419,7 +419,7 @@ A blank white slide: no text, no figure, only the slide number "44" at the botto
 
 ## Slide 45 — Example: nonlinear classification with a deep net
 
-![Slide 45 — Example: nonlinear classification with a deep net](../images/01-introduction/slide-45.jpg)
+*Not rendered. This slide prints no OCW notice, but the photograph cut off at its bottom edge is lecture 4's excluded heron photograph (slide 43 there, "© Fredo Durand"). It is treated as excluded; the render was withdrawn in the lecture 21 run.*
 
 Title "Example: nonlinear classification with a deep net". Top left: a small network graph. Two white input circles $x_1$, $x_2$ each have arrows to two grey circles $z_1$, $z_2$ (all four connections, crossing); the label $W_1$ sits below with a dotted pointer. $z_1 \to h_1$ and $z_2 \to h_2$ (grey circles); $h_1$ and $h_2$ both feed grey circle $z_3$ (label $W_2$ below with a dotted pointer); $z_3 \to y$ (white circle). Top right, the equations:
 
@@ -632,7 +632,7 @@ Title "Tensors" with subtitle "(multi-dimensional arrays)". A grid of 4 rows × 
 
 ## Slide 70 — Everything is a tensor
 
-![Slide 70 — Everything is a tensor](../images/01-introduction/slide-70.jpg)
+*Not rendered. This slide prints no OCW notice, but the photograph cut off at its bottom edge is lecture 4's excluded heron photograph (slide 43 there, "© Fredo Durand"). It is treated as excluded; the render was withdrawn in the lecture 21 run.*
 
 Title "Everything is a tensor". Top left: the small network from slide 45 (inputs $x_1$, $x_2$ → $z_1$, $z_2$ → $h_1$, $h_2$ → $z_3$ → $y$, with $W_1$, $W_2$ labels). Top right equations:
 

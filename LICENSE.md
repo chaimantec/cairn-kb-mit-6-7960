@@ -56,9 +56,10 @@ This repository is not affiliated with or endorsed by MIT or the course staff.
 
 Rendered slides are from *MIT 6.7960 Deep Learning, Fall 2024*, MIT OpenCourseWare
 (<https://ocw.mit.edu>), CC BY-NC-SA 4.0, by Phillip Isola, Sara Beery and Jeremy Bernstein;
-lecture 1's deck is by Sara Beery, and lecture 2's names her as speaker. Two rendered lecture 1
-slides contain material from elsewhere that OCW did not flag: **slides 45 and 70** show, at their
-clipped bottom edge, a fragment of an uncredited bird photograph from the next animation frame.
+lecture 1's deck is by Sara Beery, and lecture 2's names her as speaker. Two lecture 1
+slides were rendered with material from elsewhere that OCW did not flag: **slides 45 and 70** show, at their
+clipped bottom edge, a fragment of a bird photograph from the next animation frame. It is lecture 4's excluded heron photograph
+("© Fredo Durand"), and both renders were withdrawn in the lecture 21 run.
 Lecture 1's slide 51, which reproduces the double-descent figure of Belkin, Hsu, Ma and Mandal
 (PNAS, 2019), was rendered until lecture 6's deck marked the same image "All rights reserved"; it
 is no longer rendered.
@@ -78,12 +79,13 @@ plot titled "A pathological function of Weierstrass", credited "Hrothgar, Chebfu
 shows three 3D surface plots credited "Hongzhou Lin". **Slide 38** reproduces two figures from
 Kaplan, McCandlish et al. (2020), captioned "From Kaplan, McCandlish et al (2020)".
 
-Lecture 4's deck names Sara Beery as speaker. Its rendered slides are diagrams and plots; four carry
+Lecture 4's deck names Sara Beery as speaker. Its rendered slides are diagrams and plots; some carry
 material from elsewhere that OCW did not flag. **Slide 10**'s plots are credited "[Sitzmann\*,
 Martel\*, Bergman, Lindell, Wetzstein, NeurIPS 2020]" (the SIREN paper); **slides 7 and 8** use
 the same plot layout and print no credit. **Slide 42** is credited "[Figure modified from Andrea
-Vedaldi]". **Slides 74 and 75** show frames of an uncredited video of people walking past a stone
-building, stacked into a space–time cube.
+Vedaldi]". **Slides 74 and 75**, which show frames of an uncredited video of people walking past a stone
+building stacked into a space–time cube, were rendered until the lecture 21 run, which found the same images under lecture 10's "©
+source unknown" notices (its slides 9 and 14); they are no longer rendered.
 
 Lecture 5's deck names Phillip Isola as speaker. Its rendered slides are diagrams, equations and
 plots, and some paste in figures that OCW did not flag. **Slide 41**'s PROTEINS training-accuracy
@@ -113,8 +115,9 @@ and drawings, with no pasted material: the deck's third-party plots are on the e
 on slides that were not rendered.
 
 Lecture 8's deck names Phillip Isola as speaker. Its rendered slides are mostly the lecturer's diagrams, but
-several carry material from elsewhere that OCW did not flag. **Slides 14, 15, 28, 29, 30 and 44** use an
-uncredited photograph of a savannah with two giraffes, a zebra and an impala, whole or as patches. **Slide
+several carry material from elsewhere that OCW did not flag. **Slides 14, 28, 29, 30 and 44** use an
+uncredited photograph of a savannah with two giraffes, a zebra and an impala, whole or as patches. Slide 15, which also uses it, was
+rendered until the lecture 21 run withdrew it: its audio waveform is the image lecture 10's slide 9 excludes ("© source unknown"). **Slide
 54** shows three uncredited photo crops (branches, an orange-yellow bird, foliage). **Slide 46** is credited "Courtesy
 of Rußwurm, et al. Used under CC BY." (geographic location encoding with spherical harmonics), and **slide
 47** "Courtesy of Kreuzer, et al. Used under CC BY-NC-SA." (Laplacian positional encodings).
