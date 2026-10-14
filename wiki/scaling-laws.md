@@ -7,7 +7,9 @@ recording ends at ≈38:01, after slide 17; the rest of its deck is known here f
 [lecture 3](03-approximation-theory.md), slides 37–39; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 25 and 44,
 ≈49:29–52:35 and ≈1:05:43–1:08:04, where scale is practical advice; and [lecture 18](18-transfer-learning-models.md), slides 3
 and 41–45, ≈1:31–3:08 and ≈58:54–1:09:04 (deep learning does not saturate with data, and the growth, cost and payoff of foundation
-models); and [lecture 20](20-scaling-laws.md), slides 1–51, of which the recording (≈0:00–38:01) covers slides 1–17.
+models); and [lecture 20](20-scaling-laws.md), slides 1–51, of which the recording (≈0:00–38:01) covers slides 1–17; and [lecture
+21](21-language-models.md), slides 5–7, 19–20, 35, 51, 55, 72 and 81, on emergent abilities and what else changes with a language
+model's scale.
 
 ## Why lecture 3 brings them up
 
@@ -190,3 +192,18 @@ model through their kernels, the similarities each assigns to pairs of inputs (s
 models and four sizes of the vision model DINO, alignment to it rises with language performance and with the vision model's size
 ("Scaling laws for cross-modal alignment", slide 49). Slide 50 is the diagram of "The Platonic Representation Hypothesis" (Huh et al.,
 2024). See [representation learning](representation-learning.md).
+
+## Emergent abilities (lecture 21)
+
+[Lecture 21](21-language-models.md) shows scale from the side of capabilities rather than loss. Its slide 5 ends the path from n-gram counts
+to transformers with one more step, "Scaling", to large language models, while slides 6–7 warn that scale is not everything: n-gram models
+of 2007 already had "300 billion n-grams", and "Number of parameters is a bad proxy for model flexibility" (≈7:45–9:16). Slide 19 charts
+the "arms race between technology companies", model sizes rising to about 540 billion parameters by 2022. Slide 20 (Wei et al., 2022) shows
+**emergent abilities**: on eight tasks, from modular arithmetic to word-in-context, accuracy stays at the random baseline until some model
+size and then rises sharply, abilities "without having been trained in a targeted way" (≈20:56–21:42). The same shape recurs through the
+lecture: in-context learning improves with model size (slide 35); chain-of-thought prompting helps only the largest models (slide 51),
+because, the lecturer suggests, small models "do the copying bit, and they won't do the generalization bit" (≈44:28); so does zero-shot
+chain of thought (slide 55); and slide 72 shows instruction tuning, a scratchpad and calibration likewise having no positive effect "until a
+certain model scale". Scale can also hurt: on slide 81 a 175B model asked "What happens if you smash a mirror?" answers with the
+superstition, because it models "in a finer grained way, the training distribution" (≈1:06:58).
+

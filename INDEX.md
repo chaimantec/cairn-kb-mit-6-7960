@@ -8,13 +8,13 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–20 of 24 only.** This knowledge base currently holds the first twenty
+> **Coverage: lectures 1–21 of 24 only.** This knowledge base currently holds the first twenty-one
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws) and the concept pages they support. Lecture 20's recording ends
-> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. For anything taught in lectures 21–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws; Language Models) and the concept pages they support. Lecture 20's recording ends
+> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. For anything taught in lectures 23 and 24 (there is no lecture 22), it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 20. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 21. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -282,6 +282,18 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   the critical batch size (gradient noise, the noise scale, perfect against ineffective scaling, cost against time); and representational
   convergence (kernels of vision and language models, alignment scaling with model quality, the Platonic Representation Hypothesis).
   Slides 3, 24, 40, 45, 47 and 48 are excluded from OCW's licence.
+- [Lecture 21 — Language Models](wiki/21-language-models.md) — Jacob Andreas (guest), introduced by Phillip Isola. **Slide numbers are PDF
+  pages**: the deck, assembled from MIT 6.861's NLP lectures, prints its own number only on pages 1–7. What a language model is (a
+  distribution over the next word, and by the chain rule over strings); counting n-grams; perplexity from about 300 (unigram) to 20.5
+  (GPT-3); n-gram models of 2007 with 300 billion n-grams, and "Number of parameters is a bad proxy for model flexibility"; four eras
+  (pipelined NLP and the noisy channel, seq2seq, pretrain + transfer, pretrain + prompt); BERT's masked language modeling, why it works,
+  and why "BERT is NOT a language model"; the arms race and emergent abilities; in-context learning as a fictitious document, zero-,
+  one- and few-shot prompts, labels, templates, scale, and whether it is learning (random labels, label words, ordering, label balance);
+  one model for all tasks; chain-of-thought prompting, why reasoning needs written steps, and its dependence on scale; zero-shot chain of
+  thought ("Let's think step by step") and optimized prompts; prompt engineering; instruction tuning (task-based and demonstration-based
+  data, synthetic data, context distillation, emergence with scale); why it is not enough (out-of-date data, "I don't know", refusals,
+  larger models less truthful); and RLHF (sampled summaries, a reward model, the policy and expected reward, policy gradient, DPO). The
+  recording covers the whole deck. Slides 26–29, 31–35, 52–56, 58–60, 63 and 86 are excluded from OCW's licence.
 
 ## Course pages
 
@@ -424,7 +436,8 @@ passages it draws on.
   recording covers slides 1–17): designing at small scale and extrapolating (GPT-4), the power laws and their frontier, the joint
   law and Kaplan et al.'s split of compute, extrapolation, then from the deck alone Chinchilla's revised split, the data-manifold
   explanation of the exponent, beating power laws by pruning data, the critical batch size, and representational convergence. Not
-  the same as lecture 7's scaling *rules* (below).
+  the same as lecture 7's scaling *rules* (below). Lecture 21: emergent abilities, the arms race, and in-context learning,
+  chain of thought and instruction tuning helping only above some model scale, while larger models can be less truthful.
 - [Scaling rules](wiki/scaling-rules.md) — lecture 7's answer to "the optimal learning rate drifts"
   and "deeper performs worse": hyperparameter transfer, the Goldilocks update and "in which norm?",
   the width rule ($\Vert \mathbf{W}_ \ell \Vert_{\text{RMS-RMS}} \sim 1$ at initialization and
@@ -484,7 +497,8 @@ passages it draws on.
   the object units it finds ("words are not arbitrary"), imputation (spatial, temporal, channel), masked autoencoders,
   BERT and next-word prediction, three hypotheses for why prediction beats reconstruction, and LeCun's cake
   (lecture 11); colorization as classification (lecture 9); self-supervision by similarity, contrastive learning (lecture 12);
-  self-supervised pretraining for transfer, and GPT-3's and CLIP's pretraining (lecture 18).
+  self-supervised pretraining for transfer, and GPT-3's and CLIP's pretraining (lecture 18); masked language
+  modeling, why predicting words needs linguistic and world knowledge, and why BERT does not generate (lecture 21).
 - [Transfer learning](wiki/transfer-learning.md) — reusing a learned representation: "a good representation is one
   that makes a subsequent learning task easier", deep nets as not blank slates, linear adaptation (linear probes) and
   fine-tuning, pretrain–adapt–test, learning from little data by pretraining on massive data, how big the ratio is,
@@ -493,7 +507,8 @@ passages it draws on.
   representations on iNaturalist, and how the benchmark decides what transfers (lecture 12); adversarially trained models
   transfer better, and domain adaptation previewed (lecture 17); the three kinds of knowledge to transfer, the finetuning recipe,
   glue layers for mismatched inputs and outputs, avoiding forgetting, and adaptation on inputs, mapping or outputs (lecture 18).
-  Knowledge about the inputs through generative models as data++, and meta-learning (lecture 19).
+  Knowledge about the inputs through generative models as data++, and meta-learning (lecture 19). From pretrain-and-transfer to
+  pretrain-and-prompt, one model for all tasks (lecture 21).
 - [Domain adaptation](wiki/domain-adaptation.md) — adapting from a labelled source domain to an unlabelled target by aligning their
   representations: domain adversarial training (DANN) and the gradient reversal layer, $-\lambda \partial L_d / \partial \theta_f$;
   unsupervised domain adaptation built from pseudo-labels, a student, an EMA teacher, source supervision, distillation and alignment;
@@ -502,16 +517,23 @@ passages it draws on.
 - [Knowledge distillation](wiki/knowledge-distillation.md) — training a student to match a teacher's outputs: the cross-entropy
   $-\sum_i \mathbf{y}^T_ i \log \mathbf{y}^S_ i$, soft targets as information about similarity, Hinton, Vinyals and Dean's 3% table,
   closed models, cross-modal distillation and SoundNet, distilling an ensemble, contrastive representation distillation, distillation
-  inside domain adaptation, and distillation against pruning and quantization (lecture 18).
+  inside domain adaptation, and distillation against pruning and quantization (lecture 18); context distillation of a prompt into a
+  language model (lecture 21).
 - [Foundation models and prompting](wiki/foundation-models-and-prompting.md) — models general enough to adapt with little or no data:
   what makes a foundation, learner and adaptor, their cost in compute, money, energy and water, and the scale argument; prompting a
   language model (GPT-3, in-context learning, brittle templates, soft prompts, chain-of-thought); CLIP's linear probe and zero-shot
   "just ask", and its trouble with composition and negation; visual prompting and adversarial reprogramming; and plugging models
   together (CLIP+GAN, DALL-E 2) (lecture 18); in-context learning as meta-learning (lecture 19); how such models were sized, from
-  GPT-3 and Gopher to Chinchilla, and GPT-4's predicted loss (lecture 20).
+  GPT-3 and Gopher to Chinchilla, and GPT-4's predicted loss (lecture 20); in-context learning as a fictitious document, templates, whether
+  it is learning, chain-of-thought and zero-shot chain-of-thought prompting, and optimized prompts (lecture 21).
+- [Language models](wiki/language-models.md) — a distribution over the next word and, by the chain rule, over strings: counting
+  n-grams, perplexity from unigrams to GPT-3, why parameter count is a bad proxy, the four eras of what language models were for, why BERT
+  is not one, and the three stages of training a large language model, pretraining, instruction tuning and RLHF (reward model, policy,
+  expected reward, policy gradient, DPO) (lecture 21); with pointers to next-word prediction in lectures 8, 10, 11, 18 and 20.
 - [Meta-learning](wiki/meta-learning.md) — learning to learn: the three levels (inference, learning, meta-learning), MAML's learned
   initialization and its double loop with the inner and outer updates, backpropagating through backward and its cost, whether it pays
-  (TIML for crop mapping), and meta-learning by sequence modeling, with in-context learning as meta-learning at scale (lecture 19).
+  (TIML for crop mapping), and meta-learning by sequence modeling, with in-context learning as meta-learning at scale (lecture 19); whether in-context learning is learning or task retrieval,
+  and evidence that models run learning algorithms internally (lecture 21).
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
@@ -527,7 +549,8 @@ passages it draws on.
   the architecture's opinion about similarity, read off the infinite-width covariance function (lecture 13); the usual
   inductive biases applied to generative models (lecture 14); simple mappings as what makes unpaired translation find the intended
   one, and a discriminator's architecture as a bias of the loss (lecture 16); architecture as knowledge a generator adds beyond its
-  data (lecture 19).
+  data (lecture 19); neural sequence models against n-gram counts of the same size, "Number of parameters is a bad proxy"
+  (lecture 21).
 - [Convolution](wiki/convolution.md) — the convolutional layer in full (lecture 4): from classifying
   overlapping patches to the formula, cross-correlation and the $\star$ notation, locality, weight
   sharing and translation equivariance, the Toeplitz-matrix view, fewer parameters and any input
@@ -573,13 +596,14 @@ passages it draws on.
   benchmarks need them (lecture 10); masked autoencoders and BERT, masking tokens to learn without labels (lecture 11);
   separate projections for similarity and for information, compared to a projection head (lecture 12); cross-attention between image
   and text tokens, captioning, LLaVA and diffusion transformers (lecture 16); transformers that fail beyond the sequence lengths
-  they were trained on (lecture 17).
+  they were trained on (lecture 17); the transformer in the history of language models, and the fixed computation between
+  reading the last word and writing the first (lecture 21).
 - [Recurrent neural networks](wiki/recurrent-neural-networks.md) — lecture 10's RNNs and LSTMs: what a convolution
   over time forgets, the hidden state and the recurrence shared over time, the simplest RNN and its MLP
   relative, the cycle in the graph and backpropagation through time over a truncated window, summed gradients
   for shared weights, why powers of $\mathbf{W}$ make gradients vanish or explode (and why the spectral norm
   does not help), the LSTM's cell state and gates in a table, its identity default, and RNNs against
-  convolution and attention; Homework 3's RNN problem; an RNN's state as a learner, in meta-learning (lecture 19).
+  convolution and attention; Homework 3's RNN problem; an RNN's state as a learner, in meta-learning (lecture 19); RNN and LSTM perplexities in the history of language models (lecture 21).
 - [Autoregressive models](wiki/autoregressive-models.md) — predict, append, repeat (lectures 8 and 10); the
   factorization of a sequence's probability into next-element conditionals, and lecture 9's point that longer
   prompts make prediction easier; each factor as a classifier over words, characters or byte pairs; maximum
@@ -587,7 +611,8 @@ passages it draws on.
   prediction as self-supervised learning that masks only the future, set beside BERT (lecture 11); autoregressive models
   as generative density models of words, pixels and audio, and their kinship with diffusion (lecture 14); conditional by construction,
   prompting, and captioning (lecture 16); GPT-3's generative pretraining, prompting and in-context learning (lecture 18); in-context
-  learning as meta-learning (lecture 19).
+  learning as meta-learning (lecture 19); language models from counted n-grams to LLMs, the seq2seq conditional
+  model, and why BERT is not one (lecture 21).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
@@ -652,7 +677,7 @@ passages it draws on.
   compression, directions in latent space and how to find them, the bias they expose, where to interpolate (seams, StyleGAN's
   $\mathcal{W}$), counterfactuals and ensembles, labelling generated data (DatasetGAN), explaining a classifier (StylEx, Dataset
   Interfaces), and generated data for contrastive learning with its caveats: class boundaries, diversity against fidelity, generator
-  priors, rare categories and model collapse (lectures 15, 17 and 19).
+  priors, rare categories and model collapse (lectures 15, 17 and 19); why a language model's own synthetic data needs an outside filter (lecture 21).
 - [Conditional generative models](wiki/conditional-generative-models.md) — predicting one high-dimensional thing from another:
   structured prediction and why unstructured prediction blurs and averages, the two properties of generative models, the objective
   rather than the hypothesis space, how each family is made conditional (a table), explicit inputs against latent variables, tokens
@@ -669,7 +694,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–20 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–21 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

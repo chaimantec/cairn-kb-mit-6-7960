@@ -6,7 +6,8 @@ student is usually smaller. In the course it is the main way of transferring "kn
 the second of three kinds of knowledge lecture 18 sets out to transfer. Its central idea is that a teacher's full
 distribution over classes carries more information than a one-hot label: it says not just "this is a dog" but "this is a dog
 that looks a bit like a cat and very different from a bear". Covered so far: [lecture 18](18-transfer-learning-models.md),
-slides 22–26 and 29–39, ≈34:02–36:25 and ≈41:06–56:35.
+slides 22–26 and 29–39, ≈34:02–36:25 and ≈41:06–56:35; [lecture 21](21-language-models.md), ≈59:59–1:00:45 (context
+distillation).
 
 **Notation** (lecture 18's slides). An input is $\mathbf{x}$. A classifier $f$ outputs $\hat{\mathbf{y}}$, a vector of scores
 over classes; $\mathbf{y}$ is the one-hot label. In distillation $f^T$ is the teacher and $f^S$ the student, with outputs
@@ -94,6 +95,16 @@ reduce the computational cost of a large model", which can be much cheaper and c
 smaller the student can be "is really directly related to the complexity of the information you're trying to model" (≈50:21),
 and specializing helps: "We almost never need a truly generalist model in practice. Specialization can enable much higher rates
 of compression with the same accuracy" (slide 39, ≈55:48).
+
+## Context distillation (lecture 21)
+
+[Lecture 21](21-language-models.md) names a distillation in which teacher and student are the same language model, with and without a
+prompt. Write "a really good prompt that really makes it very clear that what the model is supposed to be doing is instruction following",
+with "a ton of few-shot examples" and explicit meta-instructions; sample data from the model with that prompt; and fine-tune the model on
+the samples. "What you get there is not a model that knows how to do anything new, but just a model that behaves like that really good
+prompt … is sitting there in the context all the time so that the user doesn't have to type it out." The lecturer calls it "one of the
+standard things that you can do with synthetic data that works", with the caveat that "it really just moves mass around in the output
+space" (≈59:59–1:00:45). There is no slide for it.
 
 ## See also
 

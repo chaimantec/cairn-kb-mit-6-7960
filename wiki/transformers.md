@@ -248,9 +248,20 @@ transformers simulate automata with $o(T)$ layers on inputs of length $T$, and i
 under the slide's verdict: "parallel solutions generalize within-distribution, but not out-of-distribution". See
 [out-of-distribution generalization](out-of-distribution-generalization.md).
 
+## Large language models (lecture 21)
+
+In [lecture 21](21-language-models.md)'s history of language models, the transformer is the step that fixed the LSTM's "fixed dim
+bottleneck" and allowed "parallel computation" (slide 4), bringing perplexity from 58.3 for a tuned LSTM to 54.5 in 2017 and, scaled up, to
+35.8 for GPT-2 and 20.5 for GPT-3 (slide 5). "Right now, we live in the age of transformers, and almost all models that we train to do this
+next word prediction task in the modern era look like this" (≈6:13–6:59); slide 17 defines a large language model as roughly a "large
+Transformer pre-trained with a self-supervised objective (next-word prediction)". The lecture also gives an intuition for a limit of the
+architecture: "no matter how deep you're building your transformer …, you only have a finite amount of computational resources available
+to you between the moment when you read the last word in the input and the moment at which you're expected to generate the first word in
+the output", which is why writing out reasoning steps, chain-of-thought prompting, helps (≈39:03–40:37).
+
 ## Where it goes next
 
 The problem set announced in lecture 8, Homework 3 on OCW, implements a transformer, a vision transformer and a small
 GPT ([lecture 8](08-architectures-transformers.md#the-problem-set)). Autoregression continues in [lecture 10](10-architectures-memory.md) (see [autoregressive models](autoregressive-models.md)), and generative
-models return in the generative-model lectures (14–16), and language models in lecture 21; see the
-[course map](course-map.md).
+models return in the generative-model lectures (14–16), and language models in [lecture 21](21-language-models.md) (see [language
+models](language-models.md)); see the [course map](course-map.md).

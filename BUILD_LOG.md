@@ -102,18 +102,29 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   17 of 51, and names no earlier lecture; it points ahead to "the next few lectures", which "will be of that flavor" (≈0:00), and, within
   the lecture, to the batch size "at the end of this lecture" (≈15:33) and to a theoretical model of power laws (≈24:45), both past the
   end of the recording. Lecture 3's slides 37–39 showed Kaplan et al. and Chinchilla first, and lecture 18 previewed this lecture (≈2:19).
+  Lecture 21 is a guest lecture by Jacob Andreas, introduced by Phillip Isola. Its title slide reads "Language models" and "Jacob Andreas
+  (many slides by Chris Tanner & Yoon Kim)", and the deck prints no lecture number of this course; lecture 1's deck has no banner for it.
+  The deck is assembled from MIT 6.861's NLP lectures (≈1:34), and its title page still holds, under opaque white boxes, that course's
+  title block, "Lecture 8: Prompting / Chain-of-thought and more! / 6.861* Fall 2024 / Jacob Andreas and Chris Tanner"; its outline slides
+  (3, 22, 23, 44, 45, 61, 62, 84, 85) are 6.861's, and the second outline lists RLHF, DPO and "Remaining Issues/Ideas" sections that have
+  no slides here. The recording points to other courses (6.8610 and "Yoon's special topics on language models class", ≈1:34) rather
+  than to lectures, and to this course only generally ("throughout this semester", ≈5:25; "as a result of being in this course", ≈6:13;
+  masked prediction "for vision tasks", ≈13:52, which is lecture 11). It answers lecture 16's "another lecture on language models"
+  (≈51:27) and lecture 8's "We'll talk more about those later" (≈1:07:25).
 
 ## End pages
 
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16, page 63 in lecture 17, page 77 in lecture 18, page 52 in lectures 19 and 20), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16, page 63 in lecture 17, page 77 in lecture 18, page 52 in lectures 19 and 20, page 92 in lecture 21), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
   page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
-  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", of lecture 16's page 84, a 792×612 page that prints "84", and of lecture 17's page 63, a 792×612 page that prints "63", and of lecture 18's page 77, a 792×612 page that prints "77", and of lecture 19's page 52, a 792×612 page that prints "52", and of lecture 20's page 52, a 792×612 page that prints "52".
+  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", of lecture 16's page 84, a 792×612 page that prints "84", and of lecture 17's page 63, a 792×612 page that prints "63", and of lecture 18's page 77, a 792×612 page that prints "77", and of lecture 19's page 52, a 792×612 page that prints "52", and of lecture 20's page 52, a 792×612 page that prints "52". Lecture 21's page 92 is a 792×612 page that prints no number; that
+  deck prints its own number only on pages 1–7 and carries the source decks' numbers in the bottom-right corner of eleven pages, which
+  `slide_number_map.py` reads as a numbering with gaps (it reported 81 pages printing none and 7 numbers absent). Slide N is PDF page N.
 
 ## Handwritten decks
 
@@ -258,6 +269,15 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   URL or nothing, and no notice. A vector scan for outlined small print found one filled path of 1040 segments, 288 × 17 pt, on slide 42;
   the audit identified it as the red brush-stroke underline of the gradient-noise label, not small print. The audit found no missed
   notice.
+  Lecture 21's carries 19 in 92 pages, all typed and in the text layer, and the slide file's set matches the text layer's exactly: slides
+  26–28, 34 and 35 ("© Brown et al.", GPT-3's zero-, one- and few-shot prompt figures, each one raster with its heading and description,
+  and the SuperGLUE charts), 29, 31–33 and 63 ("© Zhao et al.", the sentiment prompt), 52–56 ("© Kojima et al.", zero-shot
+  chain-of-thought figures and tables), 58 and 59 ("© source unknown", the 2009/2022 dog meme), 60 ("© Google, Forbes, and Business
+  Insider", the prompt-engineering screenshots) and 86 ("© MIT; image by Alex Shipps/MIT CSAIL", the MIT News article; the notice sits
+  under the left column, and both columns, including the small photographs, are treated as excluded). Slides 37–39 ("Zhang, Feng, and
+  Tan"; "Min et al."), 43 and 46–51 ("Wei et al.") carry "Courtesy of … Used under CC BY." credits, and slide 16 "Image is in the public
+  domain." Slides 6, 7, 13, 19, 20, 36, 40, 57, 72 and 81 reproduce third-party charts and tables with a citation or none, and no
+  notice. A vector scan for outlined small print found nothing, and the audit found no missed notice.
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -398,6 +418,15 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   black rectangles side by side; slide 1's footer banner matched lecture 15's excluded slide 1 (grey 12.3), the course banner again; and,
   in the earlier-rendered direction, slide 47's heat-map colour bar matched lecture 8's slide 44 (grey 37.3), a green gradient, and images
   of lectures 2 and 16 at 83–105. The other coarse matches had grey differences of 95.6 to 220.0. No earlier image was withdrawn.
+  Lecture 21's sweep was rewritten this run (no sweep script is kept in the repo or the skill), to the method in AGENTS.md, with a
+  coarse match at 12 bits or fewer. Its first version silently skipped every raster it could not convert for the coarse hash: indexed
+  (palette) colour spaces, which PyMuPDF will not write as PNG. That was 347 images across all decks and problem sets, 60 of them in
+  lecture 21, and the validation runs still found lecture 11's CLIP figure and lecture 14's diffusion chain, so validation alone would not
+  have caught it; counting the failures did. With every image converted to RGB before the coarse hash, the validation runs found the CLIP
+  figure (0 bits, grey 1.8; 0.4 before, a different conversion path) and Homework 5's chain (4 bits, 5.5), plus the course banner of
+  lectures 11 and 14 against lecture 15's excluded slide 1 (exact), cleared before. Lecture 21's 141 candidate images against 836 excluded
+  images, and the 2,197 images of earlier rendered slides against lecture 21's 63 excluded ones, gave no exact and no coarse match. No
+  earlier image was withdrawn.
 
 ## Transcript edits, by lecture
 
@@ -544,6 +573,15 @@ answer it), slide 13's four constants against "there's five", slide 15's 0.73 ag
 power laws", and the end of the recording. No student is named. Big-O notation, GPT-4's training cost, the self-driving example,
 Anthropic's founding, context-length scaling laws and the "five parameters … elephant" saying (a student attributes it to Anderson)
 appear on no slide and are kept unchecked, as the header says.
+Lecture 21: 100 markers identical, all 276 digit strings identical once the `[Ed: …]` notes are removed, word ratios 0.993–1.008; done
+inline. Four restorations: "mass prediction tasks" → "masked" and "-tune" → "fine-tune" (14:40), "-of-thought" → "chain-of-thought"
+(45:59), "truthful QA" → "TruthfulQA" (1:06:12, slide 20's panel title). Thirteen `[Ed: …]` notes: Yoon Kim; slide 4's 107.5 for "107";
+slide 6's 2007 for the paper the audience dates to 1995; slide 20's "Persian QA" for "Farsi"; slide 54's 17.7 and 78.7 for "18%" and
+"80%"; slide 64's "worth thinking", printed so; slides 64–70's "Created with InstructGPT." for "GPT-3 or 2"; slide 81's 350M, 1.3B, 6.7B and
+175B for the sizes said as 300 million, 13 billion and 7 billion; a word missing in the captions at 1:08:30; slides 89–91's $P_{\theta}$ for
+"the parameters, P"; "SLiCK", which no slide names; and slide 11 for "this one" at 1:15:27. No student is named. The Enigma decoding,
+"wreck a nice beach", Sewon Min, GPT-4 attending to flipped labels, learning algorithms inside transformers, MIT's 2019 attempts at chain of
+thought, context distillation and a model not knowing the year appear on no slide and are kept unchecked, as the header says.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -1016,6 +1054,27 @@ show. In the recording the lecturer gives compute's doubling as "every three mon
 0.7 (slide 15: 0.73) and the fit's constants as five (slide 13: four), and first says the data should grow faster, then that he "might
 be saying that wrong"; the transcript and the wiki give both versions.
 
+**Lecture 21's figure audit**, cross-model: Sonnet read the typed deck in two halves, and Opus checked 70 pages (1, 4–13, 15, 16, 19–21,
+25–29, 31–43, 46–60, 63, 64, 66, 67, 69, 70, 72, 74, 75, 77, 79–83 and 86–91), split between four agents, all of which finished. No
+equation was wrong; the formulas of slides 8–12, 25, 29, 47, 74 and 88–91 were checked symbol by symbol, and slides 13, 40, 54, 56 and 57's
+tables cell by cell. 19 pages were corrected, 21 given precisions only, and 30 were right as written. Chart readings: slide 72's calibration
+panel read upside down on its reversed log axis (Letter choices given as 7–55 where the page shows about 14, 8, 3 and 2% ECE); slide 20's
+IPA panel blended GPT-3 and LaMDA into one description, its word-unscramble panel given a second series, and its word-in-context panel
+the wrong models; slide 51's LaMDA panel given tick labels that are not printed, and its unlabelled lines named as if a legend said so;
+slide 35's axis called evenly spaced. Things called unreadable or misdescribed: slide 7's faded chart, which the audit read as the
+"Training FLOPS (Sevilla 2021)" chart that slide 6 hides under its table; slide 58's photograph and painted picture of dogs called
+cartoons, with a meme name neither slide nor lecturer uses; slide 82's jigsaw globe named as a logo from outside the course; a quote
+misattributed in slide 86's article summary. Build steps: slide 9 drops slide 8's highlight and label, slide 31 drops slide 29's braces,
+and slide 32 highlights all six "Review:" and "Answer:" labels. Positions and arrows: slide 8's dashed rule and label, slide 29's math labels
+(inside the box), slide 89's arrow (on $\mathbf{x}$, not on the bar). One printed slip was unflagged (slide 87's "instructions-tuned"),
+and slide 28's [sic] was explained wrongly (only the English half's "girafe" is a slip). Hidden content under white boxes: slide 1's 6.861
+title block, slide 4's GPT-2 and GPT-3 rows, slide 6's training-compute chart, slide 29's header, rules and test answer, and slide 89's
+earlier draft of slide 90. Printed slips, kept and flagged in the slide file: slide 2's "Chat GPT"; slide 28's "plush girafe"; slide 47's
+unbalanced parentheses; slide 55's "GMS8K"; slide 57's cropped caption; the review that is "worth seeking" (29, 31–33, 63), "worth
+thinking" (64–66) and "worth watching" (67); slide 72's clipped labels; slide 75's "MIT is located Cambridge"; slide 79's unclosed quote;
+slide 80's "ChatGPT.."; slide 82's "response are"; slide 87's "instructions-tuned data". The renders of slides 72 and 81 were checked
+against the corrected text and agree.
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -1048,6 +1107,9 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   Lecture 20's audit found errors on 22 of 43 pages, mostly chart positions, counts and stacking, with no formula wrong, one value off by
   a factor of ten, a repeated chart unidentified, a table row hidden by a crop, and four printed slips left unflagged; all four of its
   auditors finished.
+  Lecture 21's audit found errors on 19 of 70 pages, mostly chart readings, build-step differences and positions, with no formula wrong,
+  one chart read upside down on a reversed log axis, two names taken from outside the page, one faded chart wrongly called unreadable, and
+  one printed slip left unflagged; all four of its auditors finished.
 
 ## Where each lecture's images appear
 
@@ -1096,6 +1158,8 @@ All 15 of lecture 19's images appear both in [`wiki/19-transfer-learning-data.md
 and under their headings in [`raw/slides/19-transfer-learning-data.md`](raw/slides/19-transfer-learning-data.md).
 All 20 of lecture 20's images appear both in [`wiki/20-scaling-laws.md`](wiki/20-scaling-laws.md)
 and under their headings in [`raw/slides/20-scaling-laws.md`](raw/slides/20-scaling-laws.md).
+All 18 of lecture 21's images appear both in [`wiki/21-language-models.md`](wiki/21-language-models.md)
+and under their headings in [`raw/slides/21-language-models.md`](raw/slides/21-language-models.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -1543,6 +1607,33 @@ Not rendered, and why:
 - **Text, equations and tables the slide file reproduces exactly:** 4, 7, 8, 9, 15, 21, 22, 23, 25, 27, 30, 32, 34, 39, 43 and 51.
 - **Section dividers:** 31, 36, 38 and 46.
 - **Title and end page:** slide 1 (which also carries two Kaplan et al. charts shown on slides 12 and 14); slide 52, the OCW end page.
+
+### What was rendered, and what was not — lecture 21
+
+Rendered (18): slides 5, 12, 16, 19, 20, 36, 37, 38, 39, 41, 42, 47, 51, 72, 74, 79, 81 and 82: the perplexity table and the path to LLMs,
+BERT's pretraining and fine-tuning, the probability of a sequence, the arms race, emergent abilities, sensitivity to ordering, label balance
+and coverage, gold against random labels (two charts), one model per task against one prompted model, chain-of-thought prompting against
+few-shot prompting, chain of thought's results and scale, the emergence of four methods with scale, instruction tuning's data, the
+test-time failures, the smashed mirror, and why alignment is needed. The deck numbers only its first seven pages, so the renders were made
+by PDF page with a scratchpad script using `extract_slide_images.py`'s settings (1400px, JPEG q85 or PNG, whichever is smaller), since
+that script resolves through the printed-number map, which is wrong for this deck. `embed_slide_images.py` placed all 18 in the slide
+file and in the wiki, after the wiki's citations were rewritten so that each image's first citation is its passage (no ranges, no
+citation in the notation paragraph, list items turned into paragraphs); all 18 captions were then rewritten by hand. Slides 37–39, 47 and
+51 are credited CC BY; slide 16's picture is "in the public domain"; slides 19, 20, 36, 72 and 81 reproduce third-party charts with a
+citation or nothing, and no notice, and are rendered by the rule that only a notice excludes.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (19 slides): 26–29, 31–35, 52–56, 58–60, 63 and 86.** Zhao et al.'s sentiment prompt, GPT-3's prompt
+  figures and SuperGLUE charts, Kojima et al.'s zero-shot chain-of-thought figures and tables, the meme, the salary screenshots and the
+  MIT News article therefore exist here as prose only.
+- **Text, equations, tables and screenshots of text the slide file reproduces exactly (35):** 2, 6, 8–11, 13, 14, 17, 18, 21, 24, 25, 40,
+  43, 46, 48–50, 57, 64–71, 80, 83 and 87–91.
+- **Build steps or repeats a rendered slide supersedes:** 4 (in 5), 15 (slide 12's left panel with text), 73 (in 74), 75–78 (in 79).
+- **Slide 7:** overlay text on faded copies of slide 6's images.
+- **Outline slides:** 3, 22, 23, 44, 45, 61, 62, 84 and 85; **section break:** 30.
+- **Title and end page:** slide 1; slide 92, the OCW end page.
+
 
 ## Build checklist, lectures 1–17
 

@@ -710,7 +710,7 @@ map](course-map.md#the-decks-lecture-pointers)). The recording points ahead with
 optimization "on Thursday's lecture" (≈4:37), which is lecture 7, and the class is advised to look at
 the first question of problem set 2 beforehand (≈0:46); generative and image-to-image models "a
 little bit later in the course" (≈20:02), lectures 14–16; language models and prompting "later"
-(≈16:11), lecture 21; kernels and representations "in the representation learning lectures"
+(≈16:11), [lecture 21](21-language-models.md); kernels and representations "in the representation learning lectures"
 (≈1:06:45), lectures 11–13; and architectural symmetries "in transformers" (≈1:15:19), lecture 8.
 Out-of-distribution generalization, which the pix2pix example touches, is lecture 17's subject.
 

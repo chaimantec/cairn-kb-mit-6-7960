@@ -261,5 +261,18 @@ photograph is credited "courtesy of LeonardoWeiss on Wikipedia Commons. Used und
 et al.'s paper), 45 (McCandlish et al.'s charts) and 47 and 48 (the fruit and animal icons, "© source unknown"); none of them is
 rendered, and no other slide reuses an excluded image.
 
+Lecture 21 is a guest lecture; its deck names Jacob Andreas, with "many slides by Chris Tanner & Yoon Kim", and is assembled from MIT
+6.861's NLP lectures. Of its 18 rendered slides, **slides 5, 12, 41, 42, 74, 79 and 82** are the deck's own tables and diagrams, with no
+citation (slide 82 quotes "Helpful, honest, and harmless" from Bai et al. '22). **Slide 16**'s book-cover picture is marked "Image is in
+the public domain." **Slide 19**'s chart of model sizes, marked with company logos, carries no citation. **Slides 20 and 72** reproduce
+figures from Wei et al. (2022), "[Wei et al. '22]" (slide 72's caption credits its panels to Wei et al. 2022b and 2022a, Nye et al. 2021
+and Kadavath et al. 2022). **Slide 36** reproduces a chart and a quotation from Lu et al., 2022, cited with a link. **Slide 37** is
+credited "Courtesy of Zhang, Feng, and Tan. Used under CC BY.", **slides 38 and 39** "Courtesy of Min et al. Used under CC BY.", and
+**slides 47 and 51** "Courtesy of Wei et al. Used under CC BY." **Slide 81**'s figure is cited "[Lin et al. '21; Hendrycks '22]".
+These are rendered by the rule that only a notice excludes. The deck's other third-party material is on its nineteen excluded slides:
+26–28, 34 and 35 (Brown et al.'s GPT-3 figures and charts), 29, 31–33 and 63 (Zhao et al.'s prompt example), 52–56 (Kojima et al.'s
+figures and tables), 58 and 59 (a meme, "© source unknown"), 60 (screenshots, "© Google, Forbes, and Business Insider") and 86 (an MIT
+News article, "© MIT; image by Alex Shipps/MIT CSAIL"); none of them is rendered, and no other slide reuses an excluded image.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

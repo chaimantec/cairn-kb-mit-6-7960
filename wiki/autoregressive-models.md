@@ -13,7 +13,8 @@ model, teacher forcing, sampling and beam search); [lecture 11](11-representatio
 diffusion models); [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), slide 41, ≈1:20:09 (the families compared); [lecture 16](16-generative-models-conditional-models.md), slides 52–56 and 70, ≈45:58–53:47 and ≈1:07:53 (conditional by
 construction, prompting, captioning, and a prior over VQGAN's codes). [Lecture 18](18-transfer-learning-models.md), slides 48–54, ≈1:09:52–1:12:14, adapts GPT-3 by prompting and in-context learning, and
 [lecture 19](19-transfer-learning-data.md), slide 50, ≈1:13:12–1:14:43, calls in-context learning meta-learning.
-Generative models are the subject of lectures 14–16 and language models of lecture 21 (see the [course map](course-map.md)).
+Generative models are the subject of lectures 14–16. [Lecture 21](21-language-models.md), slides 4–17, ≈2:20–19:20, traces language
+models from counted n-grams to LLMs; see [language models](language-models.md).
 
 ## Predict, append, repeat
 
@@ -159,3 +160,18 @@ training data, "depending on who you talk to" (≈1:10:41). See [foundation mode
 Lecture 19 calls this meta-learning. A sequence $x_0, y_0, x_1, y_1, \ldots$ defines a task, and a model that predicts what comes next
 learns the task from the sequence: "this really is, I think, what GPT and a lot of these modern autoregressive models are doing. It's kind
 of a version of meta-learning at large scale" (slide 50, ≈1:13:58). See [meta-learning](meta-learning.md).
+
+## Language models, from counts to LLMs (lecture 21)
+
+[Lecture 21](21-language-models.md) restates the definition from which everything here follows: a model that "places a distribution over
+possible next words" can, "via the chain rule", give "a distribution over strings", and can be sampled from to generate (≈3:06). For
+decades such models were estimated "just by getting big text corpora and counting" what follows each context of a few words (≈3:52–5:25).
+Slide 9 writes the seq2seq era's **conditional** language model, the translation or summarization model of 2014–2017, in this page's
+factorized form,
+
+$$\Pr(\mathbf{Y}=\mathbf{y} \mid \mathbf{X}=\mathbf{x}) = \prod_{t=1}^{T} \Pr(Y_t = y_t \mid \mathbf{X}=\mathbf{x}, \mathbf{Y}_ {\lt t}=\mathbf{y}_ {\lt t})$$
+
+an "autoregressive conditional language model". The lecture also draws the line between this and masked prediction: BERT predicts a
+hidden word from both sides and "already knows exactly how many words are going to be in a sentence", so "BERT is NOT a language model"
+and cannot generate (slide 17, ≈17:47). See [language models](language-models.md).
+

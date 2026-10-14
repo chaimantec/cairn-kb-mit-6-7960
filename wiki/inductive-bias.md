@@ -18,7 +18,8 @@ the similarity judgement an untrained architecture already makes: slides 7, 22, 
 and [lecture 14](14-generative-models-basics.md), on inductive biases in generative models, ≈41:57–43:29; and [lecture 16](16-generative-models-conditional-models.md), on why
 unpaired translation finds the intended mapping, and a discriminator's architecture as a bias of the loss: slides 33 and 81, ≈32:46–35:52
 and ≈1:17:53–1:19:23; and [lecture 19](19-transfer-learning-data.md), on architecture as knowledge a generator adds beyond its data,
-≈24:16 and ≈40:30–41:15.
+≈24:16 and ≈40:30–41:15; and [lecture 21](21-language-models.md), on neural sequence models against n-gram counts, slides 6–7,
+≈7:45–9:16.
 
 ## Why an MLP is not enough
 
@@ -276,6 +277,15 @@ that assigns similar labels to nearby points" (≈24:16). And it answers the inf
 data, "how could you possibly create something from nothing?", with inductive bias: "our architecture design, and the design of the
 training systems builds in knowledge", as convolutional networks say "we expect there to be local structure in images" (≈40:30–41:15).
 See [generative models as data](generative-models-as-data.md).
+
+## Parameters are not fungible (lecture 21)
+
+[Lecture 21](21-language-models.md) uses language models to argue that architecture still matters at scale. A 2007 machine-translation
+system trained n-gram models "on up to 2 trillion tokens", with "300 billion n-grams" (slide 6), sizes comparable to today's LLMs, "and they
+weren't as good as the ones that we have today". So "there really is something special about the inductive bias that you get from neural
+sequence models that we didn't get in previous generations of language models", and "even though we talk about parameter counts as being
+fungible today, … how you use those parameters, specific architectural choices, actually are quite consequential" (≈8:30–9:16). Slide 7:
+"Number of parameters is a bad proxy for model flexibility. How you use the parameters matters much more!"
 
 ## Where it goes next
 

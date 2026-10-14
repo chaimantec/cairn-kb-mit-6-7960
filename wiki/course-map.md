@@ -46,7 +46,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 18 | Transfer Learning: Models | [yes](18-transfer-learning-models.md) |
 | 19 | Transfer Learning: Data | [yes](19-transfer-learning-data.md) |
 | 20 | Scaling Laws | [yes](20-scaling-laws.md) (the recording covers slides 1–17 only) |
-| 21 | Language Models | not yet |
+| 21 | Language Models | [yes](21-language-models.md) (a guest lecture by Jacob Andreas) |
 | 23 | Metrized Deep Learning | not yet |
 | 24 | Inference Methods for Deep Learning | not yet |
 | — | PyTorch Tutorial | not yet |
@@ -113,7 +113,7 @@ Lecture 6's deck is titled "Lecture 6: NN Generalization", matching the recordin
 recording points back to Sara's NeRF example (lecture 4, ≈1:17:40) and to graph nets' permutation symmetry
 (lecture 5, ≈23:57), and ahead without numbers: more on optimization "on Thursday's lecture" (≈4:37),
 lecture 7; generative and image-to-image models "a little bit later in the course" (≈20:02), lectures
-14–16; language models and prompting "later" (≈16:11), lecture 21; kernels "in the representation learning
+14–16; language models and prompting "later" (≈16:11), [lecture 21](21-language-models.md); kernels "in the representation learning
 lectures" (≈1:06:45), lectures 11–13; and architectural symmetries "in transformers" (≈1:15:19), lecture 8.
 
 Lecture 7's handwritten deck reads "6.7960 :: Lecture 7" on its title slide, matching the recording, which settles
@@ -132,7 +132,7 @@ Transformers". It prints no other lecture number. Its recording points back to "
 talking about" on normalizing weight updates (lecture 7, ≈58:09). It points ahead without numbers to "the
 problem set coming out next week" (≈40:15), Homework 3 below; to autoregressive and generative models,
 which "we're going to come back to … a little later" (≈1:05:51, again at ≈1:13:49), lectures 14–16; and to
-large language models, "We'll talk more about those later" (≈1:07:25), lecture 21. Multihead attention is
+large language models, "We'll talk more about those later" (≈1:07:25), [lecture 21](21-language-models.md). Multihead attention is
 left to "the reading", the book chapter the lecture says it follows "almost exactly" (≈55:49, ≈1:10:38).
 
 Lecture 9's deck is titled "Lecture 9: Hacker's guide to DL", and its outline (slide 2) is headed "9. Hacker's
@@ -201,7 +201,7 @@ Lecture 16's deck is titled "Lecture 16: Deep Generative Models III", matching t
 and prints no other lecture number. The recording points back to "last lecture", which "was a little bit math-heavy" (lecture 15, ≈0:00),
 to "the hacker's guide lecture" (lecture 9, ≈9:13), to GANs shown "very briefly in one of the previous lectures" (lecture 14, ≈24:12), to
 "the VAEs we saw last class" (lecture 15, ≈42:03) and to "the transformers lecture" (lecture 8, ≈52:15); and ahead to "another lecture on
-language models" (lecture 21, ≈51:27) and to "some future lectures" on grounding, which it does not name (≈1:20:56)
+language models" ([lecture 21](21-language-models.md), ≈51:27) and to "some future lectures" on grounding, which it does not name (≈1:20:56)
 ([lecture 16](16-generative-models-conditional-models.md#pointers-to-other-lectures)).
 
 Lecture 17's deck is titled "Lecture 17: Out-of-distribution generalization", matching lecture 1's banner and the recording
@@ -235,6 +235,16 @@ both end at ≈38:01, mid-sentence, after slide 17 of 51. The recording names no
 lectures", which "will be of that flavor", recent empirical research (≈0:00), and, within the lecture, to the batch size "at the end
 of this lecture" (≈15:33), which the recording does not reach. Scaling laws first appeared in lecture 3 (slides 37–39), and lecture 18
 previewed this lecture (≈2:19) ([lecture 20](20-scaling-laws.md#pointers-to-other-lectures)).
+
+Lecture 21 is a guest lecture by Jacob Andreas, introduced by Phillip Isola; its title slide reads "Language models", and the deck prints
+no lecture number of this course. It is assembled from MIT 6.861's NLP lectures ("a compressed version of a couple of lectures that we teach
+in the big NLP class", ≈1:34), and its title slide still holds, under white boxes, that course's "Lecture 8: Prompting" title block; its
+outline slides are 6.861's too. Only its first seven pages print this deck's own number, and eleven pages carry the source decks' numbers
+in the corner, so this knowledge base numbers its slides by PDF page. The recording points to other courses, 6.8610 and "Yoon's special
+topics on language models class" (≈1:34), rather than to other lectures, and to this one only generally: neural networks "of the kind that
+you've seen throughout this semester" (≈5:25), models "familiar to you as a result of being in this course" (≈6:13), and masked prediction
+"in different flavors for vision tasks" (≈13:52), which is lecture 11. It answers lecture 16's "another lecture on language models" and
+lecture 8's "We'll talk more about those later" ([lecture 21](21-language-models.md#pointers-to-other-lectures)).
 
 ## Coursework and policies
 

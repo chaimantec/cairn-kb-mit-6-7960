@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–20 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–21 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -50,11 +50,14 @@ general form and the lecture's details there; keep this file free of per-lecture
   build log.
 - **Reused deck.** Lecture 1's title slide says "6.S898 Deep Learning … Fall 2022", the course's
   earlier number and term, and lecture 5's footer prints "6.S898 Deep Learning" with "Fall 2024".
-  The transcription keeps what is printed.
+  The transcription keeps what is printed. Lecture 21, a guest lecture by Jacob Andreas, is assembled from MIT 6.861's decks, and its
+  title page hides 6.861's "Lecture 8: Prompting" under white boxes; cite it as lecture 21.
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page, usually a smaller page, which is not lecture content.
   `slide_number_map.py` often reports that page as printing no number although it prints one; say so in the slide
-  file rather than trusting the script.
+  file rather than trusting the script. A deck assembled from another course's slides can print its own number on only a few pages and
+  carry the source decks' numbers in a corner (lecture 21: pages 1–7 only). The script then reports a numbering with gaps; slide N is
+  still page N, and since `extract_slide_images.py` resolves through that map, render such a deck by page with the same settings.
 - **Handwritten decks.** Lectures 3, 7 and 13 are Jeremy Bernstein's iPad notes (expect lecture 23, his other lecture,
   to be the same). Their text layer is OCR noise: take nothing from it but typed OCW notices. The ink is vector
   paths, so the raster test for figure pages misses it; and lectures 7 and 13 paint one background image on every page, so
@@ -143,7 +146,8 @@ deliberate change to a number (lecture 11's "4DA" → "Fourier") is listed in th
 Each deck is transcribed from page images — a vision model read every page — at Sonnet, and
 checked by script (`slide_number_map.py --verify`) for one heading per page in order. Where a
 pale-yellow "Lecture N" banner hides slide content, the hidden prose was recovered from the PDF
-text layer and the slide says so. Overlays pasted over a figure can hide content its embedded image still holds (lecture 19's
+text layer and the slide says so. Reused decks hide whole blocks under white boxes: the source course's title, the next build step's rows, an earlier draft (lecture 21).
+Overlays pasted over a figure can hide content its embedded image still holds (lecture 19's
 slide 45 covers three lines of MAML's algorithm); the audit can read it from the raster at native resolution, and the slide
 file gives it as hidden, never as what the page shows. Equations and tables are never taken from the text layer.
 
@@ -153,7 +157,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–20 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–21 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -179,6 +183,7 @@ it.
 | 18 Transfer Learning: Models | 26 of 77 pages | rendered from `mit6_7960_f24_lec18.pdf` |
 | 19 Transfer Learning: Data | 15 of 52 pages | rendered from `mit6_7960_f24_lec19.pdf` |
 | 20 Scaling Laws | 20 of 52 pages | rendered from `mit6_7960_f24_lec20.pdf` |
+| 21 Language Models | 18 of 92 pages | rendered from `mit6_7960_f24_lec21.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -215,7 +220,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–20:
+Notes for the next run, from lectures 1–21:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -232,6 +237,8 @@ Notes for the next run, from lectures 1–20:
 - **Check every candidate image for reuse of an excluded one**, in its own deck and across all decks and problem sets
   so far, and every image already rendered against the new deck's excluded ones. xrefs are local to one PDF, so compare by a hash of the
   pixels (`hashlib.md5(fitz.Pixmap(doc, xref).samples)`), and also by a coarse 16×16 perceptual hash, mirrored too.
+  Convert indexed (palette), CMYK and ICC images to RGB before the coarse hash, and count the images that fail to hash: lecture 21's
+  first sweep silently skipped 347 indexed-colour rasters across all decks and still found the known reuses, so only the count showed it.
   An exact match between images of different sizes is no evidence: a uniform fill drawn through a soft mask hashes like every other
   uniform fill of the same byte count (lecture 16's slide 33 against lecture 9's slide 61), so skip images whose samples hold one value.
   Skip coarse hashes with fewer than 8 or more than 248 bits set (near-uniform masks match each other), and settle

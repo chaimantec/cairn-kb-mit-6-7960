@@ -9,7 +9,8 @@ to transfer "knowledge about the inputs", the third kind of knowledge [lecture 1
 [transfer learning](transfer-learning.md)). Covered so far: [lecture
 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 37–40, ≈1:13:15–1:19:23 (latent directions
 and seams); [lecture 17](17-generalization-out-of-distribution.md), slide 59, ≈57:40–58:27 (counterfactual images to diagnose a
-classifier); lecture 19, slides 3–42, ≈1:33–1:06:58.
+classifier); lecture 19, slides 3–42, ≈1:33–1:06:58; [lecture 21](21-language-models.md), ≈58:26–1:00:45 (synthetic data for a
+language model's own fine-tuning).
 
 **Notation** (lecture 19's slides). A data point is $x$ and a latent variable $z$; $G$ maps latent variables to data and $G^{-1}$ maps
 data back; $\mathbb{X}$ is the data++ object. $\mathcal{Z}$ is a GAN's input latent space and $\mathcal{W}$ StyleGAN's intermediate one.
@@ -123,6 +124,17 @@ data lose "parts of your distribution that were captured in the real data" (≈1
 *interpolate*, *extrapolate*, *manipulate*, *compose*, *optimize*, and *label* these datapoints. Everything you can do with regular data,
 you can also try with data++. It might work better!" (lecture 19, slide 42). "We need generators that can learn with less data, and we
 need to better understand how these things are being learned" (≈1:01:30).
+
+## A model's own data (lecture 21)
+
+[Lecture 21](21-language-models.md) meets the question when a student asks why a language model should not generate its own instruction
+data (≈58:26). Two uses are distinguished. A model can propose instructions "of the kind that you want", which people then label, "and that
+is certainly part of the process everywhere". But generating both instructions and responses and fine-tuning on them teaches nothing new:
+"Information, theoretically, can't get something from nothing." Synthetic data needs "some sort of outside source of information that's
+going to filter that data down to the good stuff or some difference between the process that's generating the synthetic data and the
+process that's training on the synthetic data" (≈59:14). Context distillation is such a difference (see [knowledge
+distillation](knowledge-distillation.md)), and RLHF, which samples outputs from the model and has people or a reward model judge them, is
+such a filter (≈1:10:02–1:10:47; see [language models](language-models.md)).
 
 ## See also
 

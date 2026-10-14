@@ -7,7 +7,8 @@ learning?" ([lecture 19](19-transfer-learning-data.md), slide 44). Lecture 19 gi
 from which a few steps of SGD go a long way, and sequence modeling, where a model's state does the learning, which the lecturer
 connects to in-context learning in large language models. Covered so far: [lecture 11](11-representation-learning-reconstruction-based.md),
 ≈27:54 ("we learn to learn", as the point of representations); [lecture 18](18-transfer-learning-models.md), ≈1:11:28 (previewed);
-lecture 19, slides 43–50, ≈1:06:58–1:14:43.
+lecture 19, slides 43–50, ≈1:06:58–1:14:43; [lecture 21](21-language-models.md), slides 36–40, ≈28:47–35:50 (whether in-context
+learning is learning).
 
 **Notation** (lecture 19's slides). $\theta$ is a model's parameters and $f_{\theta}$ the model; a dataset is
 $\lbrace x^{(i)}, y^{(i)} \rbrace_{i=1}^{N}$; $\mathcal{T}_ i$ is a task drawn from a distribution over tasks $p(\mathcal{T})$, with
@@ -65,6 +66,19 @@ models are doing. It's kind of a version of meta-learning at large scale … in-
 meta-learning" (≈1:13:12–1:13:58). Trained on many tasks and sequences, such models may get "a much better actual output" than "this kind
 of inner and outer loop of training" (≈1:14:43). See [foundation models and prompting](foundation-models-and-prompting.md) and
 [autoregressive models](autoregressive-models.md).
+
+## Is in-context learning learning? (lecture 21)
+
+[Lecture 21](21-language-models.md) asks the question this page's last section raises. An in-context prompt looks like a training set, $x$,
+$y$, $x$, $y$, $x$, but "should we think of what's actually going on there as learning the way we think of gradient descent is learning,
+or is this something more complicated?" (≈29:33). One hypothesis is that the prompt conveys only the task's format, with everything else
+coming "from pretraining and not from this context at all" (≈30:21), and the evidence of 2022 fit it: shuffling the labels of the
+examples barely hurt (slides 38–39, Min et al.), so "the conventional wisdom was that … it's really just helping models retrieve tasks that
+they had previously learned how to do" (≈32:43). That has changed. Larger models "do actually start to pay attention to the association
+between labels and input examples", and "in particular cases, … models are capable of implementing real learning algorithms internal to
+their hidden representations", something "that looks like gradient descent", with "the parameter vector of a smaller model being stored
+inside the hidden representations" and "updated across layers as more examples get ingested", at least on synthetic data. Whether big models
+do this, "nobody knows. Almost certainly, the answer is, it's complicated" (≈34:15–35:50).
 
 ## See also
 

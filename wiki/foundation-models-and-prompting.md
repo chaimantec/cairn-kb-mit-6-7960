@@ -7,7 +7,8 @@ of "'Deep Learning' with *No* Data" in which you "just ask", and adds that "of c
 anymore" (slide 47). Covered so far: [lecture 18](18-transfer-learning-models.md), slides 40–75, ≈55:48–1:24:36; prompting a
 language model as conditioning, in [lecture 16](16-generative-models-conditional-models.md), ≈47:33; and optimizing a GAN's input
 through CLIP, in [lecture 2](02-how-to-train-a-neural-net.md), slide 70, ≈1:06:05–1:06:52. [Lecture 19](19-transfer-learning-data.md) (slide 50, ≈1:12:25–1:14:43) calls in-context learning a form of meta-learning. [Lecture 20](20-scaling-laws.md) shows how such models were sized: GPT-4's loss predicted from smaller models (slides 5–6, ≈6:16–10:56), and the split of compute between parameters and data revised from GPT-3 and Gopher to Chinchilla (slides 23–28, from the deck alone).
-Language models are lecture 21's subject, which this knowledge base does not yet cover (see the [course map](course-map.md)).
+[Lecture 21](21-language-models.md) (slides 24–60, ≈23:17–51:21) develops prompting a language model in depth: in-context learning and
+what the prompt adds, whether it is learning, and chain-of-thought prompting; see also [language models](language-models.md).
 
 **Notation** (lecture 18's slides). In CLIP, an image encoder produces image embeddings $I_1, \ldots, I_N$ and a text encoder text
 embeddings $T_1, \ldots, T_N$; $I_i \cdot T_j$ is the dot product of an image's embedding with a text's. In the banana and CLIP+GAN
@@ -130,6 +131,32 @@ tokens, Gopher at 280 billion on 300 billion, MT-NLG at 530 billion on 270 billi
 these models "significantly under-trained": with Gopher's compute, a 70-billion-parameter model on about four times the data outperforms
 them (slides 25–28). The recording ends before the Chinchilla slides, so that part is from the deck alone. See [scaling
 laws](scaling-laws.md).
+
+## In-context learning and chain of thought (lecture 21)
+
+[Lecture 21](21-language-models.md) starts from the constraint that defines this paradigm: without fine-tuning, "the only mechanism by
+which we can exert control over a language model … is by changing what we put into it" (≈23:17), or, as slide 24 asks, "How can we fiddle
+with the context that we give to language models to get them to do what we want?" Asking a model directly for the label "positive" after
+"this movie was terrible" fails, because "people don't say, 'This movie was terrible positive'"; **in-context learning** instead builds "a
+fictitious document in which the word positive is actually likely to come next", a few labelled examples followed by the test input
+(≈24:52–27:13). Slide 25 writes the prompted model as $P(\cdot \mid \mathbf{x}^{(1)}, \mathbf{y}^{(1)}, \ldots, \mathbf{x}^{(N)}, \mathbf{y}^{(N)}, \mathbf{x})$,
+with $N$ "typically 1-32" and no gradient updates; slides 31–33 add that the labels must be words, the examples carry extra text
+("Review:", "Answer:"), and so the model really sees a **template** of the data. Performance rises with the number of examples but
+saturates below fine-tuned models (slide 34), and rises with model size (slide 35). For a while the evidence suggested the prompt teaches
+only the task's format: random labels barely hurt (slides 38–39), while the label words and the order of the examples matter a great deal
+(slides 36, 40); "a lot of these issues seem to be going away with scale" (≈33:30). See [meta-learning](meta-learning.md).
+
+**Chain-of-thought prompting** (Wei et al., 2022; slides 46–51) puts written-out reasoning $\mathbf{z}^{(i)}$ between each example's input
+and answer, $P(\cdot \mid \mathbf{x}^{(1)}, \mathbf{z}^{(1)}, \mathbf{y}^{(1)}, \ldots, \mathbf{x}^{(N)}, \mathbf{z}^{(N)}, \mathbf{y}^{(N)}, \mathbf{x})$,
+so that the model reasons before it answers. The lecturer's reason it helps: a model has "a finite amount of computational resources …
+between the moment when you read the last word in the input and the moment at which you're expected to generate the first word in the
+output" (≈39:03). It works only in large models (slide 51). **Zero-shot chain of thought** (Kojima et al., 2022; slides 52–56) needs no
+examples at all: appending "Let's think step by step." lifts MultiArith from 17.7 to 78.7, and slide 57 shows optimized prompts doing
+better still ("Take a deep breath and work on this problem step-by-step.", 80.2 on GSM8K). "Even though I've been calling it magic, it is
+not magic", and explicit examples of the reasoning wanted remain better (≈47:33).
+
+Lecture 21 then turns from the prompt to the model: instruction tuning and reinforcement learning from human feedback make a model follow
+instructions by default, rather than continuing them as text; see [language models](language-models.md#three-stages-of-training).
 
 ## See also
 

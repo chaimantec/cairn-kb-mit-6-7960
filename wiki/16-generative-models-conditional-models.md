@@ -421,7 +421,7 @@ From the floor: the underscores around "five" in the review just mark italics ("
 ≈49:56); retrieval-augmented generation is "related to this. But I would say for now, treat that as a separate concept" (≈49:56).
 And how is such a model trained? Either a language model trained on "all the words on the internet" learns such conditionals "if
 they exist in the data", or, if not, "you can collect your own data set of reviews and sentiment labels. And then you could
-fine-tune on that" (≈49:56–51:27). "We'll have another lecture on language models", [lecture 21](course-map.md) (≈51:27).
+fine-tune on that" (≈49:56–51:27). "We'll have another lecture on language models", [lecture 21](21-language-models.md) (≈51:27).
 
 ## Image-to-text: captioning with cross-attention
 
@@ -673,7 +673,7 @@ future lectures" (≈1:20:56).
 The deck prints no lecture number but its own, on the title slide. The recording points back to "last lecture", which "was a little bit
 math-heavy" (lecture 15, ≈0:00), to "the hacker's guide lecture" and its quantization hack (lecture 9, ≈9:13), to GANs shown "very briefly
 in one of the previous lectures" (lecture 14, ≈24:12), to "the VAEs we saw last class" (lecture 15, ≈42:03) and to "the transformers lecture"
-(lecture 8, ≈52:15); and ahead to "another lecture on language models" (lecture 21, ≈51:27) and, for grounding, to "some future lectures"
+(lecture 8, ≈52:15); and ahead to "another lecture on language models" ([lecture 21](21-language-models.md), ≈51:27) and, for grounding, to "some future lectures"
 that it does not name (≈1:20:56). Lecture 14's outline had announced this one as "Lecture 16: conditional models, data prediction". See the
 [course map](course-map.md).
 

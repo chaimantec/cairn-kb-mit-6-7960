@@ -10,7 +10,8 @@ supervised learning to self-supervised learning" (≈1:09:53). Covered so far: l
 slides 29–39; next-word prediction in [lecture 8](08-architectures-transformers.md) and
 [lecture 10](10-architectures-memory.md); and self-supervision by similarity rather than prediction, contrastive learning, in
 [lecture 12](12-representation-learning-similarity-based.md), slides 27–37, 47–51 and 54–68, ≈30:25–43:43 and ≈53:56–1:10:21; and [lecture 18](18-transfer-learning-models.md), slides 12–13
-and 48, ≈16:19–17:04 and ≈1:09:52 (self-supervised pretraining for transfer, and GPT-3's generative pretraining).
+and 48, ≈16:19–17:04 and ≈1:09:52 (self-supervised pretraining for transfer, and GPT-3's generative pretraining); and [lecture
+21](21-language-models.md), slides 12–18, ≈13:52–19:20 (BERT's masked language modeling, why it works, and why it does not generate).
 
 ## Learning without labels
 
@@ -128,6 +129,17 @@ possible on "a lot, a lot, a lot of data", since "the amount of data that exists
 labeled or clean data set" (slides 12 and 13, ≈16:19–17:04). Its foundation models are pretrained the same way: GPT-3 by predicting
 the next characters (slide 48) and CLIP contrastively (slide 60). See [transfer learning](transfer-learning.md) and [foundation models
 and prompting](foundation-models-and-prompting.md).
+
+## Masked language modeling, and why it works (lecture 21)
+
+[Lecture 21](21-language-models.md) recalls BERT from the language side. Masked language modeling takes text, hides some words and asks the
+model to predict them, which needs no labelled data: "you just get all the texts that you can get your hands on" (≈13:52). Slide 12
+pretrains on "[CLS] MIT was [MASK] in [MASK]", predicting "founded" and "1861", and then fine-tunes a classifier on the [CLS] token's
+representation. The objective "is not useful for anything in particular", but the representations are, and the results "were remarkably
+strong" (slide 13). Why (slides 14–15): "Predicting words in context requires linguistic & world knowledge!", the grammar of a past-tense
+verb and the fact that "MIT was founded in 1861", and "such knowledge is implicitly captured within the Transformer's parameters"
+(≈16:59). Its limit: "BERT is NOT a language model" (slide 17), because it sees both sides of the gap; generation needed next-word
+prediction, the pretext task of today's large language models (≈17:47–19:20). See [language models](language-models.md).
 
 ## See also
 

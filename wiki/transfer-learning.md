@@ -13,7 +13,8 @@ iNaturalist); [lecture 17](17-generalization-out-of-distribution.md), slides 38 
 adaptation previewed); [lecture 18](18-transfer-learning-models.md), slides 2–39 and 46–68, ≈0:00–56:35 and ≈1:09:04–1:23:48
 (the three kinds of knowledge to transfer, finetuning in practice, domain adaptation, distillation, and adapting foundation models);
 [lecture 19](19-transfer-learning-data.md), slides 2–51, ≈0:00–1:14:43 (knowledge about the inputs, through generative models as
-"data++", and meta-learning).
+"data++", and meta-learning); [lecture 21](21-language-models.md), slides 8–11 and 41–42, ≈10:03–13:06 and ≈35:50–37:26 (from
+pretrain-and-transfer to pretrain-and-prompt).
 
 ## A good representation makes the next task easier
 
@@ -157,6 +158,19 @@ supply contrastive learning's positive pairs (slides 4–42; see [generative mod
 lecture then asks whether a model can be trained to be good at transfer itself: **meta-learning**, by MAML, which learns an
 initialization that a few SGD steps adapt well, or by sequence modelling, where a model's state learns in context (slides 43–50; see
 [meta-learning](meta-learning.md)).
+
+## From pretrain and transfer to pretrain and prompt (lecture 21)
+
+[Lecture 21](21-language-models.md) tells the history of NLP as a history of transfer. Until 2014 a language model was a component tacked
+onto a task-specific system; from 2014 the task itself was posed as conditional next-word prediction; from about 2017 "you could get
+nontrivial transfer effects between different tasks", pretraining on next-word or masked-word prediction and fine-tuning, "a way to get
+away with much, much less data for any specific downstream task"; and from 2020 a single model is prompted rather than fine-tuned at all
+(slides 8–11, ≈10:03–13:06). Slides 41 and 42 draw the change: from collecting data and training a model for every task to a few examples
+per task and "Single model for all tasks!" That works only because the pretraining data "already contains evidence and information about
+how to perform most of these specific downstream things": scrape the internet and "you find examples for translation tasks and
+summarization tasks and entity recognition tasks and sentiment analysis tasks" (≈35:50–37:26). Fine-tuning still wins for "some totally
+novel thing" with "lots and lots" of examples, but "most people don't have the ability to fine-tune a very large model" (≈50:36–51:21).
+See [foundation models and prompting](foundation-models-and-prompting.md).
 
 ## See also
 
