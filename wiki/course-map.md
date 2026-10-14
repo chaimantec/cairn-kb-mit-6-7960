@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md) and [lecture 19](19-transfer-learning-data.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md), [lecture 19](19-transfer-learning-data.md) and [lecture 20](20-scaling-laws.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -45,7 +45,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 17 | Generalization: Out-of-Distribution (OOD) | [yes](17-generalization-out-of-distribution.md) |
 | 18 | Transfer Learning: Models | [yes](18-transfer-learning-models.md) |
 | 19 | Transfer Learning: Data | [yes](19-transfer-learning-data.md) |
-| 20 | Scaling Laws | not yet |
+| 20 | Scaling Laws | [yes](20-scaling-laws.md) (the recording covers slides 1–17 only) |
 | 21 | Language Models | not yet |
 | 23 | Metrized Deep Learning | not yet |
 | 24 | Inference Methods for Deep Learning | not yet |
@@ -228,6 +228,13 @@ Interfaces, "I showed this work actually before" (17, ≈36:41), to learning a p
 ≈1:12:25), to the forward and backward pass unfolded (probably 2, ≈1:09:21) and to in-context translation in "autoregressive modeling for
 large language models" (probably 18, ≈1:13:12); it names no later lecture
 ([lecture 19](19-transfer-learning-data.md#pointers-to-other-lectures)).
+
+Lecture 20's title slide reads "Lecture 20: Scaling Laws", matching the recording and settling lecture 1's "Lecture 22: Scaling laws"
+banner; it is Phillip Isola's, and the deck prints no other lecture number. Its recording is incomplete: OCW's video and transcript
+both end at ≈38:01, mid-sentence, after slide 17 of 51. The recording names no earlier lecture, and points ahead only to "the next few
+lectures", which "will be of that flavor", recent empirical research (≈0:00), and, within the lecture, to the batch size "at the end
+of this lecture" (≈15:33), which the recording does not reach. Scaling laws first appeared in lecture 3 (slides 37–39), and lecture 18
+previewed this lecture (≈2:19) ([lecture 20](20-scaling-laws.md#pointers-to-other-lectures)).
 
 ## Coursework and policies
 

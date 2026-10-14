@@ -22,7 +22,9 @@ slides 4–7 and 20–26, ≈4:49–8:41 and ≈45:07–1:12:44, asks what simil
 ≈1:11:40–1:19:23, learns both directions at once in a variational autoencoder, and asks what its latent space learns: disentangled
 factors of variation, and seams. [Lecture 18](18-transfer-learning-models.md), slides 11 and 36–37, ≈13:57–15:30 and
 ≈49:35–53:29, transfers the learned encoder by finetuning and distills a representation from one network into another. [Lecture
-19](19-transfer-learning-data.md), slides 35–41, ≈37:28–57:37, learns a representation from a generator's samples.
+19](19-transfer-learning-data.md), slides 35–41, ≈37:28–57:37, learns a representation from a generator's samples. [Lecture
+20](20-scaling-laws.md), slides 46–50 (from the deck alone), compares representations by their kernels and asks whether they converge
+as models scale.
 
 ## Compact, compositional representations
 
@@ -337,3 +339,17 @@ could ever be better: "there's this kind of broader meta argument going on in th
 information out of a generator trained on data than the underlying data itself" (≈39:45). With contrastive views made in latent space,
 generated data came within about a point of real data on ImageNet1000 linear transfer, 42.6% against 43.9% (slide 40); "what do we really
 want from representations?" (≈55:16). See [generative models as data](generative-models-as-data.md).
+
+## Do representations converge? (lecture 20)
+
+The last section of [lecture 20](20-scaling-laws.md)'s deck, which the recording does not reach, asks whether representations become
+alike as models scale. It characterizes a representation, a vector embedding $f : \mathcal{X} \rightarrow \mathbb{R}^{n}$, by its
+**kernel**, $K(x_i, x_j) = \langle f(x_i), f(x_j) \rangle$: which inputs it treats as similar (slide 47). A vision model's kernel over
+pictures of an apple, an orange, an elephant and a giraffe groups the fruits and the animals, and a language model's kernel over the four
+words has the same structure; the two can be compared, $\text{sim}(\mathbf{K}_ {\text{vision}}, \mathbf{K}_ {\text{text}})$, though
+the models never share an input (slide 48). Measured this way, across eleven language models and four sizes of the vision model DINO,
+the better the language model, the more its representation aligns with the vision model's, and the larger the vision model, the higher
+the alignment (slide 49, "Scaling laws for cross-modal alignment"). Slide 50 draws "The Platonic Representation Hypothesis" (Huh, Cheung,
+Wang and Isola, 2024): one world $Z$ observed as an image $X$ and as a caption $Y$, each mapped to a vector by its own encoder. The
+deck does not state the hypothesis in words. Lecture 6 used the same kind of kernel, a matrix of similarities between representations, to see whether a network clusters its
+data (above).

@@ -8,12 +8,13 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–19 of 24 only.** This knowledge base currently holds the first nineteen
+> **Coverage: lectures 1–20 of 24 only.** This knowledge base currently holds the first twenty
 > lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data) and the concept pages they support. For anything taught in lectures 20–24, it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws) and the concept pages they support. Lecture 20's recording ends
+> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. For anything taught in lectures 21–24, it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 19. Build progress is in
+> that lecture says. Do not cite it as the course beyond lecture 20. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -268,6 +269,19 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   collapse; then meta-learning: three levels, MAML and its double loop (with the update formulas the slide covers), backpropagating
   through backward, TIML for crop mapping, and in-context learning as meta-learning by sequence modeling. Slides 7–9, 12–17, 19, 20,
   24–28, 33, 34, 42 and 49 are excluded from OCW's licence, and slides 23, 29–31 and 36 reuse excluded images.
+- [Lecture 20 — Scaling Laws](wiki/20-scaling-laws.md) — Phillip Isola. **The recording ends at ≈38:01, after slide 17 of 51**;
+  the rest is from the deck alone. Why scale matters: compute's 3.4-month doubling, "The Bitter Lesson", and the budget question; GPT-4's
+  loss and coding pass rate predicted from smaller models ("Design model here … Rather than here", "10,000x savings"); scaling laws as
+  minimizing test loss under a compute budget ($N$ parameters, $D$ data, $C$ compute, counted as 6 × parameters × batch size ×
+  steps); Kaplan, McCandlish et al.'s power
+  laws in data ($\alpha_D \sim 0.095$), parameters ($\alpha_N \sim 0.076$) and compute, the frontier of training runs, the joint law
+  $L(N, D)$ and the split $N \propto C^{0.73}$, $D \propto C^{0.27}$; Rosenfeld et al. and extrapolation. From the deck alone: model
+  shape barely matters, larger models need fewer samples, train large and compress (Li et al.); Kaplan et al.'s take-aways, caveats and
+  the models that followed; Chinchilla's revision ($N \propto C^{0.49}$, $D \propto C^{0.51}$, its three approaches and limitations);
+  the data-manifold hypothesis (a toy model, $\alpha \approx 4/d$, intrinsic dimension); breaking power-law scaling by data pruning;
+  the critical batch size (gradient noise, the noise scale, perfect against ineffective scaling, cost against time); and representational
+  convergence (kernels of vision and language models, alignment scaling with model quality, the Platonic Representation Hypothesis).
+  Slides 3, 24, 40, 45, 47 and 48 are excluded from OCW's licence.
 
 ## Course pages
 
@@ -320,7 +334,7 @@ passages it draws on.
   in the Euclidean norm, sign gradient descent, and full-batch optimization (lecture 7); practical
   advice — one data point before many, learning rate and batch size, epochs, Adam against SGD, and
   exponential moving averages (lecture 9); projected gradient ascent on an input perturbation, and adversarial training
-  (lecture 17).
+  (lecture 17); how big a batch should be: gradient noise, the noise scale and the critical batch size (lecture 20, from the deck alone).
 - [Steepest descent](wiki/steepest-descent.md) — lecture 7's first-order method: replace the
   non-linear part of the Taylor expansion with $\frac{\lambda}{2} \Vert \Delta \mathbf{w} \Vert^2$
   and minimize; the Euclidean norm gives gradient descent ($-\mathbf{g}/\lambda$), the infinity norm
@@ -395,18 +409,22 @@ passages it draws on.
   networks as deliberately non-universal, universal within multiset functions, and bounded by the
   Weisfeiler-Leman test (lecture 5); approximation set beside generalization, and why parameter
   count is not the capacity that matters (lecture 6); whether kernel methods, Gaussian processes and networks are
-  equally expressive (lecture 13).
+  equally expressive (lecture 13); the box construction turned into a scaling law, $L(N) \lesssim N^{-4/d}$, and model shape
+  (lecture 20).
 - [Lipschitz continuity](wiki/lipschitz-continuity.md) — $|g(x + \Delta x) - g(x)| \le L |\Delta x|$,
   the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
   (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
-  in lecture 3's proof; the RMS norm reused for the RMS-RMS operator norm (lecture 7).
+  in lecture 3's proof; the RMS norm reused for the RMS-RMS operator norm (lecture 7); the error bound of a toy model that
+  yields a scaling law (lecture 20).
 - [Scaling laws](wiki/scaling-laws.md) — as lecture 3 presents them: Kaplan, McCandlish et al.
   (2020)'s power laws in compute, data and parameters, their finding that width versus depth
-  barely matters at fixed parameter count, and Chinchilla as an example of confounders. Previews
-  lecture 20. Lecture 9's practical version: scale data, model and compute, scale as a proxy for
+  barely matters at fixed parameter count, and Chinchilla as an example of confounders. Lecture 9's practical version: scale data, model and compute, scale as a proxy for
   coverage, and scaling as "necessary but not sufficient". Lecture 18: deep learning does not saturate with data,
-  compute and parameter growth, and performance on 58 tasks against model size. Not the same as lecture 7's scaling *rules*
-  (below).
+  compute and parameter growth, and performance on 58 tasks against model size. Lecture 20, the lecture on the subject (its
+  recording covers slides 1–17): designing at small scale and extrapolating (GPT-4), the power laws and their frontier, the joint
+  law and Kaplan et al.'s split of compute, extrapolation, then from the deck alone Chinchilla's revised split, the data-manifold
+  explanation of the exponent, beating power laws by pruning data, the critical batch size, and representational convergence. Not
+  the same as lecture 7's scaling *rules* (below).
 - [Scaling rules](wiki/scaling-rules.md) — lecture 7's answer to "the optimal learning rate drifts"
   and "deeper performs worse": hyperparameter transfer, the Goldilocks update and "in which norm?",
   the width rule ($\Vert \mathbf{W}_ \ell \Vert_{\text{RMS-RMS}} \sim 1$ at initialization and
@@ -452,7 +470,8 @@ passages it draws on.
   a network as a map through vector spaces, and the similarity an untrained architecture builds in (lecture 13);
   generative modeling as its inverse (lecture 14); both directions learned at once, disentanglement, and seams in latent space
   (lecture 15); transferring the learned encoder, and distilling a representation into a smaller network (lecture 18); learning a
-  representation from a generator's samples (lecture 19).
+  representation from a generator's samples (lecture 19); comparing representations by their kernels, and whether vision and
+  language representations converge as models scale (lecture 20).
 - [Autoencoders](wiki/autoencoders.md) — learning a representation by compression: encoder, decoder and the
   reconstruction objective, why the identity is not trivial (the bottleneck does the work), linear autoencoders as
   PCA ("nonlinear PCA"), what an autoencoder learns and gives up (shape against colour), k-means as an $L_2$
@@ -488,7 +507,8 @@ passages it draws on.
   what makes a foundation, learner and adaptor, their cost in compute, money, energy and water, and the scale argument; prompting a
   language model (GPT-3, in-context learning, brittle templates, soft prompts, chain-of-thought); CLIP's linear probe and zero-shot
   "just ask", and its trouble with composition and negation; visual prompting and adversarial reprogramming; and plugging models
-  together (CLIP+GAN, DALL-E 2) (lecture 18); in-context learning as meta-learning (lecture 19).
+  together (CLIP+GAN, DALL-E 2) (lecture 18); in-context learning as meta-learning (lecture 19); how such models were sized, from
+  GPT-3 and Gopher to Chinchilla, and GPT-4's predicted loss (lecture 20).
 - [Meta-learning](wiki/meta-learning.md) — learning to learn: the three levels (inference, learning, meta-learning), MAML's learned
   initialization and its double loop with the inner and outer updates, backpropagating through backward and its cost, whether it pays
   (TIML for crop mapping), and meta-learning by sequence modeling, with in-context learning as meta-learning at scale (lecture 19).
@@ -595,7 +615,7 @@ passages it draws on.
   $f(x) = \sum_i \alpha_i \thinspace k(x, x_i)$, and the reproducing kernel Hilbert space; the kernel as the modelling
   choice; the correspondences with Gaussian processes (the posterior mean as the minimum-norm kernel interpolator) and
   with infinitely wide networks; why networks rather than kernel methods (lecture 13); not the same as a convolution
-  kernel or lecture 6's kernel matrix.
+  kernel or the kernel matrix of a representation (lectures 6 and 20).
 - [Gaussian processes](wiki/gaussian-processes.md) — random functions whose values on any finite set of inputs are
   jointly Gaussian: the picture, a random vector plotted as a function, the formal definition, covariance functions as
   "nearby", prediction by conditioning, and the neural network–Gaussian process correspondence with its proof sketch,
@@ -649,7 +669,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–19 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–20 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

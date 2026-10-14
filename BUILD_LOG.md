@@ -97,18 +97,23 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   were talking about distribution shift" (17's slide 55, ≈1:12:25), to the forward and backward pass unfolded (probably 2, whose slides 50
   and 51 draw slide 47's network, ≈1:09:21) and to in-context translation in "autoregressive modeling for large language models"
   (probably 18's slide 54, ≈1:13:12). It names no later lecture.
+  Lecture 20's title slide reads "Lecture 20: Scaling Laws", matching the recording and settling lecture 1's "Lecture 22: Scaling laws"
+  banner (slide 79); Phillip Isola is the speaker, and the deck prints no other lecture number. Its recording ends at ≈38:01, after slide
+  17 of 51, and names no earlier lecture; it points ahead to "the next few lectures", which "will be of that flavor" (≈0:00), and, within
+  the lecture, to the batch size "at the end of this lecture" (≈15:33) and to a theoretical model of power laws (≈24:45), both past the
+  end of the recording. Lecture 3's slides 37–39 showed Kaplan et al. and Chinchilla first, and lecture 18 previewed this lecture (≈2:19).
 
 ## End pages
 
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page (page 81 in lectures 1 and 2, page 43 in lecture
-  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16, page 63 in lecture 17, page 77 in lecture 18, page 52 in lecture 19), which is
+  3, page 84 in lecture 4, page 47 in lecture 5, page 66 in lecture 6, page 32 in lecture 7, page 55 in lecture 8, page 72 in lecture 9, page 69 in lecture 10, page 65 in lecture 11, page 70 in lecture 12, page 28 in lecture 13, page 60 in lecture 14, page 42 in lecture 15, page 84 in lecture 16, page 63 in lecture 17, page 77 in lecture 18, page 52 in lectures 19 and 20), which is
   not lecture content. Lecture 5's is a 4:3 page and lecture 6's a 792×612 one, smaller than the slides,
   and `slide_number_map.py` reports each as printing no number although they print 47 and 66; it says
   the same of lecture 7's page 32, whose render shows a small "32", of lecture 8's page 55, a
   792×612 page that prints "55", of lecture 9's page 72, a 792×612 page that prints "72", of lecture 10's
   page 69, a 792×612 page that prints "69", of lecture 11's page 65, a 792×612 page that prints "65", of lecture 12's
-  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", of lecture 16's page 84, a 792×612 page that prints "84", and of lecture 17's page 63, a 792×612 page that prints "63", and of lecture 18's page 77, a 792×612 page that prints "77", and of lecture 19's page 52, a 792×612 page that prints "52".
+  page 70, a 792×612 page that prints "70", of lecture 13's page 28, a 792×612 page that prints "28", of lecture 14's page 60, a 792×612 page that prints "60", of lecture 15's page 42, a 792×612 page that prints "42", of lecture 16's page 84, a 792×612 page that prints "84", and of lecture 17's page 63, a 792×612 page that prints "63", and of lecture 18's page 77, a 792×612 page that prints "77", and of lecture 19's page 52, a 792×612 page that prints "52", and of lecture 20's page 52, a 792×612 page that prints "52".
 
 ## Handwritten decks
 
@@ -244,6 +249,16 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   audit found no missed notice. Slide 28's notice sits under its row of portraits, but names the authors of the paper whose cat is on the
   same slide (next section).
 
+  Lecture 20's carries 6 in 52 pages, all typed and in the text layer, and the slide file's set matches the text layer's exactly: slide 3
+  ("© Rich Sutton", his essay "The Bitter Lesson"), 24 ("Dinosaur © Universal Pictures. Chinchilla © source unknown.", after a "Pocket
+  gopher courtesy of LeonardoWeiss on Wikipedia Commons. Used under CC BY." credit in the same block), 40 ("Left © OpenAI. Right © OpenAI,
+  McCandlish, et al.", the Dota 2 graphic and the large-batch paper), 45 ("© OpenAI, McCandlish, et al.", both charts) and 47 and 48
+  ("Icons © source unknown", the apple, orange, elephant and giraffe icons of the kernel slides). Slide 50 carries "Courtesy of Huh, et al.
+  Used under CC BY." The paper and OpenAI charts on slides 1, 2, 5, 6, 10–14, 16–20, 26, 28, 29, 35, 37, 44 and 49 carry a citation, a
+  URL or nothing, and no notice. A vector scan for outlined small print found one filled path of 1040 segments, 288 × 17 pt, on slide 42;
+  the audit identified it as the red brush-stroke underline of the gradient-noise label, not small print. The audit found no missed
+  notice.
+
 ## Excluded images reused without a notice, and the hash sweeps
 
 - **An excluded image can reappear without its notice.** Lecture 4's slides 50–52 print no notice,
@@ -375,6 +390,14 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   lecture 9's slide 57 against slide 34's plate photographs coarsely (grey 49.9 and 72.6; side by side, a dark plot of four markers
   against an empty plate and a plate of food), and lecture 8's slides 14, 15, 28 and 29 against a slide 28 portrait (grey 65.0–71.6); and
   slide 1's footer banner matched lecture 15's excluded slide 1 again. No earlier image was withdrawn.
+  Lecture 20's sweep, lecture 19's script with lecture 19's slides 23, 29–31 and 36 added to the withheld list, was first rerun on lectures
+  11 and 14 and found the CLIP figure (0 bits, grey 0.4) and Homework 5's chain (4 bits, 5.5), its output identical to lecture 19's
+  validation runs. It found no exact match and no reuse. Cleared after looking: slide 32's 3398 × 1207 raster, the drop shadow under the
+  Sharma and Kaplan title block (black, drawn through a soft mask), matched coarsely the drop shadows of earlier decks' excluded paper
+  screenshots (lecture 5's slide 3 at 0 bits and grey 6.2; lecture 6's slide 23, lecture 8's slide 53 and lecture 9's slide 3 at 3.5–3.7),
+  black rectangles side by side; slide 1's footer banner matched lecture 15's excluded slide 1 (grey 12.3), the course banner again; and,
+  in the earlier-rendered direction, slide 47's heat-map colour bar matched lecture 8's slide 44 (grey 37.3), a green gradient, and images
+  of lectures 2 and 16 at 83–105. The other coarse matches had grey differences of 95.6 to 220.0. No earlier image was withdrawn.
 
 ## Transcript edits, by lecture
 
@@ -508,6 +531,19 @@ attribution of the Stable Diffusion quotation, "Mathcad X" (slide 5's double-str
 first names "Chelsea Finn" and "Gabi Tseng" against slides 44–46's and 49's citations. No student is named. SAM and DINOv2, British
 shorthairs, American robins, the oriole, toucan and star-shaped baseball, the ECCV paper on "instance augmented generation", "Bigfoot with
 a crow texture" and model collapse appear on no slide and are kept unchecked, as the header says.
+Lecture 20: 50 markers identical, all 45 numbers identical, and word ratios 1.00–1.01 once its `[Ed: …]` notes are removed (with them,
+six paragraphs reach 1.13–1.75; the 1.75 is the short last paragraph, carrying the note on where the recording ends). Done inline, by a
+script of exact replacements, after reading the whole transcript and the slide file. The recording ends at 38:01, mid-sentence, after
+slide 17 of 51; OCW's transcript PDF (`mit6_7960f24_lec20_transcript.pdf`) ends at the same words, so the cut is OCW's, not the caption
+fetch's, and OCW's video description ("power laws, their limitations, theoretical foundations, and the concept of critical batch size")
+describes the deck rather than the recording. Three restorations: "skill" → "scale" (8:39, from the paragraph and slide 5), "webtext" →
+"WebText" (15:33, slide 8's "WebText2") and "Von Neumann" → "von Neumann" (31:48). Twelve `[Ed: …]` notes: slide 8's "WebText2",
+slide 2's 3.4-month doubling against "every three months", slide 5's unlabelled compute axis, the paper's year, slide 8's factor of 6,
+slide 9's 2^−α, slide 10's two forms of the law, the lecturer's unresolved "I might be saying that wrong" (27:53; slides 15 and 21
+answer it), slide 13's four constants against "there's five", slide 15's 0.73 against "0.7", slide 16's paper for "a paper on vision
+power laws", and the end of the recording. No student is named. Big-O notation, GPT-4's training cost, the self-driving example,
+Anthropic's founding, context-length scaling laws and the "five parameters … elephant" saying (a student attributes it to Anderson)
+appear on no slide and are kept unchecked, as the header says.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -949,6 +985,37 @@ image grids drawn off slide 34; clipped copies of slides 47 and 48's diagrams; s
 algorithm (given in the entry as hidden); and slide 18's whited-out captions and tick labels under a visible OCR text layer. The entries
 describe what the pages show.
 
+**Lecture 20's figure audit**, cross-model: Sonnet read the typed deck in two halves, and Opus checked 43 pages (1–3, 5–20, 23–30,
+32–35, 37, 39–45, 47–50), every page with a figure, chart, table, diagram or equation, split between four agents, all of which finished.
+No equation was wrong: slides 7, 9–16, 27, 33, 34 and 43's formulas were checked character by character against the rasters or the
+typed math, slide 13's and 23's tables cell by cell. 22 pages were corrected, 10 given precisions only, and 11 were right as written.
+Chart positions and counts: slide 1's envelope (black, ending near 0.3, not at 1) and 13 curves; slide 5's five dot positions and its
+arrow at 70μ, not 100μ; slide 11's first dot at about 6·10^3; slide 17's green dots from 0.53; slide 28's GPT-3 and Gopher stars below
+the Kaplan line, not on it; slide 35's GPT arrow; slide 40's ring of 12 dots and its border colours; slide 49's four grid lines and four
+arrowheads. A value off by a factor of ten: slide 45's yellow curve flattens at 0.08 dollars, not 0.8. Stacking and placement: slide
+24's gopher photograph lies over the dinosaur, not under it; slide 41's three red arrows are chained head to tail; slides 44 and 45's
+labels and arrow; slide 47's elephant behind the orange. Misread type: slide 43's note is typed, not handwritten; slide 48's subscript is
+sans-serif. Slides 26 and 29's dashed lines cross, and the caption's colours and thirds do not match them; slide 37's chart is slide 10's,
+unidentified; slide 23's pasted table hides a Chinchilla row under its crop; slide 1's "97% raster" is a clipped three-chart image whose
+unclipped box was measured, and slide 41's "99%" is vector shadings and drop shadows. Printed slips left unflagged: the citation's "of"
+(slides 10–14, 18 and 19, against slide 8's title block), slide 16's exponent, slide 42's sign and the caption of slides 26 and 29. The
+renders of slides 13 and 42 were then checked against the corrected text.
+
+**Lecture 20's printed slips and oddities**, transcribed as written: the citation "Scaling Laws of Neural Language Models" on slides
+10–14, 18 and 19, where slide 8's title block reads "for"; slide 8's "shape (depth, with, attention heads, …)"; slide 9's missing
+closing parenthesis; slide 12's compute constant, 2.3·10^8 in the legend and 3.1·10^8 in the equation; slide 13's legend order, 3M
+before 25M; slide 16's $b(N)/N^{-\alpha_2(D)}$, a minus sign in a denominator's exponent; slide 24's "Wikipedia Commons" (outside the
+course material: the repository is Wikimedia Commons); slide 25's "4× more more data"; the caption of slides 26 and 29; slide 37's
+Kaplan et al. chart under a Sorscher et al. citation; slide 39's "Which is yields"; slide 41's "as a function given"; slide 42's label
+$\nabla\theta - \nabla_{\text{sgd}}\theta$ against its arrow and equation; and slide 43's "Plug the equation learning rate back into the
+equation". Hidden content: slides 23 and 25 crop their pasted images (a Chinchilla row; the abstract's first and last lines); slide
+33's 3D raster holds its two summands out of view; slide 20's raster holds a "RoBERTa Quantization" chart off the page; slide 44 holds a
+contour plot outside its clip; slide 45 crops its right chart's title, "Atari Breakout - Pareto Fronts"; slide 47's icons cover the
+typed arguments $f(x_i)$ and $f(x_j)$; slide 50 holds another version of its figure out of view. The entries describe what the pages
+show. In the recording the lecturer gives compute's doubling as "every three months" (slide 2: 3.4 months), the parameter exponent as
+0.7 (slide 15: 0.73) and the fit's constants as five (slide 13: four), and first says the data should grow faster, then that he "might
+be saying that wrong"; the transcript and the wiki give both versions.
+
 ## Audit yields
 
 Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, nodes,
@@ -978,6 +1045,9 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   taken from outside the page and one typo introduced into a URL; all four of its auditors finished.
   Lecture 19's audit found errors on 19 of 44 pages, mostly counts and positions, with no formula wrong, seven pictures misdescribed (one
   of them a second point that is not on the page) and three names taken from outside the page; all four of its auditors finished.
+  Lecture 20's audit found errors on 22 of 43 pages, mostly chart positions, counts and stacking, with no formula wrong, one value off by
+  a factor of ten, a repeated chart unidentified, a table row hidden by a crop, and four printed slips left unflagged; all four of its
+  auditors finished.
 
 ## Where each lecture's images appear
 
@@ -1024,6 +1094,8 @@ All 26 of lecture 18's images appear both in [`wiki/18-transfer-learning-models.
 and under their headings in [`raw/slides/18-transfer-learning-models.md`](raw/slides/18-transfer-learning-models.md).
 All 15 of lecture 19's images appear both in [`wiki/19-transfer-learning-data.md`](wiki/19-transfer-learning-data.md)
 and under their headings in [`raw/slides/19-transfer-learning-data.md`](raw/slides/19-transfer-learning-data.md).
+All 20 of lecture 20's images appear both in [`wiki/20-scaling-laws.md`](wiki/20-scaling-laws.md)
+and under their headings in [`raw/slides/20-scaling-laws.md`](raw/slides/20-scaling-laws.md).
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -1450,6 +1522,27 @@ Not rendered, and why:
 - **Build steps a rendered slide supersedes:** 11 (the z-to-x picture of slide 6, after slide 10) and 21 (slide 22 without its labels).
 - **Text, equations and code the slide file reproduces exactly:** 2, 5, 32 (OCW's placeholder), 41, 44, 46, 50 and 51.
 - **Title and end page:** slide 1; slide 52, the OCW end page.
+
+### What was rendered, and what was not — lecture 20
+
+Rendered (20): slides 2, 5, 6, 12, 13, 14, 16, 17, 18, 19, 20, 26, 28, 33, 35, 41, 42, 44, 49 and 50: compute growth, GPT-4's predicted
+loss and coding pass rate, Kaplan et al.'s three power laws, the joint law in data and parameters, the law in parameters and steps,
+Rosenfeld et al.'s error surfaces and extrapolation, model shape, sample efficiency, train large and compress, Chinchilla's training-curve
+envelopes and its predicted parameter counts, the toy model, intrinsic dimension against the exponent, GD against SGD, gradient noise,
+the critical batch size, cross-modal alignment and the Platonic representation diagram. All 20 wiki images were placed by hand with
+hand-written captions, after rendering, with paths copied from disk (all JPEG); the script placed all 20 in the slide file. Slide 50 is
+credited CC BY; the others reproduce third-party charts with a citation, a URL or nothing, and no notice, and are rendered by the rule
+that only a notice excludes.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (6 slides): 3, 24, 40, 45, 47 and 48.** Sutton's essay, the gopher, dinosaur and chinchilla slide,
+  OpenAI's Dota 2 graphic and the large-batch paper, the compute-against-time charts and the two kernel slides with their icons
+  therefore exist here as prose only.
+- **Charts a rendered slide already shows:** 10 and 11 (both in slide 12), 29 (slide 26's figure) and 37 (slide 10's chart).
+- **Text, equations and tables the slide file reproduces exactly:** 4, 7, 8, 9, 15, 21, 22, 23, 25, 27, 30, 32, 34, 39, 43 and 51.
+- **Section dividers:** 31, 36, 38 and 46.
+- **Title and end page:** slide 1 (which also carries two Kaplan et al. charts shown on slides 12 and 14); slide 52, the OCW end page.
 
 ## Build checklist, lectures 1–17
 

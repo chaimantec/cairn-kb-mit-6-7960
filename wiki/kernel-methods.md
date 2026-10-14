@@ -5,7 +5,8 @@ The bump, the **kernel**, says how much one input should influence the predictio
 it plays the role that choosing an architecture plays in deep learning. The course introduces kernel
 methods in [lecture 13](13-representation-learning-theory.md), as one corner of a triangle of
 correspondences between kernel methods, [Gaussian processes](gaussian-processes.md) and neural networks.
-Covered so far: lecture 13, slides 9 and 11, ≈10:13–22:06 and ≈56:56–59:17.
+Covered so far: lecture 13, slides 9 and 11, ≈10:13–22:06 and ≈56:56–59:17. Lecture 20's representation kernels are another kind
+(see below).
 
 **Notation.** $x$ is an input and $x_1, \ldots, x_n$ the training inputs. $k(x, x_i)$ is the kernel,
 $\alpha_i$ a scalar weight, and $f$ the fitted function.
@@ -72,6 +73,9 @@ similarities between the output representations of every pair of data points, wh
 how the network has clustered the data (see
 [representation learning](representation-learning.md#kernels-and-why-deeper-representations-cluster-lecture-6)).
 That is the same idea as this page's in one respect: both kernels measure the similarity of two inputs.
+[Lecture 20](20-scaling-laws.md)'s deck uses lecture 6's kind, $K(x_i, x_j) = \langle f(x_i), f(x_j) \rangle$, the inner products
+of a representation's embeddings, to compare a vision model with a language model (slides 47–49; see [representation
+learning](representation-learning.md#do-representations-converge-lecture-20)).
 
 ## Where it appears
 

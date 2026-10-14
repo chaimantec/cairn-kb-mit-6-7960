@@ -4,7 +4,8 @@ A way of saying how fast a function can change. Lecture 3 introduces it to choos
 functions its approximation theorem covers, and the lecturer thinks it is "nice to teach you about
 Lipschitz functions regardless of neural net approximation" (≈9:16). Covered so far:
 [lecture 3](03-approximation-theory.md), slides 8–10 and 12–14; [lecture 7](07-scaling-rules-for-optimization.md),
-slide 24, ≈59:18–1:02:24, which reuses the RMS norm.
+slide 24, ≈59:18–1:02:24, which reuses the RMS norm; and [lecture 20](20-scaling-laws.md), slide 33, where the Lipschitz constant
+bounds a toy model's error.
 
 On this page, as in lecture 3, $L$ is the **Lipschitz constant**, not the loss of the
 [course notation](notation.md).
@@ -83,3 +84,10 @@ the name layer norm. Using it on a matrix's input and output gives the **RMS-RMS
 a matrix can change the RMS norm of a vector passing through it (slide 24), which lecture 7 uses to scale
 a network's initialization and updates with width. See [norms](norms.md) and [scaling
 rules](scaling-rules.md).
+
+## A toy scaling law (lecture 20)
+
+[Lecture 20](20-scaling-laws.md)'s slide 33 (from the deck alone; the recording ends before it) uses Lipschitzness to bound a toy model's
+error: approximating a Lipschitz function on $[0,1]^{d}$ by constant values on hypercubes of side $s$ gives a mean squared error at most
+$\lambda^2 (s^2 d)$, where the slide writes the Lipschitz constant as $\lambda$, not $L$ (lecture 20 uses $L$ for the loss). With
+$N = s^{-d}$ pieces, the error falls as $1/N^{2/d}$, a power law in $N$. See [scaling laws](scaling-laws.md).

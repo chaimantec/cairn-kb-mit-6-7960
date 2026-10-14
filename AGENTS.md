@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–19 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–20 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -153,7 +153,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–19 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–20 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -178,6 +178,7 @@ it.
 | 17 Generalization: Out-of-Distribution (OOD) | 11 of 63 pages | rendered from `mit6_7960_f24_lec17.pdf` |
 | 18 Transfer Learning: Models | 26 of 77 pages | rendered from `mit6_7960_f24_lec18.pdf` |
 | 19 Transfer Learning: Data | 15 of 52 pages | rendered from `mit6_7960_f24_lec19.pdf` |
+| 20 Scaling Laws | 20 of 52 pages | rendered from `mit6_7960_f24_lec20.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -214,11 +215,14 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–19:
+Notes for the next run, from lectures 1–20:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
-- Transcripts: run the light edit described above, not a full rewrite.
+- Transcripts: run the light edit described above, not a full rewrite. Check that the recording covers the whole deck: compare
+  its last paragraph with the deck, and with the end of OCW's transcript PDF (lecture 20's video and transcript both stop
+  mid-sentence after slide 17 of 51). When it does not, say so at the top of the transcript, the slide file and the wiki page,
+  and mark every wiki section that comes from the deck alone.
 - **Find the OCW notices in the slide file**, from its `*OCW notice` lines. Cross-check with the text layer, grepping
   each page's text with newlines joined, or for "All rights reserved" and "excluded from our Creative" alone (the
   sentence wraps across lines; a single-line grep for the whole sentence found one of lecture 2's seven notices). Then
@@ -234,7 +238,8 @@ Notes for the next run, from lectures 1–19:
   any coarse match by resizing both images to 256 × 256 and averaging the absolute grey difference over pixels darker
   than 200 in either: about 1 in 256 is the same figure, 50 or more is a different one. In between, and for sparse line art
   or text, the number does not decide: lecture 18 found one figure at 9.2 under another colour profile, and unrelated
-  white-background drawings at 3.9. Look at both images before withholding or clearing. Use only images actually drawn
+  white-background drawings at 3.9. Keynote's drop shadows are black rasters drawn through a soft mask; they look like black
+  rectangles and match one another coarsely at 3 to 6, so clear them on sight. Look at both images before withholding or clearing. Use only images actually drawn
   on the page: `page.get_images()` lists everything a page's resources hold, including images drawn off the page or
   not at all, while `page.get_image_info(xrefs=True)` gives where each is drawn. Leave out page backgrounds: an image
   drawn on more than a third of a deck's pages, or a raster covering more than 90% of a page. The handwritten decks share
@@ -244,6 +249,9 @@ Notes for the next run, from lectures 1–19:
   file's, plus the withheld slides in the table above, plus the images on every problem-set page with a notice. Before
   trusting a clean result, rerun the sweep on lectures whose reuse is known (lecture 11's CLIP figure, lecture 14's
   diffusion chain); a sweep that does not find them is broken.
+- `page.get_image_info()` reports vector shadings as images with xref 0 and gives each image's unclipped bounding box, so a page
+  can measure near-full raster coverage with no large picture on it (a clipped three-chart image; gradient squares). Count only
+  xrefs above 0, intersect with the clip, and take figure pages from the slide file.
 - `embed_slide_images.py` anchors a wiki image at the slide's **first** citation, and a range such
   as "slides 15–20" places every slide in it at that spot. Write the wiki so that each slide's first
   citation is the passage it belongs in, and avoid ranges in overview paragraphs. It matches any

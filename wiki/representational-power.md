@@ -9,7 +9,8 @@ and the limits of both. Covered so far: [lecture 1](01-introduction.md),
 slides 20 and 34–42 (what graph neural networks can approximate and distinguish); [lecture 6](06-generalization-theory.md)'s
 slides 3 and 33–34 (approximation set beside generalization, and why parameter count is not the measure of
 capacity that matters); and [lecture 13](13-representation-learning-theory.md), ≈20:27–22:06 (whether kernel methods, Gaussian processes and networks
-are equally expressive).
+are equally expressive); and [lecture 20](20-scaling-laws.md), slides 18 and 33–34 (from the deck alone), on model shape and on
+turning the box construction into a scaling law.
 
 Approximation is only one piece of the puzzle. Lecture 3's slide 4 splits machine learning into
 three questions: **approximation** ("Does there exist a neural net in my model family that fits the
@@ -172,6 +173,17 @@ Experiments do not settle it either. Kaplan, McCandlish et al. (2020) found that
 range, test loss depends on the number of parameters and hardly on how they are split between
 width and depth, while the Chinchilla paper showed that changing a detail like the learning-rate
 schedule can change such conclusions (slides 38–39). See [scaling laws](scaling-laws.md).
+
+## From boxes to a scaling law (lecture 20)
+
+[Lecture 20](20-scaling-laws.md) turns lecture 3's construction around, in a part of its deck the recording does not reach. Approximate a
+Lipschitz function on $[0,1]^{d}$ by a piecewise constant function on hypercubes of side $s$: that takes $N = s^{-d}$ pieces, and the
+mean squared error falls as $L(N) \lesssim 1/N^{2/d}$, or as $N^{-4/d}$ for piecewise linear (ReLU) pieces (slide 33). Where lecture 3
+asked how many boxes a given error needs, this asks how the error falls as the number of pieces grows, and the answer is a power law
+whose exponent shrinks with the dimension. The hypothesis on slide 34 takes $d$ to be the intrinsic dimension of the data manifold, not
+of the input, giving a scaling law $L(N) \propto 1/N^{\alpha}$ with $\alpha \approx 4/d$. The same lecture's slide 18 is another of
+Kaplan et al.'s figures on width against depth: within a wide range of shapes, "Performance depends strongly on scale, weakly on model
+shape". See [scaling laws](scaling-laws.md).
 
 ## Where it goes next
 

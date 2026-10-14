@@ -2,12 +2,12 @@
 
 Empirical laws for how a model's test loss falls as compute, data and parameters grow. Lecture 3
 uses them for a narrower question: whether it matters how parameters are split between width and
-depth. The course gives scaling laws a lecture of their own, **lecture 20, Scaling Laws**, which
-this knowledge base does not yet cover (see the [course map](course-map.md)). Covered so far:
+depth. The course gives scaling laws a lecture of their own, **[lecture 20, Scaling Laws](20-scaling-laws.md)**, whose
+recording ends at ≈38:01, after slide 17; the rest of its deck is known here from the slides alone. Covered so far:
 [lecture 3](03-approximation-theory.md), slides 37–39; and [lecture 9](09-hackers-guide-to-deep-learning.md), slides 25 and 44,
 ≈49:29–52:35 and ≈1:05:43–1:08:04, where scale is practical advice; and [lecture 18](18-transfer-learning-models.md), slides 3
 and 41–45, ≈1:31–3:08 and ≈58:54–1:09:04 (deep learning does not saturate with data, and the growth, cost and payoff of foundation
-models).
+models); and [lecture 20](20-scaling-laws.md), slides 1–51, of which the recording (≈0:00–38:01) covers slides 1–17.
 
 ## Why lecture 3 brings them up
 
@@ -76,6 +76,10 @@ details' of the training pipeline" (slide 39). Resolving such questions experime
 because of these confounders, and resolving them theoretically is hard too, which is why "a lot of
 these problems are unsolved" (≈1:16:34).
 
+Lecture 20 takes the paper up in full ([below](#chinchilla-revises-the-split-lecture-20)). Its slide 24 pastes the paper's own title
+block, "Training Compute-Optimal Large Language Models", with the second author's name spelled Sebastian Borgeaud, and its slide 25
+places the paper "Two years later…" than Kaplan et al.'s 2020.
+
 For a full treatment of the Kaplan-versus-Chinchilla dispute from another course, see the CS336
 knowledge base listed in [SEE_ALSO](../SEE_ALSO.md).
 
@@ -115,3 +119,74 @@ gives the payoff: on 58 tasks, the small models in its lower-left box, up to abo
 "Working as well as an average human". The lecture weighs it against the cost in money, energy and water (slides 43 and 44) and ends
 the argument with "let's do research into efficiency to get these back down" (≈1:09:04). See [foundation models and
 prompting](foundation-models-and-prompting.md).
+
+## The scaling-laws lecture (lecture 20)
+
+[Lecture 20](20-scaling-laws.md) is the course's lecture on the subject. Its recording ends at ≈38:01, mid-sentence, after slide 17;
+everything below about later slides comes from the deck alone. In its notation $N$ is the number of parameters, $D$ the dataset size in
+tokens, $C$ the compute in FLOPs and $L$ the test loss.
+
+### Why predict, and how the prediction is used
+
+Training compute has grown along a "3.4-month doubling" (slide 2), and Sutton's "Bitter Lesson" (slide 3) argues that "general methods
+that leverage computation are ultimately the most effective". "The one that scales better will win" (≈4:39), so what matters is how a
+method scales. The practical payoff is on slide 5: OpenAI predicted GPT-4's loss from smaller models along a fitted curve, so "they design
+it at 1/1,000 the scale, or maybe in this case, it's 10,000, 1/10,000 the scale", "and then they only train once at that massive scale"
+(≈7:49–8:39). Slide 6 does the same for a downstream measure, the pass rate on 23 coding problems (≈10:56).
+
+### Power laws in data, parameters and compute
+
+Kaplan, McCandlish et al. (2020) trained autoregressive transformers on WebText2 and counted compute as "6 x #parameters x batchsize x
+#steps" (slide 8). Their first finding is that the test loss is a power law in each resource $X$, $L(X) = X^{-\alpha}$, a straight line on
+log-log axes (slide 9): $L(D) = (D_c / D)^{\alpha_D}$ with $\alpha_D \sim 0.095$ (slide 10), $L(N) = (N_c / N)^{\alpha_N}$ with
+$\alpha_N \sim 0.076$ (slide 11), and a law in compute with exponent about 0.050 (slide 12). The compute law is the frontier of many
+training runs, not one run: "if you … take one architecture, and you just scale the compute, you won't see a power law … you need to tune
+the data set size and parameters for every level of compute" (≈28:40). The lecturer is clear that this is empirical: "That could have
+come out as some parabola or something crazy, but it turned out to come out as a line on a log-log plot" (≈26:17).
+
+### Data and parameters together, and how to split compute
+
+Performance improves predictably "as long as we scale up $N$ and $D$ in tandem", but a small model stops improving as data grows
+(slide 13, ≈30:14–31:02). Kaplan et al. fit $L(N, D)$ jointly and conclude that the parameters should grow as $C^{0.73}$ and the data as
+$C^{0.27}$ (slide 15): "I should train relatively big models on relatively small data" (≈34:54), though "take these numbers with a grain
+of salt". Rosenfeld et al. (2020) found similar laws for vision and language and showed that a law fitted on small models predicts larger
+ones (slides 16 and 17): "We're not just reading tea leaves" (≈38:01). The rest of the deck has no recording. It adds that the model's
+shape hardly matters (slide 18, "Performance depends strongly on scale, weakly on model shape"), that larger models need fewer samples
+(slide 19), and that the field then built "larger models, scale data only moderately" (slide 23), from GPT-3's 175 billion parameters
+on 300 billion tokens to MT-NLG's 530 billion on 270 billion.
+
+### Chinchilla revises the split (lecture 20)
+
+"Two years later…" (slide 25), Hoffmann et al. found that "current large language models are significantly under-trained" and that
+"the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training
+tokens should also be doubled". All three of their methods give roughly $N \propto C^{0.49}$ and $D \propto C^{0.51}$, against Kaplan et
+al.'s 0.73 and 0.27 (slide 27): "Better allocation: smaller model, more data/steps". Their 70-billion-parameter Chinchilla, given
+Gopher's compute and about four times the data, outperforms Gopher (280B), GPT-3, Jurassic-1 and Megatron-Turing NLG (slides 25 and
+28). Among the differences from Kaplan et al., slide 26 names "different learning rate schedules … adapted to dataset size", the
+confounder lecture 3 warned about.
+
+### Why a power law?
+
+One hypothesis (slides 31–35, from Sharma and Kaplan) explains the exponent through the dimension of the data. Approximating a
+Lipschitz function on $[0,1]^{d}$ by $N$ piecewise constant pieces gives a loss bounded by $1/N^{2/d}$, and by $N^{-4/d}$ for
+piecewise linear (ReLU) pieces (slide 33). If $d$ is the intrinsic dimension of the data manifold a network maps its inputs into, this
+predicts $L(N) \propto 1/N^{\alpha}$ with $\alpha \approx 4/d$, so "different models will scale similarly on the same data" (slide 34).
+The measured intrinsic dimension fits for vision models; for GPT it gives only a bound (slide 35). The lecturer, asked why a power law
+rather than an exponential, said the theory "comes out of just high-dimensional statistics" but "I'm not sure how much I trust the
+theory behind this" (≈24:45–25:32). See [representational power](representational-power.md).
+
+### Beyond the power law, and the critical batch size
+
+A small exponent means "a small improvement in loss may need an order of magnitude more data/parameters"; the deck suggests that many
+training examples are redundant and that pruning data intelligently can beat power-law scaling (slide 37, Sorscher et al. 2022). Its
+section on the batch size (slides 38–45) derives the **critical batch size**: one SGD step's progress is proportional to
+$1/(1 + \mathcal{B}_ {\text{noise}}/B)$, so doubling a small batch nearly doubles the progress per step, and beyond the noise scale
+$\mathcal{B}_ {\text{noise}}$ a larger batch buys almost nothing (slide 44). See [gradient descent](gradient-descent.md).
+
+### Representational convergence
+
+The deck's last section (slides 46–50) asks whether representations converge as models scale. It compares a vision model and a language
+model through their kernels, the similarities each assigns to pairs of inputs (slides 47–48), and shows that, across eleven language
+models and four sizes of the vision model DINO, alignment to it rises with language performance and with the vision model's size
+("Scaling laws for cross-modal alignment", slide 49). Slide 50 is the diagram of "The Platonic Representation Hypothesis" (Huh et al.,
+2024). See [representation learning](representation-learning.md).

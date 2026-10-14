@@ -11,8 +11,8 @@ slide 61 and ≈35:34–40:10, on what the optimizer adds to generalization;
 ≈33:37–39:53, which derives gradient descent as steepest descent in the Euclidean norm; [lecture 9](09-hackers-guide-to-deep-learning.md),
 slides 48–55, ≈1:10:21–1:13:23, practical advice on learning rate, batch size, optimizers and moving
 averages; [lecture 17](17-generalization-out-of-distribution.md), slides 22 and 25, ≈21:54–22:41 and ≈29:41–30:27, gradient ascent on an input
-perturbation, and adversarial training. For the
-symbols see [notation](notation.md).
+perturbation, and adversarial training; and [lecture 20](20-scaling-laws.md), slides 39–45 (from the deck alone; the recording ends
+before them), the batch size, gradient noise and the critical batch size. For the symbols see [notation](notation.md).
 
 ## Learning as optimization
 
@@ -208,3 +208,29 @@ then project the result back into the allowed set $\Delta$ and repeat (slide 22)
 Adversarial training then nests it inside ordinary stochastic gradient descent: for each sampled point, compute the
 perturbation by projected gradient ascent and take the weight step on the perturbed input (slide 25, ≈29:41–30:27). See
 [adversarial examples](adversarial-examples.md).
+
+## Batch size and gradient noise (lecture 20)
+
+[Lecture 20](20-scaling-laws.md) asks how big a batch should be. Its recording ends before this part, so what follows is from the deck
+alone (slides 38–45). "Bigger batches are more costly but provide better estimates of the full-batch gradient", and sixteen SGD steps
+with a batch of 16 cost the same FLOPs as one step with a batch of 256. Nor are FLOPs everything: a batch too big for one compute node
+must be split across nodes, which costs communication, or computed in sequence, which costs time (slide 39).
+
+Each mini-batch has a cost of its own with its own minimum, so the solution SGD heads for varies with the batch, and its steps zigzag
+where full-batch gradient descent goes straight (slide 41). The stochastic gradient is the true gradient plus **gradient noise**:
+
+$$\nabla_{\text{sgd}}\theta = \nabla\theta + \left(\nabla_{\text{sgd}}\theta - \nabla\theta\right),$$
+
+"Signal" plus "Noise" (slide 42); less noise allows larger steps. Following McCandlish, Kaplan and Amodei (2018), slide 43 expands the
+expected loss after one step of size $\eta$ with batch size $B$, finds the best learning rate, and gets the best progress one step can
+make:
+
+$$\Delta\mathcal{L}_ {\text{opt}} = \frac{1}{1 + \mathcal{B}_ {\text{noise}} / B} \thinspace \Delta\mathcal{L}_ {\text{max}}, \qquad \mathcal{B}_ {\text{noise}} = \frac{\operatorname{trace}(H\Sigma)}{G^T H G},$$
+
+where $\Sigma$ is the covariance of a single example's gradient, and $H$ and $G$, which the slide does not define, read in [lecture
+7](07-scaling-rules-for-optimization.md)'s notation as the Hessian and the gradient. The **noise scale** $\mathcal{B}_ {\text{noise}}$
+sets the **critical batch size** (slide 44): "For small B, second term of denominator dominates, so increasing B linearly increases
+progress"; "For large B, first term of denominator dominates, so increasing B has little effect." Batches beyond it trade compute for
+time: more hardware and larger batches finish sooner at higher cost (slide 45). OpenAI's Dota 2 system used batches of about 2 million
+(slide 40). Lecture 9's rule of thumb, "Use biggest batch size that will fit in memory" (slide 50 there), is about using a GPU fully;
+this is about when a bigger batch stops paying.

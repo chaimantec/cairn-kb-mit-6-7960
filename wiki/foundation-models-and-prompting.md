@@ -6,7 +6,7 @@ or learning, what to put in front of it. Lecture 18 presents the pair as the new
 of "'Deep Learning' with *No* Data" in which you "just ask", and adds that "of course, this isn't really machine *learning*
 anymore" (slide 47). Covered so far: [lecture 18](18-transfer-learning-models.md), slides 40–75, ≈55:48–1:24:36; prompting a
 language model as conditioning, in [lecture 16](16-generative-models-conditional-models.md), ≈47:33; and optimizing a GAN's input
-through CLIP, in [lecture 2](02-how-to-train-a-neural-net.md), slide 70, ≈1:06:05–1:06:52. [Lecture 19](19-transfer-learning-data.md) (slide 50, ≈1:12:25–1:14:43) calls in-context learning a form of meta-learning.
+through CLIP, in [lecture 2](02-how-to-train-a-neural-net.md), slide 70, ≈1:06:05–1:06:52. [Lecture 19](19-transfer-learning-data.md) (slide 50, ≈1:12:25–1:14:43) calls in-context learning a form of meta-learning. [Lecture 20](20-scaling-laws.md) shows how such models were sized: GPT-4's loss predicted from smaller models (slides 5–6, ≈6:16–10:56), and the split of compute between parameters and data revised from GPT-3 and Gopher to Chinchilla (slides 23–28, from the deck alone).
 Language models are lecture 21's subject, which this knowledge base does not yet cover (see the [course map](course-map.md)).
 
 **Notation** (lecture 18's slides). In CLIP, an image encoder produces image embeddings $I_1, \ldots, I_N$ and a text encoder text
@@ -120,6 +120,16 @@ function from $x$ to $y$; a recurrent network or an autoregressive model reading
 params is f, apply that f to x3", slide 50), like the English-to-Spanish prompt of lecture 18 (≈1:12:25–1:13:12). "This really is, I
 think, what GPT and a lot of these modern autoregressive models are doing. It's kind of a version of meta-learning at large scale"
 (≈1:13:58). See [meta-learning](meta-learning.md).
+
+## How big, and on how much data (lecture 20)
+
+[Lecture 20](20-scaling-laws.md) shows how the models of lecture 18 were sized. GPT-4's loss was predicted from models trained with up
+to ten thousand times less compute (slide 5, ≈6:16–8:39). After Kaplan et al.'s scaling laws (2020), which favoured growing the model
+faster than the data, the field built "larger models, scale data only moderately": GPT-3 at 175 billion parameters on 300 billion
+tokens, Gopher at 280 billion on 300 billion, MT-NLG at 530 billion on 270 billion (slide 23). Chinchilla, "Two years later…", found
+these models "significantly under-trained": with Gopher's compute, a 70-billion-parameter model on about four times the data outperforms
+them (slides 25–28). The recording ends before the Chinchilla slides, so that part is from the deck alone. See [scaling
+laws](scaling-laws.md).
 
 ## See also
 

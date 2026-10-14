@@ -243,5 +243,23 @@ al.), 12 (Chai et al.), 13, 14, 33 and 42 (sources unknown), 15 and 19 (Karras e
 cat photograph and the generator's versions of it) and 36 (the tiger photographs of lecture 18's excluded slides 12 and 13, credited CC
 BY here). OCW removed slide 32's picture ("Image of people removed due to copyright restrictions.").
 
+Lecture 20's deck names Phillip Isola as speaker. Of its 20 rendered slides, **slides 2, 5 and 6** reproduce OpenAI charts, each with its
+URL printed (the "AI and compute" blog post; the GPT-4 research page, with the lecturer's own annotations added on slide 5). **Slides 12,
+13, 14, 18 and 19** reproduce figures from Kaplan, McCandlish et al., "Scaling Laws for Neural Language Models" (2020), cited on each
+slide (the citation prints "Scaling Laws of …"). **Slides 16 and 17** reproduce figures from Rosenfeld et al. (2020), "A constructive
+prediction of the generalization error across scales", cited on the slides. **Slide 20** reproduces a diagram and a chart from Li et al.
+(2020), with the BAIR blog URL. **Slides 26 and 28** reproduce figures from Hoffmann et al., "Training Compute-Optimal Large Language
+Models" (slide 26's caption prints "Figure A5"); neither slide carries a citation of its own, and the paper's title block is on
+slide 24. **Slide 35**'s chart carries no citation; it follows slide 32's title block of Sharma and Kaplan, "Scaling Laws from the Data
+Manifold Dimension". **Slides 41, 42 and 44** cite McCandlish, Kaplan and Amodei, "An Empirical Model of Large-Batch Training" (2018),
+and slides 41 and 42 are "adapted from Minyoung Huh"; slide 42's trajectory plot and slide 44's "Predicted Training Speed" chart are
+pasted images. **Slide 49** cites Huh, Cheung, Wang and Isola, "The Platonic Representation Hypothesis" (ICML 2024), the lecturer's own
+paper, and **slide 50**'s diagram from it is credited "Courtesy of Huh, et al. Used under CC BY." Slide 33's pictures carry no credit.
+These are rendered by the rule that only a notice excludes. The deck's other third-party material is on its six excluded slides: 3 (Rich
+Sutton's essay), 24 (a dinosaur still, "© Universal Pictures", and a chinchilla photograph, "© source unknown"; the same slide's gopher
+photograph is credited "courtesy of LeonardoWeiss on Wikipedia Commons. Used under CC BY."), 40 (OpenAI's Dota 2 graphic and McCandlish
+et al.'s paper), 45 (McCandlish et al.'s charts) and 47 and 48 (the fruit and animal icons, "© source unknown"); none of them is
+rendered, and no other slide reuses an excluded image.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.
