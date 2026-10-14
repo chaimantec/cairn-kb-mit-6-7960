@@ -1761,3 +1761,27 @@ The finished lines of `TODO.md` for lecture 19, moved here verbatim on 2026-10-1
 - [x] Lecture 19: INDEX, AGENTS (coverage, image-table row, withheld rows, two lessons), BUILD_LOG, LICENSE, kb.json, course-map updated
 - [x] Lecture 19: check_math and verify_kb.py clean, review read; commit and push
 - [x] Move this run's finished lines to BUILD_LOG.md
+
+## Build checklist, lecture 20
+
+The finished lines of `TODO.md` for lecture 20, moved here verbatim on 2026-10-14 once the run was committed and pushed.
+
+### Transcripts
+- [x] 20 Scaling Laws — video 7hbf4klU3ks (OCW human captions; verbatim in original/; light copy-edit inline, checked by script: 50 markers and 45 numbers identical, ratios 1.0–1.008; the recording ends at 38:01, after slide 17)
+
+### Slides
+- [x] 20 — mit6_7960_f24_lec20.pdf (52 pages, 1:1, page 52 the OCW end page prints 52; read by Sonnet in two halves; --verify OK)
+- [x] 20 — OCW notices from the slide file (3, 24, 40, 45, 47, 48), cross-checked with the text layer (same six) and a vector scan (one hit, slide 42's red brush stroke, not small print)
+- [x] 20 — Opus figure audit on 43 pages applied (22 corrected, 10 precisions only; split between four agents, all finished); renders of slides 13 and 42 checked
+
+### Wiki
+- [x] wiki/20-scaling-laws.md (recorded part, slides 1–17, with timestamps; slides 18–51 marked as from the deck alone)
+- [x] Topic pages for lecture 20: scaling-laws, gradient-descent, representation-learning, representational-power, lipschitz-continuity, kernel-methods, foundation-models-and-prompting, course-map extended; no new page
+
+### Images
+- [x] raw/images/20-scaling-laws/ — 20 images; 6 OCW-excluded slides never rendered; hash sweep both directions (no reuse; slide 32's and 47's coarse matches cleared on sight), validated on lectures 11 and 14; no earlier image withdrawn
+
+### Publish
+- [x] Lecture 20: INDEX, AGENTS (coverage, image-table row, three lessons: recordings that stop short, drop-shadow coarse matches, get_image_info coverage), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 20: check_math and verify_kb.py clean, review read; commit and push
+- [x] Move this run's finished lines to BUILD_LOG.md
