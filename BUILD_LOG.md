@@ -2140,3 +2140,27 @@ The finished lines of `TODO.md` for lecture 23 (catalog position 22), moved here
 - [x] Lecture 23: INDEX, AGENTS (coverage, image-table and withheld-table rows, handwritten-deck prediction corrected, lessons: two numberings on one page, rotated end page, symbols as printed, a withheld slide's other images, typed decks' fonts), BUILD_LOG, LICENSE, kb.json, course-map updated
 - [x] Lecture 23: check_math (offline and --github) and verify_kb.py clean, review read; commit and push
 - [x] Move this run's finished lines to BUILD_LOG.md
+
+## Build checklist, lecture 24
+
+The finished lines of `TODO.md` for lecture 24 (catalog position 23), moved here verbatim on 2026-10-16 once the run was committed and pushed.
+
+### Transcripts
+- [x] 24 Inference Methods for Deep Learning — video mbgFTqKxR7A (OCW human captions; verbatim in original/; light copy-edit inline, checked by script: 107 markers and 69 numbers identical, ratios 0.983–1.008; 20 restorations in 31 places, 10 [Ed:] notes; the recording covers the whole deck, and OCW's transcript PDF ends at the same words)
+
+### Slides
+- [x] 24 — mit6_7960_f24_lec24.pdf (56 pages, Keynote; slide N = page N, 1–55 bottom centre; page 56 the OCW end page, stored rotated, prints 56 but the script reports none) — Sonnet transcription in two halves; headings 1–56 checked by script
+- [x] 24 — OCW notices from the slide file (7, 8, 27–31, 39, 40, 46, 47, 52–54), cross-checked with the text layer (same fourteen) and a vector scan (no outlined small print)
+- [x] 24 — Opus figure audit on 48 pages applied (15 corrected, 22 precisions only, 11 right; split between four agents, all finished); slide 43's plus-sign slip flagged by the parent; renders of slides 9 and 18 checked
+
+### Wiki
+- [x] wiki/24-inference-methods-for-deep-learning.md (whole recording, with timestamps)
+- [x] Topic pages for lecture 24: new test-time-compute page; autoregressive-models, foundation-models-and-prompting, meta-learning, language-models, scaling-laws, self-supervised-learning, generative-models-as-data, diffusion-models and variational-autoencoders extended; course-map extended (table row, pointers, the office-hours announcement)
+
+### Images
+- [x] raw/images/24-inference-methods-for-deep-learning/ — 19 images (3, 5, 9, 12, 14, 15, 17–20, 22, 26, 33–38, 51); 14 OCW-excluded slides never rendered; sweep both directions, validated on lectures 11 and 14, withheld slide 4 (lecture 20's Sutton essay) and cleared slides 1 and 26; a citation check withheld slides 42 (lecture 21's Zhao et al. example, as a screenshot) and 55 (slide 54's STaR example, as crops); 15 wiki images hand-placed, slide-file images by script
+
+### Publish
+- [x] Lecture 24: INDEX, AGENTS (coverage, image-table and withheld-table rows, lessons: reuse the hash sweep cannot see, OCR text over screenshots, LaTeXiT glyphs as text), BUILD_LOG, LICENSE, kb.json, course-map updated
+- [x] Lecture 24: check_math (offline and --github) and verify_kb.py clean, review read; commit and push
+- [x] Move this run's finished lines to BUILD_LOG.md
