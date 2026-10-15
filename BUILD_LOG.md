@@ -120,6 +120,12 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   which this lecture answers (its slide 23); and repeatedly to "the homework problem" on steepest descent under the spectral norm (≈7:02,
   ≈8:36, ≈10:09, ≈53:45, ≈59:15, ≈1:03:15), Homework 2's first question. It names no later lecture. Lecture 7's recording, in turn, does
   not mention lecture 23.
+  Lecture 24's title slide reads "Lecture 24: Inference methods for deep learning", matching the recording, and the deck, Phillip Isola's,
+  prints no other lecture number. The recording points back without numbers to "The Bitter Lesson … that I mentioned a few lectures ago"
+  (≈8:24), lecture 20's slide 3; to "Jacob's lecture" for RLHF and in-context learning (≈6:05, ≈6:52) and to Jacob Andreas's talk for chain
+  of thought (≈30:19), lecture 21; and to in-context learning as "we saw that before" (≈57:30). It calls reinforcement learning a topic
+  "which we didn't really have time to cover" (≈1:15:15), and points ahead only to the next class session, Thursday's office hours for final
+  projects, "There won't be any talk or any presentation" (≈1:33).
 
 ## End pages
 
@@ -137,6 +143,9 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   Lecture 23's page 49 is a 792×612 end page stored rotated 90° (/Rotate 90), which prints "49" at bottom centre; the script, reading
   unrotated coordinates, reports it as printing none. Its other 48 pages print the small bottom-centre number, equal to the page, and
   thirty of them also a larger bottom-right number from an earlier talk deck, which the script rightly ignores, so it reported a 1:1
+  mapping. Slide N is PDF page N.
+  Lecture 24's page 56 is a 792×612 end page stored rotated 90°, which prints "56" at bottom centre; the script reports it as printing
+  none, as with lecture 23's. Its other 55 pages print the small bottom-centre number, equal to the page, so the script reported a 1:1
   mapping. Slide N is PDF page N.
 
 ## Handwritten decks
@@ -307,6 +316,17 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   … Used under CC" credit. Slide 2's photographs, slide 34's chart (from the lecturer's paper with his collaborators), slide 40's screenshot
   of the Shampoo algorithm and slide 41's chart carry no credit and no notice. A vector scan for outlined small print found nothing, and the
   audit found no missed notice.
+  Lecture 24's carries 14 in 56 pages (two on slide 29), all typed and in the text layer, and the slide file's set matches the text
+  layer's exactly: slide 7 ("Above © Stan Honda/AFP/Getty Images", the photograph of Kasparov's audience), 8 and 53 ("© Springer Nature
+  Limited", Nature's cover and the AlphaGo tree diagram, and the four-panel search figure), 27 and 28 ("© Isola, et al.", the
+  face-among-balls photograph and the memorability experiment and examples), 29 (the same "© Isola, et al." beside the same photograph, and
+  "© source unknown" under the GANalyze authors' portraits), 30 and 31 ("© source unknown", the GANalyze architecture and dog photographs, and
+  the results grid), 39 and 40 ("© Jon Barron", his "Make it more" posts), 46 ("Bird © source unknown", Sun et al.'s bird photographs), 47
+  ("© Akyürek, et al.", the ARC figure), 52 ("© Nintendo", the game screenshot) and 54 ("© Zelikman, et al.", the STaR figure). Slide 7
+  also carries "Right: Courtesy of Jim Garnder (jamesthephotographer) on Flickr. Used under CC BY." for its photograph of the machine. The
+  o1 charts of slide 5 and Jones's chart of slide 9 carry a citation or URL and no notice; slides 33–38 are captioned "Images by Phillip
+  Isola generated in DallE." A vector scan for outlined small print found none, and the audit found no missed notice; it settled that slide
+  8's notice covers the Nature cover as well as the diagram.
 
 ## Excluded images reused without a notice, and the hash sweeps
 
@@ -483,6 +503,22 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   match was cleared. The other coarse matches were at grey 53.8 or more (lecture 11's slides 10 and 12 against lecture 1's slide 73, lecture
   2's slide 15 against lecture 4's slide 47, lecture 14's and 16's figure strips against lecture 6's slide 23, lecture 5's slide 9 and
   lecture 18's slide 28 against lecture 17's slide 2), different figures, or were cleared before.
+- **Lecture 24's sweep**, the lecture 23 run's script (its withheld list equal to AGENTS.md's table), was first rerun on lectures 11 and 14
+  and found the CLIP figure (lecture 11's slide 13 against lecture 1's slide 73, 0 bits, grey 1.8) and Homework 5's chain (lecture 14's
+  slides 49 and 50, 4 bits, 5.5), with no image failing to hash. On lecture 24 it found three matches. **Slide 4**'s 1346 × 864 raster is,
+  byte for byte, the image of Sutton's essay that lecture 20's slide 3 draws under "© Rich Sutton", cropped on slide 4 to another
+  paragraph; slide 4 prints no notice and is withheld. **Slide 26**'s 288 × 288 output image matches lecture 2's slide 70 and lecture 18's
+  slide 74 exactly, both withheld for their CLIP encoder graphics; the shared image is the near-uniform CLIP + VQGAN output frame, slide
+  26 draws its encoders as vector shapes in other colours, and the match was cleared by looking. **Slide 1**'s 539 × 108 logo matched
+  lecture 15's slide 1 (grey 1.1): the "MIT Professional Education" logo raster, clipped on the page to the MIT mark, while lecture 15's
+  notice covers its bird grid; cleared. The other direction, every rendered image against lecture 24's excluded ones, found nothing.
+- **Two reuses the sweep cannot see**, found by comparing the candidate slides' citations and quoted examples with the excluded slides of
+  every deck, and confirmed by looking: **slide 42** is a 1826 × 842 screenshot of lecture 21's slide 32 (the sentiment prompt, its labels
+  and both annotations, "[Example from Zhao et al. '21]"), which lecture 21 draws as vectors under "© Zhao et al."; and **slide 55**'s two
+  small text images (262 × 157, drawn twice, and 201 × 155) are crops of the question and answer of slide 54's STaR figure, excluded there
+  under "© Zelikman, et al.", re-rasterized at another size (grey 49 and 91, a range where text does not decide). Both are withheld. The
+  figure audit found slide 55's independently. The citation check also matched author names on many excluded slides of other decks
+  (Isola, Wei, CLIP, VQGAN, Jones); each was another figure, or a different Jones.
 
 ## Transcript edits, by lecture
 
@@ -647,6 +683,19 @@ slides 20 and 23's ◇ (33:25); the captions' own "[? functions. ?]" (38:04); "P
 (48:14); "solving this argument" as probably "argmin" (1:00:02); llm.c as slide 7's "llm.c baseline" (7:02); Keller Jordan as
 "@kellerjordan0" (1:04:02); and the "industry benchmarking competition", not named on the slides (1:02:29). No student is named. The
 recording ends at 1:07:15 on slide 48's website, and OCW's transcript PDF (`mit6_7960f24_lec23_transcript.pdf`) ends at the same words.
+Lecture 24: 107 markers identical, all 69 digit strings identical, word ratios 0.983–1.008 (three paragraphs carrying an `[Ed: …]` note run
+to 1.14–1.18). Done inline. Restorations: "O1" → "o1" in all six places (slides 5 and 55); "STAR" → "STaR" (8:24, slides 3, 49 and 54);
+"the way that I used to be done" → "AI" (10:46); "won that Go" → "won at Go" (12:21); "than" → "then" (23:19); "a stimulate" → "a stimulant"
+(25:38, slide 17); a doubled "I have I have" (36:34); "text/" → "text?" (39:38); "models distribution" → "model's" (40:23); "Laura" →
+"Lore" (45:03, slide 29's Lore Goetschalckx); "peace" → "piece" twice (49:41); "dissent" → "descent" (1:02:51); "an MA" → "an MAE"
+(1:06:46, lecture 11's "Masked Autoencoder (MAE)"); "arc" → "ARC" three times (slide 48); and five sentence breaks the captions run
+together. Ten `[Ed: …]` notes: Jacob's lecture as lecture 21 (6:05); the Bitter Lesson as lecture 20's (8:24); Deep Blue's "1994, maybe",
+with no year on the slides and, outside the course material, 1997 (10:46); "of distribution" as probably "out of distribution" (19:26); a
+stray "t" where the class NP is presumably named (35:45); GANalyze's "2018 or so" against slide 29's ICCV 2019 (43:30); Eric Jang as
+slide 32's evjang.com (51:14); the "really interesting paper" as von Oswald et al. (57:30); François Chollet, not named on the slides
+(1:12:57); and the spoken "62%" against slide 48's 61.9% (1:13:42). Every restored name is in the deck (o1, STaR, Lore, ARC, stimulant)
+or in lecture 11's (MAE). No student is named. The recording ends at 1:22:19 on slide 55 ("So I will end there."), and OCW's transcript
+PDF (`mit6_7960f24_lec24_transcript.pdf`) ends at the same words.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 
@@ -1164,6 +1213,26 @@ network image has its own "width" and "depth" labels masked out; slide 45 hides 
 layer, on a page stored rotated 90°. Printed slips, kept and flagged in the slide file: slide 21's "L.norm(W) ≤ 1" in the embedding
 module's box (a character-for-character copy of the linear module's line), slide 47's "We believe are questions", and OCW's "unkown" in slide
 26's notice. The renders of slides 14 and 34 were checked against the corrected text and agree.
+**Lecture 24's figure audit**, cross-model: Sonnet read the typed Keynote deck in two halves, and Opus checked 48 pages (1, 3, 5, 7–22,
+25–31 and 33–55), split between four agents, all of which finished, each appending a page at a time with exact replacement pairs that
+the parent applied by script. No equation was wrong in structure; slide 16's bold subscript slip was confirmed from the fonts (CMBX7
+against CMR7). 15 pages were corrected, 22 given precisions only, and 11 were right as written. Pictures and diagrams: slide 8's two
+middle Go boards described back to front, and its notice's reach; slide 19's code-block tree, five characters a column off; slide 26's
+quote marks and bold z; slide 29, slide 27's diagram with the title replaced and a label removed, whose "To maximize this" arrow was left
+behind; slide 30's bold labels, single black cells and an unflagged "BigGΛN"; slide 40 called a build step of slide 39, whose posts it
+replaces, and its microscope's black screen; slide 47's grid sizes (15 × 12, 16 × 14, 16 × 15, not "20-ish"), its examples paired by column
+and its cell counts; slide 53's panel relations. Charts: slide 5's dot spacing; slide 9's "-1250" endpoint, axis ranges and dashed lines,
+which the slide does not call fits. Screenshots: slides 34 and 36–38's garbled prompts are not in the screenshots' pixels but in an OCR
+"editable text" layer drawn over full-page rasters whose own text was wiped (the flag icon became a "P"), and slide 38 has 22 "very"s,
+not about 30; slides 37 and 38's grids had objects described that the page does not show ("floating cliffs", a "surfer-like figure").
+Reuse: slide 55's text images are slide 54's excluded STaR example. The transcriber's note that the equations are LaTeXiT images with a
+base64 text layer was half right: their glyphs are Computer Modern text whose fonts settle bold, and four carry the base64 source as
+well. Hidden content: slide 1's logo raster ("PROFESSIONAL EDUCATION", clipped), slide 14's green copy of the target words, the code
+image's "# Correct recursive" (slides 22, 50 and 51), slide 29's clipped portrait, slide 30's blue cells under red ones, and the wiped
+prompts' residue (slides 34, 36–38). Printed slips, kept and flagged in the slide file: slide 16's bold subscript 1; slide 29's
+"Goetschalkx" against "Goetschalckx"; slide 30's "BigGΛN"; slide 43's gradient step printed with a plus sign, flagged by the parent after
+the audit; slide 45's "a x"; slide 47's "Gut" against slide 48's "Guo"; and, in screenshots, "An very", the OCR layer's garbles and Jon
+Barron's "to to". The renders of slides 9 and 18 were checked against the corrected text and agree.
 
 ## Audit yields
 
@@ -1203,6 +1272,9 @@ Lecture 4's audit found errors on 13 of 24 pages, mostly counts (points, peaks, 
   Lecture 23's audit found errors on 26 of 44 pages, mostly chart values, counts, arrow ends and fonts, with no formula wrong in structure
   but every symbol of slides 9–24 bolded against the page, one label ("encoder-decoder") taken from outside the page, one bullet wrongly
   called unfinished, and one printed slip left unflagged; all three of its auditors finished.
+  Lecture 24's audit found errors on 15 of 48 pages, mostly relations in diagrams, counts and fonts, with no formula wrong, two objects
+  described that are not on the page (slides 37 and 38), one build step misread (slide 40), one unflagged printed slip (slide 30) and one
+  reuse of an excluded image (slide 55); all four of its auditors finished.
 
 ## Where each lecture's images appear
 
@@ -1255,6 +1327,9 @@ All 18 of lecture 21's images appear both in [`wiki/21-language-models.md`](wiki
 and under their headings in [`raw/slides/21-language-models.md`](raw/slides/21-language-models.md).
 All 8 of lecture 23's images appear both in [`wiki/23-metrized-deep-learning.md`](wiki/23-metrized-deep-learning.md)
 and under their headings in [`raw/slides/23-metrized-deep-learning.md`](raw/slides/23-metrized-deep-learning.md).
+Of lecture 24's 19 images, 15 appear in [`wiki/24-inference-methods-for-deep-learning.md`](wiki/24-inference-methods-for-deep-learning.md),
+all hand-placed with hand-written captions; slides 34–37, the middle of the DALL-E prompt sequence, are only under their headings in
+[`raw/slides/24-inference-methods-for-deep-learning.md`](raw/slides/24-inference-methods-for-deep-learning.md), where all 19 appear.
 The concept pages embed none; they cite slides, and the lecture pages carry the pictures.
 
 ## What was rendered, and what was not, by lecture
@@ -1753,7 +1828,28 @@ Not rendered, and why:
   pseudocode, beside equations), 43 and 48. Slide 39's two small diagrams repeat slide 16's series and parallel shapes.
 - **A repeat of a rendered slide:** 38 (slide 14's drawing, item for item).
 - **Title, dividers and end page:** slide 1; slides 8, 15, 25, 35 and 44; slide 49, the OCW end page.
+### What was rendered, and what was not — lecture 24
 
+Rendered (19): slides 3, 5, 9, 12, 14, 15, 17–20, 22, 26, 33–38 and 51: the training-against-inference map; o1's accuracy against train-time
+and test-time compute; Jones's board-game trade-off; the molecule captioner in training, under teacher forcing and at inference;
+Best-of-N; beam search; chain of thought as learned search; search for fun-ness; verification; CLIP + VQGAN's latent search; the six
+DALL-E prompts; and a verified answer as a training pair. Rendered by `extract_slide_images.py` (the deck is numbered 1:1). The wiki's 15
+images were placed by hand with hand-written captions, because every untitled slide's default caption would be its "(no title; …)"
+heading, and two citations were reworded so that `embed_slide_images.py` would not put slides 34–37 in the summary; it then placed all 19
+in the slide file. Slide 5's OpenAI charts and slide 9's Jones chart carry a citation or URL and no notice, and slides 33–38 are the
+lecturer's own DALL-E images, so all are rendered by the rule that only a notice excludes.
+
+Not rendered, and why:
+
+- **Excluded from OCW's licence (14 slides): 7, 8, 27–31, 39, 40, 46, 47 and 52–54.** The Kasparov photographs, Nature's cover and AlphaGo
+  figures, the memorability and GANalyze photographs and figures, Jon Barron's posts, Sun et al.'s bird, the ARC and STaR figures and the
+  game screenshot therefore exist here as prose only.
+- **Reuse an excluded image without a notice (3): 4, 42 and 55** (lecture 20's Sutton essay; lecture 21's slide 32 as a screenshot; slide
+  54's STaR example as crops). See the sweep above.
+- **Text, equations and bullets the slide file reproduces (11):** 2, 6, 16, 23–25, 32, 43–45 and 48 (bullets beside the ARC Prize banner).
+- **Build steps of a rendered slide (7):** 10, 41 and 49 (slide 3's map, other words in bold); 11 and 13 (slide 12's network, with words for
+  outputs and one-hot targets); 21 (slide 20 with another scorer); 50 (slide 22's verifier under a new header).
+- **Title and end page:** slide 1; slide 56, the OCW end page.
 
 ## Build checklist, lectures 1–17
 

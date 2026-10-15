@@ -9,7 +9,8 @@ recording ends at ≈38:01, after slide 17; the rest of its deck is known here f
 and 41–45, ≈1:31–3:08 and ≈58:54–1:09:04 (deep learning does not saturate with data, and the growth, cost and payoff of foundation
 models); and [lecture 20](20-scaling-laws.md), slides 1–51, of which the recording (≈0:00–38:01) covers slides 1–17; and [lecture
 21](21-language-models.md), slides 5–7, 19–20, 35, 51, 55, 72 and 81, on emergent abilities and what else changes with a language
-model's scale.
+model's scale; and [lecture 24](24-inference-methods-for-deep-learning.md), slides 4–9, ≈8:24–14:43, on scaling
+test-time compute and trading search against learning.
 
 ## Why lecture 3 brings them up
 
@@ -207,3 +208,13 @@ chain of thought (slide 55); and slide 72 shows instruction tuning, a scratchpad
 certain model scale". Scale can also hurt: on slide 81 a 175B model asked "What happens if you smash a mirror?" answers with the
 superstition, because it models "in a finer grained way, the training distribution" (≈1:06:58).
 
+## Test-time compute (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) reads the scaling story through Sutton's "The Bitter Lesson": the two methods "that seem to scale arbitrarily" with computation "are
+search and learning" (slide 4), and "a lot of people have focused on the learning part" (≈9:13). Slide 5 sets two charts from OpenAI's o1
+announcement side by side: AIME accuracy against train-time compute, the familiar power law with a slope of "maybe 0.5", and against
+**test-time compute**, which gives "also … a power law. And in fact, the slope in this particular case is even steeper" (≈10:00–10:46).
+Slide 9, Jones's "Scaling Scaling Laws with Board Games" (2021), shows the two trading off: for each playing strength, a curve of test-time
+compute against train-time compute, so that "I can do more search, and then I can get the same elo for less training, or I can do less
+search, and then I can get the same elo for more training" (≈13:56). "So search is test time. Learning is train time" (≈14:43). See
+[search and test-time compute](test-time-compute.md).

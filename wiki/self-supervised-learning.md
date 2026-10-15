@@ -11,7 +11,8 @@ slides 29–39; next-word prediction in [lecture 8](08-architectures-transformer
 [lecture 10](10-architectures-memory.md); and self-supervision by similarity rather than prediction, contrastive learning, in
 [lecture 12](12-representation-learning-similarity-based.md), slides 27–37, 47–51 and 54–68, ≈30:25–43:43 and ≈53:56–1:10:21; and [lecture 18](18-transfer-learning-models.md), slides 12–13
 and 48, ≈16:19–17:04 and ≈1:09:52 (self-supervised pretraining for transfer, and GPT-3's generative pretraining); and [lecture
-21](21-language-models.md), slides 12–18, ≈13:52–19:20 (BERT's masked language modeling, why it works, and why it does not generate).
+21](21-language-models.md), slides 12–18, ≈13:52–19:20 (BERT's masked language modeling, why it works, and why it does not generate); and [lecture 24](24-inference-methods-for-deep-learning.md), slides 45–46, ≈1:05:57–1:08:20
+(self-supervised test-time training).
 
 ## Learning without labels
 
@@ -141,6 +142,15 @@ verb and the fact that "MIT was founded in 1861", and "such knowledge is implici
 (≈16:59). Its limit: "BERT is NOT a language model" (slide 17), because it sees both sides of the gap; generation needed next-word
 prediction, the pretext task of today's large language models (≈17:47–19:20). See [language models](language-models.md).
 
+## Self-supervision at test time (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) uses a self-supervised loss after training, on the test data itself. In Sun et al.'s **test-time training** (ICML 2020, slide 46), a
+classifier's trunk $f$ is shared between a task head and a self-supervised head that reconstructs masked patches, a masked autoencoder. At
+test time, given a single unlabelled image, "I might have a pre-trained f, and now I'm going to try to fine tune it on the test example
+with a self-supervised loss. And then I will simply have a better representation", which "can actually improve your performance on
+correctly identifying that this is a bird" (≈1:06:46–1:07:35). No labels are needed: on Mars, "you can just adapt your representation and
+get better performance" (≈1:07:35–1:08:20). See [search and test-time compute](test-time-compute.md).
+
 ## See also
 
 - [Contrastive learning](contrastive-learning.md) — self-supervision by similarity (lecture 12).
@@ -148,3 +158,4 @@ prediction, the pretext task of today's large language models (≈17:47–19:20)
 - [Autoencoders](autoencoders.md) — the compression route.
 - [Transfer learning](transfer-learning.md) — what a pretrained representation is for.
 - [Lecture 11](11-representation-learning-reconstruction-based.md) — the lecture these sections come from.
+- [Lecture 24](24-inference-methods-for-deep-learning.md) — self-supervised test-time training.

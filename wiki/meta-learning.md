@@ -8,7 +8,7 @@ from which a few steps of SGD go a long way, and sequence modeling, where a mode
 connects to in-context learning in large language models. Covered so far: [lecture 11](11-representation-learning-reconstruction-based.md),
 ≈27:54 ("we learn to learn", as the point of representations); [lecture 18](18-transfer-learning-models.md), ≈1:11:28 (previewed);
 lecture 19, slides 43–50, ≈1:06:58–1:14:43; [lecture 21](21-language-models.md), slides 36–40, ≈28:47–35:50 (whether in-context
-learning is learning).
+learning is learning); [lecture 24](24-inference-methods-for-deep-learning.md), slides 42–48, ≈56:42–1:13:42 (in-context learning as gradient descent, and test-time training).
 
 **Notation** (lecture 19's slides). $\theta$ is a model's parameters and $f_{\theta}$ the model; a dataset is
 $\lbrace x^{(i)}, y^{(i)} \rbrace_{i=1}^{N}$; $\mathcal{T}_ i$ is a task drawn from a distribution over tasks $p(\mathcal{T})$, with
@@ -80,6 +80,22 @@ their hidden representations", something "that looks like gradient descent", wit
 inside the hidden representations" and "updated across layers as more examples get ingested", at least on synthetic data. Whether big models
 do this, "nobody knows. Almost certainly, the answer is, it's complicated" (≈34:15–35:50).
 
+## In-context learning as gradient descent (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) answers lecture 21's question from the other side. In-context learning, given pairs $\mathbf{x}^{(1)}, \mathbf{y}^{(1)}, \ldots$ and a
+query, "is just the definition of supervised learning. It's learning to do supervised learning" (slide 42, ≈56:42–57:30). Von Oswald et
+al., "Transformers learn in-context by gradient descent" (ICML 2023, slide 43), write a transformer $f_\theta$ reading a query $\mathbf{x}$
+with context $\mathbf{c}$ as a context-free transformer with other weights, $f_\theta(\mathbf{x}, \mathbf{c}) = f_{\theta'}(\mathbf{x})$,
+and show a case, "one layer, linear self-attention … a simple toy case", where $\theta'$ is a gradient-descent step on $\theta$ with a loss
+on the context examples (≈58:15–1:00:34).
+
+Slide 44 draws the consequence: "instead of doing ICL over $\mathbf{c}$, why not do gradient descent over $\mathbf{c}$?" "ICL is learned
+learning. It isn't guaranteed to work", while gradient descent "is guaranteed to improve performance on the in-context examples" and "can
+leverage more test-time compute than ICL. You can run it forever"; the possible disadvantage is that "ICL could be a smarter learning
+algorithm than gradient descent". Updating the weights on the test query's examples, **test-time training**, reached 61.9% on the ARC
+benchmark with "an 'old' method (GD on supervised examples; but examples that are highly relevant to each test query)" (slide 48). See
+[search and test-time compute](test-time-compute.md).
+
 ## See also
 
 - [Lecture 19](19-transfer-learning-data.md) — the lecture, with its figures.
@@ -87,3 +103,4 @@ do this, "nobody knows. Almost certainly, the answer is, it's complicated" (≈3
 - [Backpropagation](backpropagation.md) — the forward and backward pass that MAML differentiates through.
 - [Foundation models and prompting](foundation-models-and-prompting.md) — in-context learning.
 - [Recurrent neural networks](recurrent-neural-networks.md) — a network whose state can act as a learner.
+- [Lecture 24](24-inference-methods-for-deep-learning.md) — in-context learning as gradient descent, and test-time training.

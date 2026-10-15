@@ -14,7 +14,8 @@ diffusion models); [lecture 15](15-generative-models-representation-learning-mee
 construction, prompting, captioning, and a prior over VQGAN's codes). [Lecture 18](18-transfer-learning-models.md), slides 48–54, ≈1:09:52–1:12:14, adapts GPT-3 by prompting and in-context learning, and
 [lecture 19](19-transfer-learning-data.md), slide 50, ≈1:13:12–1:14:43, calls in-context learning meta-learning.
 Generative models are the subject of lectures 14–16. [Lecture 21](21-language-models.md), slides 4–17, ≈2:20–19:20, traces language
-models from counted n-grams to LLMs; see [language models](language-models.md).
+models from counted n-grams to LLMs; see [language models](language-models.md). [Lecture 24](24-inference-methods-for-deep-learning.md), slides 11–19, ≈14:43–32:38, treats decoding as
+search: why greedy decoding misses the most likely sequence, Best-of-N, beam search and chain of thought.
 
 ## Predict, append, repeat
 
@@ -175,3 +176,23 @@ an "autoregressive conditional language model". The lecture also draws the line 
 hidden word from both sides and "already knows exactly how many words are going to be in a sentence", so "BERT is NOT a language model"
 and cannot generate (slide 17, ≈17:47). See [language models](language-models.md).
 
+## Decoding as search (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) returns to lecture 10's molecule captioner, a graph network feeding an LSTM ("You can replace it with a transformer, but it doesn't
+really matter", ≈15:32), to ask how a trained autoregressive model should be used. It is trained by maximum likelihood with **teacher
+forcing**, each next word conditioned on "the ground-truth previous words" (slides 12–14, ≈17:05–17:53), but at test time it conditions on
+its own samples (slide 15). That is "a deviation between how we'll use this system at test time and how it was trained", and samples
+that stray from the data put the model's next predictions off the distribution it was trained on (≈17:53–19:26).
+
+Slide 16's point is that **greedy decoding does not maximize likelihood**. The model's probability of a sequence factorizes as
+
+$$p(\mathbf{X}) = p(\mathbf{x}_ n \mid \mathbf{x}_ 1, \ldots, \mathbf{x}_ {n-1}) \cdots p(\mathbf{x}_ 2 \mid \mathbf{x}_ 1) \thinspace p(\mathbf{x}_ 1)$$
+
+and taking the most likely $\mathbf{x}_ 1$, then the most likely $\mathbf{x}_ 2$ given it, and so on, does not in general give
+$\arg\max_{\mathbf{X}} p(\mathbf{X})$, the jointly most likely sequence: "You can construct counterexamples" (≈20:13–21:00). Random
+sampling does no better, since "a random sample is not necessarily going to be the most likely sample" (≈24:52). Hence search. **Best-of-N**
+samples $N$ sequences independently, scores each by the chain rule, and keeps the most likely (slide 17); **beam search** keeps "the top-k
+best next words" at every step and expands them as a tree (slide 18); and **chain of thought** asks the model to do the search itself in
+text (slide 19). The lecturer's verdict: "Best-of-N seems to be the simplest and also works about as well as anything, as far as I can tell
+right now. And beam search is maybe the most popular" (≈30:19). The same search can maximize any score rather than likelihood; see
+[search and test-time compute](test-time-compute.md).

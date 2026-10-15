@@ -7,7 +7,8 @@ learn to reverse the process" ([lecture 14](14-generative-models-basics.md), ≈
 43–53, ≈1:07:34–1:17:40, and Homework 5's "Diffusion Models" section; [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), ≈8:37, ≈1:17:06,
 ≈1:18:37–1:20:09 and slide 41 (diffusion as a kind of VAE, its latent structure, and the comparison of families); [lecture 16](16-generative-models-conditional-models.md), slides 65–67
 and 70, ≈1:02:29–1:05:32 and ≈1:07:53 (conditioning on text, Stable Diffusion's U-Net). See also
-[generative models](generative-models.md).
+[generative models](generative-models.md). [Lecture 24](24-inference-methods-for-deep-learning.md) (slide 16, ≈22:31–24:05) asks whether step-by-step denoising finds the
+most likely image.
 
 ## The observation: data to noise is easy
 
@@ -90,3 +91,13 @@ connections", into which the text came by modulating the network's activations r
 normalization or something … So you could look up the details", ≈1:04:47–1:05:32); "now people … use what's called diffusion transformers,
 where this is a ViT". The Stable Diffusion line was built on VQGAN, with a diffusion or autoregressive model in its latent space (≈1:07:53).
 See [conditional generative models](conditional-generative-models.md).
+
+## Greedy denoising (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) asks of diffusion models what it shows for autoregressive ones, that taking the most likely step at each stage need not give the most
+likely whole (slide 16: "What about for VAEs? What about for diffusion models?"). The answer: "it's the same exact thing with diffusion
+models". Each sampling step tries "to maximize the conditional probability of slightly less noisy given slightly more noisy", and "that
+won't necessarily result in a sequence of denoising steps that maximizes the probability at the end of the sequence for the same kind of
+reason" (≈22:31–23:19). "There's not as much work in trying to do intelligent inference through diffusion models", so how to "take higher
+likelihood samples from a diffusion model than you'd get with the regular denoising process" is offered as an open topic (≈24:05). See
+[search and test-time compute](test-time-compute.md).

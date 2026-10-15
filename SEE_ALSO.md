@@ -69,7 +69,8 @@ Pass the **repo URL** as the `kb` argument to `kb_read` / `kb_list`. The
   RMS-RMS operator norm is meant to fix it. CS336's page on
   [learning-rate scaling and muP](https://raw.githubusercontent.com/chaimantec/cairn-kb-cs336/main/wiki/learning-rate-scaling-and-mup.md)
   is a second treatment of learning-rate transfer, from a course that trains language models; use
-  lecture 7 here first for this course's version. Lecture 20 is not yet covered here, and CS336 has
+  lecture 7 here first for this course's version. Lecture 20 here is this course's account of scaling laws (its recording stops after
+  slide 17 of 51; the rest is from the deck), and CS336 has
   two lectures on scaling laws (its lectures 9 and 11), and lectures on GPUs and parallelism — useful for "why do GPUs matter" beyond lecture 1's
   one-paragraph answer, and beyond lecture 9's compute checklist here (one device before many, saturating
   GPUs, mixed precision; its slides 68–70), which the recording does not reach. Lecture 3 here shows Kaplan et al.'s scaling laws and the Chinchilla

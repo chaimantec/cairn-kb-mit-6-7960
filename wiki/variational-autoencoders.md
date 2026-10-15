@@ -9,7 +9,8 @@ solves them both at the same time" ([lecture 15](15-generative-models-representa
 as popular these days as diffusion models" (≈9:22). Covered so far: lecture 15, slides 3–41, ≈0:00–1:20:09; the model is promised
 in [lecture 11](11-representation-learning-reconstruction-based.md) (≈47:20–48:06) and placed in lecture 15 by
 [lecture 14](14-generative-models-basics.md) (slide 2, ≈1:31); and its conditional form in [lecture 16](16-generative-models-conditional-models.md), slides 39–50 and
-63–64, ≈39:45–45:58 and ≈59:21–1:01:42; and its seams again in [lecture 19](19-transfer-learning-data.md), slide 18, ≈20:20–21:55.
+63–64, ≈39:45–45:58 and ≈59:21–1:01:42; and its seams again in [lecture 19](19-transfer-learning-data.md), slide 18, ≈20:20–21:55; and, in [lecture 24](24-inference-methods-for-deep-learning.md), ≈21:45–23:19,
+why sampling a VAE does not drift from its most likely sample as greedy decoding does.
 
 **Notation**, from the slides: a data point $\mathbf{x}$, a latent vector $\mathbf{z}$ with prior $p_{\mathbf{z}}$, the unit
 Gaussian; a decoder or generator $g_{\theta}$ with parameters $\theta$, outputting a mean $g^{\mu}_ {\theta}(\mathbf{z})$ and a
@@ -133,6 +134,15 @@ lecture from VAEs", ≈20:20). Training maps the data onto the latent space as i
 ball", leaving "danger zones" and seams where "things that are nearby in latent space could potentially be quite far away from each
 other in data space" (≈21:07–21:55); this is why StyleGAN interpolates in an intermediate, less distorted space. See [generative models
 as data](generative-models-as-data.md).
+
+## One step, not a sequence (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) shows that greedy decoding of an autoregressive model need not find the most likely sequence, and asks whether the same holds for a
+VAE, where "it's a Gaussian VAE, so the most likely sample is the mean" (≈21:45). Its answer is no: "with VAEs, it's not really sequential.
+There's just one step. There's just encode, decode", so "there's no sequential process where my sampling could be deviating from the most
+likely sample for the entire joint configuration" (≈23:19). Diffusion models, which do sample step by step, have the same issue as
+autoregressive models (see [diffusion models](diffusion-models.md)). The same lecture searches a VAE decoder's latent space, staying in
+the high-probability part of its Gaussian prior; see [generative models as data](generative-models-as-data.md).
 
 ## See also
 

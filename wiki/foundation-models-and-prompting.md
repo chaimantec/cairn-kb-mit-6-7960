@@ -8,7 +8,9 @@ anymore" (slide 47). Covered so far: [lecture 18](18-transfer-learning-models.md
 language model as conditioning, in [lecture 16](16-generative-models-conditional-models.md), ≈47:33; and optimizing a GAN's input
 through CLIP, in [lecture 2](02-how-to-train-a-neural-net.md), slide 70, ≈1:06:05–1:06:52. [Lecture 19](19-transfer-learning-data.md) (slide 50, ≈1:12:25–1:14:43) calls in-context learning a form of meta-learning. [Lecture 20](20-scaling-laws.md) shows how such models were sized: GPT-4's loss predicted from smaller models (slides 5–6, ≈6:16–10:56), and the split of compute between parameters and data revised from GPT-3 and Gopher to Chinchilla (slides 23–28, from the deck alone).
 [Lecture 21](21-language-models.md) (slides 24–60, ≈23:17–51:21) develops prompting a language model in depth: in-context learning and
-what the prompt adds, whether it is learning, and chain-of-thought prompting; see also [language models](language-models.md).
+what the prompt adds, whether it is learning, and chain-of-thought prompting; see also [language models](language-models.md). [Lecture 24](24-inference-methods-for-deep-learning.md) (slides 19, 32–40
+and 42–44, ≈30:19–32:38 and ≈51:14–1:05:57) reads chain of thought as learned search, names the "just ask" paradigm, and asks whether
+in-context learning is gradient descent.
 
 **Notation** (lecture 18's slides). In CLIP, an image encoder produces image embeddings $I_1, \ldots, I_N$ and a text encoder text
 embeddings $T_1, \ldots, T_N$; $I_i \cdot T_j$ is the dot product of an image's embedding with a text's. In the banana and CLIP+GAN
@@ -158,6 +160,21 @@ not magic", and explicit examples of the reasoning wanted remain better (≈47:3
 Lecture 21 then turns from the prompt to the model: instruction tuning and reinforcement learning from human feedback make a model follow
 instructions by default, rather than continuing them as text; see [language models](language-models.md#three-stages-of-training).
 
+## Prompting as search, and "just ask" (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) files prompting under inference: methods that "update the model or its behavior" at deployment, beside in-context learning and
+test-time training (slide 3). **Chain of thought** is "an emergent or learned search" (slide 19, ≈30:19): rather than running beam search
+over a model's outputs, one can ask the model to do the beam search itself, "because you've observed, in your training corpus, examples of
+this kind of behavior" (≈31:51). Eric Jang's name for this is the **"just ask" paradigm**: "Chain-of-thought is 'just ask for symbolic
+search'", and slides 33–38 ask for "continuous reward optimization" by adding "very"s to a DALL-E prompt (slide 32, ≈51:14–52:46). The
+cost is guarantees: such abilities "depend on the data distribution on which it was trained" (≈54:21), and a prompted search like "let's
+think step by step" "will depend a lot on how it was trained" (≈55:10).
+
+The lecture also asks what **in-context learning** is computing. Von Oswald et al. show a case, one layer of linear self-attention, in which
+a transformer reading the context gives the same output as a transformer with no context whose weights took a gradient-descent step on the
+context examples (slide 43, ≈57:30–1:00:34). So why not do the gradient descent explicitly? That is **test-time training**; see
+[meta-learning](meta-learning.md) and [search and test-time compute](test-time-compute.md).
+
 ## See also
 
 - [Lecture 18](18-transfer-learning-models.md) — the lecture, with its figures.
@@ -166,3 +183,4 @@ instructions by default, rather than continuing them as text; see [language mode
 - [Autoregressive models](autoregressive-models.md) — the next-word predictors behind GPT-3.
 - [Adversarial examples](adversarial-examples.md) — the harmful noise that visual prompting turns around.
 - [Scaling laws](scaling-laws.md) — compute, parameters and performance.
+- [Lecture 24](24-inference-methods-for-deep-learning.md) — chain of thought as search, "just ask", and in-context learning as gradient descent.

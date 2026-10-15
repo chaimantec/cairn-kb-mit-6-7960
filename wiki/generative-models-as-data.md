@@ -10,7 +10,8 @@ to transfer "knowledge about the inputs", the third kind of knowledge [lecture 1
 15](15-generative-models-representation-learning-meets-generative-modeling.md), slides 37–40, ≈1:13:15–1:19:23 (latent directions
 and seams); [lecture 17](17-generalization-out-of-distribution.md), slide 59, ≈57:40–58:27 (counterfactual images to diagnose a
 classifier); lecture 19, slides 3–42, ≈1:33–1:06:58; [lecture 21](21-language-models.md), ≈58:26–1:00:45 (synthetic data for a
-language model's own fine-tuning).
+language model's own fine-tuning); [lecture 24](24-inference-methods-for-deep-learning.md), slides 26–40, ≈38:51–54:21 (searching a generator's latent space for what a score or a model
+of human perception prefers, and asking for it in the prompt instead).
 
 **Notation** (lecture 19's slides). A data point is $x$ and a latent variable $z$; $G$ maps latent variables to data and $G^{-1}$ maps
 data back; $\mathbb{X}$ is the data++ object. $\mathcal{Z}$ is a GAN's input latent space and $\mathcal{W}$ StyleGAN's intermediate one.
@@ -135,6 +136,23 @@ going to filter that data down to the good stuff or some difference between the 
 process that's training on the synthetic data" (≈59:14). Context distillation is such a difference (see [knowledge
 distillation](knowledge-distillation.md)), and RLHF, which samples outputs from the model and has people or a reward model judge them, is
 such a filter (≈1:10:02–1:10:47; see [language models](language-models.md)).
+
+## Searching a generator for a score (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) uses a trained generator as a space to search. With latent variables $\mathbf{z}$ and a generator $g(\mathbf{z})$, "a GAN or the
+decoder of a VAE, or … a diffusion model where z is the noise", one optimizes $\mathbf{z}$ to maximize a score of the output (slide 26,
+≈38:51). With CLIP as the scorer, the search maximizes the dot product $\mathbf{e}_ 1 \cdot \mathbf{e}_ 2$ between the text's and the
+image's embeddings: CLIP + VQGAN, "the first batch of text-to-image generative models that were really impressive" (≈40:23–41:10).
+Searching only the latent space, near the prior's high-probability region, keeps the output "within the manifold of high-probability
+images according to the image generator" (≈40:23). With a model of human perception as the scorer, **GANalyze** (slides 29–31, the
+lecturer's work with Goetschalckx, Andonian and Oliva; the slide also spells the first name "Goetschalkx") finds latent directions that make an image more memorable, aesthetic or emotionally
+positive; because "everything is differentiable … you just can do gradient descent to do the search" (≈45:49). The more memorable dog has
+"really big" eyes; the more memorable landscape makes "everything big" (≈45:49–47:22).
+
+The alternative is to "just ask": a text-to-image model prompted for "a very, very … beautiful painting" makes more beautiful paintings,
+because it learned "this conditional distribution of conditioned on the reward I want to achieve" (slides 33–38, ≈52:01–52:46). Such
+learned abilities come with no guarantees: asked for a "Level 1e-40 Reuben", a model draws a sandwich under a microscope (slide 40,
+≈54:21). See [search and test-time compute](test-time-compute.md).
 
 ## See also
 

@@ -289,5 +289,22 @@ unknown"); none of them is rendered. Slide 40's screenshot of the Shampoo algori
 slide file reproduces it. No other slide of this deck reuses an excluded image, but **lecture 13's slide 3** pasted the chart of slide 7
 and was withdrawn when this deck was added (above).
 
+Lecture 24's deck names Phillip Isola and is typed (Keynote). Of its 19 rendered slides, **slides 3, 12, 14, 15, 17, 18, 20, 26 and 51**
+are the deck's own diagrams; slide 26's output image is the lecturer's own CLIP + VQGAN result (the slide links his code). **Slide 5**'s two
+charts of o1's accuracy come from OpenAI's announcement ("[OpenAI's o1: https://openai.com/index/learning-to-reason-with-llms/]") and **slide
+9**'s chart from Jones's "Scaling Scaling Laws with Board Games" ("[Jones 2021]"); both carry a citation and no notice. **Slide 19**'s chat
+response is the lecturer's own ChatGPT session ("This is just from ChatGPT last night", ≈31:05), **slides 22 and 51**'s code images are the
+programs of his verification example, and **slides 33–38** are captioned "Images by Phillip Isola generated in DallE." These are rendered by
+the rule that only a notice excludes. The deck's other third-party material is on its fourteen excluded slides: 7 (the photograph of
+Kasparov's audience, "© Stan Honda/AFP/Getty Images"; its photograph of the machine is credited "Courtesy of Jim Garnder
+(jamesthephotographer) on Flickr. Used under CC BY." but shares the excluded slide), 8 and 53 (Nature's cover and AlphaGo figures, "©
+Springer Nature Limited"), 27–29 (memorability photographs and figures, "© Isola, et al."), 29–31 (the GANalyze authors' portraits, figures
+and photographs, "© source unknown"), 39 and 40 (Jon Barron's posts), 46 (Sun et al.'s bird photographs, "Bird © source unknown"), 47 (the
+ARC figure, "© Akyürek, et al."), 52 (a game screenshot, "© Nintendo") and 54 (the STaR figure, "© Zelikman, et al."); none of them is
+rendered. Three slides without a notice reuse excluded images and are not rendered either: **slide 4** (Sutton's essay, which lecture 20's
+slide 3 excludes), **slide 42** (a screenshot of lecture 21's slide 32, excluded there under "© Zhao et al.") and **slide 55** (crops of
+slide 54's STaR example). Slide 48's ARC Prize banner carries no credit and is not rendered, because the slide is bullets that the slide file
+reproduces.
+
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

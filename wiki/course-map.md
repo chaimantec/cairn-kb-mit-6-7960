@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md), [lecture 19](19-transfer-learning-data.md), [lecture 20](20-scaling-laws.md), [lecture 21](21-language-models.md) and [lecture 23](23-metrized-deep-learning.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md), [lecture 19](19-transfer-learning-data.md), [lecture 20](20-scaling-laws.md), [lecture 21](21-language-models.md), [lecture 23](23-metrized-deep-learning.md) and [lecture 24](24-inference-methods-for-deep-learning.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -48,7 +48,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 20 | Scaling Laws | [yes](20-scaling-laws.md) (the recording covers slides 1–17 only) |
 | 21 | Language Models | [yes](21-language-models.md) (a guest lecture by Jacob Andreas) |
 | 23 | Metrized Deep Learning | [yes](23-metrized-deep-learning.md) (Jeremy Bernstein's research: modules, the modular norm and modular duality) |
-| 24 | Inference Methods for Deep Learning | not yet |
+| 24 | Inference Methods for Deep Learning | [yes](24-inference-methods-for-deep-learning.md) (search, test-time training, and search and learning in a loop) |
 | — | PyTorch Tutorial | not yet |
 
 The spoken overview in lecture 1 (≈5:24–7:43) runs through the same arc: training, approximation
@@ -255,6 +255,13 @@ the earlier lectures in the class" (≈6:15) and "in the earlier lecture" (≈45
 descent under the spectral norm (≈7:02–1:03:15), Homework 2's first question. It names no later lecture
 ([lecture 23](23-metrized-deep-learning.md#pointers-to-other-lectures)).
 
+Lecture 24 is Phillip Isola's; its title slide reads "Lecture 24: Inference methods for deep learning", matching the recording, and the
+deck prints no other lecture number. The recording points back without numbers to "The Bitter Lesson … that I mentioned a few lectures
+ago" (≈8:24), lecture 20's slide; to "Jacob's lecture" for RLHF and in-context learning (≈6:05, ≈6:52) and to Jacob Andreas's talk for
+chain of thought (≈30:19), lecture 21; and to in-context learning as "we saw that before" (≈57:30). It says reinforcement learning is a
+topic "which we didn't really have time to cover" (≈1:15:15), and points ahead only to the next session, Thursday's office hours for final
+projects, with no talk (≈1:33) ([lecture 24](24-inference-methods-for-deep-learning.md#pointers-to-other-lectures)).
+
 ## Coursework and policies
 
 **Grading** (≈2:20–3:54):
@@ -267,7 +274,8 @@ descent under the spectral norm (≈7:02–1:03:15), Homework 2's first question
   to demonstrate novel experimentation and visualization". The format is chosen because writing a
   blog-style account of research, without dropping its technical content, is now part of doing ML
   research and "a really valuable skill". Groups of at most two. Either an applied or a theoretical
-  angle is fine: "What we want is for them to be innovative" (≈5:24).
+  angle is fine: "What we want is for them to be innovative" (≈5:24). Lecture 24 announces that the next class session, on a
+  Thursday, "will be office hours" for the final projects, with "the various TAs and instructors here" and no talk (≈1:33).
 
 **Compute is not provided** — at most "some very limited compute, but that's TBD" (≈3:54). So a
 project should not depend on "crunching a huge architecture on a bunch of huge data sets". The

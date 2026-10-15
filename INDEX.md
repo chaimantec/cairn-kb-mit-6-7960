@@ -8,13 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–21 and 23 of 24 only.** This knowledge base currently holds the first twenty-one
-> lectures and lecture 23 (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
+> **Coverage: lectures 1–21, 23 and 24 (23 of the catalog's 24 recordings); not the PyTorch tutorial.** This knowledge base holds the first twenty-one
+> lectures and lectures 23 and 24, which is every numbered lecture, since there is no lecture 22 (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws; Language Models; Metrized Deep Learning) and the concept pages they support. Lecture 20's recording ends
-> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. For anything taught in lecture 24 (there is no lecture 22), it can
-> tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course for lecture 24 or the PyTorch tutorial. Build progress is in
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws; Language Models; Metrized Deep Learning; Inference Methods for Deep Learning) and the concept pages they support. Lecture 20's recording ends
+> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. The course also recorded a PyTorch tutorial, which has no deck and is not
+> in this knowledge base: do not cite it as the course for that tutorial. The [course map](wiki/course-map.md) lists every recording. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -310,6 +309,19 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   dualizing a whole network, Shampoo's core primitive as steepest descent under the spectral norm, Newton-Schulz and the NanoGPT speed
   record, and normalize against dualize. Conclusion: low precision and robustness as questions of module sensitivity. The recording covers
   the whole deck. Slides 3–7, 24, 26–28, 31, 37, 42 and 45–47 are excluded from OCW's licence.
+- [Lecture 24 — Inference Methods for Deep Learning](wiki/24-inference-methods-for-deep-learning.md) — Phillip Isola, "a brand new
+  lecture" on spending computation at test time, ending in a guess at how OpenAI's o1 works. Inference in statistics and in machine
+  learning; a map from pre-training through post-training to search, with reinforcement learning as the loop back; Sutton's two methods
+  that scale, search and learning; o1's accuracy against train-time and test-time compute; Deep Blue, AlphaGo and Jones's board-game
+  trade-off between search and training. Search through an autoregressive model: maximum likelihood and teacher forcing, sampling, why
+  greedy decoding does not maximize likelihood (and what of VAEs and diffusion models); Best-of-N, beam search, chain of thought as
+  learned search; searching for other scores (fun-ness, accuracy, human ratings) and with a verifier, since verification is easier than
+  generation. Steering generators toward human preferences: CLIP + VQGAN's latent search, memorability, GANalyze; and "just ask", reward in
+  the prompt (DALL-E's "very very beautiful" paintings, "Make it more"). Changing the model at deployment: in-context learning as
+  gradient descent (von Oswald et al.), why not do the gradient descent, test-time training (Sun et al.'s self-supervised version, 61.9% on
+  ARC). Search and learning in a loop: verified answers as training data, the game-playing loop, AlphaGo, STaR, and o1 as reinforcement
+  learning on chains of thought. The recording covers the whole deck. Slides 7, 8, 27–31, 39, 40, 46, 47 and 52–54 are excluded from OCW's
+  licence, and slides 4, 42 and 55 reuse excluded images.
 
 ## Course pages
 
@@ -459,7 +471,7 @@ passages it draws on.
   law and Kaplan et al.'s split of compute, extrapolation, then from the deck alone Chinchilla's revised split, the data-manifold
   explanation of the exponent, beating power laws by pruning data, the critical batch size, and representational convergence. Not
   the same as lecture 7's scaling *rules* (below). Lecture 21: emergent abilities, the arms race, and in-context learning,
-  chain of thought and instruction tuning helping only above some model scale, while larger models can be less truthful.
+  chain of thought and instruction tuning helping only above some model scale, while larger models can be less truthful; o1's test-time compute scaling and the board-game trade-off between search and training (lecture 24).
 - [Scaling rules](wiki/scaling-rules.md) — lecture 7's answer to "the optimal learning rate drifts"
   and "deeper performs worse": hyperparameter transfer, the Goldilocks update and "in which norm?",
   the width rule ($\Vert \mathbf{W}_ \ell \Vert_{\text{RMS-RMS}} \sim 1$ at initialization and
@@ -528,7 +540,7 @@ passages it draws on.
   BERT and next-word prediction, three hypotheses for why prediction beats reconstruction, and LeCun's cake
   (lecture 11); colorization as classification (lecture 9); self-supervision by similarity, contrastive learning (lecture 12);
   self-supervised pretraining for transfer, and GPT-3's and CLIP's pretraining (lecture 18); masked language
-  modeling, why predicting words needs linguistic and world knowledge, and why BERT does not generate (lecture 21).
+  modeling, why predicting words needs linguistic and world knowledge, and why BERT does not generate (lecture 21); self-supervised test-time training with a masked autoencoder (lecture 24).
 - [Transfer learning](wiki/transfer-learning.md) — reusing a learned representation: "a good representation is one
   that makes a subsequent learning task easier", deep nets as not blank slates, linear adaptation (linear probes) and
   fine-tuning, pretrain–adapt–test, learning from little data by pretraining on massive data, how big the ratio is,
@@ -555,15 +567,21 @@ passages it draws on.
   "just ask", and its trouble with composition and negation; visual prompting and adversarial reprogramming; and plugging models
   together (CLIP+GAN, DALL-E 2) (lecture 18); in-context learning as meta-learning (lecture 19); how such models were sized, from
   GPT-3 and Gopher to Chinchilla, and GPT-4's predicted loss (lecture 20); in-context learning as a fictitious document, templates, whether
-  it is learning, chain-of-thought and zero-shot chain-of-thought prompting, and optimized prompts (lecture 21).
+  it is learning, chain-of-thought and zero-shot chain-of-thought prompting, and optimized prompts (lecture 21); chain of thought as learned search, the "just ask" paradigm, and in-context learning as gradient descent (lecture 24).
 - [Language models](wiki/language-models.md) — a distribution over the next word and, by the chain rule, over strings: counting
   n-grams, perplexity from unigrams to GPT-3, why parameter count is a bad proxy, the four eras of what language models were for, why BERT
   is not one, and the three stages of training a large language model, pretraining, instruction tuning and RLHF (reward model, policy,
-  expected reward, policy gradient, DPO) (lecture 21); with pointers to next-word prediction in lectures 8, 10, 11, 18 and 20.
+  expected reward, policy gradient, DPO) (lecture 21); with pointers to next-word prediction in lectures 8, 10, 11, 18 and 20; searching a language model's outputs, scoring with a verifier, and training on what search finds, STaR and a guess at o1 (lecture 24).
 - [Meta-learning](wiki/meta-learning.md) — learning to learn: the three levels (inference, learning, meta-learning), MAML's learned
   initialization and its double loop with the inner and outer updates, backpropagating through backward and its cost, whether it pays
   (TIML for crop mapping), and meta-learning by sequence modeling, with in-context learning as meta-learning at scale (lecture 19); whether in-context learning is learning or task retrieval,
-  and evidence that models run learning algorithms internally (lecture 21).
+  and evidence that models run learning algorithms internally (lecture 21); in-context learning as gradient descent over the context (von Oswald et al.), why not do the gradient descent, and test-time training on ARC (lecture 24).
+- [Search and test-time compute](wiki/test-time-compute.md) — what a trained model can do with more computation per query: training
+  against inference and amortized inference; why spend compute at test time (the bitter lesson, o1's test-time scaling, search against
+  learning in board games); searching outputs (greedy decoding's failure, Best-of-N, beam search, chain of thought); scores and verifiers;
+  searching a generator's latent space; changing the model at test time (in-context learning as gradient descent, test-time training);
+  and search and learning in a loop (verified answers as data, policies guiding search, AlphaGo, STaR, o1) (lecture 24, with pointers to
+  lectures 2, 10, 18 and 21).
 - [Inductive bias](wiki/inductive-bias.md) — the structure an architecture assumes before seeing
   data: why an MLP is data hungry, the hypothesis-space picture (more data or a more constrained
   architecture), how a bias decides what a model does outside its training data (ReLU-net, exact
@@ -642,7 +660,7 @@ passages it draws on.
   as generative density models of words, pixels and audio, and their kinship with diffusion (lecture 14); conditional by construction,
   prompting, and captioning (lecture 16); GPT-3's generative pretraining, prompting and in-context learning (lecture 18); in-context
   learning as meta-learning (lecture 19); language models from counted n-grams to LLMs, the seq2seq conditional
-  model, and why BERT is not one (lecture 21).
+  model, and why BERT is not one (lecture 21); decoding as search, greedy decoding against the most likely sequence, Best-of-N, beam search and chain of thought (lecture 24).
 - [Normalization layers](wiki/normalization-layers.md) — RMS normalization, layer norm (the
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
@@ -687,7 +705,7 @@ passages it draws on.
   intractable likelihood (Monte Carlo, importance sampling, an encoder predicting the sampling distribution), the evidence lower
   bound and its two terms, the training loop, disentanglement and seams, and how VAEs relate to the other families (lecture 15); the
   conditional VAE, whose latent encodes only what the input leaves out, and DALL-E 1 (lecture 16); the seams again, as the reason to
-  interpolate in an intermediate space (lecture 19).
+  interpolate in an intermediate space (lecture 19); why one-step VAE sampling does not drift from its most likely sample as greedy decoding does (lecture 24).
 - [Energy-based models](wiki/energy-based-models.md) — unnormalized probability models: the Boltzmann form and the
   partition function, why relative probabilities are often enough, why probabilities are still easier to interpret, and
   training by contrastive divergence with its gradient, data pushing the energy down and model samples pushing it up
@@ -696,7 +714,7 @@ passages it draws on.
   learning, sampling from Gaussian noise and its cost in steps, Gaussian diffusion's forward and reverse processes, a
   stripped-down training algorithm, Homework 5's diffusion section, and the kinship with autoregressive models (lecture 14);
   diffusion as a kind of VAE, structure in its noise and activations, and its row in the comparison of families (lecture 15);
-  conditioning on text by letting the denoiser see it, and Stable Diffusion's U-Net (lecture 16).
+  conditioning on text by letting the denoiser see it, and Stable Diffusion's U-Net (lecture 16); whether greedy denoising finds the most likely image (lecture 24).
 - [Generative adversarial networks](wiki/generative-adversarial-networks.md) — a generator trained to fool a discriminator:
   direct or indirect, the discriminator's and generator's objectives, the min-max game, the student and teacher, and two
   inconsistencies printed on the slides (lecture 14); BigGAN's latent directions without an encoder, and GANs in the comparison of
@@ -707,7 +725,7 @@ passages it draws on.
   compression, directions in latent space and how to find them, the bias they expose, where to interpolate (seams, StyleGAN's
   $\mathcal{W}$), counterfactuals and ensembles, labelling generated data (DatasetGAN), explaining a classifier (StylEx, Dataset
   Interfaces), and generated data for contrastive learning with its caveats: class boundaries, diversity against fidelity, generator
-  priors, rare categories and model collapse (lectures 15, 17 and 19); why a language model's own synthetic data needs an outside filter (lecture 21).
+  priors, rare categories and model collapse (lectures 15, 17 and 19); why a language model's own synthetic data needs an outside filter (lecture 21); searching a generator's latent space for a score, CLIP + VQGAN and GANalyze, and "just ask" (lecture 24).
 - [Conditional generative models](wiki/conditional-generative-models.md) — predicting one high-dimensional thing from another:
   structured prediction and why unstructured prediction blurs and averages, the two properties of generative models, the objective
   rather than the hypothesis space, how each family is made conditional (a table), explicit inputs against latent variables, tokens
@@ -724,7 +742,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–21 and 23 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–21, 23 and 24 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

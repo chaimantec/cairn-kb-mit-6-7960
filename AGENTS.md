@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–21 and 23 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage: lectures 1–21, 23 and 24, every numbered lecture; not the PyTorch tutorial.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -96,6 +96,9 @@ general form and the lecture's details there; keep this file free of per-lecture
   | 19 | 23 | slide 42's excluded volcano grid |
   | 19 | 29–31 | slide 28's cat photograph (29, 30), and the generator's reconstruction and edits of it (31) |
   | 19 | 36 | lecture 18's excluded tiger photographs (slides 12 and 13 there), credited CC BY here |
+  | 24 | 4 | lecture 20's excluded slide 3 (the same raster of Sutton's essay, cropped to another paragraph) |
+  | 24 | 42 | lecture 21's excluded slide 32 (Zhao et al.'s sentiment example), pasted as a screenshot |
+  | 24 | 55 | slide 54's excluded STaR example, pasted as two re-rasterized crops of its text |
 
   A shared image is not always a shared figure, so check size, placement and which image a notice sits beside
   before withholding. Rendered after such a check: lecture 5's slides 12, 15, 21 and 29 (the shared object is a
@@ -155,7 +158,10 @@ pale-yellow "Lecture N" banner hides slide content, the hidden prose was recover
 text layer and the slide says so. Reused decks hide whole blocks under white boxes: the source course's title, the next build step's rows, an earlier draft (lecture 21).
 Overlays pasted over a figure can hide content its embedded image still holds (lecture 19's
 slide 45 covers three lines of MAML's algorithm); the audit can read it from the raster at native resolution, and the slide
-file gives it as hidden, never as what the page shows. Equations and tables are never taken from the text layer. Symbols are
+file gives it as hidden, never as what the page shows. A pasted screenshot can have been converted to editable text: its own text wiped
+from the raster and redrawn over it in substitute fonts with OCR errors ("waterfalll", "v1ery", a flag icon turned into a "P"), leaving a
+faint residue of the original; transcribe what the page shows, flag the errors as the overlay's, and say the screenshot's text cannot be read
+(lecture 24). Equations and tables are never taken from the text layer. Symbols are
 transcribed in the type the page prints: lecture 23's transcriber set w, x and y in bold "for consistency with the course notation",
 which the page prints plain, and 123 of them had to be undone; the course notation belongs in the wiki, not the slide file.
 
@@ -165,7 +171,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–21 and 23 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–21, 23 and 24 have images; the PyTorch tutorial, which has no deck, is not in this KB.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -193,6 +199,7 @@ it.
 | 20 Scaling Laws | 20 of 52 pages | rendered from `mit6_7960_f24_lec20.pdf` |
 | 21 Language Models | 18 of 92 pages | rendered from `mit6_7960_f24_lec21.pdf` |
 | 23 Metrized Deep Learning | 8 of 49 pages | rendered from `mit6_7960_f24_lec23.pdf` |
+| 24 Inference Methods for Deep Learning | 19 of 56 pages | rendered from `mit6_7960_f24_lec24.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -229,7 +236,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–21 and 23:
+Notes for the next run, from lectures 1–21, 23 and 24:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -271,6 +278,11 @@ Notes for the next run, from lectures 1–21 and 23:
   file's, plus the withheld slides in the table above, plus the images on every problem-set page with a notice. Before
   trusting a clean result, rerun the sweep on lectures whose reuse is known (lecture 11's CLIP figure, lecture 14's
   diffusion chain); a sweep that does not find them is broken.
+- **The hash sweep cannot see every reuse.** A slide can paste a screenshot of another deck's slide that the other deck drew as
+  vectors, so there is no raster to match, or carry re-rasterized crops of an excluded figure, which match neither exactly nor
+  coarsely: lecture 24's slide 42 is a screenshot of lecture 21's excluded slide 32, and its slide 55's two text images are crops of
+  slide 54's excluded STaR example, and the sweep found neither. So also compare each candidate slide's printed citations and quoted
+  examples ("[Example from Zhao et al. '21]", a sample answer) with those on every deck's excluded slides, and look at each pair.
 - `page.get_image_info()` reports vector shadings as images with xref 0 and gives each image's unclipped bounding box, so a page
   can measure near-full raster coverage with no large picture on it (a clipped three-chart image; gradient squares). Count only
   xrefs above 0, intersect with the clip, and take figure pages from the slide file.
@@ -311,7 +323,9 @@ Notes for the next run, from lectures 1–21 and 23:
   screenshots corrected without a flag (lecture 16's "enalbling"). Then look at two rendered images against
   the corrected text.
 - **Typed decks with LaTeXiT equations** (lecture 8): the text layer holds each equation as base64 junk, so
-  it is good for titles, labels, citations, notices and code but never for an equation.
+  it is good for titles, labels, citations, notices and code but never for an equation. Some LaTeXiT equations are real Computer
+  Modern glyphs as well, with the base64 source alongside (lecture 24): their fonts (CMBX, CMMI) then settle bold and italic, and the
+  structure is still read from the page.
 - **Stray marks in an equation** (lecture 12's "ˆ ˜ ˙ ˇ" for ⊤, τ, ∼, Σ) can be real glyphs of an embedded subset font
   with nothing drawn behind them. No crop shows the intended symbol; transcribe the reading the glyph's size and
   position support, and say so.

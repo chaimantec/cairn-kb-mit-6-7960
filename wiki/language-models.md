@@ -10,7 +10,8 @@ throughout; next-word prediction and GPT's causal masking in [lecture 8](08-arch
 models, teacher forcing, sampling and beam search in [lecture 10](10-architectures-memory.md), slides 40–53; next-word prediction set
 beside BERT's masking in [lecture 11](11-representation-learning-reconstruction-based.md), ≈1:10:38 and ≈1:13:47–1:15:20; GPT-3 and prompt
 engineering in [lecture 18](18-transfer-learning-models.md), slides 48–49; and the scaling laws of language models in [lecture
-20](20-scaling-laws.md).
+20](20-scaling-laws.md); and search over a language model's outputs, and training on what the search finds (STaR, and a
+guess at o1), in [lecture 24](24-inference-methods-for-deep-learning.md), slides 11–22 and 49–55.
 
 **Notation.** As on lecture 21's slides: $P(\cdot \mid \ldots)$ is the model's distribution over the next token given the context after
 the bar; $P_{\theta}$ is a model with parameters $\theta$; $\mathbf{x}$ is the text so far and $\mathbf{y}$ an output.
@@ -84,6 +85,17 @@ learning at all, or the retrieval of a task the model already knows, is on [meta
 outputs it produces with a good prompt, **context distillation**, is on [knowledge distillation](knowledge-distillation.md), and why a
 model's own synthetic data cannot teach it "anything new" without an outside filter is on [generative models as
 data](generative-models-as-data.md).
+
+## Searching, and learning from the search (lecture 24)
+
+[Lecture 24](24-inference-methods-for-deep-learning.md) is about what can be done with a trained language model beyond sampling it once. Greedy decoding does not find the most likely
+sequence, so one searches: Best-of-N, beam search, and chain of thought as a search the model does itself (slides 16–19). The search can
+be steered by any score instead of likelihood, including human ratings, "the basis of what's called reinforcement learning from human
+feedback" (≈33:25), and a **verifier** such as a compiler or proof checker, because "verification is easier than generation" (slide 22).
+Then the answers found by search can become training data: **STaR** fine-tunes a model on its own rationales that reached a correct answer
+(slide 54), and the lecturer's guess at OpenAI's **o1**, after Sasha Rush, is the same loop on chains of thought, with search on top at
+deployment (slide 55): "It's just reinforcement learning applied to reasoning with a language model" (≈1:20:43). See
+[search and test-time compute](test-time-compute.md).
 
 ## See also
 
