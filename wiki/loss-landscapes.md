@@ -7,7 +7,8 @@ apart, one failure at a time, and shows two fixes. Covered so far: [lecture 1](0
 slide 28; [lecture 2](02-how-to-train-a-neural-net.md), slides 7 and 10–25, ≈3:54–26:31; [lecture 6](06-generalization-theory.md),
 slide 61, ≈1:14:30–1:15:19, on flat minima; [lecture 7](07-scaling-rules-for-optimization.md),
 slides 7, 10 and 12, ≈10:04 and ≈20:20–21:05 and ≈47:38–50:45, on curvature and on directions in weight
-space that are not alike; [lecture 10](10-architectures-memory.md), slide 30, ≈28:46–34:57, on gradients that vanish or explode through time.
+space that are not alike; [lecture 10](10-architectures-memory.md), slide 30, ≈28:46–34:57, on gradients that vanish or explode through time; [lecture
+23](23-metrized-deep-learning.md), slide 24, ≈42:44–43:32, on sharpness measured without assuming Euclidean geometry.
 
 ## Differentiable is not the same as easy
 
@@ -128,3 +129,14 @@ $N$ steps carries the earliest inputs multiplied by the $N$-th power of the recu
 0 and large ones to infinity, and gradients vanish or explode (slide 30, ≈28:46–31:06). Exploding gradients can be
 normalized, regularized or clipped, but nothing similar rescues gradients that go to 0, which is why the LSTM makes
 remembering the default (≈34:11–34:57). See [recurrent neural networks](recurrent-neural-networks.md).
+
+## Sharpness without Euclidean geometry (lecture 23)
+
+The **sharpness** of a landscape is usually the largest eigenvalue of its Hessian. [Lecture 23](23-metrized-deep-learning.md) calls that
+"like a Euclidean constant. And if you don't believe that the geometry of the weight space is a Euclidean geometry, then you shouldn't
+necessarily even care about the top eigenvalue" (≈43:32). Its slide 24 sets two loss-landscape renderings from Li et al. (2018), a smooth
+bowl and a rugged surface (excluded from OCW's licence), beside a definition of sharpness in a chosen norm: three constants
+$(\alpha, \beta, \gamma)$ bounding a module's second derivatives in its weights, in weights and inputs, and in its inputs, which the slide calls
+"generalized top eigenvalues" (≈42:44). With these, network losses are "Lipschitz smooth in the modular norm", "with non-dimensional
+Lipschitz constants", so long as the error measure is smooth in the output (slide 24). See [modules and the modular
+norm](modular-norm.md#second-order) and [second-order methods](second-order-methods.md).

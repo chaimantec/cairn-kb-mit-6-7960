@@ -8,7 +8,8 @@ shifts of whole distributions (lecture 17, slide 8, ≈13:13). What they reveal 
 defend against them: models rely on features that predict the label without meaning what a human would take them to mean.
 Covered so far: [lecture 17](17-generalization-out-of-distribution.md), slides 9–38, ≈13:13–43:34; [lecture
 18](18-transfer-learning-models.md), slides 20 and 65–67, ≈30:57–31:44 and ≈1:18:27–1:21:30 (an adversary over features in domain
-adaptation, and beneficial noise in visual prompting).
+adaptation, and beneficial noise in visual prompting); [lecture 23](23-metrized-deep-learning.md), slides 4 and 47, ≈3:52 and
+≈1:07:15 (robustness as a question of a network's sensitivity to its inputs).
 
 **Notation.** An input is $\mathbf{x} \in \mathbb{R}^{d}$ and its label $y$; $f_{\theta}$ is a network with parameters
 $\theta$, and $P_{\theta}(y \vert \mathbf{x})$ the probability it assigns to $y$ through a softmax. A perturbation is
@@ -92,6 +93,15 @@ model: "It's kind of similar to adversarial noise. We learned about learning adv
 beneficial noise" (≈1:18:27). A learned border added to every image, or even one pink pixel at the same place in every satellite
 image, raises accuracy across a dataset, which the lecturer reads as one more sign of "how fragile and complex the statistical
 representations are" (≈1:21:30). See [foundation models and prompting](foundation-models-and-prompting.md).
+
+## A question of sensitivity (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) frames adversarial examples as one face of a layer's **sensitivity**, how much its output changes
+when its input or its weights change. "People talk about adversarial examples, where you change the input to the network and the output
+changes dramatically. So it's another question of understanding the sensitivity of the network" (≈3:52). Slide 4's illustration is a
+photograph of a pig captioned "pig", plus 0.005 times a square of noise, equal to the same-looking photograph captioned "airliner". In the
+conclusion the lecturer proposes that "these classic adversarial robustness things" should "be related to having a good understanding of the
+continuity properties of the space", and cast "as questions of module sensitivity" (slide 47, ≈1:07:15), beside a photograph plus noise. He offers this as future work, not a result. See [modules and the modular norm](modular-norm.md).
 
 ## See also
 

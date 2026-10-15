@@ -4,8 +4,9 @@ A way of saying how fast a function can change. Lecture 3 introduces it to choos
 functions its approximation theorem covers, and the lecturer thinks it is "nice to teach you about
 Lipschitz functions regardless of neural net approximation" (≈9:16). Covered so far:
 [lecture 3](03-approximation-theory.md), slides 8–10 and 12–14; [lecture 7](07-scaling-rules-for-optimization.md),
-slide 24, ≈59:18–1:02:24, which reuses the RMS norm; and [lecture 20](20-scaling-laws.md), slide 33, where the Lipschitz constant
-bounds a toy model's error.
+slide 24, ≈59:18–1:02:24, which reuses the RMS norm; [lecture 20](20-scaling-laws.md), slide 33, where the Lipschitz constant
+bounds a toy model's error; and [lecture 23](23-metrized-deep-learning.md), slides 12–13, 19–21, 24 and 29, ≈14:54–19:32,
+≈28:46–33:25 and ≈45:51–47:27, on networks that are Lipschitz and Lipschitz smooth in their weights.
 
 On this page, as in lecture 3, $L$ is the **Lipschitz constant**, not the loss of the
 [course notation](notation.md).
@@ -91,3 +92,26 @@ rules](scaling-rules.md).
 error: approximating a Lipschitz function on $[0,1]^{d}$ by constant values on hypercubes of side $s$ gives a mean squared error at most
 $\lambda^2 (s^2 d)$, where the slide writes the Lipschitz constant as $\lambda$, not $L$ (lecture 20 uses $L$ for the loss). With
 $N = s^{-d}$ pieces, the error falls as $1/N^{2/d}$, a power law in $N$. See [scaling laws](scaling-laws.md).
+
+## Lipschitz in the weights (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) applies Lipschitz continuity to a network's **weights** as well as its inputs, with a norm of
+one's choosing on each. Its optimization argument ends by asking for a norm on the weights in which the network $f$ is **Lipschitz**,
+$\Vert \nabla_ {\mathbf{w}} f \thinspace \Delta \mathbf{w} \Vert^{2} \le \delta \Vert \Delta \mathbf{w} \Vert^{2}$, and **Lipschitz smooth**,
+$\Vert \Delta \mathbf{w} \thinspace \nabla_ {\mathbf{w}}^{2} f \thinspace \Delta \mathbf{w} \Vert \le \alpha \Vert \Delta \mathbf{w} \Vert^{2}$
+(slide 12, ≈14:54–16:26), bounds on the first- and second-order terms of the network's Taylor expansion in its weights (slide 13). Since
+all norms on a finite-dimensional space are equivalent, such constants exist in any norm, "but it may be a much tighter guarantee in one
+norm than another norm" (≈17:12).
+
+Its **modules** carry Lipschitz constants as attributes. `M.sensitivity` is the Lipschitz constant from input to output, and a
+**well-normed** module is 1-Lipschitz in its weights, measured in its own norm, and Lipschitz in its inputs with its sensitivity as the
+constant (slide 20, ≈28:46–29:35). Under composition the sensitivities multiply, "if you compose things, you multiply that Lipschitz
+constant" (≈37:19), and under concatenation they add (slide 23). A linear module is well-normed only with bounded inputs and weights: "if
+you want to have Lipschitz guarantees for a linear module, the inputs and the weights must be bounded. If they're not, it can be arbitrarily
+sensitive" (slide 21, ≈31:52).
+
+The scaling thesis (slide 29) asks for Lipschitz constants that are **non-dimensional**, "as you change the scale of the system, the
+Lipschitz constant is staying fixed", and bounds that stay tight; "one is a really great number" (≈45:51–47:27). This is the RMS norm's
+non-dimensional spirit from lecture 3, applied to the whole network. And in the conclusion, precision and continuity are "very intimately
+related concepts", so low-precision training and adversarial robustness may be questions of the same Lipschitz properties (slide 47,
+≈1:06:26–1:07:15). See [modules and the modular norm](modular-norm.md).

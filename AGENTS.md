@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage is partial: lectures 1–21 of 24.** [`TODO.md`](TODO.md) is the build state.
+**Coverage is partial: lectures 1–21 and 23 of 24.** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -54,12 +54,14 @@ general form and the lecture's details there; keep this file free of per-lecture
   title page hides 6.861's "Lecture 8: Prompting" under white boxes; cite it as lecture 21.
 - **Slide numbers are printed at bottom centre** and equal the PDF page number, so slide N is
   page N. Each deck ends with an OCW end page, usually a smaller page, which is not lecture content.
-  `slide_number_map.py` often reports that page as printing no number although it prints one; say so in the slide
-  file rather than trusting the script. A deck assembled from another course's slides can print its own number on only a few pages and
+  `slide_number_map.py` often reports that page as printing no number although it prints one (an end page stored rotated 90° hides
+  its number from the script, lecture 23); say so in the slide file rather than trusting the script. A deck assembled from another course's slides can print its own number on only a few pages and
   carry the source decks' numbers in a corner (lecture 21: pages 1–7 only). The script then reports a numbering with gaps; slide N is
-  still page N, and since `extract_slide_images.py` resolves through that map, render such a deck by page with the same settings.
-- **Handwritten decks.** Lectures 3, 7 and 13 are Jeremy Bernstein's iPad notes (expect lecture 23, his other lecture,
-  to be the same). Their text layer is OCR noise: take nothing from it but typed OCW notices. The ink is vector
+  still page N, and since `extract_slide_images.py` resolves through that map, render such a deck by page with the same settings. A deck
+  built from an earlier talk can instead print both on most pages, its own small number at bottom centre and the talk's larger one in a
+  corner (lecture 23); the script reads the bottom-centre number correctly, but the slide file must say which is which.
+- **Handwritten decks.** Lectures 3, 7 and 13 are Jeremy Bernstein's iPad notes; his lecture 23, against the expectation recorded
+  here, is a typed Google Slides deck with a usable text layer, so check a deck before assuming its format. Their text layer is OCR noise: take nothing from it but typed OCW notices. The ink is vector
   paths, so the raster test for figure pages misses it; and lectures 7 and 13 paint one background image on every page, so
   the raster test flags every page there. Choose figure pages from the slide file.
 - **OCW excludes some figures from its licence**, with a notice on the slide: "© … All rights
@@ -86,6 +88,7 @@ general form and the lecture's details there; keep this file free of per-lecture
   | 8 | 15 | lecture 10's excluded slide 9 (the audio waveform; withdrawn in the lecture 21 run) |
   | 11 | 13 | lecture 1's excluded slide 73 (the CLIP figure, at another resolution) |
   | 12 | 35 | lecture 18's excluded slide 33 (the classroom photograph and depth map, credited CC BY-NC-SA here; withdrawn when lecture 18 was added) |
+  | 13 | 3 | lecture 23's excluded slide 7 (the NanoGPT speedrun chart, credited only "@kellerjordan0" here; withdrawn in the lecture 23 run) |
   | 14 | 49, 50 | Homework 5's excluded Figure 3, Ho, Jain and Abbeel's diffusion diagram, under the deck's pixel-art overlays |
   | 16 | 12 | slide 11's excluded photograph (also lecture 4's excluded slides 12–24) |
   | 16 | 18–31 | the label map and building photographs of slide 73, which repeats slide 30 image for image under a notice |
@@ -152,7 +155,9 @@ pale-yellow "Lecture N" banner hides slide content, the hidden prose was recover
 text layer and the slide says so. Reused decks hide whole blocks under white boxes: the source course's title, the next build step's rows, an earlier draft (lecture 21).
 Overlays pasted over a figure can hide content its embedded image still holds (lecture 19's
 slide 45 covers three lines of MAML's algorithm); the audit can read it from the raster at native resolution, and the slide
-file gives it as hidden, never as what the page shows. Equations and tables are never taken from the text layer.
+file gives it as hidden, never as what the page shows. Equations and tables are never taken from the text layer. Symbols are
+transcribed in the type the page prints: lecture 23's transcriber set w, x and y in bold "for consistency with the course notation",
+which the page prints plain, and 123 of them had to be undone; the course notation belongs in the wiki, not the slide file.
 
 Every deck is then audited against the PDF: from lecture 3 on by Opus, a different model from the transcriber, on its
 chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. Each slide file's front matter carries a
@@ -160,7 +165,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–21 have images; no other lecture does yet.** They are committed rather than hotlinked,
+**Lectures 1–21 and 23 have images; no other lecture does yet.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -178,7 +183,7 @@ it.
 | 10 Architectures: Memory | 32 of 69 pages | rendered from `mit6_7960_f24_lec10.pdf` |
 | 11 Representation Learning: Reconstruction-Based | 25 of 65 pages | rendered from `mit6_7960_f24_lec11.pdf` |
 | 12 Representation Learning: Similarity-Based | 7 of 70 pages | rendered from `mit6_7960_f24_lec12.pdf` |
-| 13 Representation Learning: Theory | 10 of 28 pages | rendered from `mit6_7960_f24_lec13.pdf` |
+| 13 Representation Learning: Theory | 9 of 28 pages | rendered from `mit6_7960_f24_lec13.pdf` |
 | 14 Generative Models: Basics | 28 of 60 pages | rendered from `mit6_7960_f24_lec14.pdf` |
 | 15 Generative Models: Representation Learning Meets Generative Modeling | 22 of 42 pages | rendered from `mit6_7960_f24_lec15.pdf` |
 | 16 Generative Models: Conditional Models | 29 of 84 pages | rendered from `mit6_7960_f24_lec16.pdf` |
@@ -187,6 +192,7 @@ it.
 | 19 Transfer Learning: Data | 15 of 52 pages | rendered from `mit6_7960_f24_lec19.pdf` |
 | 20 Scaling Laws | 20 of 52 pages | rendered from `mit6_7960_f24_lec20.pdf` |
 | 21 Language Models | 18 of 92 pages | rendered from `mit6_7960_f24_lec21.pdf` |
+| 23 Metrized Deep Learning | 8 of 49 pages | rendered from `mit6_7960_f24_lec23.pdf` |
 
 Each is a whole slide at 1400px, JPEG q85 or PNG, whichever is smaller, named `slide-N` by
 PDF page number. Render only figure slides that carry no OCW notice and reuse no excluded image; skip build steps
@@ -223,7 +229,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–21:
+Notes for the next run, from lectures 1–21 and 23:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -252,7 +258,10 @@ Notes for the next run, from lectures 1–21:
   than 200 in either: about 1 in 256 is the same figure, 50 or more is a different one. In between, and for sparse line art
   or text, the number does not decide: lecture 18 found one figure at 9.2 under another colour profile, and unrelated
   white-background drawings at 3.9. Keynote's drop shadows are black rasters drawn through a soft mask; they look like black
-  rectangles and match one another coarsely at 3 to 6, so clear them on sight. Look at both images before withholding or clearing. Use only images actually drawn
+  rectangles and match one another coarsely at 3 to 6, so clear them on sight. Look at both images before withholding or clearing. A withheld slide puts all of its images in the excluded set, not only the one
+  it was withheld for, so expect matches against its other images and clear them by looking (lecture 11's slide 60 shares only a
+  photograph with lecture 8's slide 15, withheld for its audio waveform). Keep the script's withheld list equal to the table above: the
+  copy the lecture 23 run inherited lacked the lecture 21 run's five withdrawals. Use only images actually drawn
   on the page: `page.get_images()` lists everything a page's resources hold, including images drawn off the page or
   not at all, while `page.get_image_info(xrefs=True)` gives where each is drawn. Leave out page backgrounds: an image
   drawn on more than a third of a deck's pages, or a raster covering more than 90% of a page. The handwritten decks share
@@ -282,7 +291,7 @@ Notes for the next run, from lectures 1–21:
   out of the italic captions. It also copies the slide title into the slide file's alt text, so a
   title with math in it (lecture 4's slides 7, 8 and 10) leaves `$` in an alt text, which github.com
   then fails to parse; strip it.
-- **Handwritten decks** (lectures 3, 7 and 13; likely 23): do not grep the text layer for anything but typed notices;
+- **Handwritten decks** (lectures 3, 7 and 13): do not grep the text layer for anything but typed notices;
   read every page, and choose figure pages from the slide file. Script and letter ambiguities (ℓ against L,
   subscripts against superscripts) need the audit, and the lecturer usually reads each formula aloud, so check the
   formulas against the transcript too. Where one background image is painted on every page, drop any xref that
@@ -292,7 +301,8 @@ Notes for the next run, from lectures 1–21:
 - **Audit with a different model from the transcriber.** A same-model audit catches misreadings
   caused by resolution but not ones the two runs share. Have Opus check the chart-, diagram-, table-, equation- and
   photo-heavy pages from 150–600 dpi crops, the embedded rasters at native resolution and the vector data, and tell it
-  it may count nodes, edges, dots and markers from `page.get_drawings()`. The audits have found errors on roughly a
+  it may count nodes, edges, dots and markers from `page.get_drawings()`. On a typed deck the text layer's font names and fill colours
+  settle bold against plain and colour claims (lecture 23). The audits have found errors on roughly a
   third to a half of the pages checked: mostly counts, positions, colours and arrow directions; now and then an object
   or relation described that is not on the page; almost never a formula. Split a long audit between agents and have
   each append its report page by page: session limits stopped auditors in lectures 6, 11 and 12, and the reports on disk

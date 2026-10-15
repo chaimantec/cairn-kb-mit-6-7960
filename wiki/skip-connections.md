@@ -11,6 +11,7 @@ slide 26, ≈11:36–12:21 and ≈1:09:26–1:14:52, asks how much each residual
 [lecture 8](08-architectures-transformers.md), slides 38–39 and 53, ≈57:23 and ≈1:12:15, puts residual connections in the
 transformer block. [lecture 10](10-architectures-memory.md) compares the LSTM's cell state to a residual connection (≈40:22).
 [Lecture 11](11-representation-learning-reconstruction-based.md) warns that a residual connection across an autoencoder's bottleneck defeats it (≈1:17:41).
+[Lecture 23](23-metrized-deep-learning.md) builds a residual block from two combinators (slide 17, ≈24:56–25:41).
 
 ## The problem: what a bottleneck loses
 
@@ -121,3 +122,10 @@ would not force the low-dimensional representation: "Yeah. It skips the bottlene
 (≈1:17:41). The point belongs to slide 62's second hypothesis for why masked prediction learns better representations than
 autoencoding: "Autoencoders have shortcuts where they can copy part of the input and get a decent loss." See
 [autoencoders](autoencoders.md).
+
+## Two combinators make a residual block (lecture 23)
+
+In [lecture 23](23-metrized-deep-learning.md) the residual block is built from two ways of combining modules, composition (in
+series) and concatenation (in parallel), plus an addition module and a scalar-multiplication module: `a * Identity + b * M` (slide 17),
+with the multipliers $a$ and $b$ left as parameters; "you can think about taking that little circuit and composing it with itself a bunch
+of times to build a residual network" (≈25:41). See [modules and the modular norm](modular-norm.md).

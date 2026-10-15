@@ -13,7 +13,7 @@ A slide-by-slide transcription of all 28 pages of
 [`mit6_7960_f24_lec13.pdf`](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec13.pdf),
 the handwritten (iPad) deck by Jeremy Bernstein, whose title slide reads "Architectural Bias on Representations". Cite these as "slide N" — the printed number equals the PDF page number for slides 1–27; slide 28 is OCW's appended end page. The deck is handwritten prose, equations and hand-drawn diagrams in several ink colours, on a dark background or on white with a dark band at the right edge; the title and the section dividers are white with a coloured band at the right. All of it is read visually from the page images, and diagrams and plots are described in prose since the KB is read as text.
 
-**Images.** 10 slides carry a whole-slide render under their heading: 3, 5, 6, 9, 10, 11, 13, 14, 17 and 20. Not rendered: the two slides with an OCW exclusion notice (4 and 22); slide 7, whose network drawing slide 20 repeats with its weight labels; slide 8, whose four data points slides 9 and 10 repeat with their fits; slide 18, whose plot repeats slide 13's last row; slide 25, whose network repeats slide 20's and whose formulas this file reproduces; the text and equation slides 2, 15, 16, 21, 23, 24 and 26; the title (1), the section dividers (12, 19), the references (27) and OCW's end page (28). Slide 3's pasted plot, from Keller Jordan's NanoGPT speedrun posts, carries no OCW notice and is not any of the images OCW excluded from lecture 7, so it is rendered.
+**Images.** 9 slides carry a whole-slide render under their heading: 5, 6, 9, 10, 11, 13, 14, 17 and 20. Not rendered: the two slides with an OCW exclusion notice (4 and 22); slide 3, whose pasted plot lecture 23's deck draws under a notice (below); slide 7, whose network drawing slide 20 repeats with its weight labels; slide 8, whose four data points slides 9 and 10 repeat with their fits; slide 18, whose plot repeats slide 13's last row; slide 25, whose network repeats slide 20's and whose formulas this file reproduces; the text and equation slides 2, 15, 16, 21, 23, 24 and 26; the title (1), the section dividers (12, 19), the references (27) and OCW's end page (28). Slide 3's pasted plot, from Keller Jordan's NanoGPT speedrun posts, carries no OCW notice here and is not any of the images OCW excluded from lecture 7, so it was rendered; but lecture 23's deck draws the same image under the notice "© @kellerjordan0 on X. All rights reserved" (its slide 7), so the render was withdrawn in the lecture 23 run.
 
 Companion pages: [wiki page for this lecture](../../wiki/13-representation-learning-theory.md) ·
 [transcript](../transcripts/13-representation-learning-theory.md)
@@ -56,7 +56,7 @@ Beneath the oval, in lilac with quote marks: "steepest descent under the spectra
 
 ## Slide 3 — Neural Network Speedrunning
 
-![Slide 3 — Neural Network Speedrunning](../images/13-representation-learning-theory/slide-3.jpg)
+*Not rendered. This slide prints no OCW notice, but its pasted NanoGPT speedrun plot is the same image as lecture 23's slide 7, which OCW marks "© @kellerjordan0 on X. All rights reserved". It is treated as excluded; the render was withdrawn in the lecture 23 run.*
 
 Dark background. Handwritten yellow heading "Neural Network Speedrunning", and at the upper right, blue with the handle underlined: "@kellerjordan0" (the last character is a plain circle, which shape alone cannot tell from a letter O; the captions spell the handle "kellerjordan0" at ≈1:39).
 

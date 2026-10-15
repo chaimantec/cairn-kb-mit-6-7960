@@ -622,9 +622,9 @@ points back to the puzzle's other two pieces, approximation and generalization (
 ≈1:31), and to the RMS norm "from my other lecture" (≈59:18–1:00:05), lecture 3. It points ahead
 without numbers: "if you actually implement a transformer — I think at some point you'll do this —
 you'll probably use layer norm" (≈1:00:51), and "if you look at a transformer code base, which I think
-later in the class we actually do" (≈1:13:20). Transformers are lecture 8 on the schedule. Nothing in
-the recording says whether the lecturer's later lecture, 23, "Metrized Deep Learning", continues the
-modular theory.
+later in the class we actually do" (≈1:13:20). Transformers are lecture 8 on the schedule. The recording
+does not mention the lecturer's later lecture, [lecture 23](23-metrized-deep-learning.md), "Metrized Deep Learning", which continues
+the modular theory and answers slide 30's question with explicit combination rules (see [modules and the modular norm](modular-norm.md)).
 
 ## See also
 

@@ -8,13 +8,13 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–21 of 24 only.** This knowledge base currently holds the first twenty-one
-> lectures (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
+> **Coverage: lectures 1–21 and 23 of 24 only.** This knowledge base currently holds the first twenty-one
+> lectures and lecture 23 (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws; Language Models) and the concept pages they support. Lecture 20's recording ends
-> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. For anything taught in lectures 23 and 24 (there is no lecture 22), it can
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws; Language Models; Metrized Deep Learning) and the concept pages they support. Lecture 20's recording ends
+> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. For anything taught in lecture 24 (there is no lecture 22), it can
 > tell you *which* lecture covers it — see the [course map](wiki/course-map.md) — but not *what*
-> that lecture says. Do not cite it as the course beyond lecture 21. Build progress is in
+> that lecture says. Do not cite it as the course for lecture 24 or the PyTorch tutorial. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -188,7 +188,8 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   MLP experiment on a CIFAR-10 truck, the correspondence, its central-limit-theorem proof sketch, and the ReLU network's
   compositional arccosine kernel; questions on overfitting, why infinite width, why not use the kernel (cubic cost), the
   Berry-Esseen theorem and the result's small practical impact; and a closing doubt about initializing at variance one
-  over fan-in. Its slides 4 and 22 are excluded from OCW's licence.
+  over fan-in. Its slides 4 and 22 are excluded from OCW's licence, and slide 3's speedrun plot is one lecture 23's deck excludes, so it is
+  described in prose only.
 - [Lecture 14 — Generative Models: Basics](wiki/14-generative-models-basics.md) — Phillip Isola (deck titled "Deep
   Generative Models I"). The first of three lectures on generative models, framed as the inverse of representation
   learning. Two definitions of a generative model, and examples (DALL-E 2, DiffDock, MRI-to-CT); networks that output
@@ -295,6 +296,20 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   data, synthetic data, context distillation, emergence with scale); why it is not enough (out-of-date data, "I don't know", refusals,
   larger models less truthful); and RLHF (sampled summaries, a reward model, the policy and expected reward, policy gradient, DPO). The
   recording covers the whole deck. Slides 26–29, 31–35, 52–56, 58–60, 63 and 86 are excluded from OCW's licence.
+- [Lecture 23 — Metrized Deep Learning](wiki/23-metrized-deep-learning.md) — Jeremy Bernstein, typed deck, presenting his own research
+  ("you don't have to fully trust me"). Build the theory the way networks are built, like LEGO: characterize each layer's sensitivity to
+  its inputs and weights, and how sensitivity combines in series and in parallel; the payoff so far (learning-rate drift, NanoGPT speed
+  records). Part I: steepest descent needs a norm in which the loss's second-order term is tightly bounded; through the Gauss-Newton
+  decomposition and an output norm (dual and operator norms) this reduces to the network being Lipschitz and Lipschitz smooth in its
+  weights; inducing a norm layer by layer. Part II, the theory of modules: the combinator pattern, composition and concatenation, residual
+  blocks, atoms, bonds and compounds; a module's forward, sensitivity, mass and norm; well-normed modules; the linear module's rescaled
+  spectral norm and the embedding module's (with why normalization layers bound the inputs); combination rules with a weighted max norm;
+  what mass is for; $(\alpha, \beta, \gamma)$-sharpness as generalized top eigenvalues. Part III, scaling: the thesis that tight,
+  non-dimensional Lipschitz constants give learning-rate transfer, spectral conditions, the Modula library and its GPT width and depth
+  sweeps. Part IV, modular duality: steepest descent as a step size times a duality map, "gradient descent does not type check",
+  dualizing a whole network, Shampoo's core primitive as steepest descent under the spectral norm, Newton-Schulz and the NanoGPT speed
+  record, and normalize against dualize. Conclusion: low precision and robustness as questions of module sensitivity. The recording covers
+  the whole deck. Slides 3–7, 24, 26–28, 31, 37, 42 and 45–47 are excluded from OCW's licence.
 
 ## Course pages
 
@@ -347,7 +362,8 @@ passages it draws on.
   in the Euclidean norm, sign gradient descent, and full-batch optimization (lecture 7); practical
   advice — one data point before many, learning rate and batch size, epochs, Adam against SGD, and
   exponential moving averages (lecture 9); projected gradient ascent on an input perturbation, and adversarial training
-  (lecture 17); how big a batch should be: gradient noise, the noise scale and the critical batch size (lecture 20, from the deck alone).
+  (lecture 17); how big a batch should be: gradient noise, the noise scale and the critical batch size (lecture 20, from the deck alone); why
+  gradient descent "does not type check" and should step along a dualized gradient (lecture 23).
 - [Steepest descent](wiki/steepest-descent.md) — lecture 7's first-order method: replace the
   non-linear part of the Taylor expansion with $\frac{\lambda}{2} \Vert \Delta \mathbf{w} \Vert^2$
   and minimize; the Euclidean norm gives gradient descent ($-\mathbf{g}/\lambda$), the infinity norm
@@ -355,19 +371,23 @@ passages it draws on.
   step direction (the dual norm); steepest descent for matrices and the spectral norm in problem set 2;
   no guarantee unless the model is an upper bound; and why another norm — the squeezed map,
   preconditioning, where the linear term breaks down; SGD against spectral descent on a small MLP (lecture 11);
-  the spectral-norm solution $-\frac{\operatorname{Tr}(\boldsymbol{\Sigma})}{\lambda} \mathbf{U} \mathbf{V}^{\top}$ and the Muon optimizer (lecture 13).
+  the spectral-norm solution $-\frac{\operatorname{Tr}(\boldsymbol{\Sigma})}{\lambda} \mathbf{U} \mathbf{V}^{\top}$ and the Muon optimizer (lecture 13);
+  the step as a step size times a duality map, why gradient descent "does not type check", modular dualization, and Shampoo's core
+  primitive and Newton-Schulz (lecture 23).
 - [Second-order methods](wiki/second-order-methods.md) — first- versus second-order (lecture 2); the
   Taylor expansion, linearization and non-linear part; Newton's method $-\mathbf{H}^{-1}\mathbf{g}$ and
   its problems (a $d \times d$ Hessian, heading for a maximum, cubic regularization); the Gauss-Newton
   decomposition into curvature of the error and of the model, the Gauss-Newton method and its
-  problems; and why the extra derivatives and the matrix inversion are expensive (lecture 7).
+  problems; and why the extra derivatives and the matrix inversion are expensive (lecture 7); bounding the curvature with dual and
+  operator norms instead of computing it, and sharpness as a generalized top eigenvalue (lecture 23).
 - [Norms](wiki/norms.md) — "in which norm?": Euclidean, RMS, infinity, $\ell_1$, $\ell_p$ and weighted
   norms (and why KL is not one); dual norms; Frobenius, spectral, nuclear and Schatten $p$-norms;
   induced operator norms, the spectral norm and the RMS-RMS operator norm
   ($\sqrt{d_{\text{in}}/d_{\text{out}}}$ times the spectral norm); parameter norm as a complexity
   measure (lecture 6); composing norms across modules (lecture 7); the RMS norm as a normalization layer
   (lecture 9); the spectral norm against an RNN's vanishing gradients (lecture 10); the infinity-norm ball that bounds an
-  adversarial perturbation (lecture 17). Spans lectures 3, 6, 7, 9, 10 and 17.
+  adversarial perturbation (lecture 17); a norm on the network's output, norms induced layer by layer, the rescaled spectral and
+  embedding norms and the weighted max norm that combines modules (lecture 23). Spans lectures 3, 6, 7, 9, 10, 17 and 23.
 - [Backpropagation](wiki/backpropagation.md) — computation graphs, the shape rules and chain
   rule, the "compute shared terms once" trick, the per-layer arrays $\mathbf{L}$ and $\mathbf{g}$
   and the recurrence $\mathbf{g}_ {\texttt{in}} = \mathbf{g}_ {\texttt{out}} \mathbf{L}^{\mathbf{x}}$,
@@ -384,7 +404,7 @@ passages it draws on.
   why fixed-step gradient descent finds flat minima, argued to generalize better (lecture 6);
   linearization and non-linear part, Newton's method heading for a maximum, a non-isotropic weight
   space, and the loss-versus-learning-rate curves that drift with width (lecture 7); gradients that vanish or explode
-  through a recurrent network (lecture 10).
+  through a recurrent network (lecture 10); sharpness measured without assuming Euclidean geometry (lecture 23).
 - [Differentiable programming](wiki/differentiable-programming.md) — programs as computation
   graphs, the LeCun and Dietterich posts, human-programmed versus backprop-programmed parts
   (Neural Module Networks, Software 2.0, feature engineering), what PyTorch needs from an operation,
@@ -428,7 +448,8 @@ passages it draws on.
   the bounded-slope intuition and the "bow tie" picture, the multi-input version with the RMS norm
   (and how it differs from the Euclidean norm), and how Lipschitzness bounds approximation error
   in lecture 3's proof; the RMS norm reused for the RMS-RMS operator norm (lecture 7); the error bound of a toy model that
-  yields a scaling law (lecture 20).
+  yields a scaling law (lecture 20); networks Lipschitz and Lipschitz smooth in their weights, module sensitivities and
+  non-dimensional Lipschitz constants (lecture 23).
 - [Scaling laws](wiki/scaling-laws.md) — as lecture 3 presents them: Kaplan, McCandlish et al.
   (2020)'s power laws in compute, data and parameters, their finding that width versus depth
   barely matters at fixed parameter count, and Chinchilla as an example of confounders. Lecture 9's practical version: scale data, model and compute, scale as a proxy for
@@ -446,7 +467,14 @@ passages it draws on.
   what it does not guarantee, problem set 2's version for sign gradient descent, the $1/L$ residual
   multiplier and $(1 + x/L)^L \to e^x$ against the $1/\sqrt{L}$ of standard transformers, the
   modular theory, and the references; lecture 13's doubt about initializing at variance one over fan-in (the
-  null-space argument, and maximal update parameterization).
+  null-space argument, and maximal update parameterization); lecture 23's thesis that tight, non-dimensional Lipschitz constants give
+  learning-rate transfer, and Modula's GPT width and depth sweeps.
+- [Modules and the modular norm](wiki/modular-norm.md) — Jeremy Bernstein's modular theory across lectures 7 and 23: building a
+  network's theory the way the network is built; where the norm comes from (steepest descent, the Gauss-Newton reduction to Lipschitz
+  conditions); modules with forward, sensitivity, mass and norm, and well-normed modules; atoms, bonds and compounds, the linear and
+  embedding modules; the combination rules (sensitivities multiply or add, masses add, a weighted max norm) and what mass is for;
+  $(\alpha, \beta, \gamma)$-sharpness; using it for scaling (Modula, learning-rate transfer) and for modular dualization (Shampoo's
+  primitive); and what is still open.
 - [Generalization and double descent](wiki/generalization-and-double-descent.md) — why
   over-parameterized nets don't just memorize, the classical U-curve against double descent
   (Belkin et al., 2019), the interpolation threshold, capacity versus data, and the simplicity
@@ -464,7 +492,8 @@ passages it draws on.
 - [Adversarial examples](wiki/adversarial-examples.md) — inputs perturbed imperceptibly to flip a prediction: the examples (pig to
   airliner, sticker, turtle, speech), creating one by optimizing the input within an infinity-norm ball with projected gradient
   ascent, adversarial training as a min-max and its limits, useless, robust and non-robust features, and what robust models learn and
-  how well they transfer (lecture 17); domain adversarial training, and visual prompting as beneficial noise (lecture 18).
+  how well they transfer (lecture 17); domain adversarial training, and visual prompting as beneficial noise (lecture 18); robustness as a question of module sensitivity
+  (lecture 23).
 - [Out-of-distribution generalization](wiki/out-of-distribution-generalization.md) — when test data is not drawn from the training
   distribution: why deployment never meets the IID assumption, evaluation that leaks, shortcuts and where they come from, visual and
   subpopulation shift, the WILDS benchmark, and the remedies: distributionally robust optimization and class imbalance, priors for
@@ -570,7 +599,7 @@ passages it draws on.
   learning its own depth (lecture 4); previews transformers. How much each residual block should
   contribute, $1/L$ or $1/\sqrt{L}$ (lecture 7). The residual connections of the transformer block
   (lecture 8), and the LSTM's identity default compared to one (lecture 10); a skip around an autoencoder's bottleneck
-  defeats it (lecture 11).
+  defeats it (lecture 11); a residual block built from two combinators (lecture 23).
 - [Neural fields and positional encoding](wiki/neural-fields-and-positional-encoding.md) — why and
   how to break shift invariance with a constructed positional encoding, neural fields as networks
   from coordinates to values, SIREN (sine activations) and NeRF (5D position and direction to colour
@@ -618,8 +647,8 @@ passages it draws on.
   transformer's token norm) and batch norm: what each divides by, why they behave alike in high
   dimensions and badly in low ones (layer norm sends 2D inputs to two points; batch norm over a batch of
   one gives zero, the pix2pix bug), and lecture 9's case against batch norm; the L2 norm as a map onto the
-  hypersphere (lecture 11); representations normalized onto the hypersphere so that similarity is an angle (lecture 12).
-  Spans lectures 3, 7, 8, 9, 11 and 12.
+  hypersphere (lecture 11); representations normalized onto the hypersphere so that similarity is an angle (lecture 12); bounded inputs as the condition
+  for a linear module's Lipschitz guarantee (lecture 23). Spans lectures 3, 7, 8, 9, 11, 12 and 23.
 - [Data augmentation](wiki/data-augmentation.md) — label-preserving transformations, augmentation
   against invariant architectures (geometric deep learning), making the training problem harder on
   purpose, domain randomization and the domain gap, and OpenAI's robot hand (lecture 9); augmentations as the positive
@@ -695,7 +724,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–21 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–21 and 23 only, and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

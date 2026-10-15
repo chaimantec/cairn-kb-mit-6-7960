@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md), [lecture 19](19-transfer-learning-data.md) and [lecture 20](20-scaling-laws.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md), [lecture 19](19-transfer-learning-data.md), [lecture 20](20-scaling-laws.md), [lecture 21](21-language-models.md) and [lecture 23](23-metrized-deep-learning.md) say about other lectures and the problem sets, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -47,7 +47,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 19 | Transfer Learning: Data | [yes](19-transfer-learning-data.md) |
 | 20 | Scaling Laws | [yes](20-scaling-laws.md) (the recording covers slides 1–17 only) |
 | 21 | Language Models | [yes](21-language-models.md) (a guest lecture by Jacob Andreas) |
-| 23 | Metrized Deep Learning | not yet |
+| 23 | Metrized Deep Learning | [yes](23-metrized-deep-learning.md) (Jeremy Bernstein's research: modules, the modular norm and modular duality) |
 | 24 | Inference Methods for Deep Learning | not yet |
 | — | PyTorch Tutorial | not yet |
 
@@ -82,7 +82,7 @@ the right-hand column.
 | 77 | Lectures 18, 19: Models, Data | 18, 19 — Transfer Learning |
 | 79 | Lecture 6: Scaling Rules for Optimization | **7** — Scaling Rules for Optimization |
 | 79 | Lecture 22: Scaling laws | **20** — Scaling Laws |
-| 79 | Lecture 23: Automatic gradient descent | not established — the recorded lecture 23 is "Metrized Deep Learning", and nothing in lecture 1 says whether that is the same lecture |
+| 79 | Lecture 23: Automatic gradient descent | not established — the recorded lecture 23 is "Metrized Deep Learning", Jeremy Bernstein's lecture on norms for optimization and scaling; neither its deck nor its recording uses the phrase "automatic gradient descent" |
 
 The "Lecture 9" and "Lecture 11" rows are the ones most likely to mislead. The recorded lecture 9
 is the hacker's guide, and lecture 11 is representation learning, not RNNs.
@@ -122,8 +122,8 @@ number. Its recording points back to the puzzle's other two pieces, approximatio
 (lectures 3 and 6, ≈1:31), and to the RMS norm "from my other lecture" (lecture 3, ≈1:00:05), and ahead
 without numbers to implementing a transformer and its layer norm, "I think at some point you'll do this"
 (≈1:00:51), and to "a transformer code base, which I think later in the class we actually do" (≈1:13:20).
-Transformers are lecture 8 above. Nothing in it says whether the lecturer's lecture 23 continues its modular
-theory.
+Transformers are lecture 8 above. It does not mention lecture 23, which continues its modular theory with the
+combination rules its slide 30 left open ([lecture 23](23-metrized-deep-learning.md)).
 
 Lecture 8's deck is titled "Lecture 8: Transformers", matching the recording, which settles lecture 1's
 "Lecture 9: Transformers" banner (the row above), though its outline (slide 2) is still headed "9.
@@ -245,6 +245,15 @@ topics on language models class" (≈1:34), rather than to other lectures, and t
 you've seen throughout this semester" (≈5:25), models "familiar to you as a result of being in this course" (≈6:13), and masked prediction
 "in different flavors for vision tasks" (≈13:52), which is lecture 11. It answers lecture 16's "another lecture on language models" and
 lecture 8's "We'll talk more about those later" ([lecture 21](21-language-models.md#pointers-to-other-lectures)).
+
+Lecture 23 is Jeremy Bernstein's, and its deck prints no lecture number of this course: the title slide reads only "Metrized deep
+learning" and "Jeremy Bernstein". Thirty of its pages carry a larger number in the bottom-right corner, left over from an earlier talk
+(slide 16 prints 18, slide 45 prints 50); the small bottom-centre number is the page number. Neither the deck nor the recording uses lecture
+1's banner title "Automatic gradient descent" (the row above). The recording points back without numbers to the scaling issues "in one of
+the earlier lectures in the class" (≈6:15) and "in the earlier lecture" (≈45:05), and to "optimization theory earlier in the class"
+(≈8:36), all lecture 7, whose open question on combining modules' norms it answers; and repeatedly to "the homework problem" on steepest
+descent under the spectral norm (≈7:02–1:03:15), Homework 2's first question. It names no later lecture
+([lecture 23](23-metrized-deep-learning.md#pointers-to-other-lectures)).
 
 ## Coursework and policies
 

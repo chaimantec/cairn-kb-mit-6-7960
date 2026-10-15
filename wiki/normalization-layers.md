@@ -10,7 +10,8 @@ over the examples of a batch instead of over the entries of one vector. Covered 
 (slide 38, ≈57:23–58:56); and the practical advice of [lecture 9](09-hackers-guide-to-deep-learning.md)
 (slides 10, 42 and 43, ≈21:02–24:06 and ≈1:04:10–1:05:43); and the L2 norm drawn as a map of a whole distribution in
 [lecture 11](11-representation-learning-reconstruction-based.md) (slide 9, ≈10:49–11:35); and representations normalized onto a hypersphere in [lecture 12](12-representation-learning-similarity-based.md) (slides 15, 28 and 31,
-≈20:57 and ≈35:07–35:54).
+≈20:57 and ≈35:07–35:54); and a reason to normalize from [lecture 23](23-metrized-deep-learning.md)'s theory of modules (slide 21,
+≈31:07–31:52).
 
 **Notation.** $x_{\text{in}}$ is the vector a layer normalizes, $x_{\text{in}}[k]$ its $k$-th entry, $d$
 its dimension, and $x_{\text{out}}$ the result. The RMS norm of a vector $\mathbf{v} \in \mathbb{R}^d$ is
@@ -109,6 +110,16 @@ products, and "you don't end up having things that get really blown up by scale.
 Contrastive learning's encoder maps onto the unit hypersphere, $f : \mathcal{X} \rightarrow \mathbb{S}^{d-1}$, for "more stable
 training (logistic regression needs regularization)" and because "well-clustered classes on hypersphere are linearly separable
 (cut off caps)" (slides 28 and 31). See [contrastive learning](contrastive-learning.md).
+
+## Why bounded inputs matter (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) finds a reason for normalization in its theory of modules. A linear module, with the RMS norm on
+its input and output, is well-normed, Lipschitz with a known constant, only if its inputs have RMS norm at most 1 and its weights a
+rescaled spectral norm at most 1 (slide 21). "One of the basic things that, in an actual neural net, that you do is you normalize all the
+feature vectors everywhere explicitly. People don't really know why they're doing that other than somehow, intuitively, it's going to make
+things more stable and stop things blowing up. But this is pointing out that if you want to have Lipschitz guarantees for a linear module,
+the inputs and the weights must be bounded. If they're not, it can be arbitrarily sensitive" (≈31:07–31:52). The lecturer adds that he is
+"still kind of thinking about this topic". See [modules and the modular norm](modular-norm.md).
 
 ## See also
 

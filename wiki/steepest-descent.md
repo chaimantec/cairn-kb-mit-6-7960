@@ -8,7 +8,9 @@ direction. The course develops it in [lecture 7](07-scaling-rules-for-optimizati
 three classical methods that start from a Taylor expansion, and problem set 2 works out the details.
 Covered so far: lecture 7, slides 16–19, ≈33:37–50:45; [lecture 11](11-representation-learning-reconstruction-based.md), slide 12, ≈15:30–16:17 (SGD against steepest
 descent in the spectral norm on a small MLP); [lecture 13](13-representation-learning-theory.md), slides 2–3, ≈0:00–4:49 (the spectral-norm solution, and an
-optimizer built on it).
+optimizer built on it); [lecture 23](23-metrized-deep-learning.md), slides 9–12 and 36–43, ≈8:36–16:26 and ≈52:59–1:05:37 (which norm
+makes the model a tight bound, the step as a step size times a duality map, why gradient descent "does not type check", modular
+dualization, and Shampoo's primitive).
 
 **Notation** follows lecture 7. $\mathcal{L}(\mathbf{w})$ is the loss as a function of the weights
 $\mathbf{w}$ (the [course notation](notation.md)'s total cost $J$),
@@ -155,3 +157,42 @@ training step (slide 3, ≈1:39–3:17). The slide calls the result the "Muon op
 "Fineweb" dataset in < 15 minutes"; on its plot, Karpathy's llm.c baseline takes about 42 minutes to reach that loss. The lecturer
 discloses that he collaborates with Keller Jordan, "so you take everything with a grain of salt. But it seems to be actually much
 faster to use this method" (≈3:17–4:04).
+
+## A step size times a duality map (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) takes up lecture 7's route to a guarantee: find a norm and a sharpness $\lambda$ such that the
+loss's second-order term is bounded, $\Delta \mathbf{w}^{\top} \nabla_ {\mathbf{w}}^{2} \mathcal{L} \thinspace \Delta \mathbf{w} \le \lambda \Vert \Delta \mathbf{w} \Vert^{2}$,
+and "hold tightly" (slide 9). Through the Gauss-Newton decomposition and a norm on the network's output, it reduces the search to a norm on
+the weights in which the network is Lipschitz and Lipschitz smooth (slides 10–12, ≈10:57–16:26); see [modules and the modular
+norm](modular-norm.md) for how such a norm is built for a whole architecture.
+
+It then writes the general solution with the slide's own names (slide 36):
+
+$$\arg\min_ {\Delta \mathbf{w}} \thinspace \nabla_ {\mathbf{w}} \mathcal{L}^{\top} \Delta \mathbf{w} + \tfrac{1}{2} \lambda \Vert \Delta \mathbf{w} \Vert^{2} = - \frac{\Vert \nabla_ {\mathbf{w}} \mathcal{L} \Vert}{\lambda} \ast \arg\max_ {\Vert \Delta \mathbf{w} \Vert = 1} \nabla_ {\mathbf{w}} \mathcal{L}^{\top} \Delta \mathbf{w}$$
+
+The first factor is the **step size**, the gradient's dual norm over $\lambda$ (the slide prints no dagger on it), and the argmax is the
+**duality map** (≈53:45). The minus sign that lecture 7's slide 19 leaves out is printed here.
+
+**Gradient descent does not type check** (slide 37). "The gradient is a dual vector and the weights are a regular vector", where "the dual
+vector is a linear map that takes a regular vector and returns a real number"; the gradient is good for "describing the linearization of the
+function", and "the idea that you can take a gradient and just do gradient descent with it is generically a bad idea and something that we
+should all forget" (≈54:37–55:25). The update should be `weight - LR * dualize(gradient)`: the duality map turns the gradient into the unit
+step "which maximizes the linear improvement of my objective function", and "just moving in the gradient direction is equivalent to saying
+that this is the Euclidean norm", which the weight space of a network is "really unlikely to have" (≈55:25–56:57). See [gradient
+descent](gradient-descent.md#gradient-descent-does-not-type-check-lecture-23).
+
+**Modular dualization** (slide 39) solves the duality map for each layer, as Homework 2 did for a linear layer under the spectral norm,
+$\text{dualize}(\mathbf{G}) = \arg\max_ {\Vert \mathbf{A} \Vert = 1} \langle \mathbf{A}, \mathbf{G} \rangle$, and then combines the layer
+maps recursively over modules in series and in parallel, a procedure the lecturer says exists but did not write on the slides (≈58:29–59:15).
+His summary of what the step does: it "squeezes as much kind of juice out of the linearization as possible while making sure that the
+second-order network effects don't dominate the first-order effects" (≈1:01:44).
+
+**Shampoo's core primitive** (slides 40–41). Stripped of what is not used in practice, the Shampoo optimizer's update for a linear layer is
+
+$$\Delta \mathbf{W} = -\eta \ast (\mathbf{G} \mathbf{G}^{\top})^{-1/4} \thinspace \mathbf{G} \thinspace (\mathbf{G}^{\top} \mathbf{G})^{-1/4} = -\eta \ast \arg\max_ {\Vert \mathbf{A} \Vert \le 1} \langle \mathbf{G}, \mathbf{A} \rangle,$$
+
+"steepest descent under the spectral norm", the homework problem, "but when you read the paper, they don't frame it that way" (≈1:03:15).
+The transformation is $\mathbf{G}^{0}$, "set all singular values to one", the direction $\mathbf{U} \mathbf{V}^{\top}$ of lecture 13's
+solution (above). The SVD is expensive, but a Newton-Schulz iteration (slide 42) computes it fast enough to set NanoGPT speed records
+(≈1:04:02–1:04:51). The lecturer's own library had normalized gradients instead, which "is actually not optimal. We should actually do this
+dualization procedure" (slide 43, ≈1:05:37).

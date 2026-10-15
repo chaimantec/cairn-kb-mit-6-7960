@@ -7,7 +7,8 @@ heuristic rule for width, built on the RMS-RMS operator norm, a more tentative o
 residual block multipliers, and the lecturer's research programme for a general theory. Problem set 2
 implements the width rule. Covered so far: lecture 7, slides 7 and 20–31, ≈7:45–13:55 and
 ≈50:45–1:20:14; [lecture 13](13-representation-learning-theory.md), ≈1:12:44–1:15:05 (a doubt about initializing at variance
-one over fan-in).
+one over fan-in); [lecture 23](23-metrized-deep-learning.md), slides 28–34, ≈44:19–52:59 (the thesis that tight, non-dimensional
+Lipschitz constants give learning-rate transfer, and Modula's experiments).
 
 Not to be confused with **scaling laws** (see [scaling laws](scaling-laws.md)), which describe how a
 model's loss falls as it is given more parameters, data and compute.
@@ -136,7 +137,27 @@ question (≈1:18:42).
 The payoff would be an answer to steepest descent's question of which norm to use: "you can have any
 architecture that someone can come to you with, and how are you supposed to give them a norm so that they
 can do steepest descent? But what if there was an automatic way?" (≈1:19:28). See [steepest
-descent](steepest-descent.md).
+descent](steepest-descent.md). Lecture 23 answers the open question with explicit combination rules (below, and [modules and the
+modular norm](modular-norm.md)).
+
+## Lipschitz constants that do not change with scale (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) returns to the two problems with plots credited to @kellerjordan0 and excluded from OCW's licence: as width grows "the optimal step size, which is on the x-axis, is just drifting", and badly scaled depth makes performance
+worse (slide 28, ≈45:05). "Our thesis is scaling well is actually not difficult. It's just about really understanding the Lipschitz
+properties of the system" (≈45:51). Slide 29's version: if every module has **Lipschitz constants independent of width and depth** and
+**bounds that stay tight across scale**, then controlling the weight update in the module's norm controls the change in output,
+$\Vert \Delta \mathbf{y} \Vert_ {\mathcal{Y}} \le \mathrm{M.norm}(\Delta \mathbf{w})$, and "if you normalize the updates in the corresponding norm,
+that will give you good scaling". It is "a thesis because it's not really a theorem" (≈46:41).
+
+For a single linear layer the conditions are the width rule above, in the lecture's notation (slide 30):
+$\sqrt{\text{fan-in}/\text{fan-out}} \ast \Vert \mathbf{W} \Vert_ {\text{spectral}} = 1$ and
+$\sqrt{\text{fan-in}/\text{fan-out}} \ast \Vert \Delta \mathbf{W} \Vert_ {\text{spectral}} = \text{LR}$. For combinations of layers the
+**modular norm** does the job (see [modules and the modular norm](modular-norm.md)), and the lecturer's library Modula builds it automatically
+and normalizes updates in it (slides 31–33). Slide 34 shows the result on GPT trained for 10k steps on OpenWebText: with Adam on nanoGPT the
+optimal learning rate drifts with width; on "modulaGPT", with "some tweaks to the architecture to make it actually Lipschitz", it still
+does not line up, and with normalization added the optima line up across widths, and across depths too (≈49:47–52:10). Normalizing "changes the learning rate in a
+way which depends on what the architecture of the network is ... different layers will get gradients rescaled by different amounts"
+(≈51:21). The paper also reports that it "enables training GPT using SGD" and "transfers LR across context length" (slide 34).
 
 ## Initializing at one over fan-in (lecture 13)
 

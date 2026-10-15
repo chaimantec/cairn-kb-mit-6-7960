@@ -8,7 +8,8 @@ which reviews the algorithm and its stochastic and momentum variants. Covered so
 [lecture 2](02-how-to-train-a-neural-net.md), slides 4–11, ≈0:45–10:54; [lecture 6](06-generalization-theory.md),
 slide 61 and ≈35:34–40:10, on what the optimizer adds to generalization;
 [lecture 7](07-scaling-rules-for-optimization.md), slides 4–7 and 16–18, ≈3:06–13:55 and
-≈33:37–39:53, which derives gradient descent as steepest descent in the Euclidean norm; [lecture 9](09-hackers-guide-to-deep-learning.md),
+≈33:37–39:53, which derives gradient descent as steepest descent in the Euclidean norm; [lecture 23](23-metrized-deep-learning.md),
+slide 37, ≈54:37–58:29, which argues that gradient descent "does not type check"; [lecture 9](09-hackers-guide-to-deep-learning.md),
 slides 48–55, ≈1:10:21–1:13:23, practical advice on learning rate, batch size, optimizers and moving
 averages; [lecture 17](17-generalization-out-of-distribution.md), slides 22 and 25, ≈21:54–22:41 and ≈29:41–30:27, gradient ascent on an input
 perturbation, and adversarial training; and [lecture 20](20-scaling-laws.md), slides 39–45 (from the deck alone; the recording ends
@@ -163,6 +164,18 @@ just use Adam to train neural networks" (≈21:05); see [second-order methods](s
 And the learning rate that works best is not stable as a network grows: naively, the optimal learning
 rate drifts as width increases, so it has to be retuned at every size (slide 7, ≈8:30–10:04). Lecture 7's
 fix is to measure and normalize each update in the right norm; see [scaling rules](scaling-rules.md).
+
+## Gradient descent does not type check (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) presses lecture 7's point further. A gradient is "a dual vector", "a linear map that takes a
+regular vector and returns a real number", while the weights are "a regular vector"; the gradient's job is "describing the linearization of
+the function", and subtracting it from the weights, although "technically they have the same dimensions", "is generically a bad idea and
+something that we should all forget" (slide 37, ≈54:37–55:25). The fix is to **dualize** the gradient before stepping,
+`weight - LR * dualize(gradient)`, turning it into the unit step that most improves the linearization in a chosen norm; plain gradient
+descent is the special case of the Euclidean norm, and "the optimization space in neural networks is really unlikely to have a Euclidean
+structure" (≈56:11–56:57). For a small enough step a gradient step still improves the loss, "it may just be really suboptimal" (≈56:11).
+"No one ever tells you to use regular gradient descent, so ... intuitively, we all know there's something bad about regular gradient
+descent, we just don't quite know what it is" (≈57:43–58:29). See [steepest descent](steepest-descent.md#a-step-size-times-a-duality-map-lecture-23).
 
 ## Practical advice (lecture 9)
 

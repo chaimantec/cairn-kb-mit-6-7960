@@ -160,11 +160,10 @@ the rule that only a notice excludes, and it is the nearest case in this KB to t
 framework diagram and a projection-head bar chart with no credit printed, and **slide 51**'s batch-size chart is credited
 "(Figure from Chen et al. 2020)", also with no licence line. Every photograph in the deck is on an excluded slide.
 
-Lecture 13's deck is Jeremy Bernstein's handwritten notes, and nine of its ten rendered slides are entirely his handwriting and
+Lecture 13's deck is Jeremy Bernstein's handwritten notes, and its nine rendered slides are entirely his handwriting and
 drawings. **Slide 3** pastes a plot titled "NanoGPT speedruns", from Keller Jordan's NanoGPT speedrun posts, credited on the slide
-only by the handwritten handle "@kellerjordan0" and carrying no OCW notice; it is rendered by the rule that only a notice
-excludes. Lecture 7's deck reproduces other plots from the same author's posts, and OCW excluded those, so this is the nearest
-case in this KB to that line after lecture 12's slide 43. The photographs in the deck are on its two excluded slides, 4 and 22.
+only by the handwritten handle "@kellerjordan0" and carrying no OCW notice. It was rendered until lecture 23's deck drew the same
+plot under the notice "© @kellerjordan0 on X. All rights reserved" (its slide 7), and was withdrawn in the lecture 23 run. The photographs in the deck are on its two excluded slides, 4 and 22.
 
 Lecture 14's deck names Phillip Isola as speaker, and most of its 28 rendered slides are his own diagrams and pixel art: the
 cartoon birds, dice, knob and trapezoids, the procedural map tiles, the density and energy plots, and the pixel-art robin of the
@@ -276,6 +275,19 @@ These are rendered by the rule that only a notice excludes. The deck's other thi
 26–28, 34 and 35 (Brown et al.'s GPT-3 figures and charts), 29, 31–33 and 63 (Zhao et al.'s prompt example), 52–56 (Kojima et al.'s
 figures and tables), 58 and 59 (a meme, "© source unknown"), 60 (screenshots, "© Google, Forbes, and Business Insider") and 86 (an MIT
 News article, "© MIT; image by Alex Shipps/MIT CSAIL"); none of them is rendered, and no other slide reuses an excluded image.
+
+Lecture 23's deck names Jeremy Bernstein and is typed. Of its 8 rendered slides, **slides 13, 14, 16, 17 and 19** are the deck's own
+diagrams. **Slide 2**'s two photographs of LEGO bricks stickered with the labels of a transformer diagram carry no credit and no notice.
+**Slide 34**'s six-panel chart of learning-rate sweeps on GPT is the lecturer's own result with his collaborators ("In the paper:", the
+paper being "Scalable Optimization in the Modular Norm", which slide 31 shows), with no credit printed. **Slide 41**'s training-loss charts
+come from the lecturer's notebook ("open in Colab"), beside his code. These are rendered by the rule that only a notice excludes. The deck's
+other third-party material is on its fifteen excluded slides: 3, 5, 6 and 45 (LEGO renderings and a photographed heap, "© source unknown"),
+4 (a loss surface and an adversarial example), 7, 28, 42 and 46 (Keller Jordan's plots, charts and photograph, "© @kellerjordan0 on X"),
+24 (Li et al.'s loss-landscape renderings), 26 (animal photographs, the fly "© Sanjay Acharya"), 27 (supercomputer photographs, "© Carlos
+Jones / Oak Ridge National Laboratory"), 31 (author portraits), 37 (a picture "© "ilbusca" at iStock") and 47 (pictures, "© sources
+unknown"); none of them is rendered. Slide 40's screenshot of the Shampoo algorithm carries no credit and is not rendered, because the
+slide file reproduces it. No other slide of this deck reuses an excluded image, but **lecture 13's slide 3** pasted the chart of slide 7
+and was withdrawn when this deck was added (above).
 
 If a rights holder or the course asks for a page to come down, delete the image file and every
 image embed that points at it.

@@ -9,7 +9,7 @@ whether the norm of a network's parameters measures its complexity. [Lecture
 a step decides the optimization algorithm, and a matrix norm decides how to scale a network. Its
 rule of thumb: "Whenever anyone talks about too big or too small, you should always ask in which
 norm?" (≈51:32). Covered so far: lecture 3, slide 9, ≈12:20–13:57; lecture 6, slides 33 and 61; lecture 7,
-slides 16–19 and 21–25, ≈35:15–1:04:46; lecture 9, slide 10, ≈21:02–22:34; lecture 10, ≈31:06–31:53 (whether the spectral norm can stop an RNN's gradients vanishing); lecture 17, slides 21 and 37, ≈21:06–21:54 and ≈42:02 (the $\ell_ \infty$ ball of an adversarial perturbation).
+slides 16–19 and 21–25, ≈35:15–1:04:46; lecture 9, slide 10, ≈21:02–22:34; lecture 10, ≈31:06–31:53 (whether the spectral norm can stop an RNN's gradients vanishing); lecture 17, slides 21 and 37, ≈21:06–21:54 and ≈42:02 (the $\ell_ \infty$ ball of an adversarial perturbation); [lecture 23](23-metrized-deep-learning.md), slides 11, 14, 20–23 and 30, ≈11:44–23:21 and ≈28:46–41:58 (a norm on the network's output and its dual, norms induced layer by layer, the rescaled spectral and embedding norms, and the weighted max norm that combines modules).
 
 **Notation.** $\mathbf{v}$ is a vector in $\mathbb{R}^d$ with entries $v_i$; $\mathbf{M}$ is a matrix.
 A subscript names the norm.
@@ -109,7 +109,28 @@ Lecture 7 ends with an open question. Linear layers have a good norm (the RMS-RM
 ReLU has no weights and needs none, but how should the norms of two modules combine when the modules are
 composed? The lecturer's research aims to make that automatic, so that building an architecture also
 builds the norm its optimizer should use (slides 28–30, ≈1:17:55–1:19:28). See [scaling
-rules](scaling-rules.md#a-modular-theory).
+rules](scaling-rules.md#a-modular-theory). Lecture 23 gives the combination rule (below).
+
+## Norms for a whole network, built (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) answers lecture 7's question. Its starting point is that a network's **output** is easy to give a
+norm, "a simple thing like a vector ... or it outputs a real number", with few candidates: "the infinity norm, the L2 norm, the RMS norm,
+the L1 norm" (slide 11, ≈12:30–13:20). With an output norm, bounding the loss's curvature uses the **dual norm** of the error measure's
+gradient (by the Cauchy-Schwarz inequality) and the **operator norm** of its Hessian (slide 11, ≈14:09).
+
+A norm on all the weights is then built in stages (slide 14, ≈21:48–23:21): simple norms on the **activation spaces** (the feature vectors),
+**induced operator norms** on the weight matrices from the norms on their inputs and outputs, and a rule that combines the layer norms into
+"one meganorm on the whole neural net". Lecture 23's modules carry these norms. The **linear module**'s is
+$\Vert \cdot \Vert_ {\text{spectral}} \ast \sqrt{\text{fan-in}/\text{fan-out}}$, "this rescaled spectral norm", which is the RMS-RMS
+operator norm above; the **embedding module**'s is the largest RMS norm of a column of its matrix,
+$\max_ i \Vert \text{column}_ i(\mathbf{W}) \Vert_ {\text{RMS}}$, with the $\ell_ 1$ norm on its one-hot input, which "is a bit like a
+probability vector" (slide 21, ≈31:07–33:25). Composing or concatenating two modules gives their joint weight space a **weighted max
+norm**, `M.norm = max(p * M1.norm, q * M2.norm)`, with weights set by the modules' masses and, in a composition, by the second module's
+sensitivity (slide 23, ≈37:19–38:04). The result is what slide 24 calls the **modular norm**. See [modules and the modular
+norm](modular-norm.md).
+
+Why have more than one norm at all? "Why do we have the L1 norm and L2 norm? Because somehow, they're supposed to characterize the
+structure of different problems. If they didn't, we would just only have one of them" (≈21:03).
 
 ## The RMS norm as a normalization layer (lecture 9)
 

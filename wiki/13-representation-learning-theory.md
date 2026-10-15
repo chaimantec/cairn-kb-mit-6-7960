@@ -95,10 +95,6 @@ all happened "in the last couple of weeks", after the homework was written, and 
 as a final-project topic: "thinking about the math of optimization to actually make the optimization go
 faster" (≈3:17–4:49).
 
-![Slide 3: the spectral-norm update with three added tricks, and a pasted plot of FineWeb validation loss against wallclock minutes for three NanoGPT runs, the green Muon curve reaching the dashed target line first](../raw/images/13-representation-learning-theory/slide-3.jpg)
-
-*Slide 3 — The spectral-norm update with tricks added, and the NanoGPT speedrun plot: the blue llm.c baseline reaches the dashed 3.28 target at about 42 minutes, the orange previous record at about 15, the green Muon run at about 13. [Deck](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/mit6_7960_f24_lec13.pdf)*
-
 ## Where this lecture sits
 
 The recap starts from [lecture 12](12-representation-learning-similarity-based.md)'s contrastive learning:

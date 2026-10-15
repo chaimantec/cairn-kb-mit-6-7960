@@ -6,7 +6,8 @@ optimizers and notes that deep learning rarely uses them; [lecture
 7](07-scaling-rules-for-optimization.md) derives two, Newton's method and the Gauss-Newton method,
 from a Taylor expansion of the loss, names the assumption each one makes, and asks why neither is
 used in practice. Covered so far: lecture 2, slide 6, ≈3:08–3:54; lecture 7, slides 9–15,
-≈13:55–33:37.
+≈13:55–33:37; [lecture 23](23-metrized-deep-learning.md), slides 10–12 and 24, ≈10:57–16:26 and ≈42:44–43:32 (bounding the
+curvature with norms instead of computing it, and sharpness as a generalized top eigenvalue).
 
 **Notation** follows lecture 7: $\mathcal{L}(\mathbf{w})$ is the loss over weights $\mathbf{w}$,
 $\mathbf{g} = \partial \mathcal{L} / \partial \mathbf{w}$ the gradient,
@@ -115,6 +116,22 @@ is "basically equivalent to computing a singular value decomposition", far more 
 or backward pass, which are "somehow linear in the number of layers"; and GPUs are built for the matrix
 multiplications of forward and backward passes, "not designed to invert matrices or do singular value
 decomposition" (≈29:45–31:17).
+
+## Bounding the curvature instead of computing it (lecture 23)
+
+[Lecture 23](23-metrized-deep-learning.md) uses the Gauss-Newton decomposition without forming a Hessian. Steepest descent wants a norm and a
+sharpness $\lambda$ with $\Delta \mathbf{w}^{\top} \nabla_ {\mathbf{w}}^{2} \mathcal{L} \thinspace \Delta \mathbf{w} \le \lambda \Vert \Delta \mathbf{w} \Vert^{2}$
+(slide 10). Split the left-hand side into the curvature of the network and the curvature of the error measure, as lecture 7 did, and bound
+each term with a norm on the network's output: the first by the Cauchy-Schwarz inequality, with the **dual norm** of $\nabla_ {f} \ell$, and
+the second with the **operator norm** of $\nabla_ {f}^{2} \ell$ (slide 11): "no approximations, just an upper bound" (≈13:20–14:54). What is
+left are conditions on the network alone, that it be Lipschitz and Lipschitz smooth in its weights in some norm (slide 12; see [Lipschitz
+continuity](lipschitz-continuity.md#lipschitz-in-the-weights-lecture-23)). The slides write the Gauss-Newton products without transpose
+signs.
+
+The same lecture generalizes the **sharpness** of a Hessian. "When people talk about the sharpness of the Hessian in deep learning, what
+they're meaning is how big is the largest eigenvalue of the Hessian. But somehow, that's like a Euclidean constant" (≈43:32). Its
+$(\alpha, \beta, \gamma)$-sharpness bounds a module's second derivatives in its weights, its inputs and both, in the module's own norms, as
+"generalized top eigenvalues" (slide 24). See [modules and the modular norm](modular-norm.md#second-order).
 
 ## Where this leaves deep learning
 
