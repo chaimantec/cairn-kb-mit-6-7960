@@ -2181,3 +2181,20 @@ The finished lines of `TODO.md` for lecture 24 (catalog position 23), moved here
 - [x] Lecture 24: INDEX, AGENTS (coverage, image-table and withheld-table rows, lessons: reuse the hash sweep cannot see, OCR text over screenshots, LaTeXiT glyphs as text), BUILD_LOG, LICENSE, kb.json, course-map updated
 - [x] Lecture 24: check_math (offline and --github) and verify_kb.py clean, review read; commit and push
 - [x] Move this run's finished lines to BUILD_LOG.md
+
+## Build checklist, PyTorch tutorial
+
+The finished lines of `TODO.md` for the PyTorch tutorial (catalog position 24), moved here verbatim on 2026-10-16 once the run was committed and pushed.
+
+### Transcripts
+- [x] PyTorch Tutorial — video o5gPABcGZwc (OCW human captions; verbatim in original/pytorch-tutorial.md; light copy-edit inline, checked by script: 38 markers and 75 numbers identical, ratios 0.985–1.010; 7 changes in 8 places, 4 [Ed:] notes; OCW's transcript PDF ends at the same words)
+- [x] OCW resource page checked for other materials: video and transcript only; no deck, and the notebook was on Piazza
+
+### Wiki
+- [x] wiki/pytorch-tutorial.md (whole recording, timestamps only; transcript-only notice at the top)
+- [x] Topic pages: tensors-and-batching, differentiable-programming, gradient-descent and multilayer-perceptron extended; course-map extended (table row, sources line, the recorded tutorial)
+
+### Publish
+- [x] INDEX (coverage, entry, four concept entries, raw-materials lines), AGENTS (coverage, numbering, images line, no-deck lesson), BUILD_LOG (pointers, transcript edit), kb.json (24 of 24, caveat, images) updated
+- [x] check_math (offline and --github) and verify_kb.py clean, review read; commit and push
+- [x] Move this run's finished lines to BUILD_LOG.md
