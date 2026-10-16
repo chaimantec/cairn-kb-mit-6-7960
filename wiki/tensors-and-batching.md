@@ -9,7 +9,9 @@ in stochastic gradient descent and in backpropagation); [lecture 4](04-architect
 slides 39–47, 64 and 74 (channels, filter banks, implementing convolution as a batched matrix product,
 and video as a four-dimensional input); [lecture 8](08-architectures-transformers.md), slides 16, 34 and 39 (a set of tokens
 as an $N \times d$ matrix, and attention as matrix products); [lecture 9](09-hackers-guide-to-deep-learning.md), slides 7–12, ≈10:52–30:17
-(inspecting tensors, prime-sized dummy dimensions, dtype casts, einops, and keeping every dimension large).
+(inspecting tensors, prime-sized dummy dimensions, dtype casts, einops, and keeping every dimension large); and
+[the PyTorch tutorial](pytorch-tutorial.md), ≈2:20–16:16 (creating tensors, their data type and device, permuting, reshaping, joining and multiplying
+them; from the transcript alone).
 
 ## Why batch
 
@@ -125,3 +127,21 @@ Slide 10 asks for large tensors along every axis: "All tensor dimensions should 
 misbehave in low dimensions; see [normalization layers](normalization-layers.md). For batch size and GPU
 utilization, slide 50 says "use biggest batch size that will fit in memory", and slide 69 "increase batch
 size until ~100% utilization".
+
+## Tensors in PyTorch (the PyTorch tutorial)
+
+The course's PyTorch tutorial, a notebook walk-through known here from its transcript alone, puts these ideas into code. A
+tensor is "where we can actually store data within PyTorch" (≈3:07). It can be made from a Python list, from a NumPy array with
+`torch.from_numpy`, which "can use the same memory in the system for both", from another tensor's shape with `ones_like` or
+`rand_like`, or from a shape given directly with `rand`, `ones` or `zeros` (≈3:07–5:27). Besides its shape, a tensor carries a
+**data type**, usually float32, "because it's the fastest. And GPU hardware is optimized to use that", and a **device**: "we can
+only do operations between tensors that are on the same device", so a CPU tensor and a GPU tensor must be brought together before
+they are combined (≈6:12–6:58).
+
+The tutorial's order for a batch of images is the notation handout's $\mathbf{x}_ l[b, c, n, m]$ above: "the batch index is
+generally the first dimension", with the RGB channel second (≈10:04–10:50). On a tensor of size 2, 3, 4, 5, two random "RGB images", it permutes the last two dimensions to
+get 2, 3, 5, 4 (≈11:35), and reshapes with `.view` ("generally the more efficient way") or `.reshape`, passing $-1$ to gather
+"all of the rest of the data" into one dimension of 60 (≈12:23). `torch.cat` joins tensors along an existing dimension, three 4
+by 4 tensors into a 4 by 12, while `torch.stack` creates a new one, which is how several inputs become a batch (≈13:55–14:41).
+The "at symbol" is the matrix product and the multiplication symbol the element-wise one (≈14:41–15:29). See
+[the PyTorch tutorial](pytorch-tutorial.md).

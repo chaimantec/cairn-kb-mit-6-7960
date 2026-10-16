@@ -8,12 +8,12 @@ transformers, memory), generalization, representation learning, generative model
 learning, and scaling. It is explicitly "not an intro to deep learning class"; it assumes
 gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
 
-> **Coverage: lectures 1–21, 23 and 24 (23 of the catalog's 24 recordings); not the PyTorch tutorial.** This knowledge base holds the first twenty-one
+> **Coverage: all 24 of the catalog's recordings — lectures 1–21, 23 and 24, and the PyTorch tutorial.** This knowledge base holds the first twenty-one
 > lectures and lectures 23 and 24, which is every numbered lecture, since there is no lecture 22 (Introduction to Deep Learning; How to Train a Neural Net; Approximation Theory;
 > Architectures: Grids; Architectures: Graphs; Generalization Theory; Scaling Rules for
-> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws; Language Models; Metrized Deep Learning; Inference Methods for Deep Learning) and the concept pages they support. Lecture 20's recording ends
-> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. The course also recorded a PyTorch tutorial, which has no deck and is not
-> in this knowledge base: do not cite it as the course for that tutorial. The [course map](wiki/course-map.md) lists every recording. Build progress is in
+> Optimization; Architectures: Transformers; Hacker's Guide to Deep Learning; Architectures: Memory; Representation Learning: Reconstruction-Based; Representation Learning: Similarity-Based; Representation Learning: Theory; Generative Models: Basics; Generative Models: Representation Learning Meets Generative Modeling; Generative Models: Conditional Models; Generalization: Out-of-Distribution (OOD); Transfer Learning: Models; Transfer Learning: Data; Scaling Laws; Language Models; Metrized Deep Learning; Inference Methods for Deep Learning), the course's PyTorch tutorial, and the concept pages they support. Lecture 20's recording ends
+> after slide 17 of its 51, so the rest of that lecture is known from its slides alone. The PyTorch tutorial has no deck and OCW publishes no
+> notebook for it, so its page is built from the transcript alone and has no slide citations or images. The [course map](wiki/course-map.md) lists every recording. Build progress is in
 > [TODO.md](TODO.md).
 
 ## Lecture pages
@@ -322,6 +322,16 @@ gradient descent, MLPs, softmax and cross-entropy, and tensors as background.
   ARC). Search and learning in a loop: verified answers as training data, the game-playing loop, AlphaGo, STaR, and o1 as reinforcement
   learning on chains of thought. The recording covers the whole deck. Slides 7, 8, 27–31, 39, 40, 46, 47 and 52–54 are excluded from OCW's
   licence, and slides 4, 42 and 55 reuse excluded images.
+- [PyTorch Tutorial](wiki/pytorch-tutorial.md) — Jamison Meindl, a 29-minute walk through a notebook for students new to PyTorch,
+  as lectures 1 and 2 announce. **From the transcript alone**: there is no deck, and the notebook (posted on the class Piazza) is not on
+  OCW, so there are no slide citations or images. Why PyTorch (GPU speed, NumPy-like operations, autograd); creating tensors (from a list,
+  from NumPy with shared memory, `ones_like`/`rand_like`, `rand`/`ones`/`zeros`); shape, dtype (float32) and device (operations only
+  between tensors on one device); element-wise operations, statistics, matplotlib and `.clamp`; the batch index first, permute, `.view`
+  against `.reshape` and $-1$, indexing and slice assignment, `torch.cat` against `torch.stack`, matrix and element-wise products,
+  aggregates; autograd: one derivative of a summed (scalar) output with `autograd.grad`, then `.backward` and `.grad`, `torch.no_grad`,
+  `requires_grad`; naive gradient descent, the SGD optimizer's `optimizer.step`, and Adam; the linear layer on single inputs and batches,
+  its weights and bias, training it to output (1, 1) (weights go to 0, bias to 1); stacked linear and ReLU layers trained with Adam and
+  cross-entropy to tell points above a sine wave from points below it, an example whose cell failed to run, so the result is never shown.
 
 ## Course pages
 
@@ -357,7 +367,8 @@ passages it draws on.
   layer as regression on features (lecture 6); the neural, tensor and spectral perspectives on a
   network (lecture 7); token nets as MLPs over vectors, and the token-wise MLP inside a transformer
   (lecture 8); an RNN without its recurrence (lecture 10); a width-2 MLP's layers drawn as it trains (lecture 11); an
-  infinitely wide MLP with random weights as a Gaussian process, and its compositional arccosine kernel (lecture 13).
+  infinitely wide MLP with random weights as a Gaussian process, and its compositional arccosine kernel (lecture 13); the linear layer
+  and stacked linear and ReLU layers in PyTorch (the PyTorch tutorial).
 - [Activation functions](wiki/activation-functions.md) — step, tanh, sigmoid and ReLU compared:
   ranges, saturation and vanishing gradients, dead ReLUs, the $6\times$ AlexNet speed-up, the
   sigmoid typo on lecture 1's slide 40, and how (not) to choose one; GELU and the continuous,
@@ -375,7 +386,8 @@ passages it draws on.
   advice — one data point before many, learning rate and batch size, epochs, Adam against SGD, and
   exponential moving averages (lecture 9); projected gradient ascent on an input perturbation, and adversarial training
   (lecture 17); how big a batch should be: gradient noise, the noise scale and the critical batch size (lecture 20, from the deck alone); why
-  gradient descent "does not type check" and should step along a dualized gradient (lecture 23).
+  gradient descent "does not type check" and should step along a dualized gradient (lecture 23); naive gradient descent, the SGD
+  optimizer and Adam in PyTorch, and a full training loop (the PyTorch tutorial).
 - [Steepest descent](wiki/steepest-descent.md) — lecture 7's first-order method: replace the
   non-linear part of the Taylor expansion with $\frac{\lambda}{2} \Vert \Delta \mathbf{w} \Vert^2$
   and minimize; the Euclidean norm gives gradient descent ($-\mathbf{g}/\lambda$), the infinity norm
@@ -422,7 +434,8 @@ passages it draws on.
   (Neural Module Networks, Software 2.0, feature engineering), what PyTorch needs from an operation,
   and optimizing inputs: unit visualization, DeepDream and CLIP+GAN; learned versus hand-crafted
   filters, and using an encoder or decoder on its own (lecture 4); modules that carry a norm as well
-  as a forward and a backward, in the lecturer's modular theory (lecture 7).
+  as a forward and a backward, in the lecturer's modular theory (lecture 7); autograd in practice — `autograd.grad` on a scalar output,
+  `.backward` and `.grad`, `requires_grad` and `torch.no_grad` (the PyTorch tutorial).
 - [Softmax and cross-entropy](wiki/softmax-and-cross-entropy.md) — argmax readout, one-hot
   labels, $H(y, \hat{y}) = -\sum_k y_k \log \hat{y}_ {k}$, the "how much better you could have done"
   reading of the loss, the clown fish / grizzly / chameleon examples, and the "scores, not
@@ -443,7 +456,8 @@ passages it draws on.
   channels, filter-bank shapes, `im2col` and video as a 4D input (lecture 4); a set of tokens as an
   $N \times d$ matrix, and a transformer layer as a handful of matrix products (lecture 8); inspecting
   tensors before the forward pass, prime-sized dummy dimensions, dtype casts, einops, and keeping every
-  dimension large (lecture 9).
+  dimension large (lecture 9); creating PyTorch tensors, dtype and device, permute, view and reshape, `cat` against `stack`, and
+  the two products (the PyTorch tutorial).
 - [Representational power](wiki/representational-power.md) — what networks can approximate,
   across lectures 1 and 3: one layer gives a linear surface; the Riemann-sum intuition; the
   formal question (families $G$ and $F$, error $\epsilon$); lecture 3's universal approximation
@@ -733,7 +747,7 @@ passages it draws on.
 
 ## Raw materials
 
-- [`raw/transcripts/`](raw/transcripts/) — lecture transcripts in ~45-second paragraphs, each
+- [`raw/transcripts/`](raw/transcripts/) — lecture transcripts, and the PyTorch tutorial's (`pytorch-tutorial.md`), in ~45-second paragraphs, each
   opening with an `[MM:SS]` timestamp into the video. **Read the files directly in this folder**:
   they are MIT OpenCourseWare's human-made captions with a light, fully listed copy-edit. The
   unedited caption text is kept in [`raw/transcripts/original/`](raw/transcripts/original/) for
@@ -742,7 +756,7 @@ passages it draws on.
   (slide N is PDF page N), with equations in LaTeX and every figure described in prose. Slides
   whose figures OCW excludes from its licence carry an `*OCW notice*` line.
 - [`raw/images/`](raw/images/) — whole-slide renders of figure slides, embedded in the slide file
-  and in the wiki passage that cites them. Lectures 1–21, 23 and 24 only, and only some slides of each: slides
+  and in the wiki passage that cites them. Lectures 1–21, 23 and 24 only (the PyTorch tutorial has no deck and no images), and only some slides of each: slides
   carrying an OCW licence notice, build steps and pure text or equations were deliberately not rendered.
   **Use an image path you have read in a page; never construct one from the pattern**, and copy it whole
   (some are `.jpg`, some `.png`). Read the path to get a URL to show. Prefer the slide file's text for numbers

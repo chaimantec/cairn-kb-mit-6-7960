@@ -13,7 +13,8 @@ slide 37, ≈54:37–58:29, which argues that gradient descent "does not type ch
 slides 48–55, ≈1:10:21–1:13:23, practical advice on learning rate, batch size, optimizers and moving
 averages; [lecture 17](17-generalization-out-of-distribution.md), slides 22 and 25, ≈21:54–22:41 and ≈29:41–30:27, gradient ascent on an input
 perturbation, and adversarial training; and [lecture 20](20-scaling-laws.md), slides 39–45 (from the deck alone; the recording ends
-before them), the batch size, gradient noise and the critical batch size. For the symbols see [notation](notation.md).
+before them), the batch size, gradient noise and the critical batch size; and [the PyTorch tutorial](pytorch-tutorial.md), ≈19:21–20:53 and
+≈24:00–24:46, the optimizer interface in PyTorch (from the transcript alone). For the symbols see [notation](notation.md).
 
 ## Learning as optimization
 
@@ -247,3 +248,15 @@ progress"; "For large B, first term of denominator dominates, so increasing B ha
 time: more hardware and larger batches finish sooner at higher cost (slide 45). OpenAI's Dota 2 system used batches of about 2 million
 (slide 40). Lecture 9's rule of thumb, "Use biggest batch size that will fit in memory" (slide 50 there), is about using a GPU fully;
 this is about when a bigger batch stops paying.
+
+## Optimizers in PyTorch (the PyTorch tutorial)
+
+The course's PyTorch tutorial, known here from its transcript alone, runs a toy minimization three ways (≈19:21–20:53). Naive
+gradient descent "works for this scenario, but in a lot of cases we want to be more adaptive and speed up our training". The
+SGD optimizer's `optimizer.step` "takes care of the gradient update. So it will use the gradient, and it will update the weights
+of our model". **Adam**, used with "the same structure as the SGD", "adaptively does a lot of the steps. And it generally is the
+most efficient", so "a lot of people use that in real scenarios", though on the toy problem "it's not quite doing as well as some
+of the simpler ways". The speech does not say what function is minimized. The full loop appears when a linear layer is trained to
+output (1, 1) for every input: forward a batch, compute a squared loss, call `loss.backward` for the gradients, and step the
+parameters by gradient descent, until "the weights within the linear layer just went to 0, and our bias went to 1" (≈24:00–24:46).
+See [the PyTorch tutorial](pytorch-tutorial.md).

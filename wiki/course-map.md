@@ -6,7 +6,7 @@ collects what lecture 1 says about how the course runs, and maps its schedule on
 lectures. Everything here is sourced from [lecture 1](01-introduction.md), the announcements slide of
 [lecture 2](02-how-to-train-a-neural-net.md), what [lecture 3](03-approximation-theory.md) says
 about the problem sets, what [lecture 4](04-architectures-grids.md), [lecture 5](05-architectures-graphs.md) and
-[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md), [lecture 19](19-transfer-learning-data.md), [lecture 20](20-scaling-laws.md), [lecture 21](21-language-models.md), [lecture 23](23-metrized-deep-learning.md) and [lecture 24](24-inference-methods-for-deep-learning.md) say about other lectures and the problem sets, and the OCW site; as
+[lecture 6](06-generalization-theory.md), [lecture 7](07-scaling-rules-for-optimization.md), [lecture 8](08-architectures-transformers.md), [lecture 9](09-hackers-guide-to-deep-learning.md), [lecture 10](10-architectures-memory.md), [lecture 11](11-representation-learning-reconstruction-based.md), [lecture 12](12-representation-learning-similarity-based.md), [lecture 13](13-representation-learning-theory.md), [lecture 14](14-generative-models-basics.md), [lecture 15](15-generative-models-representation-learning-meets-generative-modeling.md), [lecture 16](16-generative-models-conditional-models.md), [lecture 17](17-generalization-out-of-distribution.md), [lecture 18](18-transfer-learning-models.md), [lecture 19](19-transfer-learning-data.md), [lecture 20](20-scaling-laws.md), [lecture 21](21-language-models.md), [lecture 23](23-metrized-deep-learning.md) and [lecture 24](24-inference-methods-for-deep-learning.md) say about other lectures and the problem sets, what the [PyTorch tutorial](pytorch-tutorial.md) says about the lectures, and the OCW site; as
 later lectures are added to this knowledge base, their pages become the authority on their own
 content.
 
@@ -49,7 +49,7 @@ among the OCW slide decks, and the course also recorded a PyTorch tutorial.
 | 21 | Language Models | [yes](21-language-models.md) (a guest lecture by Jacob Andreas) |
 | 23 | Metrized Deep Learning | [yes](23-metrized-deep-learning.md) (Jeremy Bernstein's research: modules, the modular norm and modular duality) |
 | 24 | Inference Methods for Deep Learning | [yes](24-inference-methods-for-deep-learning.md) (search, test-time training, and search and learning in a loop) |
-| — | PyTorch Tutorial | not yet |
+| — | PyTorch Tutorial | [yes](pytorch-tutorial.md) (from the transcript alone: no deck, and the notebook is not on OCW) |
 
 The spoken overview in lecture 1 (≈5:24–7:43) runs through the same arc: training, approximation
 theory, grids and graphs, Jeremy Bernstein on scaling rules for optimization, generalization
@@ -287,7 +287,10 @@ as a skill worth having as large-scale deep learning becomes more centralized (�
 PyTorch code to fill in, so familiarity with PyTorch is strongly recommended "unless you want to
 rewrite all of it in JAX or something". Lecture 2's announcements slide confirms the tutorials ran
 that week, alongside the release of **problem set 1**, due 9/24, and the start of office hours
-(slide 2). Lecture 3 says its depth-separation result is "also on the first problem set"
+(slide 2). One tutorial was recorded, the [PyTorch tutorial](pytorch-tutorial.md), given by Jamison Meindl and filed on OCW as `mit6_7960f24_review.mp4`. It refers to
+gradients and batches as covered "in lecture today" (≈0:46, ≈10:04 there) without naming the lecture, walks through a notebook posted on
+the class Piazza (≈2:20) that OCW does not publish, and tells the class it will be "using PyTorch many times with all of your psets"
+(≈0:00). Lecture 3 says its depth-separation result is "also on the first problem set"
 (≈1:08:51), and recommends a graphing website for building functions out of ReLUs, which "is quite
 helpful on some of the homework problems" (≈32:41). Lecture 5 sends the class to "your problem set"
 for the Bellman-Ford construction and for more pairs of graphs a graph net cannot tell apart

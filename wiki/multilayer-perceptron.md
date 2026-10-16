@@ -16,7 +16,8 @@ slide 22 and ≈53:51–56:11 (the neural, tensor and spectral perspectives); [l
 slides 17–21 and 36, ≈16:59–22:24 and ≈55:49 (token nets as MLPs over vectors, and the token-wise MLP
 inside a transformer); [lecture 10](10-architectures-memory.md), slide 23, ≈14:44–15:30 (an RNN without its recurrence); [lecture 11](11-representation-learning-reconstruction-based.md),
 slides 10–12, ≈13:08–16:17 (a width-2 MLP's layers drawn as it trains); [lecture 13](13-representation-learning-theory.md), slides 20–25, ≈45:07–1:10:13
-(an infinitely wide MLP with random weights as a Gaussian process). See also [activation functions](activation-functions.md),
+(an infinitely wide MLP with random weights as a Gaussian process); [the PyTorch tutorial](pytorch-tutorial.md), ≈20:53–27:05 (the linear layer and stacked
+linear and ReLU layers in PyTorch; from the transcript alone). See also [activation functions](activation-functions.md),
 [representational power](representational-power.md) and [convolution](convolution.md).
 
 ## The linear layer
@@ -265,3 +266,13 @@ jointly Gaussian, so the random MLP is a [Gaussian process](gaussian-processes.m
 and the non-linearity (slide 23). With non-linearity $\sqrt{2} \thinspace \operatorname{relu}$ and weight variance one over fan-in,
 that covariance is the compositional arccosine kernel, which applies one fixed function $L - 1$ times to the inputs' scaled dot product
 (slide 25, ≈1:07:55–1:10:13).
+
+## Building one in PyTorch (the PyTorch tutorial)
+
+The course's PyTorch tutorial, known here from its transcript alone, builds the pieces above from PyTorch's modules. A linear
+layer is set up with a number of input features, a number of output features and a bias term; with 3 inputs and 2 outputs it
+maps an input of size 3 to an output of size 2, and a batch of four such inputs to four outputs "natively" (≈21:39–22:27). Its
+weights are "the numbers that it's going to multiply the inputs by", its bias terms "are added to the outputs", and both carry
+`requires_grad=True` (≈22:27). A "sequential command" then stacks linear and ReLU layers into a network "I think ... 3 layers in
+size", trained with Adam and cross-entropy to classify 2D points in "the space negative 2 to 2" as above or below a sine wave
+(≈25:32–27:05). The cell did not run in the recording, so its result is not shown (≈27:59–28:53). See [the PyTorch tutorial](pytorch-tutorial.md).

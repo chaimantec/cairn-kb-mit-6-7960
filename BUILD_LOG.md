@@ -126,6 +126,10 @@ Lecture 1's deck sends later topics to "Lecture N" banners that do not always ma
   of thought (≈30:19), lecture 21; and to in-context learning as "we saw that before" (≈57:30). It calls reinforcement learning a topic
   "which we didn't really have time to cover" (≈1:15:15), and points ahead only to the next class session, Thursday's office hours for final
   projects, "There won't be any talk or any presentation" (≈1:33).
+  The PyTorch tutorial has no deck. Its recording names no lecture: it refers to gradients and batches as covered "in lecture today"
+  (≈0:46, ≈10:04), to stochastic gradient descent as seen "in lecture" (≈20:06) and to ReLU as "the activation that we've seen in
+  lecture" (≈25:32), and ahead to the problem sets (≈0:00, ≈1:32). Lecture 1 announces the tutorials (≈6:57–7:43) and lecture 2's
+  slide 2 puts them in its week, which fits, but the recording does not say which tutorial or which lecture day it was.
 
 ## End pages
 
@@ -696,6 +700,19 @@ slide 32's evjang.com (51:14); the "really interesting paper" as von Oswald et a
 (1:12:57); and the spoken "62%" against slide 48's 61.9% (1:13:42). Every restored name is in the deck (o1, STaR, Lore, ARC, stimulant)
 or in lecture 11's (MAE). No student is named. The recording ends at 1:22:19 on slide 55 ("So I will end there."), and OCW's transcript
 PDF (`mit6_7960f24_lec24_transcript.pdf`) ends at the same words.
+PyTorch tutorial (Jamison Meindl, 29 min, no deck): 38 markers identical, all 75 digit strings identical, word ratios 0.985–1.010. Done
+inline. With no deck, terminology was checked against the captions themselves and OCW's transcript PDF
+(`mit6_7960f24_review_transcript.pdf`, the same text), and the one restored term against lecture 1's slide 67. Changes: "float 32" →
+"float32" as the same paragraph writes it (6:12); commas in "in this case, 0 to 5" (7:44); a sentence break joined in "along the first
+dimension, dim equals 1, we're going to end up" (13:55); a false start dropped in "if we just use .grad" (18:35); punctuation around
+"with torch.no_grad" (19:21) and after "optimizer.step" (20:06); "crossentropy" → "cross-entropy" twice (26:17, 27:05; lecture 1's
+slide 67). Four `[Ed: …]` notes: "x to the power of x cosine" as unclear, pointing to the $\cos(x^2)$ autograd example without asserting
+they are the same (8:31); "the first dimension" for dim 1, against the speaker's own counting at 10:50 and 13:09 (13:55);
+"torch.autograd" as the function called "autograd.grad" at 18:35 (17:02); and "net.name_parameters" kept as captioned, with PyTorch's
+`named_parameters` given as outside the course material (23:13). No student is named. OCW's resource page for the video
+(`resources/mit6_7960f24_review_mp4/`) holds only the video and the transcript; the notebook the tutorial walks through was posted on
+the class Piazza (≈2:20) and is not published. The recording ends at 28:53 with the last example failing to run, and OCW's transcript
+PDF ends at the same words.
 
 ## Slide transcription: figure audits and printed slips, by lecture
 

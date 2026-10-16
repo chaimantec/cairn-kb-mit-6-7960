@@ -10,7 +10,7 @@ computation graphs and [backpropagation](backpropagation.md). Covered so far:
 and 56–70, ≈27:16–29:36 and ≈57:27–1:12:21; [lecture 4](04-architectures-grids.md), ≈54:56–56:30
 and ≈1:02:00 (learned versus hand-crafted filters, and using an encoder or decoder on its own);
 [lecture 7](07-scaling-rules-for-optimization.md), slides 28–30, ≈1:15:37–1:19:28 (modules that carry a
-norm as well as a forward and a backward).
+norm as well as a forward and a backward); and [the PyTorch tutorial](pytorch-tutorial.md), ≈16:16–19:21 (autograd in practice; from the transcript alone).
 
 ## Programs as computation graphs
 
@@ -118,3 +118,15 @@ Conv2D, ReLU) have all three written by hand, and combination rules build the re
 composes their forwards, and the chain rule gives the backward. How to compose their norms is the open
 question, and answering it would let any architecture built this way come with the norm its optimizer
 should use (slide 30, ≈1:18:42–1:19:28). See [scaling rules](scaling-rules.md#a-modular-theory).
+
+## Autograd in practice (the PyTorch tutorial)
+
+The course's PyTorch tutorial, known here from its transcript alone, shows what the framework side of this paradigm looks like
+to a user. "Autograd is basically the idea that we can compute the gradients automatically" (≈0:46). It computes one derivative
+explicitly first: the 0-to-5 tensor $x$ is squared and its cosine taken, and since "we actually need to have a scalar as an
+output", the outputs are summed before `autograd.grad` of the sum with respect to $x$ returns "dy by dx" (≈16:16–17:02). In a
+model none of that is needed: "PyTorch takes care of exactly which derivatives we need", and `.backward` "will store the
+gradient of each part within the tensor", read back through `.grad`. "You'll never do the autograd.grad that we had up here.
+You'll always use the .backward" (≈17:02–18:35). A layer's weights show `requires_grad=True`, "which shows that it's calculating
+the gradient as you go along" (≈22:27), and `torch.no_grad` switches the bookkeeping off where no gradient is needed (≈19:21).
+See [the PyTorch tutorial](pytorch-tutorial.md) and [backpropagation](backpropagation.md).

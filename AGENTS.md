@@ -5,7 +5,7 @@ Beery, Jeremy Bernstein), built from the course's MIT OpenCourseWare release. It
 Cairn's in-extension AI chat, which starts at `INDEX.md`, fetches files over raw.githubusercontent.com and follows
 relative markdown links. This file is for whoever builds or maintains the KB; the chat does not need it.
 
-**Coverage: lectures 1–21, 23 and 24, every numbered lecture; not the PyTorch tutorial.** [`TODO.md`](TODO.md) is the build state.
+**Coverage: all 24 recordings — lectures 1–21, 23 and 24, every numbered lecture, and the PyTorch tutorial (from its transcript alone).** [`TODO.md`](TODO.md) is the build state.
 
 **This file holds the rules every lecture's build follows. The per-lecture record is in
 [`BUILD_LOG.md`](BUILD_LOG.md):** each deck's lecture pointers and end page, its OCW notices, its transcript edits,
@@ -41,7 +41,8 @@ general form and the lecture's details there; keep this file free of per-lecture
   [`wiki/notation.md`](wiki/notation.md). Use that notation in every page.
 - **Numbering.** There is **no lecture 22**, in the playlist or among the decks. Files use the
   lecture's own number, so the catalog's positions 22 and 23 are `23-…` and `24-…`. The PyTorch
-  tutorial has no deck.
+  tutorial (position 24) has no number, so its files are `pytorch-tutorial.md`, with no prefix; `verify_kb.py` therefore counts its
+  wiki page among the topic pages, and `kb.json`'s coverage note says so.
 - **The decks' "Lecture N" numbers do not always match the recorded schedule.** Lecture 1's deck
   sends transformers to "Lecture 9" (recorded: 8), RNNs to "Lecture 11" (recorded: 10), and so on, and later
   decks' outline slides repeat such numbers ("9. Transformers" in lecture 8, "12. Representation Learning I" in
@@ -171,7 +172,7 @@ chart-, diagram-, table- and equation-heavy pages; lectures 1 and 2 by Sonnet. E
 
 ## Images
 
-**Lectures 1–21, 23 and 24 have images; the PyTorch tutorial, which has no deck, is not in this KB.** They are committed rather than hotlinked,
+**Lectures 1–21, 23 and 24 have images; the PyTorch tutorial, which has no deck, has none.** They are committed rather than hotlinked,
 and they are the only part of this KB that redistributes course material rather than describing
 it.
 
@@ -236,7 +237,7 @@ or the course asks for a page to come down, delete the image file and every imag
 ## Rebuilding
 
 Built and updated by the `cairn-kb` skill; [`TODO.md`](TODO.md) lists the remaining lectures.
-Notes for the next run, from lectures 1–21, 23 and 24:
+Notes for the next run, from lectures 1–21, 23 and 24 and the PyTorch tutorial:
 
 - Download the deck and run `slide_number_map.py`. As of this build it reads bottom-centre
   numbers, which OCW decks use; before that it read axis labels as slide numbers.
@@ -244,6 +245,10 @@ Notes for the next run, from lectures 1–21, 23 and 24:
   its last paragraph with the deck, and with the end of OCW's transcript PDF (lecture 20's video and transcript both stop
   mid-sentence after slide 17 of 51). When it does not, say so at the top of the transcript, the slide file and the wiki page,
   and mark every wiki section that comes from the deck alone.
+- **A recording with no deck**: read its OCW resource page (`resources/<slug>_mp4/`, found from the video gallery) for anything
+  else it publishes before going transcript-only; the PyTorch tutorial's page holds only the video and transcript, and its notebook
+  was on Piazza. Then say at the top of the transcript and the wiki page that the code and plots on screen are known only from what
+  is said, give function names as spoken, and flag (rather than correct) a spoken or captioned API name from outside knowledge.
 - **Find the OCW notices in the slide file**, from its `*OCW notice` lines. Cross-check with the text layer, grepping
   each page's text with newlines joined, or for "All rights reserved" and "excluded from our Creative" alone (the
   sentence wraps across lines; a single-line grep for the whole sentence found one of lecture 2's seven notices). Then
